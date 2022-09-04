@@ -1,9 +1,13 @@
 import { useSession, signIn, signOut } from "next-auth/react"
+import { Octokit } from "octokit"
 
 export default function LoginBtn() {
   const { data: session } = useSession()
   if (session) {
-    console.log(session.user)
+    const octokit = new Octokit({ auth: session.accessToken })
+    octokit.rest.repos.listForAuthenticatedUser().then((res) => {
+      console.log(res.data)
+    })
     return (
       <>
         Signed in as {session.user.email} <br />
