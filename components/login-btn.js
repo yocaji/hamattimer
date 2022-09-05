@@ -15,17 +15,17 @@ export default function LoginBtn() {
       content: content,
     }).then()
   }
+  const uploadImage = async (event) => {
+    const item = event.clipboardData.items[0].getAsFile()
+    console.log(item)
 
-  const uploadImage = async () => {
-    const res = await fetch(icon.src)
-    const blob = await res.blob()
-    const buffer = await blob.arrayBuffer()
+    const buffer = await item.arrayBuffer()
     const content = Buffer.from(buffer, 'binary').toString('base64')
     const octokit = new Octokit({ auth: session.accessToken })
     octokit.rest.repos.createOrUpdateFileContents({
       owner: session.user.name,
       repo: 'playground',
-      path: 'hamattimer/icon.png',
+      path: 'hamattimer/welcome.png',
       message: 'Uploaded by Hamattimer',
       content: content,
     }).then()
@@ -43,7 +43,7 @@ export default function LoginBtn() {
         <button onClick={() => signOut()}>Sign out</button>
         <div>Access Token: {session.accessToken}</div>
         <button onClick={() => uploadFile()}>Upload md</button>
-        <button onClick={() => uploadImage()}>Upload image</button>
+        <textarea onPaste={uploadImage}>uploadImage</textarea>
       </>
     )
   }
