@@ -1,9 +1,10 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-import LoginBtn from "../components/login-btn"
-import {SessionProvider} from "next-auth/react"
-import Timer from "../components/timer"
+import LoginBtn from '../components/login-btn'
+import { SessionProvider } from 'next-auth/react'
+import Timer from '../components/timer'
+import PostForm from '../components/PostForm'
 
 export default function Home() {
   return (
@@ -15,8 +16,10 @@ export default function Home() {
       </Head>
 
       <SessionProvider>
-        <LoginBtn/>
+        <LoginBtn />
       </SessionProvider>
+
+      <PostForm />
 
       <Timer />
 
