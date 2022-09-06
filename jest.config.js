@@ -11,4 +11,12 @@ const customJestConfig = {
   testEnvironment: 'jest-environment-jsdom',
 }
 
-module.exports = createJestConfig(customJestConfig)
+const jestConfig = async () => {
+  const nextJestConfig = await createJestConfig(customJestConfig)()
+  return {
+    ...nextJestConfig,
+    transformIgnorePatterns: ['node_modules/(?!(react-markdown|remark-gfm))/'],
+  }
+}
+
+module.exports = jestConfig
