@@ -2,6 +2,7 @@ import { useSession } from 'next-auth/react'
 import { useContext } from 'react'
 import { MarkdownContext } from './providers/MarkdownProvider'
 import { Octokit } from 'octokit'
+import { GoMarkGithub } from 'react-icons/go'
 
 export default function ExportBtn() {
   const { markdown } = useContext(MarkdownContext)
@@ -22,10 +23,9 @@ export default function ExportBtn() {
   }
 
   return (
-    <div className="navbar-item">
-      <button onClick={uploadFile} className="button">
-        エクスポート
-      </button>
-    </div>
+    <a onClick={uploadFile} className={'navbar-item'}>
+      <GoMarkGithub className={'mr-2'} />
+      エクスポート
+    </a>
   )
 }

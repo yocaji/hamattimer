@@ -10,15 +10,17 @@ export default function Timer() {
   const action = () => {
     isRunning ? pause() : start()
   }
+  const pad0 = (number) => {
+    return number.toString().padStart(2, '0')
+  }
 
   return (
     <>
-      <div className="navbar-item">
-        <div className="is-size-5 mr-3">
-          <span>{days}</span>:<span>{hours}</span>:<span>{minutes}</span>:
-          <span>{seconds}</span>
+      <div className={'navbar-item'}>
+        <div className={'is-size-5 mr-3'}>
+          {days * 24 + hours}:{pad0(minutes)}:{pad0(seconds)}
         </div>
-        <button onClick={action} className="button is-small">
+        <button onClick={action} className={'button is-small'}>
           {label}
         </button>
       </div>

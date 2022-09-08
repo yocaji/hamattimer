@@ -39,12 +39,14 @@ export default function Editor(props) {
   }
 
   return (
-    <textarea
-      placeholder="Markdownで記述"
-      value={markdown}
-      onPaste={uploadImage}
-      onChange={setData}
-      className="textarea"
-    />
+    <section className={'section'}>
+      <textarea
+        placeholder={'Markdownで記述'}
+        value={markdown}
+        onPaste={uploadImage}
+        onChange={setData}
+        className={'textarea'}
+      />
+    </section>
   )
 }

@@ -1,38 +1,43 @@
-import { useSession, signOut } from 'next-auth/react'
+import { useSession, signIn, signOut } from 'next-auth/react'
 import Image from 'next/image'
+import { GoMarkGithub } from 'react-icons/go'
 
 export default function GitHubIcon() {
   const { data: session } = useSession()
+
   if (session) {
     return (
-      <div className="dropdown is-hoverable is-right">
-        <div className="navbar-item dropdown-trigger">
-          <figure
-            className="image is-32x32"
-            aria-haspopup="true"
-            aria-controls="dropdown-menu"
-          >
+      <>
+        <div className={'navbar-item is-hoverable'}>
+          <figure className={'image is-32x32'}>
             <Image
               src={session.user.image}
               alt={session.user.name}
               layout={'fill'}
-              className="is-rounded"
+              className={'is-rounded'}
             />
           </figure>
-        </div>
-        <div className="dropdown-menu mr-2" id="dropdown-menu" role="menu">
-          <div className="dropdown-content">
-            <div className="dropdown-item">
+          <div className={'navbar-dropdown is-right'}>
+            <div className={'navbar-item'}>
               <p>{session.user.email}</p>
             </div>
-            <hr className="dropdown-divider" />
-            <div className="dropdown-item has-text-centered">
-              <button onClick={() => signOut()} className="button">
+            <hr className={'navbar-divider'} />
+            <div className={'navbar-item'}>
+              <button onClick={() => signOut()} className={'button'}>
                 GitHub連携解除
               </button>
             </div>
           </div>
         </div>
+      </>
+    )
+  } else {
+    return (
+      <div className={'navbar-item'}>
+        <button onClick={() => signIn()} className={'button'}>
+          <GoMarkGithub className={'mr-2'} />
+          GitHub連携
+        </button>
       </div>
     )
   }

@@ -5,19 +5,25 @@ import Timer from './Timer'
 export default function Navbar() {
   return (
     <>
-      <nav className="navbar is-fixed-top is-light" role="navigation">
-        <div className="navbar-start">
-          <h1 className="navbar-item is-size-4 has-text-weight-bold">
+      <nav
+        className={'navbar is-fixed-top has-shadow'}
+        role={'navigation'}
+        aria-label={'dropdown navigation'}
+      >
+        <div className={'navbar-brand'}>
+          <h1 className={'navbar-item is-size-4 has-text-weight-bold'}>
             はまったいまー
           </h1>
+        </div>
+        <div className={'navbar-start'}>
           <Timer />
         </div>
-        <div className="navbar-end">
+        <div className={'navbar-end'}>
           <ExportBtn />
           <GitHubIcon />
         </div>
       </nav>
-      <div className="py-6"></div>
+      <div className={'block py-3'}></div>
     </>
   )
 }
