@@ -1,7 +1,7 @@
 import { useSession } from 'next-auth/react'
 import { useContext } from 'react'
-import { Octokit } from 'octokit'
 import { MarkdownContext } from './providers/MarkdownProvider'
+import { Octokit } from 'octokit'
 
 export default function ExportBtn() {
   const { markdown } = useContext(MarkdownContext)

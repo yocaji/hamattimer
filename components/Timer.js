@@ -1,28 +1,27 @@
 import { useStopwatch } from 'react-timer-hook'
+import { MdPause, MdPlayArrow } from 'react-icons/md'
 
 export default function Timer() {
-  const { seconds, minutes, hours, days, start, pause, reset } = useStopwatch({
-    autoStart: false,
-  })
+  const { seconds, minutes, hours, days, start, pause, isRunning } =
+    useStopwatch({
+      autoStart: false,
+    })
+  const label = isRunning ? <MdPause /> : <MdPlayArrow />
+  const action = () => {
+    isRunning ? pause() : start()
+  }
 
   return (
     <>
-      <hr />
-      <section className="section">
-        <div className="is-size-1">
+      <div className="navbar-item">
+        <div className="is-size-5 mr-3">
           <span>{days}</span>:<span>{hours}</span>:<span>{minutes}</span>:
           <span>{seconds}</span>
         </div>
-        <button onClick={start} className="button mr-3">
-          Start
+        <button onClick={action} className="button is-small">
+          {label}
         </button>
-        <button onClick={pause} className="button mr-3">
-          Pause
-        </button>
-        <button onClick={reset} className="button">
-          Reset
-        </button>
-      </section>
+      </div>
     </>
   )
 }
