@@ -1,7 +1,9 @@
 import Head from 'next/head'
-import LoginBtn from '../components/LoginBtn'
 import { SessionProvider } from 'next-auth/react'
+import { MarkdownProvider } from '../components/providers/MarkdownProvider'
+import LoginBtn from '../components/LoginBtn'
 import Timer from '../components/Timer'
+import Navbar from '../components/Navbar'
 
 export default function Home() {
   return (
@@ -14,10 +16,12 @@ export default function Home() {
 
       <div className="container">
         <SessionProvider>
-          <LoginBtn />
+          <MarkdownProvider>
+            <Navbar />
+            <LoginBtn />
+            <Timer />
+          </MarkdownProvider>
         </SessionProvider>
-
-        <Timer />
       </div>
     </>
   )

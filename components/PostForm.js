@@ -1,9 +1,10 @@
-import { useState } from 'react'
+import { useContext } from 'react'
 import { Octokit } from 'octokit'
 import PostPreview from './PostPreview'
+import { MarkdownContext } from './providers/MarkdownProvider'
 
 export default function PostForm(props) {
-  const [markdown, setMarkdown] = useState()
+  const { markdown, setMarkdown } = useContext(MarkdownContext)
 
   const uploadImage = async (event) => {
     const pasteData = event.clipboardData.items[0]
@@ -30,22 +31,7 @@ export default function PostForm(props) {
       .then((res) => {
         const imageMd = `![${res.data.content.name}](${res.data.content.download_url})`
         setMarkdown(frontText + imageMd + rearText)
-        console.log(markdown)
       })
-  }
-
-  const uploadFile = async () => {
-    const content = Buffer.from(markdown).toString('base64')
-    const octokit = new Octokit({ auth: props.session.accessToken })
-    octokit.rest.repos
-      .createOrUpdateFileContents({
-        owner: props.session.user.name,
-        repo: 'playground',
-        path: `hamattimer/${Date.now()}.md`,
-        message: 'Uploaded by Hamattimer',
-        content: content,
-      })
-      .then()
   }
 
   const setData = (e) => {
@@ -63,9 +49,6 @@ export default function PostForm(props) {
           onChange={setData}
           className="textarea"
         />
-        <button onClick={uploadFile} className="button mt-3">
-          Export md
-        </button>
       </div>
       <div className="column content">
         <PostPreview markdown={markdown} />
