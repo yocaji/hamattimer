@@ -34,20 +34,6 @@ export default function PostForm(props) {
       })
   }
 
-  const uploadFile = async () => {
-    const content = Buffer.from(markdown).toString('base64')
-    const octokit = new Octokit({ auth: props.session.accessToken })
-    octokit.rest.repos
-      .createOrUpdateFileContents({
-        owner: props.session.user.name,
-        repo: 'playground',
-        path: `hamattimer/${Date.now()}.md`,
-        message: 'Uploaded by Hamattimer',
-        content: content,
-      })
-      .then()
-  }
-
   const setData = (e) => {
     e.preventDefault()
     setMarkdown(e.target.value)
@@ -63,9 +49,6 @@ export default function PostForm(props) {
           onChange={setData}
           className="textarea"
         />
-        <button onClick={uploadFile} className="button mt-3">
-          Export md
-        </button>
       </div>
       <div className="column content">
         <PostPreview markdown={markdown} />
