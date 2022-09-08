@@ -1,4 +1,5 @@
 import GitHubIcon from './GitHubIcon'
+import ExportBtn from './ExportBtn'
 
 export default function Navbar() {
   return (
@@ -9,6 +10,7 @@ export default function Navbar() {
         </h1>
       </div>
       <div className="navbar-end">
+        <ExportBtn />
         <GitHubIcon />
       </div>
     </nav>

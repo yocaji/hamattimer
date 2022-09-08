@@ -1,9 +1,10 @@
-import { useState } from 'react'
+import { useContext } from 'react'
 import { Octokit } from 'octokit'
 import PostPreview from './PostPreview'
+import { MarkdownContext } from './providers/MarkdownProvider'
 
 export default function PostForm(props) {
-  const [markdown, setMarkdown] = useState()
+  const { markdown, setMarkdown } = useContext(MarkdownContext)
 
   const uploadImage = async (event) => {
     const pasteData = event.clipboardData.items[0]
@@ -30,7 +31,6 @@ export default function PostForm(props) {
       .then((res) => {
         const imageMd = `![${res.data.content.name}](${res.data.content.download_url})`
         setMarkdown(frontText + imageMd + rearText)
-        console.log(markdown)
       })
   }
 
