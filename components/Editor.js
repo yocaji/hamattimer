@@ -1,9 +1,8 @@
 import { useContext } from 'react'
 import { Octokit } from 'octokit'
-import PostPreview from './PostPreview'
 import { MarkdownContext } from './providers/MarkdownProvider'
 
-export default function PostForm(props) {
+export default function Editor(props) {
   const { markdown, setMarkdown } = useContext(MarkdownContext)
 
   const uploadImage = async (event) => {
@@ -40,19 +39,12 @@ export default function PostForm(props) {
   }
 
   return (
-    <div className="columns">
-      <div className="column">
-        <textarea
-          placeholder="Markdownで記述"
-          value={markdown}
-          onPaste={uploadImage}
-          onChange={setData}
-          className="textarea"
-        />
-      </div>
-      <div className="column content">
-        <PostPreview markdown={markdown} />
-      </div>
-    </div>
+    <textarea
+      placeholder="Markdownで記述"
+      value={markdown}
+      onPaste={uploadImage}
+      onChange={setData}
+      className="textarea"
+    />
   )
 }

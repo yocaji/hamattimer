@@ -1,11 +1,14 @@
 import Head from 'next/head'
-import { SessionProvider } from 'next-auth/react'
+import { SessionProvider, useSession } from 'next-auth/react'
 import { MarkdownProvider } from '../components/providers/MarkdownProvider'
 import LoginBtn from '../components/LoginBtn'
-import Timer from '../components/Timer'
 import Navbar from '../components/Navbar'
+import MarkdownPreview from '../components/MarkdownPreview'
+import Editor from '../components/Editor'
 
 export default function Home() {
+  const { data: session } = useSession()
+
   return (
     <>
       <Head>
@@ -14,15 +17,22 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="container">
-        <SessionProvider>
-          <MarkdownProvider>
-            <Navbar />
-            <LoginBtn />
-            <Timer />
-          </MarkdownProvider>
-        </SessionProvider>
-      </div>
+      <SessionProvider>
+        <MarkdownProvider>
+          <Navbar />
+          <div className="container">
+            <div className="columns">
+              <div className="column">
+                <Editor session={session} />
+                <LoginBtn />
+              </div>
+              <div className="column content">
+                <MarkdownPreview />
+              </div>
+            </div>
+          </div>
+        </MarkdownProvider>
+      </SessionProvider>
     </>
   )
 }
