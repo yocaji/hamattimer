@@ -1,3 +1,5 @@
+import GitHubIcon from './GitHubIcon'
+
 export default function Navbar() {
   return (
     <nav className="navbar is-fixed-top is-light" role="navigation">
@@ -6,7 +8,9 @@ export default function Navbar() {
           はまったいまー
         </h1>
       </div>
-      <div className="navbar-end"></div>
+      <div className="navbar-end">
+        <GitHubIcon />
+      </div>
     </nav>
   )
 }
