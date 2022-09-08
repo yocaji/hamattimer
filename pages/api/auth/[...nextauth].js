@@ -1,16 +1,19 @@
-import NextAuth from "next-auth"
-import GithubProvider from "next-auth/providers/github"
+import NextAuth from 'next-auth'
+import GithubProvider from 'next-auth/providers/github'
+
 export default NextAuth({
   secret: process.env.NEXT_PUBLIC_SECRET,
+
   providers: [
     GithubProvider({
       clientId: process.env.GITHUB_ID,
       clientSecret: process.env.GITHUB_SECRET,
       authorization: {
-        params: { scope: 'repo user' }
+        params: { scope: 'repo user' },
       },
     }),
   ],
+
   callbacks: {
     async jwt({ token, account }) {
       if (account) {
@@ -21,6 +24,6 @@ export default NextAuth({
     async session({ session, token, user }) {
       session.accessToken = token.accessToken
       return session
-    }
-  }
+    },
+  },
 })
