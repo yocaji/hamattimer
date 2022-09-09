@@ -17,7 +17,7 @@ export default function GitHubIcon() {
               className={'is-rounded'}
             />
           </figure>
-          <div className={'navbar-dropdown is-right'}>
+          <div className={'navbar-dropdown is-right is-boxed mr-1'}>
             <div className={'navbar-item'}>
               <p>{session.user.email}</p>
             </div>
