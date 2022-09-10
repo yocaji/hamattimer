@@ -2,7 +2,7 @@ import GitHubIcon from './GitHubIcon'
 import ExportBtn from './ExportBtn'
 import Timer from './Timer'
 
-export default function Navbar() {
+export default function Navbar(props) {
   return (
     <>
       <nav
@@ -16,7 +16,15 @@ export default function Navbar() {
           </h1>
         </div>
         <div className={'navbar-start'}>
-          <Timer />
+          <Timer
+            isRunning={props.isRunning}
+            seconds={props.seconds}
+            minutes={props.minutes}
+            hours={props.hours}
+            days={props.days}
+            start={props.start}
+            pause={props.pause}
+          />
         </div>
         <div className={'navbar-end'}>
           <ExportBtn />
