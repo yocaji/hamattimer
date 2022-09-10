@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form'
 import { db } from './db'
 import { MarkdownContext } from './providers/MarkdownProvider'
 
-export default function Issue() {
+export default function Issue(props) {
   const { setMarkdown } = useContext(MarkdownContext)
 
   const {
@@ -110,7 +110,7 @@ ${getValues('problem')}`)
             </div>
           </div>
           <p className={'help is-danger'}>{errors.limit?.message}</p>
-          <button type={'submit'} className={'button'}>
+          <button type={'button'} className={'button'} onClick={props.start}>
             スタート
           </button>
         </form>

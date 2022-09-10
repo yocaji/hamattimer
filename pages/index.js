@@ -4,8 +4,14 @@ import { MarkdownProvider } from '../components/providers/MarkdownProvider'
 import Navbar from '../components/Navbar'
 import Preview from '../components/Preview'
 import Issue from '../components/Issue'
+import { useStopwatch } from 'react-timer-hook'
 
 export default function Home() {
+  const { seconds, minutes, hours, days, start, pause, isRunning } =
+    useStopwatch({
+      autoStart: false,
+    })
+
   return (
     <>
       <Head>
@@ -15,10 +21,18 @@ export default function Home() {
       </Head>
       <SessionProvider>
         <MarkdownProvider>
-          <Navbar />
+          <Navbar
+            isRunning={isRunning}
+            seconds={seconds}
+            minutes={minutes}
+            hours={hours}
+            days={days}
+            start={start}
+            pause={pause}
+          />
           <div className={'columns is-gapless'}>
             <div className={'column'}>
-              <Issue />
+              <Issue start={start} />
             </div>
             <div className={'column content'}>
               <Preview />

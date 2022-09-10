@@ -1,14 +1,9 @@
-import { useStopwatch } from 'react-timer-hook'
 import { MdPause, MdPlayArrow } from 'react-icons/md'
 
-export default function Timer() {
-  const { seconds, minutes, hours, days, start, pause, isRunning } =
-    useStopwatch({
-      autoStart: false,
-    })
-  const label = isRunning ? <MdPause /> : <MdPlayArrow />
+export default function Timer(props) {
+  const label = props.isRunning ? <MdPause /> : <MdPlayArrow />
   const action = () => {
-    isRunning ? pause() : start()
+    props.isRunning ? props.pause() : props.start()
   }
   const pad0 = (number) => {
     return number.toString().padStart(2, '0')
@@ -18,7 +13,8 @@ export default function Timer() {
     <>
       <div className={'navbar-item'}>
         <div className={'is-size-5 mr-3'}>
-          {days * 24 + hours}:{pad0(minutes)}:{pad0(seconds)}
+          {props.days * 24 + props.hours}:{pad0(props.minutes)}:
+          {pad0(props.seconds)}
         </div>
         <button onClick={action} className={'button is-small'}>
           {label}
