@@ -4,6 +4,7 @@ import { MarkdownProvider } from '../components/providers/MarkdownProvider'
 import Navbar from '../components/Navbar'
 import MarkdownPreview from '../components/MarkdownPreview'
 import Editor from '../components/Editor'
+import Issue from '../components/Issue'
 
 export default function Home() {
   const { data: session } = useSession()
@@ -20,6 +21,7 @@ export default function Home() {
           <Navbar />
           <div className={'columns is-gapless'}>
             <div className={'column'}>
+              <Issue />
               <Editor session={session} />
             </div>
             <div className={'column content'}>
