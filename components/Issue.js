@@ -1,8 +1,11 @@
-import React, { useEffect } from 'react'
+import { useEffect, useContext } from 'react'
 import { useForm } from 'react-hook-form'
 import { db } from './db'
+import { MarkdownContext } from './providers/MarkdownProvider'
 
 export default function Issue() {
+  const { setMarkdown } = useContext(MarkdownContext)
+
   const {
     register,
     handleSubmit,
@@ -12,8 +15,18 @@ export default function Issue() {
   } = useForm({
     mode: 'all',
   })
-  const submit = (formData) => {
+  const change = (formData) => {
     localStorage.setItem('issue', JSON.stringify(formData))
+    setMarkdown(`## 解決したいこと
+    
+### 期待する結果
+${getValues('tobe')}
+
+### 実際の結果
+${getValues('asis')}
+
+### エラーメッセージやログなど
+${getValues('problem')}`)
   }
   useEffect(() => {
     const defaultValue = JSON.parse(localStorage.getItem('issue'))
@@ -48,58 +61,60 @@ export default function Issue() {
 
   return (
     <section className={'section'}>
-      <h2 className={'title is-5'}>解決したいこと</h2>
-      <form onSubmit={handleSubmit(submit)}>
-        <div className={'field'}>
-          <label className={'label'}>期待する結果</label>
-          <div className={'control'}>
-            <input {...register('tobe')} className={'input'} />
+      <div className={'box'}>
+        <h2 className={'title is-5'}>解決したいこと</h2>
+        <form onChange={handleSubmit(change)}>
+          <div className={'field'}>
+            <label className={'label'}>期待する結果</label>
+            <div className={'control'}>
+              <input {...register('tobe')} className={'input'} />
+            </div>
           </div>
-        </div>
-        <div className={'field'}>
-          <label className={'label'}>実際の結果</label>
-          <div className={'control'}>
-            <input {...register('asis')} className={'input'} />
+          <div className={'field'}>
+            <label className={'label'}>実際の結果</label>
+            <div className={'control'}>
+              <input {...register('asis')} className={'input'} />
+            </div>
           </div>
-        </div>
-        <div className={'field'}>
-          <label className={'label'}>エラーメッセージやログなど</label>
-          <div className={'control'}>
-            <textarea
-              {...register('problem')}
-              onPaste={insertImage}
-              className={'textarea'}
-            />
+          <div className={'field'}>
+            <label className={'label'}>エラーメッセージやログなど</label>
+            <div className={'control'}>
+              <textarea
+                {...register('problem')}
+                onPaste={insertImage}
+                className={'textarea'}
+              />
+            </div>
           </div>
-        </div>
-        <label className={'label'}>タイマー</label>
-        <div className={'field has-addons'}>
-          <div className={'control'}>
-            <input
-              type={'number'}
-              {...register('limit', {
-                valueAsNumber: true,
-                pattern: {
-                  value: /^[0-9]+$/,
-                  message: '整数で入力してください',
-                },
-                min: {
-                  value: 1,
-                  message: '1以上の整数を入力してください',
-                },
-              })}
-              className={'input'}
-            />
+          <label className={'label'}>タイマー</label>
+          <div className={'field has-addons'}>
+            <div className={'control'}>
+              <input
+                type={'number'}
+                {...register('limit', {
+                  valueAsNumber: true,
+                  pattern: {
+                    value: /^[0-9]+$/,
+                    message: '整数で入力してください',
+                  },
+                  min: {
+                    value: 1,
+                    message: '1以上の整数を入力してください',
+                  },
+                })}
+                className={'input'}
+              />
+            </div>
+            <div className={'control'}>
+              <button className={'button is-static'}>分</button>
+            </div>
           </div>
-          <div className={'control'}>
-            <button className={'button is-static'}>分</button>
-          </div>
-        </div>
-        <p className={'help is-danger'}>{errors.limit?.message}</p>
-        <button type={'submit'} className={'button'}>
-          スタート
-        </button>
-      </form>
+          <p className={'help is-danger'}>{errors.limit?.message}</p>
+          <button type={'submit'} className={'button'}>
+            スタート
+          </button>
+        </form>
+      </div>
     </section>
   )
 }
