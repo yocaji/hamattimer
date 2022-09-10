@@ -1,13 +1,11 @@
 import Head from 'next/head'
-import { SessionProvider, useSession } from 'next-auth/react'
+import { SessionProvider } from 'next-auth/react'
 import { MarkdownProvider } from '../components/providers/MarkdownProvider'
 import Navbar from '../components/Navbar'
-import MarkdownPreview from '../components/MarkdownPreview'
-import Editor from '../components/Editor'
+import Preview from '../components/Preview'
+import Issue from '../components/Issue'
 
 export default function Home() {
-  const { data: session } = useSession()
-
   return (
     <>
       <Head>
@@ -20,10 +18,10 @@ export default function Home() {
           <Navbar />
           <div className={'columns is-gapless'}>
             <div className={'column'}>
-              <Editor session={session} />
+              <Issue />
             </div>
             <div className={'column content'}>
-              <MarkdownPreview />
+              <Preview />
             </div>
           </div>
         </MarkdownProvider>
