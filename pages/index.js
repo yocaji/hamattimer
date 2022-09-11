@@ -5,6 +5,7 @@ import Navbar from '../components/Navbar'
 import Preview from '../components/Preview'
 import Issue from '../components/Issue'
 import { useStopwatch } from 'react-timer-hook'
+import Trials from '../components/Trials'
 
 export default function Home() {
   const { seconds, minutes, hours, days, start, pause, isRunning } =
@@ -33,6 +34,7 @@ export default function Home() {
           <div className={'columns is-gapless'}>
             <div className={'column'}>
               <Issue start={start} />
+              <Trials />
             </div>
             <div className={'column content'}>
               <Preview />

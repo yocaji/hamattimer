@@ -1,6 +1,6 @@
 import { useEffect, useContext } from 'react'
 import { useForm } from 'react-hook-form'
-import { db } from './db'
+import { db } from '../lib/db'
 import { MarkdownContext } from './providers/MarkdownProvider'
 
 export default function Issue(props) {
