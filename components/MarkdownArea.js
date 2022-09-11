@@ -30,6 +30,7 @@ export default function MarkdownArea(props) {
   return (
     <textarea
       {...register(props.name)}
+      defaultValue={props.value}
       onPaste={insertImage}
       className={'textarea'}
     />

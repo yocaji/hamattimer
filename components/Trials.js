@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import TrialItem from './TrialItem'
+import Trial from './Trial'
 
 export default function Trials() {
   const [trials, setTrials] = useState([])
@@ -29,7 +29,7 @@ export default function Trials() {
   return (
     <>
       {trials.map((trial) => (
-        <TrialItem
+        <Trial
           key={trial.id}
           trial={trial}
           remove={() => removeTrial(trial.id)}
