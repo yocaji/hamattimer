@@ -1,15 +1,8 @@
-import { useForm } from 'react-hook-form'
+import { useFormContext } from 'react-hook-form'
 import { db } from '../lib/db'
 
-export default function Textarea(props) {
-  const {
-    register,
-    setValue,
-    getValues,
-    formState: { errors },
-  } = useForm({
-    mode: 'onBlur',
-  })
+export default function MarkdownArea(props) {
+  const { register, setValue, getValues } = useFormContext()
 
   const insertImage = async (e) => {
     const id = await saveImage(e)
