@@ -2,6 +2,7 @@ import { useEffect, useContext } from 'react'
 import { useForm } from 'react-hook-form'
 import { db } from '../lib/db'
 import { MarkdownContext } from './providers/MarkdownProvider'
+import Textarea from './Textarea'
 
 export default function Issue(props) {
   const { updateMarkdown } = useContext(MarkdownContext)
@@ -28,29 +29,6 @@ export default function Issue(props) {
     updateMarkdown()
   }
 
-  const insertImage = async (e) => {
-    const id = await saveImage(e)
-    const screenshot = await db.screenshots.get(id)
-    const blobUrl = URL.createObjectURL(screenshot.data)
-
-    const cursorPosition = e.target.selectionEnd
-    const value = getValues('problem')
-    const textLength = value.length
-    const beforeCursor = value.substring(0, cursorPosition)
-    const afterCursor = value.substring(cursorPosition, textLength)
-    const name = `${screenshot.data.lastModified}-${screenshot.data.name}`
-    const imageSyntax = `![${name}](${blobUrl})`
-    setValue('problem', beforeCursor + imageSyntax + afterCursor)
-  }
-  const saveImage = async (e) => {
-    const pasteData = e.clipboardData.items[0]
-    if (!pasteData.type.match('image.*')) return
-
-    return await db.screenshots.add({
-      data: pasteData.getAsFile(),
-    })
-  }
-
   return (
     <section className={'section'}>
       <div className={'box'}>
@@ -71,11 +49,7 @@ export default function Issue(props) {
           <div className={'field'}>
             <label className={'label'}>エラーメッセージやログなど</label>
             <div className={'control'}>
-              <textarea
-                {...register('problem')}
-                onPaste={insertImage}
-                className={'textarea'}
-              />
+              <Textarea name={'problem'} />
             </div>
           </div>
           <label className={'label'}>タイマー</label>
