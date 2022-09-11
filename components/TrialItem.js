@@ -27,6 +27,7 @@ export default function TrialItem(props) {
       ...currentTrials.slice(id, currentTrials.length),
     ]
     localStorage.setItem('trials', JSON.stringify(newTrials))
+    props.preview()
   }
 
   return (
