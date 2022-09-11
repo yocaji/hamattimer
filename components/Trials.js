@@ -1,41 +1,59 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import TrialItem from './TrialItem'
 
 export default function Trials() {
-  const [trials, setTrials] = useState([
-    { id: 1, guess: '考えたこと', operation: '試したこと', result: '結果' },
-    {
-      id: 2,
-      guess: '考えたこと２',
-      operation: '試したこと２',
-      result: '結果２',
-    },
-  ])
-  const removeTrial = (id) => {
-    console.log(id)
-    const removedTrials = trials.filter((trial) => {
-      return trial.id === !id
-    })
-    setTrials(removedTrials)
+  const [trials, setTrials] = useState([])
+
+  useEffect(() => {
+    // setTrials(JSON.parse(localStorage.getItem('trials')))
+  }, [])
+
+  const removeTrial = async (id) => {
+    const newTrials = [
+      ...trials.slice(0, id - 1),
+      ...trials.slice(id, trials.length),
+    ]
+    setTrials(newTrials)
+    saveTrials(newTrials)
   }
   const addTrial = () => {
-    setTrials([
+    const newTrials = [
       ...trials,
       { id: trials.length + 1, guess: '', operation: '', result: '' },
-    ])
+    ]
+    setTrials(newTrials)
+    saveTrials(newTrials)
+  }
+  const saveTrials = (data) => {
+    localStorage.setItem('trials', JSON.stringify(data))
   }
 
+  if (trials) {
+    return (
+      <>
+        {trials.map((trial) => (
+          <TrialItem
+            key={trial.id}
+            trial={trial}
+            remove={() => removeTrial(trial.id)}
+            save={() => saveTrials()}
+          />
+        ))}
+        <section className={'section has-text-centered'}>
+          <button className={'button mr-3'}>解決した！</button>
+          <button className={'button'} onClick={() => addTrial()}>
+            別の方法を試す
+          </button>
+        </section>
+      </>
+    )
+  }
   return (
-    <>
-      {trials.map((trial) => (
-        <TrialItem key={trial.id} trial={trial} remove={() => removeTrial()} />
-      ))}
-      <section className={'section has-text-centered'}>
-        <button className={'button mr-3'}>解決した！</button>
-        <button className={'button'} onClick={addTrial}>
-          別の方法を試す
-        </button>
-      </section>
-    </>
+    <section className={'section has-text-centered'}>
+      <button className={'button mr-3'}>解決した！</button>
+      <button className={'button'} onClick={() => addTrial()}>
+        別の方法を試す
+      </button>
+    </section>
   )
 }
