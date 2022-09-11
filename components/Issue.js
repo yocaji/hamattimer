@@ -4,8 +4,7 @@ import { db } from '../lib/db'
 import { MarkdownContext } from './providers/MarkdownProvider'
 
 export default function Issue(props) {
-  const { setMarkdown } = useContext(MarkdownContext)
-
+  const { updateMarkdown } = useContext(MarkdownContext)
   const {
     register,
     handleSubmit,
@@ -15,19 +14,7 @@ export default function Issue(props) {
   } = useForm({
     mode: 'all',
   })
-  const change = (formData) => {
-    localStorage.setItem('issue', JSON.stringify(formData))
-    setMarkdown(`## 解決したいこと
-    
-### 期待する結果
-${getValues('tobe')}
 
-### 実際の結果
-${getValues('asis')}
-
-### エラーメッセージやログなど
-${getValues('problem')}`)
-  }
   useEffect(() => {
     const defaultValue = JSON.parse(localStorage.getItem('issue'))
     setValue('tobe', defaultValue?.tobe)
@@ -35,6 +22,11 @@ ${getValues('problem')}`)
     setValue('problem', defaultValue?.problem)
     setValue('limit', defaultValue?.limit)
   }, [setValue])
+
+  const change = (formData) => {
+    localStorage.setItem('issue', JSON.stringify(formData))
+    updateMarkdown()
+  }
 
   const insertImage = async (e) => {
     const id = await saveImage(e)

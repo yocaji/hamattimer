@@ -1,9 +1,7 @@
-import { useContext, useState } from 'react'
+import { useState } from 'react'
 import TrialItem from './TrialItem'
-import { MarkdownContext } from './providers/MarkdownProvider'
 
 export default function Trials() {
-  const { setMarkdown } = useContext(MarkdownContext)
   const [trials, setTrials] = useState([])
 
   const removeTrial = async (id) => {
@@ -28,23 +26,6 @@ export default function Trials() {
     localStorage.setItem('trials', JSON.stringify(data))
   }
 
-  const updateMarkdown = () => {
-    const lsTrials = JSON.parse(localStorage.getItem('trials'))
-    const md = lsTrials.map((trial) => {
-      return `## 試したこと
-    
-### 考えたことや調べたこと
-${trial.guess}
-
-### やったこと
-${trial.operation}
-
-### やった結果
-${trial.result}`
-    })
-    setMarkdown(md.join('\n'))
-  }
-
   return (
     <>
       {trials.map((trial) => (
@@ -53,7 +34,6 @@ ${trial.result}`
           trial={trial}
           remove={() => removeTrial(trial.id)}
           save={() => saveTrials()}
-          preview={() => updateMarkdown()}
         />
       ))}
       <section className={'section has-text-centered'}>

@@ -1,8 +1,10 @@
 import { MdDelete } from 'react-icons/md'
 import { useForm } from 'react-hook-form'
-import { useEffect } from 'react'
+import { useContext, useEffect } from 'react'
+import { MarkdownContext } from './providers/MarkdownProvider'
 
 export default function TrialItem(props) {
+  const { updateMarkdown } = useContext(MarkdownContext)
   const { register, setValue, getValues } = useForm({ mode: 'all' })
 
   useEffect(() => {
@@ -27,7 +29,7 @@ export default function TrialItem(props) {
       ...currentTrials.slice(id, currentTrials.length),
     ]
     localStorage.setItem('trials', JSON.stringify(newTrials))
-    props.preview()
+    updateMarkdown()
   }
 
   return (
