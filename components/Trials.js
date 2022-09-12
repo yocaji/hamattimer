@@ -33,14 +33,15 @@ export default function Trials() {
 
   return (
     <>
-      {trials.map((trial) => (
-        <Trial
-          key={trial.id}
-          trial={trial}
-          remove={() => removeTrial(trial.id)}
-          save={() => saveTrials()}
-        />
-      ))}
+      {trials &&
+        trials.map((trial) => (
+          <Trial
+            key={trial.id}
+            trial={trial}
+            remove={() => removeTrial(trial.id)}
+            save={() => saveTrials()}
+          />
+        ))}
       <section className={'section has-text-centered'}>
         <button className={'button mr-3'}>解決した！</button>
         <button className={'button'} onClick={() => addTrial()}>

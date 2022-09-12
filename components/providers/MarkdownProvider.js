@@ -18,10 +18,13 @@ ${issue.asis}
 
 ### エラーメッセージやログなど
 ${issue.problem}`
+
     const trials = JSON.parse(localStorage.getItem('trials'))
-    const trialsMd = trials
-      ?.map((trial) => {
-        return `
+    const createTrialsMd = () => {
+      if (trials) {
+        return trials
+          .map((trial) => {
+            return `
 
 ## 試したこと
     
@@ -33,8 +36,13 @@ ${trial.operation}
 
 ### やった結果
 ${trial.result}`
-      })
-      .join('')
+          })
+          .join('')
+      } else {
+        return ''
+      }
+    }
+    const trialsMd = createTrialsMd()
     setMarkdown(issueMd + trialsMd)
   }
   return (
