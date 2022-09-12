@@ -1,8 +1,13 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Trial from './Trial'
 
 export default function Trials() {
   const [trials, setTrials] = useState([])
+
+  useEffect(() => {
+    const data = JSON.parse(localStorage.getItem('trials'))
+    setTrials(data)
+  }, [])
 
   const removeTrial = async (id) => {
     const newTrials = [
