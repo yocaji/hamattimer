@@ -1,11 +1,15 @@
-import { MdDelete } from 'react-icons/md'
-import { useForm } from 'react-hook-form'
+import { useForm, FormProvider } from 'react-hook-form'
 import { useContext, useEffect } from 'react'
 import { MarkdownContext } from './providers/MarkdownProvider'
+import MarkdownArea from './MarkdownArea'
+import { MdDelete } from 'react-icons/md'
 
-export default function TrialItem(props) {
+export default function Trial(props) {
   const { updateMarkdown } = useContext(MarkdownContext)
-  const { register, setValue, getValues } = useForm({ mode: 'all' })
+  const methods = useForm({
+    mode: 'onBlur',
+  })
+  const { setValue, getValues } = methods
 
   useEffect(() => {
     const defaultValue = JSON.parse(localStorage.getItem('trials'))[
@@ -44,38 +48,31 @@ export default function TrialItem(props) {
             <MdDelete />
           </button>
         </h2>
-        <form onChange={() => change(props.trial.id)}>
-          <div className={'field'}>
-            <label className={'label'}>考えたことや調べたこと</label>
-            <div className={'control'}>
-              <textarea
-                {...register('guess')}
-                className={'textarea'}
-                defaultValue={props.trial.guess}
-              />
+        <FormProvider {...methods}>
+          <form onChange={() => change(props.trial.id)}>
+            <div className={'field'}>
+              <label className={'label'}>考えたことや調べたこと</label>
+              <div className={'control'}>
+                <MarkdownArea name={'guess'} value={props.trial.guess} />
+              </div>
             </div>
-          </div>
-          <div className={'field'}>
-            <label className={'label'}>やったこと</label>
-            <div className={'control'}>
-              <textarea
-                {...register('operation')}
-                className={'textarea'}
-                defaultValue={props.trial.operation}
-              />
+            <div className={'field'}>
+              <label className={'label'}>やったこと</label>
+              <div className={'control'}>
+                <MarkdownArea
+                  name={'operation'}
+                  value={props.trial.operation}
+                />
+              </div>
             </div>
-          </div>
-          <div className={'field'}>
-            <label className={'label'}>結果</label>
-            <div className={'control'}>
-              <textarea
-                {...register('result')}
-                className={'textarea'}
-                defaultValue={props.trial.result}
-              />
+            <div className={'field'}>
+              <label className={'label'}>結果</label>
+              <div className={'control'}>
+                <MarkdownArea name={'result'} value={props.trial.result} />
+              </div>
             </div>
-          </div>
-        </form>
+          </form>
+        </FormProvider>
       </div>
     </section>
   )
