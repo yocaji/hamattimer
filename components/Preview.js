@@ -13,7 +13,7 @@ export default function MarkdownPreview() {
   return (
     <section className={'section'}>
       <p className={'is-size-7'}>Preview</p>
-      <ReactMarkdown plugins={[gfm]} unwrapDisallowed={false}>
+      <ReactMarkdown remarkPlugins={[gfm]} unwrapDisallowed={false}>
         {markdown}
       </ReactMarkdown>
     </section>

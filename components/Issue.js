@@ -25,7 +25,7 @@ export default function Issue(props) {
   }, [])
   useEffect(() => {
     const defaultValue = JSON.parse(localStorage.getItem('issue'))
-    setValue('tobe', defaultValue?.tobe || '')
+    setValue('tobe', defaultValue?.tobe)
     setValue('asis', defaultValue?.asis)
     setValue('problem', defaultValue?.problem)
     setValue('limit', defaultValue?.limit)
