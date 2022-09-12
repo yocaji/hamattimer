@@ -22,15 +22,17 @@ export default function Trial(props) {
 
   const change = (id) => {
     const currentTrials = JSON.parse(localStorage.getItem('trials'))
+    const removedTrials = currentTrials.filter((trial) => {
+      return trial.id !== id
+    })
     const newTrials = [
-      ...currentTrials.slice(0, id - 1),
+      ...removedTrials,
       {
         id: props.trial.id,
-        guess: getValues('guess'),
-        operation: getValues('operation'),
-        result: getValues('result'),
+        guess: getValues('guess') ?? '',
+        operation: getValues('operation') ?? '',
+        result: getValues('result') ?? '',
       },
-      ...currentTrials.slice(id, currentTrials.length),
     ]
     localStorage.setItem('trials', JSON.stringify(newTrials))
     updateMarkdown()
@@ -40,7 +42,7 @@ export default function Trial(props) {
     <section className={'section'}>
       <div className={'box'}>
         <h2 className={'title is-5'}>
-          試したこと{props.trial.id}
+          試したこと{props.index}
           <button
             className={'button is-light is-small ml-3'}
             onClick={() => props.remove()}
