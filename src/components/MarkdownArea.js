@@ -1,5 +1,5 @@
 import { useFormContext } from 'react-hook-form'
-import { db } from '../lib/db'
+import { db } from '../utils/db'
 
 export default function MarkdownArea(props) {
   const { register, setValue, getValues } = useFormContext()

@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 import { MarkdownContext } from './providers/MarkdownProvider'
-import { db } from '../lib/db'
+import { db } from '../utils/db'
 
 export default function Editor(props) {
   const { markdown, setMarkdown } = useContext(MarkdownContext)
