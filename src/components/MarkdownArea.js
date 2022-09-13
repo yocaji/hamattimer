@@ -14,7 +14,7 @@ export default function MarkdownArea(props) {
     const textLength = value.length
     const beforeCursor = value.substring(0, cursorPosition)
     const afterCursor = value.substring(cursorPosition, textLength)
-    const name = `${screenshot.data.lastModified}-${screenshot.data.name}`
+    const name = `${screenshot.created_at}-${screenshot.data.name}`
     const imageSyntax = `![${name}](${blobUrl})`
     setValue(props.name, beforeCursor + imageSyntax + afterCursor)
   }
@@ -24,6 +24,7 @@ export default function MarkdownArea(props) {
 
     return await db.screenshots.add({
       data: pasteData.getAsFile(),
+      created_at: Date.now(),
     })
   }
 
