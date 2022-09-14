@@ -1,14 +1,14 @@
-import { useForm, FormProvider } from 'react-hook-form'
+import { useFormContext } from 'react-hook-form'
 import { useContext, useEffect } from 'react'
 import { MarkdownContext } from './providers/MarkdownProvider'
 import MarkdownArea from './MarkdownArea'
 import { MdDelete } from 'react-icons/md'
 
 export default function Trial(props) {
+
   const { updateMarkdown } = useContext(MarkdownContext)
-  const methods = useForm({
-    mode: 'onBlur',
-  })
+
+  const methods = useFormContext()
   const { setValue, getValues } = methods
 
   useEffect(() => {
@@ -50,7 +50,6 @@ export default function Trial(props) {
             <MdDelete />
           </button>
         </h2>
-        <FormProvider {...methods}>
           <form onChange={() => change(props.trial.id)}>
             <div className={'field'}>
               <label className={'label'}>考えたことや調べたこと</label>
@@ -74,7 +73,6 @@ export default function Trial(props) {
               </div>
             </div>
           </form>
-        </FormProvider>
       </div>
     </section>
   )

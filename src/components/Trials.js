@@ -3,7 +3,9 @@ import { MarkdownContext } from './providers/MarkdownProvider'
 import Trial from './Trial'
 
 export default function Trials() {
+
   const [trials, setTrials] = useState([])
+
   const { updateMarkdown } = useContext(MarkdownContext)
 
   useEffect(() => {
