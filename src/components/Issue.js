@@ -33,8 +33,12 @@ export default function Issue(props) {
 
   const change = () => {
     const formValues = getValues()
+    const tobe = JSON.stringify(formValues.tobe)
+    const asis = JSON.stringify(formValues.asis)
+    const problem = JSON.stringify(formValues.problem)
+    const limit = JSON.stringify(formValues.limit)
     localStorage.setItem('issue',
-      `{"tobe": "${formValues.tobe}", "asis": "${formValues.asis}", "problem": "${formValues.problem}", "limit": ${formValues.limit}}`,
+      `{"tobe": ${tobe}, "asis": ${asis}, "problem": ${problem}, "limit": ${limit}}`,
     )
     updateMarkdown()
   }
