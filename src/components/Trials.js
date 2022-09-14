@@ -9,18 +9,13 @@ export default function Trials() {
   const { trials, setTrials } = useContext(TrialsContext)
 
   useEffect(() => {
-    if (!localStorage.getItem('trials')) {
+    const localTrials = localStorage.getItem('trials')
+    if (!localTrials) {
       localStorage.setItem('trials', JSON.stringify([]))
+    } else {
+      setTrials(JSON.parse(localTrials))
     }
-  }, [])
-
-  const removeTrial = async (id) => {
-    const newTrials = trials.filter((trial) => {
-      return trial.id !== id
-    })
-    setTrials(newTrials)
-    saveTrials(newTrials)
-  }
+  }, [setTrials])
 
   const addTrial = () => {
     const newTrials = [
@@ -28,11 +23,7 @@ export default function Trials() {
       { id: Date.now(), guess: '', operation: '', result: '' },
     ]
     setTrials(newTrials)
-    saveTrials(newTrials)
-  }
-
-  const saveTrials = (data) => {
-    localStorage.setItem('trials', JSON.stringify(data))
+    localStorage.setItem('trials', JSON.stringify(newTrials))
     updateMarkdown()
   }
 
@@ -43,8 +34,6 @@ export default function Trials() {
           key={trial.id}
           trial={trial}
           index={i + 1}
-          remove={() => removeTrial(trial.id)}
-          save={() => saveTrials()}
         />
       ))}
       <section className={'section has-text-centered'}>

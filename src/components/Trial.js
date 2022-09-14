@@ -1,12 +1,14 @@
 import { FormProvider, useForm } from 'react-hook-form'
 import { useContext, useEffect } from 'react'
 import { MarkdownContext } from './providers/MarkdownProvider'
+import { TrialsContext } from './providers/TrialsProvider'
 import MarkdownArea from './MarkdownArea'
 import { MdDelete } from 'react-icons/md'
 
 export default function Trial(props) {
 
   const { updateMarkdown } = useContext(MarkdownContext)
+  const { trials, setTrials } = useContext(TrialsContext)
 
   const methods = useForm(
     { mode: 'onBlur' },
@@ -14,12 +16,9 @@ export default function Trial(props) {
   const { setValue, getValues } = methods
 
   useEffect(() => {
-    const defaultValue = JSON.parse(localStorage.getItem('trials'))[
-    props.trial.id - 1
-      ]
-    setValue('guess', defaultValue?.guess)
-    setValue('operation', defaultValue?.operation)
-    setValue('result', defaultValue?.result)
+    setValue('guess', props.trial.guess)
+    setValue('operation', props.trial.operation)
+    setValue('result', props.trial.result)
   }, [props.trial, setValue])
 
   const change = (id) => {
@@ -37,6 +36,16 @@ export default function Trial(props) {
       ...removedTrials,
       newTrial,
     ]
+    setTrials(newTrials)
+    localStorage.setItem('trials', JSON.stringify(newTrials))
+    updateMarkdown()
+  }
+
+  const removeTrial = (id) => {
+    const newTrials = trials.filter((trial) => {
+      return trial.id !== id
+    })
+    setTrials(newTrials)
     localStorage.setItem('trials', JSON.stringify(newTrials))
     updateMarkdown()
   }
@@ -48,7 +57,7 @@ export default function Trial(props) {
           試したこと{props.index}
           <button
             className={'button is-light is-small ml-3'}
-            onClick={() => props.remove()}
+            onClick={() => removeTrial(props.trial.id)}
           >
             <MdDelete/>
           </button>
