@@ -1,6 +1,7 @@
-import GitHubIcon from './GitHubIcon'
-import ExportBtn from './ExportBtn'
 import Timer from './Timer'
+import ExportBtn from './ExportBtn'
+import DeleteBtn from './DeleteBtn'
+import GitHubIcon from './GitHubIcon'
 
 export default function Navbar(props) {
   return (
@@ -27,6 +28,7 @@ export default function Navbar(props) {
           />
         </div>
         <div className={'navbar-end'}>
+          <DeleteBtn />
           <ExportBtn />
           <GitHubIcon />
         </div>
