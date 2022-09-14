@@ -1,19 +1,17 @@
-import { useEffect, useState, useContext } from 'react'
+import { useEffect, useContext } from 'react'
 import { MarkdownContext } from './providers/MarkdownProvider'
+import { TrialsContext } from './providers/TrialsProvider'
 import Trial from './Trial'
 
 export default function Trials() {
 
-  const [trials, setTrials] = useState([])
-
   const { updateMarkdown } = useContext(MarkdownContext)
+  const { trials, setTrials } = useContext(TrialsContext)
 
   useEffect(() => {
     if (!localStorage.getItem('trials')) {
       localStorage.setItem('trials', JSON.stringify([]))
     }
-    const data = JSON.parse(localStorage.getItem('trials'))
-    setTrials(data)
   }, [])
 
   const removeTrial = async (id) => {

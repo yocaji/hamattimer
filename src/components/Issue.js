@@ -32,7 +32,10 @@ export default function Issue(props) {
   }, [setValue])
 
   const change = () => {
-    localStorage.setItem('issue', JSON.stringify(getValues()))
+    const formValues = getValues()
+    localStorage.setItem('issue',
+      `{"tobe": "${formValues.tobe}", "asis": "${formValues.asis}", "problem": "${formValues.problem}", "limit": ${formValues.limit}}`,
+    )
     updateMarkdown()
   }
 

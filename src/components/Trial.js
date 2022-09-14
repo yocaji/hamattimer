@@ -1,4 +1,4 @@
-import { useFormContext } from 'react-hook-form'
+import { FormProvider, useForm } from 'react-hook-form'
 import { useContext, useEffect } from 'react'
 import { MarkdownContext } from './providers/MarkdownProvider'
 import MarkdownArea from './MarkdownArea'
@@ -8,31 +8,34 @@ export default function Trial(props) {
 
   const { updateMarkdown } = useContext(MarkdownContext)
 
-  const methods = useFormContext()
+  const methods = useForm(
+    { mode: 'onBlur' },
+  )
   const { setValue, getValues } = methods
 
   useEffect(() => {
     const defaultValue = JSON.parse(localStorage.getItem('trials'))[
-      props.trial.id - 1
-    ]
+    props.trial.id - 1
+      ]
     setValue('guess', defaultValue?.guess)
     setValue('operation', defaultValue?.operation)
     setValue('result', defaultValue?.result)
   }, [props.trial, setValue])
 
   const change = (id) => {
+    const newTrial = {
+      id: props.trial.id,
+      guess: getValues('guess') ?? '',
+      operation: getValues('operation') ?? '',
+      result: getValues('result') ?? '',
+    }
     const currentTrials = JSON.parse(localStorage.getItem('trials'))
     const removedTrials = currentTrials.filter((trial) => {
       return trial.id !== id
     })
     const newTrials = [
       ...removedTrials,
-      {
-        id: props.trial.id,
-        guess: getValues('guess') ?? '',
-        operation: getValues('operation') ?? '',
-        result: getValues('result') ?? '',
-      },
+      newTrial,
     ]
     localStorage.setItem('trials', JSON.stringify(newTrials))
     updateMarkdown()
@@ -47,14 +50,15 @@ export default function Trial(props) {
             className={'button is-light is-small ml-3'}
             onClick={() => props.remove()}
           >
-            <MdDelete />
+            <MdDelete/>
           </button>
         </h2>
+        <FormProvider {...methods}>
           <form onChange={() => change(props.trial.id)}>
             <div className={'field'}>
               <label className={'label'}>考えたことや調べたこと</label>
               <div className={'control'}>
-                <MarkdownArea name={'guess'} value={props.trial.guess} />
+                <MarkdownArea name={'guess'} value={props.trial.guess}/>
               </div>
             </div>
             <div className={'field'}>
@@ -69,10 +73,11 @@ export default function Trial(props) {
             <div className={'field'}>
               <label className={'label'}>結果</label>
               <div className={'control'}>
-                <MarkdownArea name={'result'} value={props.trial.result} />
+                <MarkdownArea name={'result'} value={props.trial.result}/>
               </div>
             </div>
           </form>
+        </FormProvider>
       </div>
     </section>
   )

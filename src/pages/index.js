@@ -1,8 +1,9 @@
 import Head from 'next/head'
 import { SessionProvider } from 'next-auth/react'
-import { FormProvider, useForm } from 'react-hook-form'
 import { useStopwatch } from 'react-timer-hook'
+import { FormProvider, useForm } from 'react-hook-form'
 import { MarkdownProvider } from '../components/providers/MarkdownProvider'
+import { TrialsProvider } from '../components/providers/TrialsProvider'
 import Navbar from '../components/Navbar'
 import Preview from '../components/Preview'
 import Issue from '../components/Issue'
@@ -33,26 +34,30 @@ export default function Home() {
       </Head>
       <SessionProvider>
         <MarkdownProvider>
-          <FormProvider {...methods}>
-            <Navbar
-              isRunning={isRunning}
-              seconds={seconds}
-              minutes={minutes}
-              hours={hours}
-              days={days}
-              start={start}
-              pause={pause}
-            />
+          <TrialsProvider>
+            <FormProvider {...methods}>
+              <Navbar
+                isRunning={isRunning}
+                seconds={seconds}
+                minutes={minutes}
+                hours={hours}
+                days={days}
+                start={start}
+                pause={pause}
+              />
+            </FormProvider>
             <div className={'columns is-gapless'}>
               <div className={'column'}>
-                <Issue start={start}/>
+                <FormProvider {...methods}>
+                  <Issue start={start}/>
+                </FormProvider>
                 <Trials/>
               </div>
               <div className={'column content'}>
                 <Preview/>
               </div>
             </div>
-          </FormProvider>
+          </TrialsProvider>
         </MarkdownProvider>
       </SessionProvider>
     </>
