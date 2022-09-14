@@ -7,6 +7,7 @@ export const MarkdownProvider = (props) => {
   const [markdown, setMarkdown] = useState('')
 
   const updateMarkdown = () => {
+    console.log(localStorage.getItem('issue'))
     const issue = JSON.parse(localStorage.getItem('issue'))
     const issueMd = `## 解決したいこと
  
