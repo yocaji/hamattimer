@@ -5,7 +5,7 @@ import MarkdownArea from './MarkdownArea'
 
 export default function Issue(props) {
 
-  const { updateMarkdown } = useContext(MarkdownContext)
+  const { markdown, updateMarkdown } = useContext(MarkdownContext)
 
   const {
     register,
@@ -63,7 +63,7 @@ export default function Issue(props) {
           <div className={'field'}>
             <label className={'label'}>エラーメッセージやログなど</label>
             <div className={'control'}>
-              <MarkdownArea name={'problem'}/>
+              <MarkdownArea name={'problem'} update={() => change()} />
             </div>
           </div>
           <label className={'label'}>タイマー</label>

@@ -2,6 +2,7 @@ import { useFormContext } from 'react-hook-form'
 import { db } from '../utils/db'
 
 export default function MarkdownArea(props) {
+
   const { register, setValue, getValues } = useFormContext()
 
   const insertImage = async (e) => {
@@ -17,6 +18,7 @@ export default function MarkdownArea(props) {
     const name = `${screenshot.created_at}-${screenshot.data.name}`
     const imageSyntax = `![${name}](${blobUrl})`
     setValue(props.name, beforeCursor + imageSyntax + afterCursor)
+    props.update()
   }
   const saveImage = async (e) => {
     const pasteData = e.clipboardData.items[0]

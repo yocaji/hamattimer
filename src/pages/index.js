@@ -33,20 +33,20 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico"/>
       </Head>
       <SessionProvider>
-        <MarkdownProvider>
-          <TrialsProvider>
-            <FormProvider {...methods}>
-              <Navbar
-                isRunning={isRunning}
-                seconds={seconds}
-                minutes={minutes}
-                hours={hours}
-                days={days}
-                start={start}
-                pause={pause}
-              />
-            </FormProvider>
-            <div className={'columns is-gapless'}>
+        <TrialsProvider>
+          <FormProvider {...methods}>
+            <Navbar
+              isRunning={isRunning}
+              seconds={seconds}
+              minutes={minutes}
+              hours={hours}
+              days={days}
+              start={start}
+              pause={pause}
+            />
+          </FormProvider>
+          <div className={'columns is-gapless'}>
+            <MarkdownProvider>
               <div className={'column'}>
                 <FormProvider {...methods}>
                   <Issue start={start}/>
@@ -56,9 +56,9 @@ export default function Home() {
               <div className={'column content'}>
                 <Preview/>
               </div>
-            </div>
-          </TrialsProvider>
-        </MarkdownProvider>
+            </MarkdownProvider>
+          </div>
+        </TrialsProvider>
       </SessionProvider>
     </>
   )

@@ -7,6 +7,8 @@ import { MdDelete } from 'react-icons/md'
 
 export default function Trial(props) {
 
+  const trial = props.trial
+
   const { updateMarkdown } = useContext(MarkdownContext)
   const { trials, setTrials } = useContext(TrialsContext)
 
@@ -16,14 +18,14 @@ export default function Trial(props) {
   const { setValue, getValues } = methods
 
   useEffect(() => {
-    setValue('guess', props.trial.guess)
-    setValue('operation', props.trial.operation)
-    setValue('result', props.trial.result)
-  }, [props.trial, setValue])
+    setValue('guess', trial.guess)
+    setValue('operation', trial.operation)
+    setValue('result', trial.result)
+  }, [trial, setValue])
 
   const change = (id) => {
     const newTrial = {
-      id: props.trial.id,
+      id: trial.id,
       guess: getValues('guess') ?? '',
       operation: getValues('operation') ?? '',
       result: getValues('result') ?? '',
@@ -57,17 +59,17 @@ export default function Trial(props) {
           試したこと{props.index}
           <button
             className={'button is-light is-small ml-3'}
-            onClick={() => removeTrial(props.trial.id)}
+            onClick={() => removeTrial(trial.id)}
           >
             <MdDelete/>
           </button>
         </h2>
         <FormProvider {...methods}>
-          <form onChange={() => change(props.trial.id)}>
+          <form onChange={() => change(trial.id)}>
             <div className={'field'}>
               <label className={'label'}>考えたことや調べたこと</label>
               <div className={'control'}>
-                <MarkdownArea name={'guess'} value={props.trial.guess}/>
+                <MarkdownArea name={'guess'} value={trial.guess} update={() => change(trial.id)}/>
               </div>
             </div>
             <div className={'field'}>
@@ -76,13 +78,14 @@ export default function Trial(props) {
                 <MarkdownArea
                   name={'operation'}
                   value={props.trial.operation}
+                  update={() => change(trial.id)}
                 />
               </div>
             </div>
             <div className={'field'}>
               <label className={'label'}>結果</label>
               <div className={'control'}>
-                <MarkdownArea name={'result'} value={props.trial.result}/>
+                <MarkdownArea name={'result'} value={trial.result} update={() => change(trial.id)} />
               </div>
             </div>
           </form>
