@@ -1,13 +1,11 @@
 import { useContext } from 'react'
 import { useFormContext } from 'react-hook-form'
 import { db } from '../utils/db'
-import { MarkdownContext } from './providers/MarkdownProvider'
 import { TrialsContext } from './providers/TrialsProvider'
 import { MdDelete } from 'react-icons/md'
 
 export default function DeleteBtn() {
 
-  const { updateMarkdown } = useContext(MarkdownContext)
   const { setTrials } = useContext(TrialsContext)
 
   const {
@@ -18,11 +16,10 @@ export default function DeleteBtn() {
 
   const resetAll = () => {
     confirm('データをリセットしますか？')
-    setTrials([])
     reset()
+    setTrials([])
     localStorage.setItem('issue', JSON.stringify(getValues()))
     localStorage.setItem('trials', JSON.stringify([]))
-    updateMarkdown()
     db.screenshots.clear()
   }
 
