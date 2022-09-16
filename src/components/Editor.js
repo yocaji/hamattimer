@@ -29,7 +29,7 @@ export default function Editor(props) {
         </FormProvider>
         <StartBtn start={props.start} addTrial={addTrial}/>
       </section>
-      <Trials addTrial={addTrial}/>
+      <Trials pause={props.pause} addTrial={addTrial}/>
     </>
   )
 }
