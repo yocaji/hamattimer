@@ -17,6 +17,7 @@
     "next-auth": "^4.10.3",
     "octokit": "^2.0.7",
     "react": "18.2.0",
+    "react-copy-to-clipboard": "^5.1.0",
     "react-dom": "18.2.0",
     "react-hook-form": "^7.35.0",
     "react-markdown": "^8.0.3",
