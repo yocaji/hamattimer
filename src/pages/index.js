@@ -48,7 +48,7 @@ export default function Home() {
           <div className={'columns is-gapless'}>
             <MarkdownProvider>
               <div className={'column'}>
-                <Editor methods={methods} start={start} />
+                <Editor methods={methods} start={start} pause={pause} />
               </div>
               <div className={'column content'}>
                 <Preview/>
