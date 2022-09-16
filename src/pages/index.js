@@ -10,10 +10,7 @@ import Editor from '../components/Editor'
 
 export default function Home() {
 
-  const { seconds, minutes, hours, days, start, pause, isRunning } =
-    useStopwatch({
-      autoStart: false,
-    })
+  const watch = useStopwatch({ autoStart: false })
 
   const methods = useForm({
     mode: 'onBlur',
@@ -35,20 +32,12 @@ export default function Home() {
       <SessionProvider>
         <TrialsProvider>
           <FormProvider {...methods}>
-            <Navbar
-              isRunning={isRunning}
-              seconds={seconds}
-              minutes={minutes}
-              hours={hours}
-              days={days}
-              start={start}
-              pause={pause}
-            />
+            <Navbar watch={watch}/>
           </FormProvider>
           <div className={'columns is-gapless'}>
             <MarkdownProvider>
               <div className={'column'}>
-                <Editor methods={methods} start={start} pause={pause} />
+                <Editor methods={methods} watch={watch}/>
               </div>
               <div className={'column content'}>
                 <Preview/>

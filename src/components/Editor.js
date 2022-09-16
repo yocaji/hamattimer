@@ -11,6 +11,8 @@ export default function Editor(props) {
   const { trials, setTrials } = useContext(TrialsContext)
   const { updateMarkdown } = useContext(MarkdownContext)
 
+  const { start, pause } = props.watch
+
   const addTrial = () => {
     const newTrials = [
       ...trials,
@@ -27,9 +29,9 @@ export default function Editor(props) {
         <FormProvider {...props.methods}>
           <Issue/>
         </FormProvider>
-        <StartBtn start={props.start} addTrial={addTrial}/>
+        <StartBtn start={start} addTrial={addTrial}/>
       </section>
-      <Trials pause={props.pause} addTrial={addTrial}/>
+      <Trials pause={pause} addTrial={addTrial}/>
     </>
   )
 }
