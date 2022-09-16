@@ -3,9 +3,9 @@ import { useFormContext } from 'react-hook-form'
 import { MarkdownContext } from './providers/MarkdownProvider'
 import MarkdownArea from './MarkdownArea'
 
-export default function Issue(props) {
+export default function Issue() {
 
-  const { markdown, updateMarkdown } = useContext(MarkdownContext)
+  const { updateMarkdown } = useContext(MarkdownContext)
 
   const {
     register,
@@ -44,57 +44,52 @@ export default function Issue(props) {
   }
 
   return (
-    <section className={'section'}>
-      <div className={'box'}>
-        <h2 className={'title is-5'}>解決したいこと</h2>
-        <form onChange={change}>
-          <div className={'field'}>
-            <label className={'label'}>期待する結果</label>
-            <div className={'control'}>
-              <input {...register('tobe')} className={'input'}/>
-            </div>
+    <div className={'box'}>
+      <h2 className={'title is-5'}>解決したいこと</h2>
+      <form onChange={change}>
+        <div className={'field'}>
+          <label className={'label'}>期待する結果</label>
+          <div className={'control'}>
+            <input {...register('tobe')} className={'input'}/>
           </div>
-          <div className={'field'}>
-            <label className={'label'}>実際の結果</label>
-            <div className={'control'}>
-              <input {...register('asis')} className={'input'}/>
-            </div>
+        </div>
+        <div className={'field'}>
+          <label className={'label'}>実際の結果</label>
+          <div className={'control'}>
+            <input {...register('asis')} className={'input'}/>
           </div>
-          <div className={'field'}>
-            <label className={'label'}>エラーメッセージやログなど</label>
-            <div className={'control'}>
-              <MarkdownArea name={'problem'} update={() => change()} />
-            </div>
+        </div>
+        <div className={'field'}>
+          <label className={'label'}>エラーメッセージやログなど</label>
+          <div className={'control'}>
+            <MarkdownArea name={'problem'} update={change}/>
           </div>
-          <label className={'label'}>タイマー</label>
-          <div className={'field has-addons'}>
-            <div className={'control'}>
-              <input
-                type={'number'}
-                {...register('limit', {
-                  valueAsNumber: true,
-                  pattern: {
-                    value: /^[0-9]+$/,
-                    message: '整数で入力してください',
-                  },
-                  min: {
-                    value: 1,
-                    message: '1以上の整数を入力してください',
-                  },
-                })}
-                className={'input'}
-              />
-            </div>
-            <div className={'control'}>
-              <button className={'button is-static'}>分</button>
-            </div>
+        </div>
+        <label className={'label'}>タイマー</label>
+        <div className={'field has-addons'}>
+          <div className={'control'}>
+            <input
+              type={'number'}
+              {...register('limit', {
+                valueAsNumber: true,
+                pattern: {
+                  value: /^[0-9]+$/,
+                  message: '整数で入力してください',
+                },
+                min: {
+                  value: 1,
+                  message: '1以上の整数を入力してください',
+                },
+              })}
+              className={'input'}
+            />
+          </div>
+          <div className={'control'}>
+            <button className={'button is-static'}>分</button>
           </div>
           <p className={'help is-danger'}>{errors.limit?.message}</p>
-          <button type={'button'} className={'button'} onClick={props.start}>
-            スタート
-          </button>
-        </form>
-      </div>
-    </section>
+        </div>
+      </form>
+    </div>
   )
 }

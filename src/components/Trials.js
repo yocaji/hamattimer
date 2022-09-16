@@ -1,11 +1,9 @@
 import { useEffect, useContext } from 'react'
-import { MarkdownContext } from './providers/MarkdownProvider'
 import { TrialsContext } from './providers/TrialsProvider'
 import Trial from './Trial'
 
-export default function Trials() {
+export default function Trials(props) {
 
-  const { updateMarkdown } = useContext(MarkdownContext)
   const { trials, setTrials } = useContext(TrialsContext)
 
   useEffect(() => {
@@ -17,15 +15,7 @@ export default function Trials() {
     }
   }, [setTrials])
 
-  const addTrial = () => {
-    const newTrials = [
-      ...trials,
-      { id: Date.now(), guess: '', operation: '', result: '' },
-    ]
-    setTrials(newTrials)
-    localStorage.setItem('trials', JSON.stringify(newTrials))
-    updateMarkdown()
-  }
+  if (!trials.length) return
 
   return (
     <>
@@ -38,7 +28,7 @@ export default function Trials() {
       ))}
       <section className={'section has-text-centered'}>
         <button className={'button mr-3'}>解決した！</button>
-        <button className={'button'} onClick={() => addTrial()}>
+        <button className={'button'} onClick={() => props.addTrial()}>
           別の方法を試す
         </button>
       </section>
