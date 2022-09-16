@@ -6,10 +6,10 @@ import { MarkdownProvider } from '../components/providers/MarkdownProvider'
 import { TrialsProvider } from '../components/providers/TrialsProvider'
 import Navbar from '../components/Navbar'
 import Preview from '../components/Preview'
-import Issue from '../components/Issue'
-import Trials from '../components/Trials'
+import Editor from '../components/Editor'
 
 export default function Home() {
+
   const { seconds, minutes, hours, days, start, pause, isRunning } =
     useStopwatch({
       autoStart: false,
@@ -48,10 +48,7 @@ export default function Home() {
           <div className={'columns is-gapless'}>
             <MarkdownProvider>
               <div className={'column'}>
-                <FormProvider {...methods}>
-                  <Issue start={start}/>
-                </FormProvider>
-                <Trials/>
+                <Editor methods={methods} start={start} />
               </div>
               <div className={'column content'}>
                 <Preview/>
