@@ -25,6 +25,16 @@ export default function Timer(props) {
     )
   })
 
+  useEffect(() => {
+    const limit = JSON.parse(localStorage.getItem('issue')).limit
+    const totalMinutes = minutes + hours * 60 + days * 60 * 24
+    if (limit === totalMinutes) {
+      pause()
+      console.log('limit === totalMinutes')
+      alert(`${limit}分経ちました。`)
+    }
+  }, [days, hours, minutes, pause])
+
   return (
     <>
       <div className={'navbar-item'}>

@@ -11,9 +11,8 @@ export default function Display() {
   const storedTime = JSON.parse(localStorage.getItem('stopwatch'))
   if (storedTime) {
     const { seconds, minutes, hours, days } = storedTime ?? { seconds: 0, minutes: 0, hours: 0, days: 0 }
-    const offsetSeconds = seconds + minutes * 60 + hours * 60 * 60 + days * 60 * 60 * 24
-    offset.setSeconds(offset.getSeconds() + offsetSeconds)
-    offset.setSeconds(offset.getSeconds())
+    const storedSeconds = seconds + minutes * 60 + hours * 60 * 60 + days * 60 * 60 * 24
+    offset.setSeconds(offset.getSeconds() + storedSeconds)
   }
   const stopwatch = useStopwatch({ autoStart: false, offsetTimestamp: offset })
 
