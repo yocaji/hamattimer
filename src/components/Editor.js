@@ -11,7 +11,7 @@ export default function Editor(props) {
   const { trials, setTrials } = useContext(TrialsContext)
   const { updateMarkdown } = useContext(MarkdownContext)
 
-  const { start, pause } = props.watch
+  const { start, pause } = props.stopwatch
 
   const addTrial = () => {
     const newTrials = [

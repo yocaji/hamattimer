@@ -17,7 +17,7 @@ export default function Navbar(props) {
           </h1>
         </div>
         <div className={'navbar-start'}>
-          <Timer watch={props.watch}/>
+          <Timer stopwatch={props.stopwatch}/>
         </div>
         <div className={'navbar-end'}>
           <DeleteBtn/>
