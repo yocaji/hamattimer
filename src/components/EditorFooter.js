@@ -1,19 +1,18 @@
-export default function TrialsFooter(props) {
+export default function EditorFooter(props) {
 
-  const pause = () => props.stopwatch.pause
   const handleClickEnd = () => {
-    props.stopwatch.pause()
+    props.pause()
     alert(`おつかれさまでした🍵\n作成した記録を保存しておきたい時は、Gistへのエクスポート機能をご活用ください\n\n（エクスポート機能へのリンクを入れる予定）`)
   }
 
   return (
-    <section className={'section columns'}>
+    <div className={'columns'}>
       <div className={'column'}>
-        <button className={'button is-dark is-fullwidth'} onClick={pause}>解決した！</button>
+        <button className={'button is-dark is-fullwidth'} onClick={props.pause}>解決した！</button>
       </div>
       <div className={'column'}>
         <button className={'button is-light is-fullwidth'} onClick={handleClickEnd}>終了する</button>
       </div>
-    </section>
+    </div>
   )
 }
