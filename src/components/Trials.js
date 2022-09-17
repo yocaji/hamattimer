@@ -1,9 +1,11 @@
 import { useEffect, useContext } from 'react'
+import { IsStartedContext } from './providers/IsStartedProvider'
 import { TrialsContext } from './providers/TrialsProvider'
 import Trial from './Trial'
 
 export default function Trials(props) {
 
+  const { isStarted, setIsStarted } = useContext(IsStartedContext)
   const { trials, setTrials } = useContext(TrialsContext)
 
   useEffect(() => {
@@ -15,7 +17,13 @@ export default function Trials(props) {
     }
   }, [setTrials])
 
-  if (!trials.length) return
+  useEffect(() => {
+    if (!trials.length) {
+      setIsStarted(false)
+    }
+  }, [setIsStarted, trials.length])
+
+  if (!isStarted) return
 
   return (
     <>

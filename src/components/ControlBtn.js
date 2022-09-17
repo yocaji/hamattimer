@@ -1,11 +1,10 @@
-import { useEffect, useContext, useState } from 'react'
-import { TrialsContext } from './providers/TrialsProvider'
+import { useContext } from 'react'
+import { IsStartedContext } from './providers/IsStartedProvider'
 import { MdPause, MdPlayArrow } from 'react-icons/md'
 
 export default function ControlBtn(props) {
 
-  const { trials } = useContext(TrialsContext)
-  const [disabled, setDisabled] = useState(true)
+  const { isStarted } = useContext(IsStartedContext)
 
   const { start, pause, isRunning } = props.stopwatch
 
@@ -14,15 +13,8 @@ export default function ControlBtn(props) {
   }
   const label = isRunning ? <MdPause/> : <MdPlayArrow/>
 
-  useEffect(() => {
-    console.log('ControlBtn')
-    if (trials.length) {
-      setDisabled(false)
-    }
-  }, [trials])
-
   return (
-    <button onClick={action} className={'button is-small is-rounded'} disabled={disabled}>
+    <button onClick={action} className={'button is-light is-small is-rounded'} disabled={!isStarted}>
       {label}
     </button>
   )
