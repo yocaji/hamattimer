@@ -20,7 +20,7 @@ export default function Navbar(props) {
           <Timer stopwatch={props.stopwatch}/>
         </div>
         <div className={'navbar-end'}>
-          <DeleteBtn/>
+          <DeleteBtn stopwatch={props.stopwatch}/>
           <ExportBtn/>
           <GitHubIcon/>
         </div>
