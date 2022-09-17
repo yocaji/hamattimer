@@ -2,9 +2,10 @@ import { useContext } from 'react'
 import { FormProvider } from 'react-hook-form'
 import { MarkdownContext } from './providers/MarkdownProvider'
 import { TrialsContext } from './providers/TrialsProvider'
-import Issue from '../components/Issue'
-import Trials from '../components/Trials'
-import StartBtn from '../components/StartBtn'
+import Issue from './Issue'
+import Trials from './Trials'
+import StartBtn from './StartBtn'
+import EditorFooter from './EditorFooter'
 
 export default function Editor(props) {
 
@@ -29,7 +30,11 @@ export default function Editor(props) {
         </FormProvider>
         <StartBtn start={props.stopwatch.start} addTrial={addTrial}/>
       </section>
-      <Trials stopwatch={props.stopwatch} addTrial={addTrial}/>
+      <Trials addTrial={addTrial}/>
+      <section className={'section'}>
+        <hr/>
+        <EditorFooter pause={props.stopwatch.pause}/>
+      </section>
     </>
   )
 }

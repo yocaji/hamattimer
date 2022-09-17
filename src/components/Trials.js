@@ -2,7 +2,6 @@ import { useEffect, useContext } from 'react'
 import { IsStartedContext } from './providers/IsStartedProvider'
 import { TrialsContext } from './providers/TrialsProvider'
 import Trial from './Trial'
-import TrialsFooter from './TrialsFooter'
 import { MdAdd } from 'react-icons/md'
 
 export default function Trials(props) {
@@ -43,7 +42,6 @@ export default function Trials(props) {
           <MdAdd className={'mr-1'}/>追加する
         </button>
       </div>
-      <TrialsFooter stopwatch={props.stopwatch} addTrial={props.addTrial}/>
     </>
   )
 }
