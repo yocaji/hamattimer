@@ -18,7 +18,9 @@ export default function Trials(props) {
   }, [setTrials])
 
   useEffect(() => {
-    if (!trials.length) {
+    if (trials.length) {
+      setIsStarted(true)
+    } else {
       setIsStarted(false)
     }
   }, [setIsStarted, trials.length])
