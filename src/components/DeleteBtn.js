@@ -4,7 +4,7 @@ import { db } from '../utils/db'
 import { TrialsContext } from './providers/TrialsProvider'
 import { MdDelete } from 'react-icons/md'
 
-export default function DeleteBtn() {
+export default function DeleteBtn(props) {
 
   const { setTrials } = useContext(TrialsContext)
 
@@ -17,6 +17,7 @@ export default function DeleteBtn() {
   const resetAll = () => {
     confirm('データをリセットしますか？')
     reset()
+    props.stopwatch.reset(0, false)
     setTrials([])
     localStorage.setItem('issue', JSON.stringify(getValues()))
     localStorage.setItem('trials', JSON.stringify([]))

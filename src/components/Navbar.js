@@ -17,20 +17,12 @@ export default function Navbar(props) {
           </h1>
         </div>
         <div className={'navbar-start'}>
-          <Timer
-            isRunning={props.isRunning}
-            seconds={props.seconds}
-            minutes={props.minutes}
-            hours={props.hours}
-            days={props.days}
-            start={props.start}
-            pause={props.pause}
-          />
+          <Timer stopwatch={props.stopwatch}/>
         </div>
         <div className={'navbar-end'}>
-          <DeleteBtn />
-          <ExportBtn />
-          <GitHubIcon />
+          <DeleteBtn stopwatch={props.stopwatch}/>
+          <ExportBtn/>
+          <GitHubIcon/>
         </div>
       </nav>
       <div className={'block py-3'}></div>
