@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import { SessionProvider } from 'next-auth/react'
+import { IsStartedProvider } from '../components/providers/IsStartedProvider'
 import { TrialsProvider } from '../components/providers/TrialsProvider'
 import { useEffect, useState } from 'react'
 import Display from '../components/Display'
@@ -21,9 +22,11 @@ export default function Home() {
           <link rel="icon" href="/favicon.ico"/>
         </Head>
         <SessionProvider>
-          <TrialsProvider>
-            <Display/>
-          </TrialsProvider>
+          <IsStartedProvider>
+            <TrialsProvider>
+              <Display/>
+            </TrialsProvider>
+          </IsStartedProvider>
         </SessionProvider>
       </>
     )
