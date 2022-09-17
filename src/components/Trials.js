@@ -2,6 +2,8 @@ import { useEffect, useContext } from 'react'
 import { IsStartedContext } from './providers/IsStartedProvider'
 import { TrialsContext } from './providers/TrialsProvider'
 import Trial from './Trial'
+import TrialsFooter from './TrialsFooter'
+import { MdAdd } from 'react-icons/md'
 
 export default function Trials(props) {
 
@@ -36,12 +38,12 @@ export default function Trials(props) {
           index={i + 1}
         />
       ))}
-      <section className={'section has-text-centered'}>
-        <button className={'button mr-3'} onClick={props.pause}>解決した！</button>
-        <button className={'button'} onClick={() => props.addTrial()}>
-          別の方法を試す
+      <div className={'has-text-centered'}>
+        <button className={'button is-light'} onClick={() => props.addTrial()}>
+          <MdAdd className={'mr-1'}/>追加する
         </button>
-      </section>
+      </div>
+      <TrialsFooter stopwatch={props.stopwatch} addTrial={props.addTrial}/>
     </>
   )
 }
