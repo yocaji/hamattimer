@@ -21,10 +21,10 @@ export default function ExportBtn() {
 
   if (session) {
     return (
-    <a onClick={() => createGist(markdown)} className={'navbar-item'}>
+    <button onClick={() => createGist(markdown)} className={'button'}>
       <GoMarkGithub className={'mr-2'}/>
-      エクスポート
-    </a>
+      Export
+    </button>
     )
   }
 }
