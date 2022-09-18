@@ -10,26 +10,41 @@ export default function MarkdownArea(props) {
     if (!pasteData.type.match('image.*')) return
 
     const file = pasteData.getAsFile()
-    const url = await saveImage(file)
-    const imageSyntax = `![${file.name}](${url})`
-    await insertImage({ e, imageSyntax })
+    const dataUrl = await createDataUrl(file)
+
+    const response = await uploadImage(dataUrl)
+
+    const imageUrl = response.secure_url
+    const imageSyntax = `![${file.name}](${imageUrl})`
+    insertImage({ e, imageSyntax })
   }
 
-  const saveImage = async (file) => {
-    const data = new FormData()
-    data.append('file', file)
-    data.append('upload_preset', 'hamattimer')
-    data.append('cloud_name', 'hamattimer')
-    return await fetch(
-      'https://api.cloudinary.com/v1_1/hamattimer/image/upload', {
-        method: 'post',
-        body: data,
-      }).then(res => res.json())
-      .then(cloudinaryRes => cloudinaryRes.secure_url)
-      .catch(err => console.log(err))
+  const createDataUrl = (file) => {
+
+    return new Promise((resolve, reject) => {
+
+      const reader = new FileReader()
+      reader.onload = () => {
+        resolve(reader.result)
+      }
+      reader.onerror = () => {
+        reject(reader.error)
+      }
+      reader.readAsDataURL(file)
+    })
   }
 
-  const insertImage = async ({ e, imageSyntax }) => {
+  const uploadImage = async (dataUrl) => {
+
+    return await fetch('/api/upload', {
+      method: 'POST',
+      body: JSON.stringify({
+        image: dataUrl,
+      }),
+    }).then(res => res.json())
+  }
+
+  const insertImage = ({ e, imageSyntax }) => {
     const cursorPosition = e.target.selectionEnd
     const value = getValues(props.name)
     const textLength = value.length
