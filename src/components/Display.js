@@ -1,9 +1,9 @@
 import { useStopwatch } from 'react-timer-hook'
 import { FormProvider, useForm } from 'react-hook-form'
 import { MarkdownProvider } from './providers/MarkdownProvider'
-import Navbar from '../components/Navbar'
-import Editor from '../components/Editor'
-import Preview from '../components/Preview'
+import Navbar from './Navbar'
+import Editor from './Editor'
+import Preview from './Preview'
 
 export default function Display() {
 
