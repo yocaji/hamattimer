@@ -3,7 +3,7 @@ import ControlBtn from './ControlBtn'
 
 export default function Timer(props) {
 
-  const { seconds, minutes, hours, days, pause } = props.stopwatch
+  const { seconds, minutes, hours, days, pause, isRunning } = props.stopwatch
 
   const pad0 = (number) => {
     return number.toString().padStart(2, '0')
@@ -24,12 +24,11 @@ export default function Timer(props) {
   useEffect(() => {
     const limit = JSON.parse(localStorage.getItem('issue')).limit
     const totalMinutes = minutes + hours * 60 + days * 60 * 24
-    if (limit === totalMinutes) {
+    if (isRunning && limit === totalMinutes) {
       pause()
-      console.log('limit === totalMinutes')
       alert(`${limit}分経ちました。`)
     }
-  }, [days, hours, minutes, pause])
+  }, [days, hours, minutes, pause, isRunning])
 
   return (
     <div className={'navbar-item'}>

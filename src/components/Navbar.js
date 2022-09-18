@@ -4,6 +4,7 @@ import ResetBtn from './ResetBtn'
 import GitHubIcon from './GitHubIcon'
 
 export default function Navbar(props) {
+
   return (
     <>
       <nav
