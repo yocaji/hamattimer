@@ -4,6 +4,7 @@ import remarkGfm from 'remark-gfm'
 import remarkBreaks from 'remark-breaks'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { MarkdownContext } from './providers/MarkdownProvider'
+import ExportBtn from './ExportBtn'
 import { MdContentCopy } from 'react-icons/md'
 
 export default function MarkdownPreview() {
@@ -16,10 +17,11 @@ export default function MarkdownPreview() {
 
   return (
     <section className={'section'}>
-      <div className={'column has-text-right'}>
+      <div className={'buttons is-right has-addons'}>
         <CopyToClipboard text={markdown}>
-          <button className={'button is-light'}><MdContentCopy/></button>
+          <button className={'button'}><MdContentCopy className={'mr-1'}/>Copy</button>
         </CopyToClipboard>
+        <ExportBtn/>
       </div>
       <hr/>
       <ReactMarkdown remarkPlugins={[remarkGfm, remarkBreaks]} unwrapDisallowed={false}>
