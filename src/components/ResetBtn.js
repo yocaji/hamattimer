@@ -1,6 +1,5 @@
 import { useContext } from 'react'
 import { useFormContext } from 'react-hook-form'
-import { db } from '../utils/db'
 import { IsStartedContext } from './providers/IsStartedProvider'
 import { TrialsContext } from './providers/TrialsProvider'
 import { MdDelete } from 'react-icons/md'
@@ -24,7 +23,6 @@ export default function ResetBtn(props) {
     setTrials([])
     localStorage.setItem('issue', JSON.stringify(getValues()))
     localStorage.setItem('trials', JSON.stringify([]))
-    db.screenshots.clear()
   }
 
   return (

@@ -11,8 +11,7 @@
     "test-ci": "jest --ci"
   },
   "dependencies": {
-    "dexie": "^3.2.2",
-    "dexie-react-hooks": "^1.1.1",
+    "cloudinary": "^1.32.0",
     "next": "12.2.5",
     "next-auth": "^4.10.3",
     "octokit": "^2.0.7",
