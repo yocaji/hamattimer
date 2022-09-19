@@ -4,6 +4,7 @@ import { MarkdownProvider } from './providers/MarkdownProvider'
 import Navbar from './Navbar'
 import Editor from './Editor'
 import Preview from './Preview'
+import Footer from './Footer'
 
 export default function Display() {
 
@@ -47,6 +48,7 @@ export default function Display() {
           </div>
         </MarkdownProvider>
       </div>
+      <Footer/>
     </>
   )
 }

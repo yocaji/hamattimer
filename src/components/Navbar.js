@@ -1,6 +1,5 @@
 import Timer from './Timer'
 import ResetBtn from './ResetBtn'
-import GitHubIcon from './GitHubIcon'
 
 export default function Navbar(props) {
 
@@ -21,7 +20,6 @@ export default function Navbar(props) {
         </div>
         <div className={'navbar-end'}>
           <ResetBtn stopwatch={props.stopwatch}/>
-          <GitHubIcon/>
         </div>
       </nav>
       <div className={'block py-3'}></div>
