@@ -24,7 +24,7 @@ export default function ExportBtn() {
     return (
       <button onClick={() => createGist(markdown)} className={'button'}>
         <GoMarkGithub className={'mr-2'}/>
-        Export
+        Gistにエクスポート
       </button>
     )
   } else {
