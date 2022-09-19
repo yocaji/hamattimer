@@ -22,9 +22,11 @@ export default function Timer(props) {
   }, [days, hours, minutes, seconds])
 
   useEffect(() => {
+    if (!isRunning) return
+
     const limit = JSON.parse(localStorage.getItem('issue')).limit
     const totalMinutes = minutes + hours * 60 + days * 60 * 24
-    if (isRunning && limit === totalMinutes) {
+    if (limit === totalMinutes) {
       pause()
       alert(`${limit}分経ちました。`)
     }
