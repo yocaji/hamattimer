@@ -2,12 +2,10 @@ import { useContext, useEffect } from 'react'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import remarkBreaks from 'remark-breaks'
-import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { MarkdownContext } from './providers/MarkdownProvider'
-import ExportBtn from './elements/ExportBtn'
-import { MdContentCopy } from 'react-icons/md'
+import ExportButtons from './modules/ExportButtons'
 
-export default function MarkdownPreview() {
+export default function Preview() {
 
   const { markdown, updateMarkdown } = useContext(MarkdownContext)
 
@@ -17,13 +15,7 @@ export default function MarkdownPreview() {
 
   return (
     <section className={'section'}>
-      <div className={'buttons is-right has-addons'}>
-        <CopyToClipboard text={markdown}>
-          <button className={'button'}><MdContentCopy className={'mr-1'}/>Copy</button>
-        </CopyToClipboard>
-        <ExportBtn/>
-      </div>
-      <hr/>
+      <ExportButtons/>
       <ReactMarkdown remarkPlugins={[remarkGfm, remarkBreaks]} unwrapDisallowed={false}>
         {markdown}
       </ReactMarkdown>

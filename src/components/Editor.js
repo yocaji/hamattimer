@@ -4,8 +4,8 @@ import { MarkdownContext } from './providers/MarkdownProvider'
 import { TrialsContext } from './providers/TrialsProvider'
 import Issue from './modules/Issue'
 import Trials from './modules/Trials'
-import StartBtn from './elements/StartBtn'
-import EditorFooter from './elements/EditorFooter'
+import StartButton from './elements/StartButton'
+import EditorFooter from './modules/EditorFooter'
 
 export default function Editor(props) {
 
@@ -32,7 +32,7 @@ export default function Editor(props) {
       <Trials addTrial={addTrial}/>
       <section className={'section'}>
         <hr/>
-        <StartBtn start={props.stopwatch.start} addTrial={addTrial}/>
+        <StartButton start={props.stopwatch.start} addTrial={addTrial}/>
         <EditorFooter pause={props.stopwatch.pause}/>
       </section>
     </>

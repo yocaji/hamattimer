@@ -2,7 +2,7 @@ import { useContext } from 'react'
 import { IsStartedContext } from '../providers/IsStartedProvider'
 import { TrialsContext } from '../providers/TrialsProvider'
 
-export default function StartBtn(props) {
+export default function StartButton(props) {
 
   const { trials } = useContext(TrialsContext)
   const { setIsStarted } = useContext(IsStartedContext)

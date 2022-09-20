@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import ControlBtn from './ControlBtn'
+import ControlButton from '../elements/ControlButton'
 
 export default function Timer(props) {
 
@@ -37,7 +37,7 @@ export default function Timer(props) {
       <div className={'is-size-5 mr-3'}>
         {days * 24 + hours}:{pad0(minutes)}:{pad0(seconds)}
       </div>
-      <ControlBtn stopwatch={props.stopwatch}/>
+      <ControlButton stopwatch={props.stopwatch}/>
     </div>
   )
 }
