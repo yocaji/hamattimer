@@ -4,7 +4,7 @@ import { IsStartedContext } from '../providers/IsStartedProvider'
 import { TrialsContext } from '../providers/TrialsProvider'
 import { MdDelete } from 'react-icons/md'
 
-export default function ResetBtn(props) {
+export default function ResetButton(props) {
 
   const { setIsStarted } = useContext(IsStartedContext)
   const { setTrials } = useContext(TrialsContext)

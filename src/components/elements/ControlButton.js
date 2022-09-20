@@ -2,7 +2,7 @@ import { useContext } from 'react'
 import { IsStartedContext } from '../providers/IsStartedProvider'
 import { MdPause, MdPlayArrow } from 'react-icons/md'
 
-export default function ControlBtn(props) {
+export default function ControlButton(props) {
 
   const { isStarted } = useContext(IsStartedContext)
 

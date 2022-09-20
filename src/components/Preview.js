@@ -5,7 +5,7 @@ import remarkBreaks from 'remark-breaks'
 import { MarkdownContext } from './providers/MarkdownProvider'
 import ExportButtons from './modules/ExportButtons'
 
-export default function MarkdownPreview() {
+export default function Preview() {
 
   const { markdown, updateMarkdown } = useContext(MarkdownContext)
 
