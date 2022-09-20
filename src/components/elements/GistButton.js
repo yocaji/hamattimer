@@ -4,7 +4,8 @@ import { Octokit } from 'octokit'
 import { MarkdownContext } from '../providers/MarkdownProvider'
 import { GoMarkGithub } from 'react-icons/go'
 
-export default function ExportBtn() {
+export default function GistButton() {
+
   const { data: session, status } = useSession()
   const { markdown } = useContext(MarkdownContext)
 
@@ -22,14 +23,14 @@ export default function ExportBtn() {
 
   if (status === 'authenticated') {
     return (
-      <button onClick={() => createGist(markdown)} className={'button'}>
+      <button onClick={() => createGist(markdown)} className={'button is-small'}>
         <GoMarkGithub className={'mr-2'}/>
         Gistにエクスポート
       </button>
     )
   } else {
     return (
-      <button onClick={() => signIn('github')} className={'button'}>
+      <button onClick={() => signIn('github')} className={'button is-small'}>
         <GoMarkGithub className={'mr-2'}/>
         GitHub連携
       </button>
