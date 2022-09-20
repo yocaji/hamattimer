@@ -15,6 +15,7 @@ const jestConfig = async () => {
   const nextJestConfig = await createJestConfig(customJestConfig)()
   return {
     ...nextJestConfig,
+    testMatch: ['<rootDir>/__tests__/jest/**/*.spec.jsx'],
     transformIgnorePatterns: ['node_modules/(?!(react-markdown|remark-gfm))/'],
   }
 }
