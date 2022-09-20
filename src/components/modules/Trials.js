@@ -1,6 +1,6 @@
 import { useEffect, useContext } from 'react'
-import { IsStartedContext } from './providers/IsStartedProvider'
-import { TrialsContext } from './providers/TrialsProvider'
+import { IsStartedContext } from '../providers/IsStartedProvider'
+import { TrialsContext } from '../providers/TrialsProvider'
 import Trial from './Trial'
 import { MdAdd } from 'react-icons/md'
 

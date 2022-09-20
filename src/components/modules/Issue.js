@@ -1,7 +1,7 @@
 import { useEffect, useContext } from 'react'
 import { useFormContext } from 'react-hook-form'
-import { MarkdownContext } from './providers/MarkdownProvider'
-import MarkdownArea from './MarkdownArea'
+import { MarkdownContext } from '../providers/MarkdownProvider'
+import MarkdownArea from '../elements/MarkdownArea'
 
 export default function Issue() {
 

@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 import { useSession, signIn } from 'next-auth/react'
 import { Octokit } from 'octokit'
-import { MarkdownContext } from './providers/MarkdownProvider'
+import { MarkdownContext } from '../providers/MarkdownProvider'
 import { GoMarkGithub } from 'react-icons/go'
 
 export default function ExportBtn() {

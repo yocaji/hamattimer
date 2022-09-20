@@ -1,6 +1,6 @@
 import { useContext } from 'react'
-import { IsStartedContext } from './providers/IsStartedProvider'
-import { TrialsContext } from './providers/TrialsProvider'
+import { IsStartedContext } from '../providers/IsStartedProvider'
+import { TrialsContext } from '../providers/TrialsProvider'
 
 export default function StartBtn(props) {
 

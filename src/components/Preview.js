@@ -4,7 +4,7 @@ import remarkGfm from 'remark-gfm'
 import remarkBreaks from 'remark-breaks'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { MarkdownContext } from './providers/MarkdownProvider'
-import ExportBtn from './ExportBtn'
+import ExportBtn from './elements/ExportBtn'
 import { MdContentCopy } from 'react-icons/md'
 
 export default function MarkdownPreview() {
