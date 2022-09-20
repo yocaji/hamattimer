@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 import { useFormContext } from 'react-hook-form'
-import { IsStartedContext } from './providers/IsStartedProvider'
-import { TrialsContext } from './providers/TrialsProvider'
+import { IsStartedContext } from '../providers/IsStartedProvider'
+import { TrialsContext } from '../providers/TrialsProvider'
 import { MdDelete } from 'react-icons/md'
 
 export default function ResetBtn(props) {

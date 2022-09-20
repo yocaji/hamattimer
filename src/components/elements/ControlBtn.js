@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { IsStartedContext } from './providers/IsStartedProvider'
+import { IsStartedContext } from '../providers/IsStartedProvider'
 import { MdPause, MdPlayArrow } from 'react-icons/md'
 
 export default function ControlBtn(props) {

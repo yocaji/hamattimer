@@ -1,8 +1,8 @@
 import { FormProvider, useForm } from 'react-hook-form'
 import { useContext, useEffect } from 'react'
-import { MarkdownContext } from './providers/MarkdownProvider'
-import { TrialsContext } from './providers/TrialsProvider'
-import MarkdownArea from './MarkdownArea'
+import { MarkdownContext } from '../providers/MarkdownProvider'
+import { TrialsContext } from '../providers/TrialsProvider'
+import MarkdownArea from '../elements/MarkdownArea'
 import { MdDelete } from 'react-icons/md'
 
 export default function Trial(props) {

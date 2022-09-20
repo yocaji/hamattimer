@@ -1,5 +1,5 @@
-import Timer from './Timer'
-import ResetBtn from './ResetBtn'
+import Timer from './elements/Timer'
+import ResetBtn from './elements/ResetBtn'
 
 export default function Navbar(props) {
 
