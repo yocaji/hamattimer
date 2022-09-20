@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import ControlButton from './ControlButton'
+import ControlButton from '../elements/ControlButton'
 
 export default function Timer(props) {
 

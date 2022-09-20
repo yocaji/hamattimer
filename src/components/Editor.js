@@ -5,7 +5,7 @@ import { TrialsContext } from './providers/TrialsProvider'
 import Issue from './modules/Issue'
 import Trials from './modules/Trials'
 import StartButton from './elements/StartButton'
-import EditorFooter from './elements/EditorFooter'
+import EditorFooter from './modules/EditorFooter'
 
 export default function Editor(props) {
 

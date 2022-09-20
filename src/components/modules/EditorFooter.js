@@ -9,12 +9,12 @@ export default function EditorFooter(props) {
 
   const handleClickSolved = () => {
     props.pause()
-    alert(`おつかれさまでした🎉\n作成した記録を保存しておきたい時は、Gistへのエクスポート機能をご活用ください\n\n（エクスポート機能へのリンクを入れる予定）`)
+    alert(`おつかれさまでした🎉\n作成した記録を保存しておきたい時は、Gistへのエクスポート機能をご活用ください）`)
   }
 
   const handleClickEnd = () => {
     props.pause()
-    alert(`おつかれさまでした🍵\n作成した記録を保存しておきたい時は、Gistへのエクスポート機能をご活用ください\n\n（エクスポート機能へのリンクを入れる予定）`)
+    alert(`おつかれさまでした🍵\n作成した記録を保存しておきたい時は、Gistへのエクスポート機能をご活用ください）`)
   }
 
   return (

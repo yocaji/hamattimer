@@ -1,4 +1,4 @@
-import Timer from './elements/Timer'
+import Timer from './modules/Timer'
 import ResetButton from './elements/ResetButton'
 
 export default function Navbar(props) {
