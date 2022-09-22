@@ -24,7 +24,7 @@ export default function GistButton() {
   return (
     <button onClick={() => createGist(markdown)} className={'button is-small'} disabled={status !== 'authenticated'}>
       <GoMarkGithub className={'mr-2'}/>
-      Gistにエクスポート
+      Gistに保存する
     </button>
   )
 }
