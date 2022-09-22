@@ -26,7 +26,7 @@ export const MarkdownProvider = (props) => {
     const createTrialsMd = () => {
       if (trials) {
         return trials
-          .map((trial) => {
+          .map((trial, i) => {
             const { guess, operation, result } = trial
             const guessMd = () => {
               if (guess === '') return ''
@@ -40,7 +40,7 @@ export const MarkdownProvider = (props) => {
               if (result === '') return ''
               return `\n### やった結果\n${result}\n`
             }
-            return `\n## 試したこと\n${guessMd()}${operationMd()}${resultMd()}`
+            return `\n## 試したこと その${i + 1}\n${guessMd()}${operationMd()}${resultMd()}`
           })
           .join('')
       } else {
