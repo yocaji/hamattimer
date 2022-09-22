@@ -56,7 +56,7 @@ export default function Trial(props) {
     <section className={'section'}>
       <div className={'box'}>
         <h2 className={'title is-5'}>
-          試したこと{props.index}
+          試したこと その{props.index}
           <button
             className={'button is-light is-small ml-3'}
             onClick={() => removeTrial(trial.id)}
