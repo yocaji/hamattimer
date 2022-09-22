@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { useSession, signIn } from 'next-auth/react'
+import { useSession } from 'next-auth/react'
 import { Octokit } from 'octokit'
 import { MarkdownContext } from '../providers/MarkdownProvider'
 import { GoMarkGithub } from 'react-icons/go'
@@ -21,19 +21,10 @@ export default function GistButton() {
     window.open(response.data.html_url)
   }
 
-  if (status === 'authenticated') {
-    return (
-      <button onClick={() => createGist(markdown)} className={'button is-small'}>
-        <GoMarkGithub className={'mr-2'}/>
-        Gistにエクスポート
-      </button>
-    )
-  } else {
-    return (
-      <button onClick={() => signIn('github')} className={'button is-small'}>
-        <GoMarkGithub className={'mr-2'}/>
-        GitHub連携
-      </button>
-    )
-  }
+  return (
+    <button onClick={() => createGist(markdown)} className={'button is-small'} disabled={status !== 'authenticated'}>
+      <GoMarkGithub className={'mr-2'}/>
+      Gistにエクスポート
+    </button>
+  )
 }
