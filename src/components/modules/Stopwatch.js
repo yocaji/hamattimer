@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import ControlButton from '../elements/ControlButton'
 import ExpiredModal from '../elements/ExpiredModal'
 
-export default function Timer(props) {
+export default function Stopwatch(props) {
 
   const { seconds, minutes, hours, days, pause, isRunning } = props.stopwatch
   const [isOpen, setIsOpen] = useState(false)
