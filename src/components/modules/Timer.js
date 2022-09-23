@@ -6,6 +6,7 @@ export default function Timer(props) {
 
   const { seconds, minutes, hours, days, pause, isRunning } = props.stopwatch
   const [isOpen, setIsOpen] = useState(false)
+  const [limit, setLimit] = useState()
 
   const pad0 = (number) => {
     return number.toString().padStart(2, '0')
@@ -26,13 +27,13 @@ export default function Timer(props) {
   useEffect(() => {
     if (!isRunning) return
 
-    const limit = JSON.parse(localStorage.getItem('issue')).limit
+    setLimit(JSON.parse(localStorage.getItem('issue')).limit)
     const totalMinutes = minutes + hours * 60 + days * 60 * 24
     if (limit === totalMinutes) {
       pause()
       setIsOpen(true)
     }
-  }, [days, hours, minutes, pause, isRunning])
+  }, [days, hours, minutes, pause, isRunning, limit])
 
   return (
     <>
@@ -42,7 +43,7 @@ export default function Timer(props) {
         </div>
         <ControlButton stopwatch={props.stopwatch}/>
       </div>
-      <ExpiredModal isOpen={isOpen} setIsOpen={setIsOpen}/>
+      <ExpiredModal isOpen={isOpen} setIsOpen={setIsOpen} limit={limit}/>
     </>
   )
 }
