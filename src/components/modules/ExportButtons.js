@@ -11,7 +11,6 @@ export default function ExportButtons() {
         <CopyButton/>
         <GistButton/>
       </div>
-      <hr/>
     </>
   )
 }
