@@ -1,4 +1,4 @@
-import Timer from './modules/Timer'
+import Stopwatch from './modules/Stopwatch'
 import ResetButton from './elements/ResetButton'
 
 export default function Navbar(props) {
@@ -16,13 +16,13 @@ export default function Navbar(props) {
           </h1>
         </div>
         <div className={'navbar-start'}>
-          <Timer stopwatch={props.stopwatch}/>
+          <Stopwatch stopwatch={props.stopwatch}/>
         </div>
         <div className={'navbar-end'}>
           <ResetButton stopwatch={props.stopwatch}/>
         </div>
       </nav>
-      <div className={'block py-3'}></div>
+      <div className={'block py-4'}></div>
     </>
   )
 }

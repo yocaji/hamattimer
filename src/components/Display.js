@@ -38,17 +38,21 @@ export default function Display() {
       <FormProvider {...methods}>
         <Navbar stopwatch={stopwatch}/>
       </FormProvider>
-      <div className={'columns is-gapless'}>
+      <div className={'columns is-gapless is-multiline'}>
         <MarkdownProvider>
-          <div className={'column'}>
-            <Editor methods={methods} stopwatch={stopwatch}/>
+          <div className={'column is-half hero is-fullheight aside'}>
+            <section className={'section'}>
+              <Editor methods={methods} stopwatch={stopwatch}/>
+            </section>
           </div>
-          <div className={'column content'}>
+          <div className={'column is-half hero is-fullheight'}>
             <Preview/>
           </div>
         </MarkdownProvider>
+        <div className={'column is-full'}>
+          <Footer/>
+        </div>
       </div>
-      <Footer/>
     </>
   )
 }

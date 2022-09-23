@@ -15,10 +15,8 @@ export default function StartButton(props) {
   }
 
   return (
-    <div className={'has-text-centered mt-6'}>
-      <button type={'button'} className={'button is-dark'} onClick={handleClick}>
-        スタート
-      </button>
-    </div>
+    <button type={'button'} className={'button is-dark is-fullwidth'} onClick={handleClick}>
+      スタート
+    </button>
   )
 }

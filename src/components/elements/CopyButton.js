@@ -13,7 +13,7 @@ export default function CopyButton() {
 
   return (
     <CopyToClipboard text={markdown}>
-      <button className={'button is-small'}><MdContentCopy className={'mr-1'}/>Copy</button>
+      <button className={'button is-small'}><MdContentCopy className={'mr-1'}/>Markdown形式でコピー</button>
     </CopyToClipboard>
   )
 }

@@ -14,11 +14,16 @@ export default function Preview() {
   })
 
   return (
-    <section className={'section'}>
-      <ExportButtons/>
-      <ReactMarkdown remarkPlugins={[remarkGfm, remarkBreaks]} unwrapDisallowed={false}>
-        {markdown}
-      </ReactMarkdown>
-    </section>
+      <div>
+        <div className={'card-content'}>
+          <ExportButtons/>
+        </div>
+        <div className={'card-footer'}/>
+        <div className={'card-content content'}>
+          <ReactMarkdown remarkPlugins={[remarkGfm, remarkBreaks]} unwrapDisallowed={false}>
+            {markdown}
+          </ReactMarkdown>
+        </div>
+      </div>
   )
 }

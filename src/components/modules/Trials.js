@@ -30,17 +30,22 @@ export default function Trials(props) {
 
   return (
     <>
-      {trials.map((trial, i) => (
-        <Trial
-          key={trial.id}
-          trial={trial}
-          index={i + 1}
-        />
-      ))}
-      <div className={'has-text-centered'}>
-        <button className={'button is-light'} onClick={() => props.addTrial()}>
-          <MdAdd className={'mr-1'}/>追加する
-        </button>
+      <div className={'card mt-6'}>
+        <div className={'card-header'}>
+          <h2 className={'card-header-title'}>試したこと</h2>
+        </div>
+        {trials.map((trial, i) => (
+          <Trial
+            key={trial.id}
+            trial={trial}
+            index={i + 1}
+          />
+        ))}
+        <div className={'card-footer'}>
+          <a className={'card-footer-item'} onClick={() => props.addTrial()}>
+            <MdAdd className={'mr-1'}/>追加する
+          </a>
+        </div>
       </div>
     </>
   )
