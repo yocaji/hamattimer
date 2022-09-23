@@ -15,7 +15,7 @@ export default function Navbar(props) {
             はまったいまー
           </h1>
         </div>
-        <div className={'navbar-start'}>
+        <div className={'navbar-end'}>
           <Stopwatch stopwatch={props.stopwatch}/>
         </div>
         <div className={'navbar-end'}>

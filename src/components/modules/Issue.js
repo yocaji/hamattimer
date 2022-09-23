@@ -18,7 +18,7 @@ export default function Issue() {
     if (!localStorage.getItem('issue')) {
       localStorage.setItem(
         'issue',
-        `{"tobe": "", "asis": "", "problem": "", "limit": 30}`,
+        `{"tobe": "", "asis": "", "problem": ""}`,
       )
     }
   }, [])
@@ -28,7 +28,6 @@ export default function Issue() {
     setValue('tobe', defaultValue?.tobe)
     setValue('asis', defaultValue?.asis)
     setValue('problem', defaultValue?.problem)
-    setValue('limit', defaultValue?.limit)
   }, [setValue])
 
   const change = () => {
@@ -36,9 +35,8 @@ export default function Issue() {
     const tobe = JSON.stringify(formValues.tobe)
     const asis = JSON.stringify(formValues.asis)
     const problem = JSON.stringify(formValues.problem)
-    const limit = JSON.stringify(formValues.limit)
     localStorage.setItem('issue',
-      `{"tobe": ${tobe}, "asis": ${asis}, "problem": ${problem}, "limit": ${limit}}`,
+      `{"tobe": ${tobe}, "asis": ${asis}, "problem": ${problem}}`,
     )
     updateMarkdown()
   }
@@ -65,30 +63,6 @@ export default function Issue() {
             <div className={'control'}>
               <MarkdownArea name={'problem'} update={change}/>
             </div>
-          </div>
-          <label className={'label'}>タイマー</label>
-          <div className={'field has-addons'}>
-            <div className={'control'}>
-              <input
-                type={'number'}
-                {...register('limit', {
-                  valueAsNumber: true,
-                  pattern: {
-                    value: /^[0-9]+$/,
-                    message: '整数で入力してください',
-                  },
-                  min: {
-                    value: 1,
-                    message: '1以上の整数を入力してください',
-                  },
-                })}
-                className={'input'}
-              />
-            </div>
-            <div className={'control'}>
-              <button className={'button is-static'}>分</button>
-            </div>
-            <p className={'help is-danger'}>{errors.limit?.message}</p>
           </div>
         </form>
       </div>

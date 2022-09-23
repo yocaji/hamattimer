@@ -29,7 +29,6 @@ export default function Display() {
       'tobe': '',
       'asis': '',
       'problem': '',
-      'limit': '30',
     },
   })
 
