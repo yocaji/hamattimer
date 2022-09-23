@@ -24,17 +24,14 @@ export default function Editor(props) {
 
   return (
     <>
-      <section className={'section'}>
-        <FormProvider {...props.methods}>
-          <Issue/>
-        </FormProvider>
-      </section>
+      <FormProvider {...props.methods}>
+        <Issue/>
+      </FormProvider>
       <Trials addTrial={addTrial}/>
-      <section className={'section'}>
-        <hr/>
+      <div className={'mt-6'}>
         <StartButton start={props.stopwatch.start} addTrial={addTrial}/>
         <EditorFooter pause={props.stopwatch.pause}/>
-      </section>
+      </div>
     </>
   )
 }

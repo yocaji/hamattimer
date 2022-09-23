@@ -53,8 +53,8 @@ export default function Trial(props) {
   }
 
   return (
-    <section className={'section'}>
-      <div className={'box'}>
+    <>
+      <div className={'card-content'}>
         <h2 className={'title is-5'}>
           試したこと その{props.index}
           <button
@@ -85,12 +85,13 @@ export default function Trial(props) {
             <div className={'field'}>
               <label className={'label'}>結果</label>
               <div className={'control'}>
-                <MarkdownArea name={'result'} value={trial.result} update={() => change(trial.id)} />
+                <MarkdownArea name={'result'} value={trial.result} update={() => change(trial.id)}/>
               </div>
             </div>
           </form>
         </FormProvider>
       </div>
-    </section>
+      <div className={'card-footer'}/>
+    </>
   )
 }

@@ -41,7 +41,9 @@ export default function Display() {
       <div className={'columns is-gapless'}>
         <MarkdownProvider>
           <div className={'column'}>
-            <Editor methods={methods} stopwatch={stopwatch}/>
+            <section className={'section'}>
+              <Editor methods={methods} stopwatch={stopwatch}/>
+            </section>
           </div>
           <div className={'column content'}>
             <Preview/>
