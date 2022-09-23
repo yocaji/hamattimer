@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import ControlButton from '../elements/ControlButton'
 import ExpiredModal from '../elements/ExpiredModal'
+import SelectLimit from '../elements/SelectLimit'
 
 export default function Stopwatch(props) {
 
@@ -27,9 +28,9 @@ export default function Stopwatch(props) {
   useEffect(() => {
     if (!isRunning) return
 
-    setLimit(JSON.parse(localStorage.getItem('issue')).limit)
+    setLimit(localStorage.getItem('limit'))
     const totalMinutes = minutes + hours * 60 + days * 60 * 24
-    if (limit === totalMinutes) {
+    if (limit === String(totalMinutes)) {
       pause()
       setIsOpen(true)
     }
@@ -38,10 +39,13 @@ export default function Stopwatch(props) {
   return (
     <>
       <div className={'navbar-item'}>
-        <div className={'is-size-5 mr-3'}>
+        <ControlButton stopwatch={props.stopwatch}/>
+        <div className={'is-size-5 ml-3'}>
           {days * 24 + hours}:{pad0(minutes)}:{pad0(seconds)}
         </div>
-        <ControlButton stopwatch={props.stopwatch}/>
+      </div>
+      <div className={'navbar-item'}>
+        <SelectLimit/>
       </div>
       <ExpiredModal isOpen={isOpen} setIsOpen={setIsOpen} limit={limit}/>
     </>
