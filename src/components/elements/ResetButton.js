@@ -1,33 +1,17 @@
-import { useContext } from 'react'
-import { useFormContext } from 'react-hook-form'
-import { IsStartedContext } from '../providers/IsStartedProvider'
-import { TrialsContext } from '../providers/TrialsProvider'
+import { useState } from 'react'
 import { MdDelete } from 'react-icons/md'
+import ResetModal from './ResetModal'
 
 export default function ResetButton(props) {
 
-  const { setIsStarted } = useContext(IsStartedContext)
-  const { setTrials } = useContext(TrialsContext)
-
-  const {
-    getValues,
-    reset,
-    handleSubmit,
-  } = useFormContext()
-
-  const resetAll = () => {
-    confirm('データをリセットしますか？')
-    reset()
-    props.stopwatch.reset(0, false)
-    setIsStarted(false)
-    setTrials([])
-    localStorage.setItem('issue', JSON.stringify(getValues()))
-    localStorage.setItem('trials', JSON.stringify([]))
-  }
+  const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <form className={'navbar-item'}>
-      <button onClick={handleSubmit(resetAll)} className={'button'}><MdDelete />リセット</button>
-    </form>
+    <>
+      <div className={'navbar-item'}>
+        <button onClick={() => setIsOpen(true)} className={'button'}><MdDelete/>リセット</button>
+      </div>
+      <ResetModal isOpen={isOpen} setIsOpen={setIsOpen} stopwatch={props.stopwatch}/>
+    </>
   )
 }

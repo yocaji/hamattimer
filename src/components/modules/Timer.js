@@ -1,9 +1,11 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import ControlButton from '../elements/ControlButton'
+import ExpiredModal from '../elements/ExpiredModal'
 
 export default function Timer(props) {
 
   const { seconds, minutes, hours, days, pause, isRunning } = props.stopwatch
+  const [isOpen, setIsOpen] = useState(false)
 
   const pad0 = (number) => {
     return number.toString().padStart(2, '0')
@@ -28,16 +30,19 @@ export default function Timer(props) {
     const totalMinutes = minutes + hours * 60 + days * 60 * 24
     if (limit === totalMinutes) {
       pause()
-      alert(`${limit}分経ちました。`)
+      setIsOpen(true)
     }
   }, [days, hours, minutes, pause, isRunning])
 
   return (
-    <div className={'navbar-item'}>
-      <div className={'is-size-5 mr-3'}>
-        {days * 24 + hours}:{pad0(minutes)}:{pad0(seconds)}
+    <>
+      <div className={'navbar-item'}>
+        <div className={'is-size-5 mr-3'}>
+          {days * 24 + hours}:{pad0(minutes)}:{pad0(seconds)}
+        </div>
+        <ControlButton stopwatch={props.stopwatch}/>
       </div>
-      <ControlButton stopwatch={props.stopwatch}/>
-    </div>
+      <ExpiredModal isOpen={isOpen} setIsOpen={setIsOpen}/>
+    </>
   )
 }
