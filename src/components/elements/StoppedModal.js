@@ -1,7 +1,6 @@
-export default function ExpiredModal(props) {
+export default function StoppedModal(props) {
 
   const isActive = () => props.isOpen ? 'is-active' : ''
-  const limit = () => JSON.parse(localStorage.getItem('issue')).limit
 
   return (
     <>
@@ -9,7 +8,7 @@ export default function ExpiredModal(props) {
         <div className={'modal-background'} onClick={() => props.setIsOpen(false)}/>
           <div className={'modal-content'}>
             <div className={'box'}>
-            <p className={'mb-2'}>{limit}分経ちました</p>
+            <p className={'mb-2'}>おつかれさまでした🍵<br/>作成した記録を保存しておきたい時は、Gistに保存する機能をご活用ください</p>
             <div className={'buttons'}>
               <button className={'button'} onClick={() => props.setIsOpen(false)}>閉じる</button>
             </div>
