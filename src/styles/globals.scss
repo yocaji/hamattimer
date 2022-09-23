@@ -1,4 +1,8 @@
 $family-sans-serif: 'BIZ UDPGothic', sans-serif;
+$blue: #00c7d3;
+$primary: $blue;
+$text: #263238;
+$text-strong: $text;
 @import '~bulma/bulma';
 .aside {
   border-right: 1px solid #eeeeee;
