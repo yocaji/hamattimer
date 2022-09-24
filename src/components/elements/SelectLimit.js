@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { GoBell } from 'react-icons/go'
 
 export default function SelectLimit() {
   const [limit, setLimit] = useState(30)
@@ -9,15 +10,16 @@ export default function SelectLimit() {
 
   return (
     <>
-      <div className={'select is-small mr-2'}>
+      <GoBell className={'ml-4'}/>
+      <span className={'select is-small ml-2'}>
         <select value={limit} onChange={(e) => setLimit(e.target.value)}>
           <option>15</option>
           <option>30</option>
           <option>60</option>
           <option>120</option>
         </select>
-      </div>
-      <p className={'is-size-7'}>分たったらリマインドする</p>
+      </span>
+      <span className={'is-size-7 ml-2'}>分</span>
     </>
   )
 }

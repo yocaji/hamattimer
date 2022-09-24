@@ -40,11 +40,9 @@ export default function Stopwatch(props) {
     <>
       <div className={'navbar-item'}>
         <ControlButton stopwatch={props.stopwatch}/>
-        <div className={'is-size-5 ml-3'}>
+        <span className={'is-size-5 ml-2'}>
           {days * 24 + hours}:{pad0(minutes)}:{pad0(seconds)}
-        </div>
-      </div>
-      <div className={'navbar-item'}>
+        </span>
         <SelectLimit/>
       </div>
       <ExpiredModal isOpen={isOpen} setIsOpen={setIsOpen} limit={limit}/>

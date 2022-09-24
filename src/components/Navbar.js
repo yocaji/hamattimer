@@ -1,5 +1,6 @@
 import Stopwatch from './modules/Stopwatch'
 import ResetButton from './elements/ResetButton'
+import Image from 'next/image'
 
 export default function Navbar(props) {
 
@@ -7,13 +8,14 @@ export default function Navbar(props) {
     <>
       <nav
         className={'navbar is-fixed-top has-shadow'}
-        role={'navigation'}
-        aria-label={'dropdown navigation'}
       >
         <div className={'navbar-brand'}>
-          <h1 className={'navbar-item is-size-4 has-text-weight-bold'}>
-            はまったいまー
-          </h1>
+          <div className={'navbar-item'}>
+            <Image src={'/logo-mark.png'} width={60} height={60} alt={'はまったいまーロゴマーク'}/>
+            <h1 className={'is-size-4 has-text-weight-bold mx-3 is-hidden-touch'}>
+              はまったいまー
+            </h1>
+          </div>
         </div>
         <div className={'navbar-end'}>
           <Stopwatch stopwatch={props.stopwatch}/>
