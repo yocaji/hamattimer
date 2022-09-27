@@ -31,3 +31,20 @@ test('スタートボタン', async ({ page }) => {
 	await expect(page.locator('_react=EditorFooter >> text=終了する')).toBeVisible()
 	await expect(page.locator('_react=Preview >> h2')).toHaveText(['解決したいこと', '試したこと その1'])
 })
+
+test('ストップウォッチ', async ({ page }) => {
+	await page.goto('/timer')
+
+	await page.locator('_react=StartButton').click()
+	await expect(page.locator('_react=ControlButton')).toBeEnabled()
+	await expect(page.locator('#stopwatch-counter')).toHaveText('0:00:01')
+
+	await page.locator('_react=ControlButton').click()
+	await page.waitForTimeout(1000)
+	await expect(page.locator('#stopwatch-counter')).toHaveText('0:00:01')
+
+	const localStorage = (await page.context().storageState()).origins[0].localStorage
+	const stopwatch = localStorage.filter((item) => item.name === 'stopwatch')[0].value
+	const seconds = JSON.parse(stopwatch).seconds
+	expect(seconds).toBe(1)
+})
