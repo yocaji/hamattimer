@@ -83,3 +83,18 @@ test('Gistに保存する', async ({ browser }) => {
   ])
   await expect(newPage).toHaveURL(/github/)
 })
+
+test('Markdown形式でコピー', async ({ browser }) => {
+  const context = await browser.newContext()
+  await context.grantPermissions(['clipboard-read', 'clipboard-write'], {origin: process.env.NEXTAUTH_URL})
+  await context.grantPermissions(['clipboard-read'])
+  await context.grantPermissions(['clipboard-write'])
+  const page = await context.newPage()
+
+  await page.goto('/timer')
+  await page.locator('_react=CopyButton').click()
+  await page.context().storageState({ path: 'clipboard.json' })
+  const text = await page.clipboard.read()
+  await expect.soft(text).toBe(/fail/)
+  await context.clearPermissions()
+})
