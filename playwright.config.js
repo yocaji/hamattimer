@@ -1,7 +1,6 @@
 import { devices } from '@playwright/test'
 
 const config = {
-    globalSetup: require.resolve('./global-setup'),
     testMatch: '/e2e/**/*.spec.js',
     use: {
         baseURL: process.env.BASE_URL || 'http://localhost:3000',
