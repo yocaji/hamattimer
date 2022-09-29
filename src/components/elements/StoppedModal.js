@@ -4,7 +4,7 @@ export default function StoppedModal(props) {
 
   return (
     <>
-      <div className={`modal ${isActive()}`} id={'modal-stopped'}>
+      <div className={`modal ${isActive()}`}>
         <div className={'modal-background'} onClick={() => props.setIsOpen(false)}/>
           <div className={'modal-content'}>
             <div className={'box'}>

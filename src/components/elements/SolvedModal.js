@@ -4,7 +4,7 @@ export default function SolvedModal(props) {
 
   return (
     <>
-      <div className={`modal ${isActive()}`} id={'modal-solved'}>
+      <div className={`modal ${isActive()}`}>
         <div className={'modal-background'} onClick={() => props.setIsOpen(false)}/>
           <div className={'modal-content'}>
             <div className={'box'}>

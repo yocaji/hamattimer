@@ -24,23 +24,21 @@ export default function ResetModal(props) {
   const isActive = () => props.isOpen ? 'is-active' : ''
 
   return (
-    <>
-      <div className={`modal ${isActive()}`}>
-        <div className={'modal-background'} onClick={() => props.setIsOpen(false)}/>
-          <div className={'modal-content'}>
-            <div className={'box'}>
-            <p className={'mb-2'}>データをリセットしますか？</p>
-            <div className={'buttons'}>
-              <button className={'button is-danger'} onClick={() => {
-                resetAll()
-                props.setIsOpen(false)
-              }}>リセットする
-              </button>
-              <button className={'button'} onClick={() => props.setIsOpen(false)}>閉じる</button>
-            </div>
+    <div className={`modal ${isActive()}`}>
+      <div className={'modal-background'} onClick={() => props.setIsOpen(false)}/>
+      <div className={'modal-content'}>
+        <div className={'box'}>
+          <p className={'mb-2'}>データをリセットしますか？</p>
+          <div className={'buttons'}>
+            <button className={'button is-danger'} onClick={() => {
+              resetAll()
+              props.setIsOpen(false)
+            }}>リセットする
+            </button>
+            <button className={'button'} onClick={() => props.setIsOpen(false)}>閉じる</button>
           </div>
         </div>
       </div>
-    </>
+    </div>
   )
 }

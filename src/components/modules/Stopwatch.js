@@ -38,7 +38,7 @@ export default function Stopwatch(props) {
 
   return (
     <>
-      <div className={'navbar-item'}>
+      <div className={'navbar-item'} id={'stopwatch'}>
         <ControlButton stopwatch={props.stopwatch}/>
         <span className={'is-size-5 ml-2'} id={'stopwatch-counter'}>
           {days * 24 + hours}:{pad0(minutes)}:{pad0(seconds)}
