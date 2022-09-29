@@ -60,6 +60,7 @@ export default function Trial(props) {
           <button
             className={'button is-light is-small ml-3'}
             onClick={() => removeTrial(trial.id)}
+            id={'remove-trial'}
           >
             <MdDelete/>
           </button>
