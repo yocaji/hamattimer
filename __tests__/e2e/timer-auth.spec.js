@@ -30,13 +30,8 @@ test.describe('GitHub連携', () => {
     await page.goto('/timer')
     await page.locator('#preview >> text=GitHubと連携').click()
     await page.waitForNavigation()
-    await page.screenshot({ path: 'screenshot.png', fullPage: true });
-    if (await page.locator('#js-oauth-authorize-btn').count(1)) {
-      await page.locator('#js-oauth-authorize-btn').click()
-      await page.waitForNavigation()
-    }
     await expect(page.locator('#preview >> text=GitHubと連携')).toBeHidden()
-    await expect(page.locator('#gist-button')).toBeEnabled()
+    await expect(page.locator('#preview >> button:has-text("Gistに保存する")')).toBeEnabled()
     await expect(page.locator('footer >> text=GitHub連携解除')).toBeVisible()
 
     await page.locator('footer >> text=GitHub連携解除').click()
