@@ -12,7 +12,7 @@ export default function Navbar(props) {
         {props.resetButton}
         {props.letsTryButton}
       </nav>
-      <div className={'block pb-6'}></div>
+      <div className={'block pt-6 mt-4'}></div>
     </>
   )
 }

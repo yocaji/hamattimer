@@ -23,12 +23,18 @@ export default function Index() {
                 <Image src={'/logotype-large.png'} width={600} height={141} alt={'はまったいまーロゴタイプ'}/>
               </div>
             </div>
+            <div className={'has-border-top has-border-bottom mt-6'}>
+              <div className={'p-5'}>
+                <p className={'lh-2 is-size-5 has-text-weight-bold'}>
+                  プログラミングをしていてハマった時に、時間を浪費してしまって後悔したことはありませんか？
+                </p>
+                <p className={'lh-2 is-size-5 has-text-weight-bold mt-3'}>
+                  時間に区切りを作って取り組むためのタイマー機能と、思考を整理するためのメモ機能で、<br/>
+                  はまったいまーはあなたの問題解決への取り組みをサポートします。
+                </p>
+              </div>
+            </div>
           </div>
-          <p className={'lh-2 is-size-5 has-text-weight-bold mt-6'}>
-            プログラミングをしていてハマった時に、時間を浪費してしまって後悔したことはありませんか？<br/>
-            時間に区切りを作って取り組むためのタイマー機能と、思考を整理するためのメモ機能で、<br/>
-            はまったいまーはあなたの問題解決への取り組みをサポートします。
-          </p>
         </div>
       </div>
       <div className={'hero has-text-centered has-background-paper'}>
@@ -42,7 +48,7 @@ export default function Index() {
             <div className={'columns'}>
               <div className={'column'}>
                 <Image src={'/dummy.png'} width={300} height={300} alt={'はまったいまーロゴ'}/>
-                <p className={'subtitle lh-1 mt-3 has-text-weight-bold'}>思わぬエラー発生💥</p>
+                <p className={'subtitle lh-1 mt-3 has-text-weight-bold'}>思わぬエラー発生🚨</p>
               </div>
               <div className={'column'}>
                 <Image src={'/dummy.png'} width={300} height={300} alt={'はまったいまーロゴ'}/>
@@ -67,11 +73,11 @@ export default function Index() {
             <div className={'columns'}>
               <div className={'column'}>
                 <Image src={'/dummy.png'} width={300} height={300} alt={'はまったいまーロゴ'}/>
-                <p className={'subtitle lh-1 mt-3 has-text-weight-bold'}>思わぬエラー発生💥</p>
+                <p className={'subtitle lh-1 mt-3 has-text-weight-bold'}>思わぬエラー発生🚨</p>
               </div>
               <div className={'column'}>
                 <Image src={'/dummy.png'} width={300} height={300} alt={'はまったいまーロゴ'}/>
-                <p className={'subtitle lh-1 mt-3 has-text-weight-bold'}>タイマーとメモを使って取り組む</p>
+                <p className={'subtitle lh-1 mt-3 has-text-weight-bold'}>タイマーとメモを使うから<br/>効率的に取り組める✨</p>
               </div>
               <div className={'column'}>
                 <Image src={'/dummy.png'} width={300} height={300} alt={'はまったいまーロゴ'}/>
