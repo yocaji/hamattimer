@@ -1,30 +1,18 @@
-import Stopwatch from './modules/Stopwatch'
-import ResetButton from './elements/ResetButton'
 import Image from 'next/image'
 
 export default function Navbar(props) {
 
   return (
     <>
-      <nav
-        className={'navbar is-fixed-top has-shadow'}
-      >
+      <nav className={'navbar is-fixed-top py-3 has-border-bottom'}>
         <div className={'navbar-brand'}>
-          <div className={'navbar-item'}>
-            <Image src={'/logo-mark.png'} width={60} height={60} alt={'はまったいまーロゴマーク'}/>
-            <h1 className={'is-size-4 has-text-weight-bold mx-3 is-hidden-touch'}>
-              はまったいまー
-            </h1>
-          </div>
+          <Image src={'/logotype.png'} width={256} height={66} alt={'はまったいまーロゴタイプ'}/>
         </div>
-        <div className={'navbar-end'}>
-          <Stopwatch stopwatch={props.stopwatch}/>
-        </div>
-        <div className={'navbar-end'}>
-          <ResetButton stopwatch={props.stopwatch}/>
-        </div>
+        {props.stopwatch}
+        {props.resetButton}
+        {props.letsTryButton}
       </nav>
-      <div className={'block py-4'}></div>
+      <div className={'block pb-6'}></div>
     </>
   )
 }

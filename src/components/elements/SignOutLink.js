@@ -6,7 +6,7 @@ export default function SignOutLink() {
 
   if (session) {
     return (
-      <a onClick={() => signOut()}>GitHub連携解除</a>
+      <a onClick={() => signOut()} className={'mx-3'}>GitHub連携解除</a>
     )
   }
 }

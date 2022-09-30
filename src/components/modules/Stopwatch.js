@@ -37,7 +37,7 @@ export default function Stopwatch(props) {
   }, [days, hours, minutes, pause, isRunning, limit])
 
   return (
-    <>
+    <div className={'navbar-end'}>
       <div className={'navbar-item'} id={'stopwatch'}>
         <ControlButton stopwatch={props.stopwatch}/>
         <span className={'is-size-5 ml-2'} id={'stopwatch-counter'}>
@@ -46,6 +46,6 @@ export default function Stopwatch(props) {
         <SelectLimit/>
       </div>
       <ExpiredModal isOpen={isOpen} setIsOpen={setIsOpen} limit={limit}/>
-    </>
+    </div>
   )
 }

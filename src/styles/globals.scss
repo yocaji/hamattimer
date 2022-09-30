@@ -1,9 +1,34 @@
 $family-sans-serif: 'BIZ UDPGothic', sans-serif;
-$blue: #00c7d3;
+//$blue: #00c7d3;
+$blue: #01C5C4;
+$green: #00796b;
 $primary: $blue;
-$text: #263238;
+$text: #424242;
 $text-strong: $text;
+$link: $blue;
+$hero-body-padding-tablet: 6rem 3rem;
 @import '~bulma/bulma';
 .aside {
   border-right: 1px solid #eeeeee;
+}
+.lh-1 {
+  line-height: 1.75;
+}
+.lh-2 {
+  line-height: 2.0;
+}
+.has-background-paper {
+  background-color: #FCF9F4;
+}
+.has-background-sand {
+  background-color: #FAF6E9;
+}
+.has-border-bottom {
+  border-bottom: solid 2px $blue;
+}
+.has-border-bottom-bold {
+  border-bottom: solid 4px $blue;
+}
+.is-size-6-half {
+  font-size: 0.9rem;
 }
