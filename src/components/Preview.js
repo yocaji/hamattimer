@@ -14,7 +14,7 @@ export default function Preview() {
   })
 
   return (
-      <div>
+      <div id={'preview'}>
         <div className={'card-content'}>
           <ExportButtons/>
         </div>

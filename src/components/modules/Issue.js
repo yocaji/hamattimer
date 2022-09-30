@@ -42,7 +42,7 @@ export default function Issue() {
   }
 
   return (
-    <div className={'card'}>
+    <div className={'card'} id={'issue'}>
       <div className={'card-content'}>
         <h2 className={'title is-5'}>解決したいこと</h2>
         <form onChange={change}>

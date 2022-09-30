@@ -55,7 +55,7 @@ export default function Trial(props) {
   return (
     <>
       <div className={'card-content'}>
-        <h2 className={'title is-5'}>
+        <h3 className={'title is-5'}>
           試したこと その{props.index}
           <button
             className={'button is-light is-small ml-3'}
@@ -63,7 +63,7 @@ export default function Trial(props) {
           >
             <MdDelete/>
           </button>
-        </h2>
+        </h3>
         <FormProvider {...methods}>
           <form onChange={() => change(trial.id)}>
             <div className={'field'}>

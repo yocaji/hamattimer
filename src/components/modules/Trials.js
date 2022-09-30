@@ -30,7 +30,7 @@ export default function Trials(props) {
 
   return (
     <>
-      <div className={'card mt-6'}>
+      <div className={'card mt-6'} id={'trials'}>
         <div className={'card-header'}>
           <h2 className={'card-header-title'}>試したこと</h2>
         </div>
