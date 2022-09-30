@@ -5,6 +5,8 @@ import Navbar from './Navbar'
 import Editor from './Editor'
 import Preview from './Preview'
 import Footer from './Footer'
+import ResetButton from './elements/ResetButton'
+import Stopwatch from './modules/Stopwatch'
 
 export default function Display() {
 
@@ -35,7 +37,7 @@ export default function Display() {
   return (
     <>
       <FormProvider {...methods}>
-        <Navbar stopwatch={stopwatch}/>
+        <Navbar stopwatch={<Stopwatch stopwatch={stopwatch}/>} resetButton={<ResetButton stopwatch={stopwatch}/>}/>
       </FormProvider>
       <div className={'columns is-gapless is-multiline'}>
         <MarkdownProvider>
