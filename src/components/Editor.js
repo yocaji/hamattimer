@@ -5,7 +5,7 @@ import { TrialsContext } from './providers/TrialsProvider'
 import Issue from './modules/Issue'
 import Trials from './modules/Trials'
 import StartButton from './elements/StartButton'
-import EditorFooter from './modules/EditorFooter'
+import EndButtons from './modules/EndButtons'
 
 export default function Editor(props) {
 
@@ -30,7 +30,7 @@ export default function Editor(props) {
       <Trials addTrial={addTrial}/>
       <div className={'mt-6'}>
         <StartButton start={props.stopwatch.start} addTrial={addTrial}/>
-        <EditorFooter pause={props.stopwatch.pause}/>
+        <EndButtons pause={props.stopwatch.pause}/>
       </div>
     </>
   )
