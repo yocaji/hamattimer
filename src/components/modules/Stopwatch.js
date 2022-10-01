@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
 import ControlButton from '../elements/ControlButton'
-import ExpiredModal from '../elements/ExpiredModal'
 import SelectLimit from '../elements/SelectLimit'
+import Modal from '../elements/Modal'
+import ModalExpired from '../elements/ModalExpired'
 
 export default function Stopwatch(props) {
 
@@ -45,7 +46,9 @@ export default function Stopwatch(props) {
         </div>
         <SelectLimit/>
       </div>
-      <ExpiredModal isOpen={isOpen} setIsOpen={setIsOpen} limit={limit}/>
+      <Modal isOpen={isOpen} setIsOpen={setIsOpen} title={'調子はどうですか？'}>
+        <ModalExpired limit={limit}/>
+      </Modal>
     </div>
   )
 }
