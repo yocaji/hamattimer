@@ -37,7 +37,10 @@ export default function Display() {
   return (
     <>
       <FormProvider {...methods}>
-        <Navbar stopwatch={<Stopwatch stopwatch={stopwatch}/>} resetButton={<ResetButton stopwatch={stopwatch}/>}/>
+        <Navbar>
+          <Stopwatch stopwatch={stopwatch}/>
+          <ResetButton stopwatch={stopwatch}/>
+        </Navbar>
       </FormProvider>
       <div className={'columns is-gapless is-multiline has-background-paper'}>
         <MarkdownProvider>
