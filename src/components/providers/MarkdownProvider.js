@@ -20,7 +20,7 @@ export const MarkdownProvider = (props) => {
       if (problem === '') return ''
       return `\n### エラーメッセージやログなど\n${problem}\n`
     }
-    const issueMd = `## 解決したいこと\n${tobeMd()}${asisMd()}${problemMd()}`
+    const issueMd = `# 解決したいこと\n${tobeMd()}${asisMd()}${problemMd()}`
 
     const trials = JSON.parse(localStorage.getItem('trials'))
     const createTrialsMd = () => {
@@ -40,7 +40,7 @@ export const MarkdownProvider = (props) => {
               if (result === '') return ''
               return `\n### やった結果\n${result}\n`
             }
-            return `\n## 試したこと その${i + 1}\n${guessMd()}${operationMd()}${resultMd()}`
+            return `\n# 試したこと\n## その${i + 1}\n${guessMd()}${operationMd()}${resultMd()}`
           })
           .join('')
       } else {
