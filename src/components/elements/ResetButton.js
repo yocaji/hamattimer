@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { MdCleaningServices } from 'react-icons/md'
-import ResetModal from './ResetModal'
+import Modal from './Modal'
+import ModalReset from './ModalReset'
 
 export default function ResetButton(props) {
 
@@ -13,7 +14,9 @@ export default function ResetButton(props) {
           <MdCleaningServices/><span className={'is-hidden-touch ml-1'}>リセット</span>
         </button>
       </div>
-      <ResetModal isOpen={isOpen} setIsOpen={setIsOpen} stopwatch={props.stopwatch}/>
+      <Modal isOpen={isOpen} setIsOpen={setIsOpen} title={'記録をリセットします'}>
+        <ModalReset stopwatch={props.stopwatch} setIsOpen={setIsOpen}/>
+      </Modal>
     </div>
   )
 }
