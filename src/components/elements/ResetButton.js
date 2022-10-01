@@ -9,8 +9,9 @@ export default function ResetButton(props) {
   return (
     <div className={'navbar-end'}>
       <div className={'navbar-item'}>
-        <button onClick={() => setIsOpen(true)} className={'button'}><MdDelete/><span
-          className={'is-hidden-touch'}>リセット</span></button>
+        <button onClick={() => setIsOpen(true)} className={'button is-rounded is-primary is-outlined'}>
+          <MdDelete/><span className={'is-hidden-touch'}>リセット</span>
+        </button>
       </div>
       <ResetModal isOpen={isOpen} setIsOpen={setIsOpen} stopwatch={props.stopwatch}/>
     </div>

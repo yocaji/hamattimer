@@ -15,7 +15,7 @@ export default function StartButton(props) {
   }
 
   return (
-    <button type={'button'} className={'button is-primary is-fullwidth has-text-weight-bold'} onClick={handleClick}>
+    <button type={'button'} className={'button is-primary is-rounded is-medium is-fullwidth'} onClick={handleClick}>
       スタート
     </button>
   )

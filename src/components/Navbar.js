@@ -4,7 +4,7 @@ export default function Navbar(props) {
 
   return (
     <>
-      <nav className={'navbar is-fixed-top py-3 has-border-bottom'}>
+      <nav className={'navbar is-fixed-top py-3 has-border-sand-bottom has-background-paper'}>
         <div className={'navbar-brand'}>
           <Image src={'/logotype.png'} width={256} height={66} alt={'はまったいまーロゴタイプ'}/>
         </div>

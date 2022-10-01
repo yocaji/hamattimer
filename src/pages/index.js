@@ -12,7 +12,7 @@ export default function Index() {
         <title>はまったいまー</title>
       </Head>
       <Navbar letsTryButton={<LetsTryButton/>}/>
-      <div className={'hero has-text-centered'}>
+      <div className={'hero has-text-centered has-background-paper'}>
         <div className={'hero-body'}>
           <div className={'container is-max-widescreen'}>
             <div className={'columns is-vcentered'}>
@@ -23,15 +23,37 @@ export default function Index() {
                 <Image src={'/logotype-large.png'} width={600} height={141} alt={'はまったいまーロゴタイプ'}/>
               </div>
             </div>
-            <div className={'has-border-top has-border-bottom mt-6'}>
+            <div className={'mt-6'}>
               <div className={'p-5'}>
-                <p className={'lh-2 is-size-5 has-text-weight-bold'}>
+                <p className={'lh-2 is-size-5'}>
                   プログラミングをしていてハマった時に、時間を浪費してしまって後悔したことはありませんか？
                 </p>
-                <p className={'lh-2 is-size-5 has-text-weight-bold mt-3'}>
-                  時間に区切りを作って取り組むためのタイマー機能と、思考を整理するためのメモ機能で、<br/>
+                <p className={'lh-2 is-size-5 mt-3'}>
+                  時間に区切りを作るためのタイマー機能と、思考を整理するためのメモ機能で、<br/>
                   はまったいまーはあなたの問題解決への取り組みをサポートします。
                 </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className={'hero has-text-centered has-background-subtle'}>
+        <div className={'hero-body'}>
+          <div className={'container is-max-widescreen'}>
+            <h3 className={'title is-1'}>はまったいまーが無いとき</h3>
+            <hr className={'hero-separator'}/>
+            <div className={'columns'}>
+              <div className={'column'}>
+                <Image src={'/dummy.png'} width={300} height={300} alt={'はまったいまーロゴ'}/>
+                <p className={'subtitle lh-1 mt-3'}>思わぬエラー発生🚨</p>
+              </div>
+              <div className={'column'}>
+                <Image src={'/dummy.png'} width={300} height={300} alt={'はまったいまーロゴ'}/>
+                <p className={'subtitle lh-1 mt-3'}>一生懸命やっているのに…あれ？</p>
+              </div>
+              <div className={'column'}>
+                <Image src={'/dummy.png'} width={300} height={300} alt={'はまったいまーロゴ'}/>
+                <p className={'subtitle lh-1 mt-3'}>気が付いたら時間だけが過ぎてた😱</p>
               </div>
             </div>
           </div>
@@ -40,48 +62,20 @@ export default function Index() {
       <div className={'hero has-text-centered has-background-paper'}>
         <div className={'hero-body'}>
           <div className={'container is-max-widescreen'}>
-            <div className={'columns is-centered'}>
-              <div className={'column is-two-fifths'}>
-                <h3 className={'title has-border-bottom-bold pb-3 mb-5'}>はまったいまーが無いとき</h3>
-              </div>
-            </div>
+            <h3 className={'title is-1'}>はまったいまーがあるとき</h3>
+            <hr className={'hero-separator'}/>
             <div className={'columns'}>
               <div className={'column'}>
                 <Image src={'/dummy.png'} width={300} height={300} alt={'はまったいまーロゴ'}/>
-                <p className={'subtitle lh-1 mt-3 has-text-weight-bold'}>思わぬエラー発生🚨</p>
+                <p className={'subtitle lh-1 mt-3'}>思わぬエラー発生🚨</p>
               </div>
               <div className={'column'}>
                 <Image src={'/dummy.png'} width={300} height={300} alt={'はまったいまーロゴ'}/>
-                <p className={'subtitle lh-1 mt-3 has-text-weight-bold'}>一生懸命やっているのに…あれ？</p>
+                <p className={'subtitle lh-1 mt-3'}>タイマーとメモを使うから<br/>効率的に取り組める✨</p>
               </div>
               <div className={'column'}>
                 <Image src={'/dummy.png'} width={300} height={300} alt={'はまったいまーロゴ'}/>
-                <p className={'subtitle lh-1 mt-3 has-text-weight-bold'}>気が付いたら時間だけが過ぎてた😱</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className={'hero has-text-centered has-background-sand'}>
-        <div className={'hero-body'}>
-          <div className={'container is-max-widescreen'}>
-            <div className={'columns is-centered'}>
-              <div className={'column is-two-fifths'}>
-                <h3 className={'title has-border-bottom-bold pb-3 mb-5'}>はまったいまーがあるとき</h3>
-              </div>
-            </div>
-            <div className={'columns'}>
-              <div className={'column'}>
-                <Image src={'/dummy.png'} width={300} height={300} alt={'はまったいまーロゴ'}/>
-                <p className={'subtitle lh-1 mt-3 has-text-weight-bold'}>思わぬエラー発生🚨</p>
-              </div>
-              <div className={'column'}>
-                <Image src={'/dummy.png'} width={300} height={300} alt={'はまったいまーロゴ'}/>
-                <p className={'subtitle lh-1 mt-3 has-text-weight-bold'}>タイマーとメモを使うから<br/>効率的に取り組める✨</p>
-              </div>
-              <div className={'column'}>
-                <Image src={'/dummy.png'} width={300} height={300} alt={'はまったいまーロゴ'}/>
-                <p className={'subtitle lh-1 mt-3 has-text-weight-bold'}>詰まった時に早めに質問できた😊<br/>自己解決しやすくなった🙌</p>
+                <p className={'subtitle lh-1 mt-3'}>詰まった時に早めに質問できた😊<br/>自己解決しやすくなった🙌</p>
               </div>
             </div>
           </div>
@@ -92,7 +86,7 @@ export default function Index() {
           <div className={'columns is-centered'}>
             <div className={'column is-one-third'}>
               <Link href={'timer'}>
-                <button className={'button is-large is-rounded is-primary is-fullwidth has-text-weight-bold'}>
+                <button className={'button is-large is-rounded is-primary is-fullwidth'}>
                   使ってみる
                 </button>
               </Link>

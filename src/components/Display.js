@@ -39,9 +39,9 @@ export default function Display() {
       <FormProvider {...methods}>
         <Navbar stopwatch={<Stopwatch stopwatch={stopwatch}/>} resetButton={<ResetButton stopwatch={stopwatch}/>}/>
       </FormProvider>
-      <div className={'columns is-gapless is-multiline'}>
+      <div className={'columns is-gapless is-multiline has-background-paper'}>
         <MarkdownProvider>
-          <div className={'column is-half hero is-fullheight aside'}>
+          <div className={'column is-half hero is-fullheight'}>
             <section className={'section'}>
               <Editor methods={methods} stopwatch={stopwatch}/>
             </section>

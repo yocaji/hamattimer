@@ -1,37 +1,68 @@
 $family-sans-serif: 'BIZ UDPGothic', sans-serif;
-//$blue: #00c7d3;
-$blue: #01C5C4;
+$blue: #54BAB9;
+$teal: #9ED2C6;
 $green: #00796b;
+$subtle: #e9e9e9;
+$paper: #FCF8F3;
+$sand: #F7ECDE;
+$border: $sand;
+$link: $blue;
 $primary: $blue;
 $text: #424242;
 $text-strong: $text;
-$link: $blue;
+$radius: 0.5rem;
+$title-color: $blue;
 $hero-body-padding-tablet: 6rem 3rem;
+$card-radius: 0.75rem;
+$card-shadow: none;
+$card-header-shadow: none;
+$card-header-background-color: $sand;
+$card-header-padding: 0.75rem 1.5rem;
+$input-hover-border-color: $paper;
+$button-border-width: 2px;
 @import '~bulma/bulma';
-.aside {
-  border-right: 1px solid #eeeeee;
-}
 .lh-1 {
   line-height: 1.75;
 }
 .lh-2 {
   line-height: 2.0;
 }
+.has-background-subtle {
+  background-color: #fafafa;
+}
 .has-background-paper {
-  background-color: #FCF9F4;
+  background-color: $paper;
 }
 .has-background-sand {
-  background-color: #FAF6E9;
+  background-color: $sand;
 }
 .has-border-top {
   border-top: solid 2px $blue;
 }
-.has-border-bottom {
-  border-bottom: solid 2px $blue;
+.has-border-sand-bottom {
+  border-bottom: solid 2px $sand;
+}
+.has-border-subtle-top {
+  border-top: solid 1px $subtle;
+}
+.has-border-subtle-right {
+  border-right: solid 1px $subtle;
 }
 .has-border-bottom-bold {
   border-bottom: solid 4px $blue;
 }
 .is-size-6-half {
   font-size: 0.9rem;
+}
+.select select, .input, .textarea {
+  border-width: 2px;
+  background-color: transparent;
+}
+.button {
+  font-weight: $weight-bold;
+}
+.hero-separator {
+  border: 2px solid $sand;
+  width: 120px;
+  margin: 2rem auto 3rem;
 }
