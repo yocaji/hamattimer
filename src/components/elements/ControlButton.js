@@ -14,7 +14,7 @@ export default function ControlButton(props) {
   const label = isRunning ? <MdPause/> : <MdPlayArrow/>
 
   return (
-    <button onClick={action} className={'button is-small is-rounded ml-2'} disabled={!isStarted}>
+    <button onClick={action} className={'button is-small is-rounded is-primary is-outlined ml-2'} disabled={!isStarted}>
       {label}
     </button>
   )

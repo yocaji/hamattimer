@@ -25,10 +25,10 @@ export default function EditorFooter(props) {
     <>
       <div className={'columns'}>
         <div className={'column'}>
-          <button className={'button is-primary is-fullwidth has-text-weight-bold'} onClick={handleClickSolved}>解決した！</button>
+          <button className={'button is-primary is-rounded is-medium is-fullwidth'} onClick={handleClickSolved}>解決した！</button>
         </div>
         <div className={'column'}>
-          <button className={'button is-fullwidth'} onClick={handleClickStop}>終了する</button>
+          <button className={'button is-rounded is-medium is-fullwidth is-primary is-outlined'} onClick={handleClickStop}>終了する</button>
         </div>
       </div>
       <SolvedModal isOpen={solvedIsOpen} setIsOpen={setSolvedIsOpen}/>

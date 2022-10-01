@@ -43,8 +43,10 @@ export default function Issue() {
 
   return (
     <div className={'card'} id={'issue'}>
+      <div className={'card-header'}>
+        <h2 className={'card-header-title'}>解決したいこと</h2>
+      </div>
       <div className={'card-content'}>
-        <h2 className={'title is-5'}>解決したいこと</h2>
         <form onChange={change}>
           <div className={'field'}>
             <label className={'label'}>期待する結果</label>

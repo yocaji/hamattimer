@@ -54,22 +54,32 @@ export default function Trial(props) {
 
   return (
     <>
-      <div className={'card-content'}>
-        <h3 className={'title is-5'}>
-          試したこと その{props.index}
-          <button
-            className={'button is-light is-small ml-3'}
-            onClick={() => removeTrial(trial.id)}
-          >
-            <MdDelete/>
-          </button>
-        </h3>
+      <div className={'card-content has-border-sand-bottom'}>
+        <div className={'columns is-vcentered'}>
+          <div className={'column'}>
+            <div className={'is-size-5 has-text-weight-bold'}>
+              その{props.index}
+            </div>
+          </div>
+          <div className={'column has-text-right'}>
+            <button
+              className={'button is-small is-rounded is-danger is-outlined'}
+              onClick={() => removeTrial(trial.id)}
+            >
+              <MdDelete/>削除
+            </button>
+          </div>
+        </div>
         <FormProvider {...methods}>
           <form onChange={() => change(trial.id)}>
             <div className={'field'}>
               <label className={'label'}>考えたことや調べたこと</label>
               <div className={'control'}>
-                <MarkdownArea name={'guess'} value={trial.guess} update={() => change(trial.id)}/>
+                <MarkdownArea
+                  name={'guess'}
+                  value={trial.guess}
+                  update={() => change(trial.id)}
+                />
               </div>
             </div>
             <div className={'field'}>
@@ -91,7 +101,6 @@ export default function Trial(props) {
           </form>
         </FormProvider>
       </div>
-      <div className={'card-footer'}/>
     </>
   )
 }

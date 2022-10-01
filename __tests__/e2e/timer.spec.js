@@ -8,15 +8,15 @@ test.describe('スタート前', () => {
 
   test('初回アクセス', async ({ page }) => {
     await expect(page.locator('#stopwatch button')).toBeDisabled()
-    await expect(page.locator('#stopwatch-counter')).toHaveText('0:00:00')
+    await expect(page.locator('#stopwatch-counter')).toHaveText('0:0000')
     await expect(page.locator('#stopwatch select')).toHaveValue('30')
     await expect(page.locator('#issue >> input[name=tobe]')).toHaveValue('')
     await expect(page.locator('#issue >> input[name=asis]')).toHaveValue('')
     await expect(page.locator('#issue >> textarea[name=problem]')).toHaveValue('')
     await expect(page.locator('button:has-text("スタート")')).toBeVisible()
     await expect(page.locator('button:has-text("Gistに保存する")')).toBeDisabled()
-    await expect(page.locator('#preview >> h2')).toHaveText(['解決したいこと'])
-    await expect(page.locator('#preview >> text=\'試したこと その1\'')).toBeHidden()
+    await expect(page.locator('#preview >> h1')).toHaveText(['解決したいこと'])
+    await expect(page.locator('#preview >> h2')).toBeHidden()
     await expect(page.locator('a:has-text("GitHub連携解除")')).toBeHidden()
     await expect(page.locator('#trials')).toBeHidden()
   })
@@ -46,7 +46,7 @@ test.describe('スタート後', () => {
   })
 
   test('スタートボタン', async ({ page }) => {
-    await expect(page.locator('#stopwatch-counter')).toHaveText('0:00:01')
+    await expect(page.locator('#stopwatch-counter')).toHaveText('0:0001')
     await expect(page.locator('#stopwatch button')).toBeEnabled()
     await expect(page.locator('#trials')).toBeVisible()
     await expect(page.locator('#trials >> textarea[name=guess]')).toHaveValue('')
@@ -54,7 +54,7 @@ test.describe('スタート後', () => {
     await expect(page.locator('#trials >> textarea[name=result]')).toHaveValue('')
     await expect(page.locator('button:has-text("解決した！")')).toBeVisible()
     await expect(page.locator('button:has-text("終了する")')).toBeVisible()
-    await expect(page.locator('#preview >> h2')).toHaveText(['解決したいこと', '試したこと その1'])
+    await expect(page.locator('#preview >> h2:has-text("その1")')).toBeVisible()
   })
 
   test('ストップウォッチ', async ({ page }) => {
@@ -103,10 +103,10 @@ test.describe('スタート後', () => {
 
   test('試したことの追加・削除', async ({ page }) => {
     await page.locator('#trials >> text=追加する').click()
-    await expect(page.locator('#trials >> h3')).toHaveCount(2)
+    await expect(page.locator('#trials >> .card-content')).toHaveCount(2)
 
     await page.locator('#trials >> button:has(svg)').first().click()
-    await expect(page.locator('#trials >> h3')).toHaveCount(1)
+    await expect(page.locator('#trials >> .card-content')).toHaveCount(1)
   })
 
   test('リセットボタン', async ({ page }) => {

@@ -42,7 +42,7 @@ export default function Trials(props) {
           />
         ))}
         <div className={'card-footer'}>
-          <a className={'card-footer-item'} onClick={() => props.addTrial()}>
+          <a className={'card-footer-item has-text-weight-bold'} onClick={() => props.addTrial()}>
             <MdAdd className={'mr-1'}/>追加する
           </a>
         </div>
