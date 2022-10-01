@@ -76,7 +76,7 @@ test.describe('スタート後', () => {
     const count = await page.locator('#stopwatch-counter').innerText()
 
     await page.locator('button:has-text("解決した")').click()
-    await page.locator('.modal.is-active button:has-text("閉じる")').click()
+    await page.locator('.modal.is-active button.delete').click()
     await page.waitForTimeout(1000)
     await expect(page.locator('#stopwatch-counter')).toHaveText(count)
   })
@@ -86,7 +86,7 @@ test.describe('スタート後', () => {
     const count = await page.locator('#stopwatch-counter').innerText()
 
     await page.locator('button:has-text("終了する")').click()
-    await page.locator('.modal.is-active button:has-text("閉じる")').click()
+    await page.locator('.modal.is-active button.delete').click()
     await page.waitForTimeout(1000)
     await expect(page.locator('#stopwatch-counter')).toHaveText(count)
   })
