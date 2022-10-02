@@ -60,6 +60,8 @@ export default function MarkdownArea(props) {
       defaultValue={props.value}
       onPaste={handlePaste}
       className={'textarea'}
+      placeholder={props.placeholder}
+      rows={props.rows}
     />
   )
 }

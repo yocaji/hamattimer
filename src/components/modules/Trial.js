@@ -73,12 +73,14 @@ export default function Trial(props) {
         <FormProvider {...methods}>
           <form onChange={() => change(trial.id)}>
             <div className={'field'}>
-              <label className={'label'}>考えたことや調べたこと</label>
+              <label className={'label'}>考えたこと・調べたこと</label>
               <div className={'control'}>
                 <MarkdownArea
                   name={'guess'}
                   value={trial.guess}
                   update={() => change(trial.id)}
+                  rows={4}
+                  placeholder={`- □□が△△かもしれない\n- 参考にした記事\n  - https://example.com`}
                 />
               </div>
             </div>
@@ -89,13 +91,21 @@ export default function Trial(props) {
                   name={'operation'}
                   value={props.trial.operation}
                   update={() => change(trial.id)}
+                  rows={6}
+                  placeholder={`以下のコマンドを実行した\n\`\`\`\nnpm i ******\n\`\`\``}
                 />
               </div>
             </div>
             <div className={'field'}>
-              <label className={'label'}>結果</label>
+              <label className={'label'}>やった結果</label>
               <div className={'control'}>
-                <MarkdownArea name={'result'} value={trial.result} update={() => change(trial.id)}/>
+                <MarkdownArea
+                  name={'result'}
+                  value={trial.result}
+                  update={() => change(trial.id)}
+                  rows={6}
+                  placeholder={'コマンドの実行結果のログ、スクリーンショットなど'}
+                />
               </div>
             </div>
           </form>
