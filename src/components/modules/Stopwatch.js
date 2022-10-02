@@ -41,7 +41,7 @@ export default function Stopwatch(props) {
     <div className={'navbar-end'}>
       <div className={'navbar-item'} id={'stopwatch'}>
         <ControlButton stopwatch={props.stopwatch}/>
-        <div className={'is-size-3 ml-2'} id={'stopwatch-counter'}>
+        <div className={'is-size-3 ml-2 is-family-monospace'} id={'stopwatch-counter'}>
           {days * 24 + hours}:{pad0(minutes)}<span className={'is-size-6 ml-1'}>{pad0(seconds)}</span>
         </div>
         <SelectLimit/>
