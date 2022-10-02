@@ -2,9 +2,10 @@ import { useContext } from 'react'
 import { useSession } from 'next-auth/react'
 import { Octokit } from 'octokit'
 import { MarkdownContext } from '../providers/MarkdownProvider'
+import Button from '../atoms/Button'
 import { GoMarkGithub } from 'react-icons/go'
 
-export default function GistButton() {
+export default function ButtonGist() {
 
   const { data: session, status } = useSession()
   const { markdown } = useContext(MarkdownContext)
@@ -22,9 +23,9 @@ export default function GistButton() {
   }
 
   return (
-    <button onClick={() => createGist(markdown)} className={'button is-small is-rounded is-primary is-outlined'} disabled={status !== 'authenticated'} id={'gist-button'}>
+    <Button onClick={() => createGist(markdown)} classNames={'is-small is-rounded is-primary is-outlined'} disabled={status !== 'authenticated'} id={'gist-button'}>
       <GoMarkGithub className={'mr-1'}/>
       Gistに保存する
-    </button>
+    </Button>
   )
 }

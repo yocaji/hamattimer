@@ -1,10 +1,10 @@
 import { useStopwatch } from 'react-timer-hook'
 import { FormProvider, useForm } from 'react-hook-form'
 import { MarkdownProvider } from './providers/MarkdownProvider'
-import Navbar from './Navbar'
+import Navbar from './organisms/Navbar'
 import Editor from './Editor'
-import Preview from './Preview'
-import Footer from './Footer'
+import Preview from './organisms/Preview'
+import Footer from './organisms/Footer'
 import Stopwatch from './organisms/Stopwatch'
 import ButtonReset from './molecules/ButtonReset'
 

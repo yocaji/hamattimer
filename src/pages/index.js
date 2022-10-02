@@ -1,9 +1,9 @@
 import Head from 'next/head'
-import Link from 'next/link'
 import Image from 'next/image'
-import Navbar from '../components/Navbar'
-import Footer from '../components/Footer'
-import LetsTryButton from '../components/elements/LetsTryButton'
+import Navbar from '../components/organisms/Navbar'
+import Footer from '../components/organisms/Footer'
+import ButtonLetsTrySmall from '../components/molecules/ButtonLetsTrySmall'
+import ButtonLetsTryLarge from '../components/molecules/ButtonLetsTryLarge'
 
 export default function Index() {
   return (
@@ -11,7 +11,13 @@ export default function Index() {
       <Head>
         <title>はまったいまー</title>
       </Head>
-      <Navbar><LetsTryButton/></Navbar>
+      <Navbar>
+        <div className={'navbar-end'}>
+          <div className={'navbar-item'}>
+            <ButtonLetsTrySmall/>
+          </div>
+        </div>
+      </Navbar>
       <div className={'hero has-text-centered has-background-paper'}>
         <div className={'hero-body'}>
           <div className={'container is-max-widescreen'}>
@@ -84,12 +90,8 @@ export default function Index() {
       <div className={'hero has-text-centered'}>
         <div className={'hero-body'}>
           <div className={'columns is-centered'}>
-            <div className={'column is-one-third'}>
-              <Link href={'timer'}>
-                <button className={'button is-large is-rounded is-primary is-fullwidth'}>
-                  使ってみる
-                </button>
-              </Link>
+            <div className={'column is-4'}>
+              <ButtonLetsTryLarge/>
             </div>
           </div>
         </div>
