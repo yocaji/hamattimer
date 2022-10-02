@@ -2,7 +2,7 @@ import { FormProvider, useForm } from 'react-hook-form'
 import { useContext, useEffect } from 'react'
 import { MarkdownContext } from '../providers/MarkdownProvider'
 import { TrialsContext } from '../providers/TrialsProvider'
-import MarkdownArea from '../elements/MarkdownArea'
+import MarkdownArea from '../molecules/MarkdownArea'
 import ButtonRemoveTrial from '../molecules/ButtonRemoveTrial'
 
 export default function Trial(props) {
@@ -23,7 +23,7 @@ export default function Trial(props) {
     setValue('result', trial.result)
   }, [trial, setValue])
 
-  const change = (id) => {
+  const updateTrials = (id) => {
     const newTrial = {
       id: trial.id,
       guess: getValues('guess') ?? '',
@@ -57,16 +57,15 @@ export default function Trial(props) {
           </div>
         </div>
         <FormProvider {...methods}>
-          <form onChange={() => change(trial.id)}>
+          <form onChange={() => updateTrials(trial.id)}>
             <div className={'field'}>
               <label className={'label'}>考えたこと・調べたこと</label>
               <div className={'control'}>
                 <MarkdownArea
                   name={'guess'}
-                  value={trial.guess}
-                  update={() => change(trial.id)}
                   rows={4}
                   placeholder={`- □□が△△かもしれない\n- 参考にした記事\n  - https://example.com`}
+                  updateValue={() => updateTrials(trial.id)}
                 />
               </div>
             </div>
@@ -75,10 +74,9 @@ export default function Trial(props) {
               <div className={'control'}>
                 <MarkdownArea
                   name={'operation'}
-                  value={props.trial.operation}
-                  update={() => change(trial.id)}
                   rows={6}
                   placeholder={`以下のコマンドを実行した\n\`\`\`\nnpm i ******\n\`\`\``}
+                  updateValue={() => updateTrials(trial.id)}
                 />
               </div>
             </div>
@@ -87,10 +85,9 @@ export default function Trial(props) {
               <div className={'control'}>
                 <MarkdownArea
                   name={'result'}
-                  value={trial.result}
-                  update={() => change(trial.id)}
                   rows={6}
                   placeholder={'コマンドの実行結果のログ、スクリーンショットなど'}
+                  updateValue={() => updateTrials(trial.id)}
                 />
               </div>
             </div>
