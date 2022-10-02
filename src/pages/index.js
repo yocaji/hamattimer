@@ -37,7 +37,7 @@ export default function Index() {
           </div>
         </div>
       </div>
-      <div className={'hero has-text-centered has-background-subtle'}>
+      <div className={'hero has-text-centered has-background-pale'}>
         <div className={'hero-body'}>
           <div className={'container is-max-widescreen'}>
             <h3 className={'title is-1'}>はまったいまーが無いとき</h3>

@@ -3,6 +3,7 @@ $family-monospace: 'Source Code Pro', monospace;
 $blue: #54BAB9;
 $teal: #9ED2C6;
 $red: #FF5D5D;
+$pale: #F2F6F5;
 $subtle: #e9e9e9;
 $paper: #FCF8F3;
 $sand: #F7ECDE;
@@ -22,20 +23,22 @@ $card-header-shadow: none;
 $card-header-background-color: $sand;
 $card-header-padding: 0.75rem 1.5rem;
 $card-footer-border-top: none;
+$footer-background-color: $pale;
 $modal-card-head-background-color: $paper;
 $modal-card-head-border-bottom: 2px solid $sand;
 $modal-card-foot-border-top: 2px solid $sand;
 $input-hover-border-color: $teal;
 $button-border-width: 2px;
 @import '~bulma/bulma';
-.lh-1 {
-  line-height: 1.75;
+.select select, .input, .textarea {
+  border-width: 2px;
+  background-color: transparent;
 }
-.lh-2 {
-  line-height: 2.0;
+.button {
+  font-weight: $weight-bold;
 }
-.has-background-subtle {
-  background-color: #fafafa;
+.has-background-pale {
+  background-color: $pale;
 }
 .has-background-paper {
   background-color: $paper;
@@ -49,21 +52,17 @@ $button-border-width: 2px;
 .has-border-subtle-top {
   border-top: solid 1px $subtle;
 }
-.has-border-subtle-right {
-  border-right: solid 1px $subtle;
+.hero-separator {
+  border: 2px solid $teal;
+  width: 120px;
+  margin: 2rem auto 3rem;
 }
 .is-size-6-half {
   font-size: 0.9rem;
 }
-.select select, .input, .textarea {
-  border-width: 2px;
-  background-color: transparent;
+.lh-1 {
+  line-height: 1.75;
 }
-.button {
-  font-weight: $weight-bold;
-}
-.hero-separator {
-  border: 2px solid $sand;
-  width: 120px;
-  margin: 2rem auto 3rem;
+.lh-2 {
+  line-height: 2.0;
 }

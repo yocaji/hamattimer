@@ -18,7 +18,7 @@ export default function Preview() {
         <div className={'card-content'}>
           <ExportButtons/>
         </div>
-        <div className={'card-content content has-border-subtle-top'}>
+        <div className={'card-content content'}>
           <ReactMarkdown remarkPlugins={[remarkGfm, remarkBreaks]} unwrapDisallowed={false}>
             {markdown}
           </ReactMarkdown>
