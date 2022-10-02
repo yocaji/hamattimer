@@ -5,7 +5,7 @@ import Navbar from './Navbar'
 import Editor from './Editor'
 import Preview from './Preview'
 import Footer from './Footer'
-import Stopwatch from './modules/Stopwatch'
+import Stopwatch from './organisms/Stopwatch'
 import ButtonReset from './molecules/ButtonReset'
 
 export default function Display() {
