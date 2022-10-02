@@ -11,7 +11,7 @@ export default function Index() {
       <Head>
         <title>はまったいまー</title>
       </Head>
-      <Navbar letsTryButton={<LetsTryButton/>}/>
+      <Navbar><LetsTryButton/></Navbar>
       <div className={'hero has-text-centered has-background-paper'}>
         <div className={'hero-body'}>
           <div className={'container is-max-widescreen'}>

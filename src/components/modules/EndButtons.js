@@ -1,13 +1,14 @@
 import { useContext, useState } from 'react'
 import { IsStartedContext } from '../providers/IsStartedProvider'
-import SolvedModal from '../elements/SolvedModal'
-import StoppedModal from '../elements/StoppedModal'
+import Modal from '../elements/Modal'
+import ModalSolved from '../elements/ModalSolved'
+import ModalStop from '../elements/ModalStop'
 
-export default function EditorFooter(props) {
+export default function EndButtons(props) {
 
   const { isStarted } = useContext(IsStartedContext)
   const [solvedIsOpen, setSolvedIsOpen] = useState(false)
-  const [stoppedIsOpen, setStoppedIsOpen] = useState(false)
+  const [stopIsOpen, setStopIsOpen] = useState(false)
 
   if (!isStarted) return
 
@@ -18,7 +19,7 @@ export default function EditorFooter(props) {
 
   const handleClickStop = () => {
     props.pause()
-    setStoppedIsOpen(true)
+    setStopIsOpen(true)
   }
 
   return (
@@ -31,8 +32,12 @@ export default function EditorFooter(props) {
           <button className={'button is-rounded is-medium is-fullwidth is-primary is-outlined'} onClick={handleClickStop}>終了する</button>
         </div>
       </div>
-      <SolvedModal isOpen={solvedIsOpen} setIsOpen={setSolvedIsOpen}/>
-      <StoppedModal isOpen={stoppedIsOpen} setIsOpen={setStoppedIsOpen}/>
+      <Modal isOpen={solvedIsOpen} setIsOpen={setSolvedIsOpen} title={'おつかれさまでした🎉'}>
+        <ModalSolved/>
+      </Modal>
+      <Modal isOpen={stopIsOpen} setIsOpen={setStopIsOpen} title={'おつかれさまでした🍵'}>
+        <ModalStop/>
+      </Modal>
     </>
   )
 }

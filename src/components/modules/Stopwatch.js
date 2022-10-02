@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
 import ControlButton from '../elements/ControlButton'
-import ExpiredModal from '../elements/ExpiredModal'
 import SelectLimit from '../elements/SelectLimit'
+import Modal from '../elements/Modal'
+import ModalExpired from '../elements/ModalExpired'
 
 export default function Stopwatch(props) {
 
@@ -40,12 +41,14 @@ export default function Stopwatch(props) {
     <div className={'navbar-end'}>
       <div className={'navbar-item'} id={'stopwatch'}>
         <ControlButton stopwatch={props.stopwatch}/>
-        <div className={'is-size-3 ml-2'} id={'stopwatch-counter'}>
+        <div className={'is-size-3 ml-2 is-family-monospace'} id={'stopwatch-counter'}>
           {days * 24 + hours}:{pad0(minutes)}<span className={'is-size-6 ml-1'}>{pad0(seconds)}</span>
         </div>
         <SelectLimit/>
       </div>
-      <ExpiredModal isOpen={isOpen} setIsOpen={setIsOpen} limit={limit}/>
+      <Modal isOpen={isOpen} setIsOpen={setIsOpen} title={'調子はどうですか？'}>
+        <ModalExpired limit={limit}/>
+      </Modal>
     </div>
   )
 }
