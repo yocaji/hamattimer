@@ -5,13 +5,13 @@ import { MarkdownContext } from './providers/MarkdownProvider'
 import { TrialsContext } from './providers/TrialsProvider'
 import Issue from './modules/Issue'
 import Trials from './modules/Trials'
-import StartButton from './elements/StartButton'
+import ButtonStart from './molecules/ButtonStart'
 import ButtonSolved from './molecules/ButtonSolved'
 import ButtonStop from './molecules/ButtonStop'
 
 export default function Editor(props) {
 
-  const { isStarted } = useContext(IsStartedContext)
+  const { isStarted, setIsStarted } = useContext(IsStartedContext)
   const { trials, setTrials } = useContext(TrialsContext)
   const { updateMarkdown } = useContext(MarkdownContext)
 
@@ -32,7 +32,9 @@ export default function Editor(props) {
       </FormProvider>
       <Trials addTrial={addTrial}/>
       <div className={'mt-6'}>
-        <StartButton start={props.stopwatch.start} addTrial={addTrial}/>
+        {!isStarted &&
+          <ButtonStart start={props.stopwatch.start} addTrial={addTrial} setIsStarted={setIsStarted}/>
+        }
         {isStarted &&
           <div className={'columns'}>
             <div className={'column'}>
