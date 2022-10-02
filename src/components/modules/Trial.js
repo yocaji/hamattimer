@@ -3,7 +3,7 @@ import { useContext, useEffect } from 'react'
 import { MarkdownContext } from '../providers/MarkdownProvider'
 import { TrialsContext } from '../providers/TrialsProvider'
 import MarkdownArea from '../elements/MarkdownArea'
-import { MdDelete } from 'react-icons/md'
+import ButtonRemoveTrial from '../molecules/ButtonRemoveTrial'
 
 export default function Trial(props) {
 
@@ -43,15 +43,6 @@ export default function Trial(props) {
     updateMarkdown()
   }
 
-  const removeTrial = (id) => {
-    const newTrials = trials.filter((trial) => {
-      return trial.id !== id
-    })
-    setTrials(newTrials)
-    localStorage.setItem('trials', JSON.stringify(newTrials))
-    updateMarkdown()
-  }
-
   return (
     <>
       <div className={'card-content has-border-sand-bottom'}>
@@ -61,13 +52,8 @@ export default function Trial(props) {
               その{props.index}
             </div>
           </div>
-          <div className={'column has-text-right'}>
-            <button
-              className={'button is-small is-rounded is-danger is-outlined'}
-              onClick={() => removeTrial(trial.id)}
-            >
-              <MdDelete/>削除
-            </button>
+          <div className={'column'}>
+            <ButtonRemoveTrial id={trial.id} index={props.index} trials={trials} setTrials={setTrials}/>
           </div>
         </div>
         <FormProvider {...methods}>

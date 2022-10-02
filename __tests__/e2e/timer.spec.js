@@ -106,6 +106,7 @@ test.describe('スタート後', () => {
     await expect(page.locator('#trials >> .card-content')).toHaveCount(2)
 
     await page.locator('#trials >> button:has(svg)').first().click()
+    await page.locator('.modal:visible >> button:has-text("削除する")').click()
     await expect(page.locator('#trials >> .card-content')).toHaveCount(1)
   })
 
