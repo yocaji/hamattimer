@@ -18,7 +18,7 @@ export const MarkdownProvider = (props) => {
     }
     const problemMd = () => {
       if (problem === '') return ''
-      return `\n### エラーメッセージやログなど\n${problem}\n`
+      return `\n### 詳しい状況\n${problem}\n`
     }
     const issueMd = `# 解決したいこと\n${tobeMd()}${asisMd()}${problemMd()}`
 
