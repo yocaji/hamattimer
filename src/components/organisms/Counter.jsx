@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react'
 import Modal from '../atoms/Modal'
 
-export default function Counter({stopwatch}) {
+export default function Counter({ stopwatch, limit }) {
 
   const { seconds, minutes, hours, days, pause, isRunning } = stopwatch
   const [isOpen, setIsOpen] = useState(false)
-  const [limit, setLimit] = useState()
 
   const pad0 = (number) => {
     return number.toString().padStart(2, '0')
@@ -26,7 +25,6 @@ export default function Counter({stopwatch}) {
   useEffect(() => {
     if (!isRunning) return
 
-    setLimit(localStorage.getItem('limit'))
     const totalMinutes = minutes + hours * 60 + days * 60 * 24
     if (limit === String(totalMinutes)) {
       pause()
