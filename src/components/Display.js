@@ -5,8 +5,8 @@ import Navbar from './Navbar'
 import Editor from './Editor'
 import Preview from './Preview'
 import Footer from './Footer'
-import ResetButton from './elements/ResetButton'
-import Stopwatch from './modules/Stopwatch'
+import Stopwatch from './organisms/Stopwatch'
+import ButtonReset from './molecules/ButtonReset'
 
 export default function Display() {
 
@@ -39,7 +39,11 @@ export default function Display() {
       <FormProvider {...methods}>
         <Navbar>
           <Stopwatch stopwatch={stopwatch}/>
-          <ResetButton stopwatch={stopwatch}/>
+          <div className={'navbar-end'}>
+            <div className={'navbar-item'}>
+              <ButtonReset resetStopwatch={() => stopwatch.reset(0, false)}/>
+            </div>
+          </div>
         </Navbar>
       </FormProvider>
       <div className={'columns is-gapless is-multiline has-background-paper'}>
