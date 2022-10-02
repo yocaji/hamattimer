@@ -6,8 +6,8 @@ import { TrialsContext } from './providers/TrialsProvider'
 import Issue from './modules/Issue'
 import Trials from './modules/Trials'
 import StartButton from './elements/StartButton'
-import EndButtons from './modules/EndButtons'
 import ButtonSolved from './molecules/ButtonSolved'
+import ButtonStop from './molecules/ButtonStop'
 
 export default function Editor(props) {
 
@@ -36,13 +36,13 @@ export default function Editor(props) {
         {isStarted &&
           <div className={'columns'}>
             <div className={'column'}>
-              <ButtonSolved pause={props.pause}/>
+              <ButtonSolved pause={props.stopwatch.pause}/>
             </div>
             <div className={'column'}>
+              <ButtonStop pause={props.stopwatch.pause}/>
             </div>
           </div>
         }
-        <EndButtons pause={props.stopwatch.pause}/>
       </div>
     </>
   )
