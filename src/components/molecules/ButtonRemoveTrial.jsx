@@ -30,10 +30,11 @@ export default function ButtonRemoveTrial({id, index, trials, setTrials}) {
       </div>
       {isOpen &&
         <Modal
-          onClose={() => setIsOpen(false)}
-          onConfirm={() => removeTrial(id)}
           title={`試したこと その${index}`}
           confirmLabel={'削除する'}
+          cancelLabel={'やめる'}
+          onCancel={() => setIsOpen(false)}
+          onConfirm={() => removeTrial(id)}
         >
           削除してもよろしいですか？
         </Modal>

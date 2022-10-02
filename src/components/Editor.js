@@ -1,14 +1,17 @@
 import { useContext } from 'react'
 import { FormProvider } from 'react-hook-form'
+import { IsStartedContext } from './providers/IsStartedProvider'
 import { MarkdownContext } from './providers/MarkdownProvider'
 import { TrialsContext } from './providers/TrialsProvider'
 import Issue from './modules/Issue'
 import Trials from './modules/Trials'
 import StartButton from './elements/StartButton'
 import EndButtons from './modules/EndButtons'
+import ButtonSolved from './molecules/ButtonSolved'
 
 export default function Editor(props) {
 
+  const { isStarted } = useContext(IsStartedContext)
   const { trials, setTrials } = useContext(TrialsContext)
   const { updateMarkdown } = useContext(MarkdownContext)
 
@@ -30,6 +33,15 @@ export default function Editor(props) {
       <Trials addTrial={addTrial}/>
       <div className={'mt-6'}>
         <StartButton start={props.stopwatch.start} addTrial={addTrial}/>
+        {isStarted &&
+          <div className={'columns'}>
+            <div className={'column'}>
+              <ButtonSolved pause={props.pause}/>
+            </div>
+            <div className={'column'}>
+            </div>
+          </div>
+        }
         <EndButtons pause={props.stopwatch.pause}/>
       </div>
     </>
