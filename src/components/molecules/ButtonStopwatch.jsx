@@ -1,8 +1,9 @@
 import { useContext } from 'react'
 import { IsStartedContext } from '../providers/IsStartedProvider'
 import { MdPause, MdPlayArrow } from 'react-icons/md'
+import Button from '../atoms/Button'
 
-export default function ControlButton(props) {
+export default function ButtonStopwatch(props) {
 
   const { isStarted } = useContext(IsStartedContext)
 
@@ -14,8 +15,8 @@ export default function ControlButton(props) {
   const label = isRunning ? <MdPause/> : <MdPlayArrow/>
 
   return (
-    <button onClick={action} className={'button is-small is-rounded is-primary is-outlined ml-2'} disabled={!isStarted}>
+    <Button onClick={action} classNames={'is-small is-rounded is-primary is-outlined ml-2'} disabled={!isStarted}>
       {label}
-    </button>
+    </Button>
   )
 }

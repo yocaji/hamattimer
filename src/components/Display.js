@@ -1,11 +1,11 @@
 import { useStopwatch } from 'react-timer-hook'
 import { FormProvider, useForm } from 'react-hook-form'
 import { MarkdownProvider } from './providers/MarkdownProvider'
-import Navbar from './Navbar'
-import Editor from './Editor'
-import Preview from './Preview'
-import Footer from './Footer'
-import Stopwatch from './organisms/Stopwatch'
+import Navbar from './organizations/Navbar'
+import Editor from './organizations/Editor'
+import Preview from './organizations/Preview'
+import Footer from './organizations/Footer'
+import Stopwatch from './organizations/Stopwatch'
 import ButtonReset from './molecules/ButtonReset'
 
 export default function Display() {
@@ -36,16 +36,20 @@ export default function Display() {
 
   return (
     <>
-      <FormProvider {...methods}>
-        <Navbar>
-          <Stopwatch stopwatch={stopwatch}/>
-          <div className={'navbar-end'}>
-            <div className={'navbar-item'}>
-              <ButtonReset resetStopwatch={() => stopwatch.reset(0, false)}/>
-            </div>
+      <Navbar>
+        <div className={'navbar-end'}>
+          <div className={'navbar-item'} id={'stopwatch'}>
+            <Stopwatch stopwatch={stopwatch}/>
           </div>
-        </Navbar>
-      </FormProvider>
+        </div>
+        <div className={'navbar-end'}>
+          <div className={'navbar-item'}>
+            <FormProvider {...methods}>
+              <ButtonReset resetStopwatch={() => stopwatch.reset(0, false)}/>
+            </FormProvider>
+          </div>
+        </div>
+      </Navbar>
       <div className={'columns is-gapless is-multiline has-background-paper'}>
         <MarkdownProvider>
           <div className={'column is-half hero is-fullheight'}>

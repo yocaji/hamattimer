@@ -1,6 +1,6 @@
 import { useFormContext } from 'react-hook-form'
 
-export default function MarkdownArea(props) {
+export default function MarkdownArea({name, rows, placeholder, updateValue}) {
 
   const { register, setValue, getValues } = useFormContext()
 
@@ -16,13 +16,11 @@ export default function MarkdownArea(props) {
 
     const imageUrl = response.secure_url
     const imageSyntax = `![${file.name}](${imageUrl})`
-    insertImage({ e, imageSyntax })
+    await insertImage({ e, imageSyntax })
   }
 
   const createDataUrl = (file) => {
-
     return new Promise((resolve, reject) => {
-
       const reader = new FileReader()
       reader.onload = () => {
         resolve(reader.result)
@@ -35,7 +33,6 @@ export default function MarkdownArea(props) {
   }
 
   const uploadImage = async (dataUrl) => {
-
     return await fetch('/api/upload', {
       method: 'POST',
       body: JSON.stringify({
@@ -46,22 +43,21 @@ export default function MarkdownArea(props) {
 
   const insertImage = ({ e, imageSyntax }) => {
     const cursorPosition = e.target.selectionEnd
-    const value = getValues(props.name)
-    const textLength = value.length
-    const beforeCursor = value.substring(0, cursorPosition)
-    const afterCursor = value.substring(cursorPosition, textLength)
-    setValue(props.name, beforeCursor + imageSyntax + afterCursor)
-    props.update()
+    const text = getValues(name)
+    const textLength = text.length
+    const beforeCursor = text.substring(0, cursorPosition)
+    const afterCursor = text.substring(cursorPosition, textLength)
+    setValue(name, beforeCursor + imageSyntax + afterCursor)
+    updateValue()
   }
 
   return (
     <textarea
-      {...register(props.name)}
-      defaultValue={props.value}
-      onPaste={handlePaste}
       className={'textarea'}
-      placeholder={props.placeholder}
-      rows={props.rows}
+      {...register(name)}
+      rows={rows}
+      placeholder={placeholder}
+      onPaste={handlePaste}
     />
   )
 }

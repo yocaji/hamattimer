@@ -2,19 +2,15 @@ import { FormProvider, useForm } from 'react-hook-form'
 import { useContext, useEffect } from 'react'
 import { MarkdownContext } from '../providers/MarkdownProvider'
 import { TrialsContext } from '../providers/TrialsProvider'
-import MarkdownArea from '../elements/MarkdownArea'
+import MarkdownArea from '../molecules/MarkdownArea'
 import ButtonRemoveTrial from '../molecules/ButtonRemoveTrial'
 
-export default function Trial(props) {
-
-  const trial = props.trial
+export default function Trial({trial, index}) {
 
   const { updateMarkdown } = useContext(MarkdownContext)
   const { trials, setTrials } = useContext(TrialsContext)
 
-  const methods = useForm(
-    { mode: 'onBlur' },
-  )
+  const methods = useForm({ mode: 'onBlur' },)
   const { setValue, getValues } = methods
 
   useEffect(() => {
@@ -23,7 +19,7 @@ export default function Trial(props) {
     setValue('result', trial.result)
   }, [trial, setValue])
 
-  const change = (id) => {
+  const updateTrials = (id) => {
     const newTrial = {
       id: trial.id,
       guess: getValues('guess') ?? '',
@@ -49,24 +45,23 @@ export default function Trial(props) {
         <div className={'columns is-vcentered'}>
           <div className={'column'}>
             <div className={'is-size-5 has-text-weight-bold'}>
-              その{props.index}
+              その{index}
             </div>
           </div>
           <div className={'column'}>
-            <ButtonRemoveTrial id={trial.id} index={props.index} trials={trials} setTrials={setTrials}/>
+            <ButtonRemoveTrial id={trial.id} index={index} trials={trials} setTrials={setTrials}/>
           </div>
         </div>
         <FormProvider {...methods}>
-          <form onChange={() => change(trial.id)}>
+          <form onChange={() => updateTrials(trial.id)}>
             <div className={'field'}>
               <label className={'label'}>考えたこと・調べたこと</label>
               <div className={'control'}>
                 <MarkdownArea
                   name={'guess'}
-                  value={trial.guess}
-                  update={() => change(trial.id)}
                   rows={4}
                   placeholder={`- □□が△△かもしれない\n- 参考にした記事\n  - https://example.com`}
+                  updateValue={() => updateTrials(trial.id)}
                 />
               </div>
             </div>
@@ -75,10 +70,9 @@ export default function Trial(props) {
               <div className={'control'}>
                 <MarkdownArea
                   name={'operation'}
-                  value={props.trial.operation}
-                  update={() => change(trial.id)}
                   rows={6}
                   placeholder={`以下のコマンドを実行した\n\`\`\`\nnpm i ******\n\`\`\``}
+                  updateValue={() => updateTrials(trial.id)}
                 />
               </div>
             </div>
@@ -87,10 +81,9 @@ export default function Trial(props) {
               <div className={'control'}>
                 <MarkdownArea
                   name={'result'}
-                  value={trial.result}
-                  update={() => change(trial.id)}
                   rows={6}
                   placeholder={'コマンドの実行結果のログ、スクリーンショットなど'}
+                  updateValue={() => updateTrials(trial.id)}
                 />
               </div>
             </div>
