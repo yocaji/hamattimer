@@ -9,7 +9,7 @@ import { MdCleaningServices } from 'react-icons/md'
 export default function ButtonReset({ resetStopwatch }) {
 
   const { setIsStarted } = useContext(IsStartedContext)
-  const { setTrials } = useContext(TrialsContext)
+  const { trials, setTrials } = useContext(TrialsContext)
   const { getValues, reset } = useFormContext()
   const [isOpen, setIsOpen] = useState(false)
 

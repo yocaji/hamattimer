@@ -43,41 +43,39 @@ export default function TimerPage() {
     <SessionProvider>
       <IsStartedProvider>
         <TrialsProvider>
-          <Navbar>
-            <div className={'navbar-end'}>
-              <div className={'navbar-item'} id={'stopwatch'}>
-                {isLoaded &&
-                  <Stopwatch stopwatch={stopwatch}/>
-                }
+          {isLoaded &&
+            <>
+              <Navbar>
+                <div className={'navbar-end'}>
+                  <div className={'navbar-item'} id={'stopwatch'}>
+                    <Stopwatch stopwatch={stopwatch}/>
+                  </div>
+                </div>
+                <div className={'navbar-end'}>
+                  <div className={'navbar-item'}>
+                    <FormProvider {...methods}>
+                      <ButtonReset resetStopwatch={() => stopwatch.reset(0, false)}/>
+                    </FormProvider>
+                  </div>
+                </div>
+              </Navbar>
+              <div className={'columns is-gapless is-multiline has-background-paper'}>
+                <MarkdownProvider>
+                  <div className={'column is-half hero is-fullheight'}>
+                    <section className={'section'}>
+                      <Editor methods={methods} stopwatch={stopwatch}/>
+                    </section>
+                  </div>
+                  <div className={'column is-half hero is-fullheight'}>
+                    <Preview/>
+                  </div>
+                </MarkdownProvider>
+                <div className={'column is-full'}>
+                  <Footer/>
+                </div>
               </div>
-            </div>
-            <div className={'navbar-end'}>
-              <div className={'navbar-item'}>
-                <FormProvider {...methods}>
-                  {isLoaded &&
-                    <ButtonReset resetStopwatch={() => stopwatch.reset(0, false)}/>
-                  }
-                </FormProvider>
-              </div>
-            </div>
-          </Navbar>
-          <div className={'columns is-gapless is-multiline has-background-paper'}>
-            <MarkdownProvider>
-              <div className={'column is-half hero is-fullheight'}>
-                <section className={'section'}>
-                  {isLoaded &&
-                    <Editor methods={methods} stopwatch={stopwatch}/>
-                  }
-                </section>
-              </div>
-              <div className={'column is-half hero is-fullheight'}>
-                <Preview/>
-              </div>
-            </MarkdownProvider>
-            <div className={'column is-full'}>
-              <Footer/>
-            </div>
-          </div>
+            </>
+          }
         </TrialsProvider>
       </IsStartedProvider>
     </SessionProvider>
