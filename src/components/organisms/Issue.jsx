@@ -6,7 +6,6 @@ import MarkdownArea from '../molecules/MarkdownArea'
 export default function Issue() {
 
   const { updateMarkdown } = useContext(MarkdownContext)
-
   const { register, setValue, getValues } = useFormContext()
 
   useEffect(() => {

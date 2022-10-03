@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import Modal from '../atoms/Modal'
 
-export default function Counter({ stopwatch, limit }) {
+export default function StopwatchCounter({ stopwatch, limit }) {
 
   const { seconds, minutes, hours, days, pause, isRunning } = stopwatch
   const [isOpen, setIsOpen] = useState(false)

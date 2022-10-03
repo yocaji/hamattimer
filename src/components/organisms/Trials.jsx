@@ -4,10 +4,10 @@ import { TrialsContext } from '../providers/TrialsProvider'
 import Trial from './Trial'
 import { MdAdd } from 'react-icons/md'
 
-export default function Trials(props) {
+export default function Trials({addTrial}) {
 
-  const { isStarted, setIsStarted } = useContext(IsStartedContext)
   const { trials, setTrials } = useContext(TrialsContext)
+  const { isStarted, setIsStarted } = useContext(IsStartedContext)
 
   useEffect(() => {
     const localTrials = localStorage.getItem('trials')
@@ -24,7 +24,7 @@ export default function Trials(props) {
     } else {
       setIsStarted(false)
     }
-  }, [setIsStarted, trials.length])
+  }, [trials.length, setIsStarted])
 
   if (!isStarted) return
 
@@ -42,7 +42,7 @@ export default function Trials(props) {
           />
         ))}
         <div className={'card-footer'}>
-          <a className={'card-footer-item has-text-weight-bold'} onClick={() => props.addTrial()}>
+          <a className={'card-footer-item has-text-weight-bold'} onClick={() => addTrial()}>
             <MdAdd className={'mr-1'}/>追加する
           </a>
         </div>

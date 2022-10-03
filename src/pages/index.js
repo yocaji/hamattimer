@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import Navbar from '../components/organisms/Navbar'
-import Footer from '../components/organisms/Footer'
+import Navbar from '../components/organizations/Navbar'
+import Footer from '../components/organizations/Footer'
 import ButtonLetsTrySmall from '../components/molecules/ButtonLetsTrySmall'
 import ButtonLetsTryLarge from '../components/molecules/ButtonLetsTryLarge'
 

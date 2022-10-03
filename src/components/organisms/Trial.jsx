@@ -5,16 +5,12 @@ import { TrialsContext } from '../providers/TrialsProvider'
 import MarkdownArea from '../molecules/MarkdownArea'
 import ButtonRemoveTrial from '../molecules/ButtonRemoveTrial'
 
-export default function Trial(props) {
-
-  const trial = props.trial
+export default function Trial({trial, index}) {
 
   const { updateMarkdown } = useContext(MarkdownContext)
   const { trials, setTrials } = useContext(TrialsContext)
 
-  const methods = useForm(
-    { mode: 'onBlur' },
-  )
+  const methods = useForm({ mode: 'onBlur' },)
   const { setValue, getValues } = methods
 
   useEffect(() => {
@@ -49,11 +45,11 @@ export default function Trial(props) {
         <div className={'columns is-vcentered'}>
           <div className={'column'}>
             <div className={'is-size-5 has-text-weight-bold'}>
-              その{props.index}
+              その{index}
             </div>
           </div>
           <div className={'column'}>
-            <ButtonRemoveTrial id={trial.id} index={props.index} trials={trials} setTrials={setTrials}/>
+            <ButtonRemoveTrial id={trial.id} index={index} trials={trials} setTrials={setTrials}/>
           </div>
         </div>
         <FormProvider {...methods}>
