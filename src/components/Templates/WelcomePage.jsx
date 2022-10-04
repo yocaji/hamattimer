@@ -19,10 +19,10 @@ export default function WelcomePage() {
           <div className={'container is-max-widescreen'}>
             <div className={'columns is-vcentered'}>
               <div className={'column is-4 has-text-right'}>
-                <Image src={'/dummy.png'} width={240} height={240} alt={'はまったいまーロゴマーク'}/>
+                <Image src={'/logomark.png'} width={240} height={240} quality={100} alt={'はまったいまーロゴマーク'}/>
               </div>
               <div className={'column has-text-left'}>
-                <Image src={'/logotype-large.png'} width={600} height={141} alt={'はまったいまーロゴタイプ'}/>
+                <Image src={'/logotype-large.png'} width={600} height={155} alt={'はまったいまーロゴタイプ'}/>
               </div>
             </div>
             <div className={'mt-6'}>
@@ -42,20 +42,37 @@ export default function WelcomePage() {
       <div className={'hero has-text-centered has-background-pale'}>
         <div className={'hero-body'}>
           <div className={'container is-max-widescreen'}>
-            <h3 className={'title is-1'}>はまったいまーが無いとき</h3>
-            <hr className={'hero-separator'}/>
+            <h3 className={'title is-1 mb-6'}>はまったいまーが無いとき</h3>
             <div className={'columns'}>
               <div className={'column'}>
-                <Image src={'/dummy.png'} width={300} height={300} alt={'はまったいまーロゴ'}/>
-                <p className={'subtitle lh-1 mt-3'}>思わぬエラー発生🚨</p>
+                <div className={'card'}>
+                  <div className={'card-image pt-4'}>
+                    <Image src={'/without-1.jpeg'} width={300} height={300} alt={'はまったいまーロゴ'}/>
+                  </div>
+                  <div className={'card-content'}>
+                    <p className={'subtitle lh-1'}>思わぬエラー発生🚨</p>
+                  </div>
+                </div>
               </div>
               <div className={'column'}>
-                <Image src={'/dummy.png'} width={300} height={300} alt={'はまったいまーロゴ'}/>
-                <p className={'subtitle lh-1 mt-3'}>一生懸命やっているのに…あれ？</p>
+                <div className={'card'}>
+                  <div className={'card-image pt-4'}>
+                    <Image src={'/without-2.jpeg'} width={300} height={300} alt={'はまったいまーロゴ'}/>
+                  </div>
+                  <div className={'card-content'}>
+                    <p className={'subtitle lh-1'}>一生懸命やっているのに…あれ？</p>
+                  </div>
+                </div>
               </div>
               <div className={'column'}>
-                <Image src={'/dummy.png'} width={300} height={300} alt={'はまったいまーロゴ'}/>
-                <p className={'subtitle lh-1 mt-3'}>気が付いたら時間だけが過ぎてた😱</p>
+                <div className={'card'}>
+                  <div className={'card-image pt-4'}>
+                    <Image src={'/without-3.jpeg'} width={300} height={300} alt={'はまったいまーロゴ'}/>
+                  </div>
+                  <div className={'card-content'}>
+                    <p className={'subtitle lh-1'}>こんなはずじゃなかった💭</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -64,20 +81,37 @@ export default function WelcomePage() {
       <div className={'hero has-text-centered has-background-paper'}>
         <div className={'hero-body'}>
           <div className={'container is-max-widescreen'}>
-            <h3 className={'title is-1'}>はまったいまーがあるとき</h3>
-            <hr className={'hero-separator'}/>
+            <h3 className={'title is-1 mb-6'}>はまったいまーがあるとき</h3>
             <div className={'columns'}>
               <div className={'column'}>
-                <Image src={'/dummy.png'} width={300} height={300} alt={'はまったいまーロゴ'}/>
-                <p className={'subtitle lh-1 mt-3'}>思わぬエラー発生🚨</p>
+                <div className={'card'}>
+                  <div className={'card-image pt-4'}>
+                    <Image src={'/without-1.jpeg'} width={300} height={300} alt={'はまったいまーロゴ'}/>
+                  </div>
+                  <div className={'card-content'}>
+                    <p className={'subtitle lh-1'}>思わぬエラー発生🚨</p>
+                  </div>
+                </div>
               </div>
               <div className={'column'}>
-                <Image src={'/dummy.png'} width={300} height={300} alt={'はまったいまーロゴ'}/>
-                <p className={'subtitle lh-1 mt-3'}>タイマーとメモを使うから<br/>効率的に取り組める✨</p>
+                <div className={'card'}>
+                  <div className={'card-image pt-4'}>
+                    <Image src={'/with-2.jpeg'} width={300} height={300} alt={'はまったいまーロゴ'}/>
+                  </div>
+                  <div className={'card-content'}>
+                    <p className={'subtitle lh-1'}>タイマーとメモを使うから<br/>効率的に取り組める✨</p>
+                  </div>
+                </div>
               </div>
               <div className={'column'}>
-                <Image src={'/dummy.png'} width={300} height={300} alt={'はまったいまーロゴ'}/>
-                <p className={'subtitle lh-1 mt-3'}>詰まった時に早めに質問できた😊<br/>自己解決しやすくなった🙌</p>
+                <div className={'card'}>
+                  <div className={'card-image pt-4'}>
+                    <Image src={'/with-3.jpeg'} width={300} height={300} alt={'はまったいまーロゴ'}/>
+                  </div>
+                  <div className={'card-content'}>
+                    <p className={'subtitle lh-1'}>詰まった時に早めに質問できた😊<br/>自己解決しやすくなった🙌</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
