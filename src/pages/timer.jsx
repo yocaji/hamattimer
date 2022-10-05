@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import TimerPage from '../components/Templates/TimerPage'
+import TimerPage from '../components/templates/TimerPage'
 
 export default function Timer() {
 
