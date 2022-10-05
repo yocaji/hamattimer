@@ -26,7 +26,7 @@ export default function ButtonReset({ resetStopwatch }) {
     <>
       <Button
         onClick={() => setIsOpen(true)}
-        classNames={'is-rounded is-primary is-outlined'}
+        classNames={'is-primary is-outlined'}
       >
         <MdCleaningServices/><span className={'is-hidden-touch ml-1'}>リセット</span>
       </Button>

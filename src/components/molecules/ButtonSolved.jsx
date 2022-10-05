@@ -16,7 +16,7 @@ export default function ButtonSolved({ pause }) {
       <div className={'has-text-right'}>
         <Button
           onClick={() => handleClick()}
-          classNames={'is-primary is-rounded is-medium is-fullwidth'}
+          classNames={'is-primary is-medium is-fullwidth'}
         >
           解決した！
         </Button>

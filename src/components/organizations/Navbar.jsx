@@ -7,9 +7,9 @@ export default function Navbar(props) {
       <nav className={'navbar is-fixed-top py-3 has-border-sand-bottom has-background-paper'}>
         <div className={'navbar-brand'}>
           <span  className={'mx-2'}>
-          <Image src={'/logomark.png'} width={60} height={60} layout={'fixed'} quality={100} alt={'はまったいまーロゴタイプ'}/>
+          <Image src={'/logomark.png'} width={56} height={60} layout={'fixed'} quality={100} alt={'ロゴマーク'}/>
           </span>
-          <Image src={'/logotype-medium.png'} width={199} height={48} layout={'fixed'} alt={'はまったいまーロゴタイプ'}/>
+          <Image src={'/logotype.png'} width={199} height={52} layout={'fixed'} alt={'はまったいまー'}/>
         </div>
         {props.children}
       </nav>
