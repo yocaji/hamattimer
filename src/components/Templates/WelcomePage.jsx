@@ -7,19 +7,12 @@ import Footer from '../organizations/Footer'
 export default function WelcomePage() {
   return (
     <>
-      <Navbar>
-        <div className={'navbar-end'}>
-          <div className={'navbar-item'}>
-            <ButtonLetsTrySmall/>
-          </div>
-        </div>
-      </Navbar>
       <div className={'hero has-text-centered has-background-paper'}>
         <div className={'hero-body'}>
           <div className={'container is-max-widescreen'}>
             <div className={'columns is-vcentered'}>
               <div className={'column is-4 has-text-right'}>
-                <Image src={'/logomark.png'} width={220} height={240} quality={100} alt={'はまったいまーロゴマーク'}/>
+                <Image src={'/logomark.png'} width={210} height={240} quality={100} alt={'はまったいまーロゴマーク'}/>
               </div>
               <div className={'column has-text-left'}>
                 <Image src={'/logotype.png'} width={600} height={155} alt={'はまったいまーロゴタイプ'}/>
