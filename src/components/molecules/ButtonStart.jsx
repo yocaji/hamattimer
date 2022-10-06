@@ -12,7 +12,7 @@ export default function ButtonStart({ start, addTrial, setIsStarted }) {
     <div className={'has-text-right'}>
       <Button
         onClick={() => handleClick()}
-        classNames={'is-primary is-medium is-fullwidth'}
+        classNames={'is-primary is-medium is-fullwidth has-text-weight-bold'}
       >
         スタート
       </Button>

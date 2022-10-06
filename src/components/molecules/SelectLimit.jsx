@@ -19,7 +19,7 @@ export default function SelectLimit({ limit, setLimit }) {
   return (
     <>
       <Select value={limit} options={options} onChange={(value) => handleChange(value)}
-              classNames={'is-primary ml-5'}/>
+              classNames={'ml-5'}/>
       <span className={'ml-2'}>分</span>
     </>
   )
