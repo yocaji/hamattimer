@@ -13,7 +13,7 @@ export default function PreviewHead() {
           <a onClick={() => signIn('github')}>GitHubと連携</a>するとGistに保存する機能をご利用になれます
         </div>
       }
-      <div className={'buttons is-right has-addons'}>
+      <div className={'buttons is-right'}>
         <ButtonCopy/>
         <ButtonGist/>
       </div>

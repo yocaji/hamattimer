@@ -36,37 +36,32 @@ export default function Issue() {
   }
 
   return (
-    <div className={'card'} id={'issue'}>
-      <div className={'card-header'}>
-        <h2 className={'card-header-title'}>解決したいこと</h2>
-      </div>
-      <div className={'card-content'}>
-        <form onChange={updateIssue} autoComplete={'off'}>
-          <div className={'field'}>
-            <label className={'label'}>期待する結果をひとことで</label>
-            <div className={'control'}>
-              <input {...register('tobe')} placeholder={'○○したら××が表示される'} className={'input'}/>
-            </div>
+    <div className={'box'} id={'issue'}>
+      <form onChange={updateIssue} autoComplete={'off'}>
+        <div className={'field'}>
+          <label className={'label'}>期待する結果をひとことで</label>
+          <div className={'control'}>
+            <input {...register('tobe')} placeholder={'○○したら××が表示される'} className={'input'}/>
           </div>
-          <div className={'field'}>
-            <label className={'label'}>実際の結果をひとことで</label>
-            <div className={'control'}>
-              <input {...register('asis')} placeholder={'○○しても画面の表示が変わらない'} className={'input'}/>
-            </div>
+        </div>
+        <div className={'field'}>
+          <label className={'label'}>実際の結果をひとことで</label>
+          <div className={'control'}>
+            <input {...register('asis')} placeholder={'○○しても画面の表示が変わらない'} className={'input'}/>
           </div>
-          <div className={'field'}>
-            <label className={'label'}>詳しい状況</label>
-            <div className={'control'}>
-              <MarkdownArea
-                name={'problem'}
-                rows={12}
-                placeholder={`エラーメッセージ、ログ、経緯など\n（スクリーンショットを貼り付けると自動でMarkdownのコードとして挿入されます）`}
-                updateValue={updateIssue}
-              />
-            </div>
+        </div>
+        <div className={'field'}>
+          <label className={'label'}>詳しい状況</label>
+          <div className={'control'}>
+            <MarkdownArea
+              name={'problem'}
+              rows={12}
+              placeholder={`エラーメッセージ、ログ、経緯など\n（スクリーンショットを貼り付けると自動でMarkdownのコードとして挿入されます）`}
+              updateValue={updateIssue}
+            />
           </div>
-        </form>
-      </div>
+        </div>
+      </form>
     </div>
   )
 }

@@ -1,42 +1,33 @@
 $family-sans-serif: 'BIZ UDPGothic', sans-serif;
 $family-monospace: 'Source Code Pro', monospace;
-$blue: #424242;
-$teal: #BAE5E5;
+$navy: #25316D;
+$blue: #1479FF;
+$teal: #14D2FF;
 $red: #FF5D5D;
-$pale: #efefef;
+$pale: #E7FAFF;
+$snow: #F4F7F9;
 $subtle: #E9E9E9;
-$paper: #f6f6f6;
+$paper: #F4F7F9;
 $sand: #e0e0e0;
-$light: $subtle;
 $border: $sand;
-$link: $blue;
 $primary: $blue;
-$text: #424242;
-$text-strong: $text;
-$radius: 0.5rem;
-$radius-small: 0.4rem;
-$radius-large: 0.5rem;
-$title-color: $blue;
+$text: $navy;
+$title-color: $navy;
+$content-heading-color: $navy;
+$label-color: $navy;
+$link: #3246D3;
+$shadow: 0 0.5em 1em 0em rgba($blue, 0.1), 0 0px 0 1px rgba($text, 0.01);
+$radius-small: 0.25rem;
 $hero-body-padding-tablet: 6rem 3rem;
-$card-radius: 0.5rem;
-$card-shadow: none;
-$card-header-shadow: none;
-$card-header-background-color: $sand;
-$card-header-padding: 0.75rem 1.5rem;
-$card-footer-border-top: none;
-$footer-background-color: $pale;
+$footer-background-color: $snow;
+$box-padding: 2.0rem;
 $modal-card-head-background-color: $paper;
 $modal-card-head-border-bottom: 2px solid $sand;
 $modal-card-foot-border-top: 2px solid $sand;
-$input-hover-border-color: $teal;
-$button-border-width: 2px;
+$tile-spacing: 1.5rem;
 @import '~bulma/bulma';
-.select select, .input, .textarea {
-  border-width: 2px;
-  background-color: transparent;
-}
 .button {
-  font-weight: $weight-bold;
+  box-shadow: $shadow;
 }
 .has-background-pale {
   background-color: $pale;
@@ -48,7 +39,7 @@ $button-border-width: 2px;
   background-color: $sand;
 }
 .has-border-sand-bottom {
-  border-bottom: solid 2px $sand;
+  border-bottom: solid 1px $sand;
 }
 .has-border-subtle-top {
   border-top: solid 1px $subtle;

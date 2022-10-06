@@ -14,15 +14,17 @@ export default function Preview() {
   })
 
   return (
-    <div id={'preview'}>
-      <div className={'card-content'}>
+    <>
+      <div className={'mt-2 mb-5'}>
         <PreviewHead/>
       </div>
-      <div className={'card-content content'}>
-        <ReactMarkdown remarkPlugins={[remarkGfm, remarkBreaks]} unwrapDisallowed={false}>
-          {markdown}
-        </ReactMarkdown>
+      <div className={'tile is-child box'} id={'preview'}>
+        <div className={'content'}>
+          <ReactMarkdown remarkPlugins={[remarkGfm, remarkBreaks]} unwrapDisallowed={false}>
+            {markdown}
+          </ReactMarkdown>
+        </div>
       </div>
-    </div>
+    </>
   )
 }

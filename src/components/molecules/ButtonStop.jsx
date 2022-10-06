@@ -16,7 +16,7 @@ export default function ButtonStop({ pause }) {
       <div className={'has-text-right'}>
         <Button
           onClick={() => handleClick()}
-          classNames={'is-primary is-light is-medium is-fullwidth'}
+          classNames={'is-light is-medium is-fullwidth'}
         >
           終了する
         </Button>

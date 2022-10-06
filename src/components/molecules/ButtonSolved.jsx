@@ -13,14 +13,12 @@ export default function ButtonSolved({ pause }) {
 
   return (
     <>
-      <div className={'has-text-right'}>
-        <Button
-          onClick={() => handleClick()}
-          classNames={'is-primary is-medium is-fullwidth has-text-weight-bold'}
-        >
-          解決した！
-        </Button>
-      </div>
+      <Button
+        onClick={() => handleClick()}
+        classNames={'is-primary is-light is-medium is-fullwidth'}
+      >
+        解決した！
+      </Button>
       {isOpen &&
         <Modal
           onCancel={() => setIsOpen(false)}
