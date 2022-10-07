@@ -9,7 +9,7 @@ import { MdCleaningServices } from 'react-icons/md'
 export default function ButtonReset({ resetStopwatch }) {
 
   const { setIsStarted } = useContext(IsStartedContext)
-  const { trials, setTrials } = useContext(TrialsContext)
+  const { setTrials } = useContext(TrialsContext)
   const { getValues, reset } = useFormContext()
   const [isOpen, setIsOpen] = useState(false)
 
@@ -26,7 +26,7 @@ export default function ButtonReset({ resetStopwatch }) {
     <>
       <Button
         onClick={() => setIsOpen(true)}
-        classNames={'is-primary is-light'}
+        classNames={'is-primary is-light has-text-weight-bold is-family-secondary'}
       >
         <MdCleaningServices/><span className={'is-hidden-touch ml-1'}>リセット</span>
       </Button>

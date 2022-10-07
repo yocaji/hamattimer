@@ -13,14 +13,12 @@ export default function ButtonStop({ pause }) {
 
   return (
     <>
-      <div className={'has-text-right'}>
-        <Button
-          onClick={() => handleClick()}
-          classNames={'is-primary is-light is-rounded is-medium is-fullwidth'}
-        >
-          終了する
-        </Button>
-      </div>
+      <Button
+        onClick={() => handleClick()}
+        classNames={'is-primary is-light is-rounded is-medium is-fullwidth has-text-weight-bold is-family-secondary'}
+      >
+        終了する
+      </Button>
       {isOpen &&
         <Modal
           onCancel={() => setIsOpen(false)}

@@ -7,7 +7,6 @@ $teal: #14D2FF;
 $red: #fa5a7d;
 $snow: #F4F7F9;
 $subtle: #E9E9E9;
-$paper: #F4F7F9;
 $myst: #F1F6FD;
 $cloud: #E3EBF7;
 $primary: $blue;
@@ -20,10 +19,10 @@ $shadow: 0 0.5em 1em 0em rgba($blue, 0.1), 0 0px 0 1px rgba($text, 0.01);
 $radius-small: 0.25rem;
 $radius: 0.5rem;
 $hero-body-padding-tablet: 6rem 3rem;
-$footer-background-color: $snow;
+$footer-background-color: $cloud;
 $box-radius: $radius;
 $box-padding: 2.0rem;
-$modal-card-head-background-color: $paper;
+$modal-card-head-background-color: $snow;
 $modal-card-head-border-bottom: 2px solid $subtle;
 $modal-card-foot-border-top: 2px solid $subtle;
 $tile-spacing: 1.5rem;
@@ -43,14 +42,14 @@ $tile-spacing: 1.5rem;
 .has-background-navbar {
   background: linear-gradient(to right, $blue, #4a31ca);
 }
+.has-background-snow {
+  background-color: $snow;
+}
 .has-background-myst {
   background-color: $myst;
 }
 .has-background-cloud {
   background-color: $cloud;
-}
-.has-background-paper {
-  background-color: $paper;
 }
 .has-border-subtle-top {
   border-top: solid 1px $subtle;

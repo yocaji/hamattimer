@@ -89,13 +89,7 @@ export default function WelcomePage() {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-      <div className={'hero has-text-centered has-background-cloud'}>
-        <div className={'hero-body'}>
-          <div className={'columns is-centered'}>
-            <div className={'column is-4'}>
+            <div className={'mt-6'}>
               <ButtonLetsTryPosi/>
             </div>
           </div>

@@ -59,7 +59,7 @@ export default function TimerPage() {
                   </div>
                 </div>
               </Navbar>
-              <div className={'has-background-paper px-6 pb-6'}>
+              <div className={'has-background-myst px-6 pb-6'}>
                 <div className={'tile is-ancestor'}>
                   <MarkdownProvider>
                     <div className={'tile is-parent is-vertical is-6'}>
