@@ -1,15 +1,14 @@
 $family-sans-serif: 'BIZ UDPGothic', sans-serif;
 $family-monospace: 'Source Code Pro', monospace;
+$family-secondary: 'Zen Maru Gothic', sans-serif;
 $navy: #25316D;
-$blue: #1479FF;
+//$blue: #1479FF;
+$blue: #3246D3;
 $teal: #14D2FF;
-$red: #FF5D5D;
-$pale: #E7FAFF;
+$red: #fa5a7d;
 $snow: #F4F7F9;
 $subtle: #E9E9E9;
 $paper: #F4F7F9;
-$sand: #e0e0e0;
-$border: $sand;
 $primary: $blue;
 $text: $navy;
 $title-color: $navy;
@@ -22,32 +21,21 @@ $hero-body-padding-tablet: 6rem 3rem;
 $footer-background-color: $snow;
 $box-padding: 2.0rem;
 $modal-card-head-background-color: $paper;
-$modal-card-head-border-bottom: 2px solid $sand;
-$modal-card-foot-border-top: 2px solid $sand;
+$modal-card-head-border-bottom: 2px solid $subtle;
+$modal-card-foot-border-top: 2px solid $subtle;
 $tile-spacing: 1.5rem;
 @import '~bulma/bulma';
+.select select {
+  border: none;
+}
 .button {
   box-shadow: $shadow;
-}
-.has-background-pale {
-  background-color: $pale;
 }
 .has-background-paper {
   background-color: $paper;
 }
-.has-background-sand {
-  background-color: $sand;
-}
-.has-border-sand-bottom {
-  border-bottom: solid 1px $sand;
-}
 .has-border-subtle-top {
   border-top: solid 1px $subtle;
-}
-.hero-separator {
-  border: 3px solid $sand;
-  width: 120px;
-  margin: 2rem auto 3rem;
 }
 .is-size-6-half {
   font-size: 0.9rem;

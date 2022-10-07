@@ -23,7 +23,7 @@ export default function ButtonRemoveTrial({id, index, trials, setTrials}) {
       <div className={'has-text-right'}>
         <Button
           onClick={() => setIsOpen(true)}
-          classNames={'is-small is-danger is-outlined'}
+          classNames={'is-small is-danger'}
         >
           <MdDelete/>削除
         </Button>

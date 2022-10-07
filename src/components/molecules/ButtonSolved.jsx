@@ -15,7 +15,7 @@ export default function ButtonSolved({ pause }) {
     <>
       <Button
         onClick={() => handleClick()}
-        classNames={'is-primary is-light is-medium is-fullwidth'}
+        classNames={'is-primary is-rounded is-medium is-fullwidth'}
       >
         解決した！
       </Button>
