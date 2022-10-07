@@ -39,9 +39,9 @@ export default function Trials({ addTrial }) {
             index={i + 1}
           />
         ))}
-        <a className={'card-footer-item has-text-weight-bold'} onClick={() => addTrial()}>
-          <MdAdd className={'mr-1'}/>追加する
-        </a>
+        <button className={'button is-primary is-light is-fullwidth has-text-weight-bold'} onClick={() => addTrial()}>
+          <MdAdd className={'mr-1'}/>試したこと
+        </button>
       </div>
     </>
   )

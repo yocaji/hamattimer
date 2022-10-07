@@ -14,7 +14,7 @@ $text: $navy;
 $title-color: $navy;
 $content-heading-color: $navy;
 $label-color: $navy;
-$link: #3246D3;
+$link: $blue;
 $shadow: 0 0.5em 1em 0em rgba($blue, 0.1), 0 0px 0 1px rgba($text, 0.01);
 $radius-small: 0.25rem;
 $radius: 0.5rem;
@@ -35,6 +35,9 @@ $tile-spacing: 1.5rem;
 }
 .button {
   box-shadow: $shadow;
+}
+.button.is-primary.is-light {
+  background: $white;
 }
 .has-background-hero {
   background: radial-gradient($blue, #4a31ca);
