@@ -70,3 +70,17 @@ $tile-spacing: 1.5rem;
 .lh-2 {
   line-height: 2.0;
 }
+// プレビューの書式設定
+#preview > .content > h1 {
+  font-size: $size-4;
+  border-left: double 18px $navy;
+  padding-left: 0.5rem;
+}
+#preview > .content > h2 {
+  font-size: $size-4;
+  border-left: solid 6px $navy;
+  padding-left: 0.5rem;
+}
+#preview > .content > h3 {
+  font-size: $size-4;
+}
