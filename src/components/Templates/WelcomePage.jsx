@@ -108,7 +108,7 @@ export default function WelcomePage() {
                 <h4 className={'title is-4 mt-6'}>2. メモ機能</h4>
                 <Image src={'https://res.cloudinary.com/hamattimer/image/upload/v1665148377/sdkppoqnqtk8okr0i08z.png'}
                        width={852} height={435} quality={85} alt={'メモ機能のスクリーンショット'}/>
-                <p className={'lh-1'}>メモとして書き起こすことで、どのような仮説を立てて結果はどうなったのか、自分と対話しながら問題解決に取り組むことができます。<br/>
+                <p className={'lh-1'}>メモとして書き起こすことで、事実を客観的に整理して、どのような仮説を立てて結果はどうなったのか、自分と対話しながら問題解決に取り組むことができます。<br/>
                   また、入力項目が決まっているので、何から書けば良いか分からなくても書き始めることができます。</p>
                 <h4 className={'title is-4 mt-6'}>3. 記録の出力機能</h4>
                 <Image src={'https://res.cloudinary.com/hamattimer/image/upload/v1665147967/ezhtcnwbyqzth8ct3rip.png'}
