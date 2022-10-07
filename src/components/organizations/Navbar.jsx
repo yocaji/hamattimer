@@ -4,7 +4,7 @@ export default function Navbar(props) {
 
   return (
     <>
-      <nav className={'navbar is-fixed-top py-1 is-primary'}>
+      <nav className={'navbar is-fixed-top py-1 is-primary has-background-navbar'}>
         <div className={'navbar-brand mt-1'}>
           <span className={'mx-2'}>
             <Image src={'/logomark-nega.png'} width={60} height={60} layout={'fixed'} quality={100} alt={'ロゴマーク'}/>

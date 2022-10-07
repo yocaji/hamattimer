@@ -2,13 +2,14 @@ $family-sans-serif: 'BIZ UDPGothic', sans-serif;
 $family-monospace: 'Source Code Pro', monospace;
 $family-secondary: 'Zen Maru Gothic', sans-serif;
 $navy: #25316D;
-//$blue: #1479FF;
 $blue: #3246D3;
 $teal: #14D2FF;
 $red: #fa5a7d;
 $snow: #F4F7F9;
 $subtle: #E9E9E9;
 $paper: #F4F7F9;
+$myst: #F1F6FD;
+$cloud: #E3EBF7;
 $primary: $blue;
 $text: $navy;
 $title-color: $navy;
@@ -17,8 +18,10 @@ $label-color: $navy;
 $link: #3246D3;
 $shadow: 0 0.5em 1em 0em rgba($blue, 0.1), 0 0px 0 1px rgba($text, 0.01);
 $radius-small: 0.25rem;
+$radius: 0.5rem;
 $hero-body-padding-tablet: 6rem 3rem;
 $footer-background-color: $snow;
+$box-radius: $radius;
 $box-padding: 2.0rem;
 $modal-card-head-background-color: $paper;
 $modal-card-head-border-bottom: 2px solid $subtle;
@@ -28,8 +31,23 @@ $tile-spacing: 1.5rem;
 .select select {
   border: none;
 }
+.input, .textarea, .button, .select select {
+  border-radius: $radius-small;
+}
 .button {
   box-shadow: $shadow;
+}
+.has-background-hero {
+  background: radial-gradient($blue, #4a31ca);
+}
+.has-background-navbar {
+  background: linear-gradient(to right, $blue, #4a31ca);
+}
+.has-background-myst {
+  background-color: $myst;
+}
+.has-background-cloud {
+  background-color: $cloud;
 }
 .has-background-paper {
   background-color: $paper;
