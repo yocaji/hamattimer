@@ -42,7 +42,7 @@ export default function ButtonReset({ resetStopwatch }) {
             <p className={'lh-1'}>記録した内容を消して初期状態に戻しますか？</p>
           </div>
           <div className={'notification is-info is-light mt-3'}>
-            <p className={'lh-1'}>作成した記録をGistに保存しておくと、あとから必要になった時に見返すことができて便利です💡</p>
+            <p className={'lh-1'}>作成した記録をGistに保存しておくと、あとから必要になった時に見返すことができます</p>
           </div>
         </Modal>
       }

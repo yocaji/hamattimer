@@ -15,16 +15,17 @@ $title-color: $navy;
 $content-heading-color: $navy;
 $label-color: $navy;
 $link: $blue;
-$shadow: 0 0.5em 1em 0em rgba($blue, 0.1), 0 0px 0 1px rgba($text, 0.01);
+$shadow: 0 0.25em 0.25em 0em rgba($blue, 0.05), 0 0px 0 1px rgba($text, 0.01);
 $radius-small: 0.25rem;
 $radius: 0.5rem;
 $hero-body-padding-tablet: 6rem 3rem;
 $footer-background-color: $cloud;
 $box-radius: $radius;
 $box-padding: 2.0rem;
-$modal-card-head-background-color: $snow;
-$modal-card-head-border-bottom: 2px solid $subtle;
-$modal-card-foot-border-top: 2px solid $subtle;
+$modal-card-title-color: $text;
+$modal-card-head-background-color: $cloud;
+$modal-card-head-border-bottom: none;
+$modal-card-foot-border-top: none;
 $tile-spacing: 1.5rem;
 @import '~bulma/bulma';
 .select select {
@@ -56,6 +57,9 @@ $tile-spacing: 1.5rem;
 }
 .has-border-subtle-top {
   border-top: solid 1px $subtle;
+}
+.has-text-navy {
+  color: $navy;
 }
 .is-size-6-half {
   font-size: 0.9rem;

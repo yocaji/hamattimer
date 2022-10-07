@@ -24,9 +24,11 @@ export default function ButtonStop({ pause }) {
           onCancel={() => setIsOpen(false)}
           title={'おつかれさまでした🍵'}
         >
-          <p className={'lh-1'}>時間を置いてみると新しいひらめきで解決するかも👍</p>
+          <div className={'content'}>
+            <p className={'lh-1'}>時間を置いてみると新しいひらめきで解決するかも👍</p>
+          </div>
           <div className={'notification is-info is-light'}>
-            <p className={'lh-1'}>作成した記録をGistに保存しておくと、あとから必要になった時に見返すことができて便利です💡</p>
+            <p className={'lh-1'}>作成した記録をGistに保存しておくと、あとから必要になった時に見返すことができます</p>
           </div>
         </Modal>
       }

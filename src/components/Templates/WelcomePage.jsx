@@ -18,10 +18,10 @@ export default function WelcomePage() {
               </div>
             </div>
             <div className={'mt-5'}>
-              <p className={'lh-2 is-size-5'}>
+              <p className={'lh-2 is-size-4'}>
                 プログラミングをしていてハマった時に、時間を浪費してしまって後悔したことはありませんか？
               </p>
-              <p className={'lh-2 is-size-5 mt-3'}>
+              <p className={'lh-2 is-size-4 mt-3'}>
                 時間に区切りを作るためのタイマー機能と、思考を整理するためのメモ機能で、<br/>
                 はまったいまーはあなたの問題解決への取り組みをサポートします。
               </p>
@@ -32,9 +32,9 @@ export default function WelcomePage() {
           </div>
         </div>
       </div>
-      <div className={'hero has-text-centered has-background-cloud is-family-secondary'}>
+      <div className={'hero has-background-cloud is-family-secondary'}>
         <div className={'hero-body'}>
-          <div className={'container is-max-widescreen'}>
+          <div className={'container has-text-centered is-max-widescreen'}>
             <h3 className={'title is-1 mb-6'}>こんな経験はないですか？</h3>
             <div className={'tile is-ancestor'}>
               <div className={'tile is-parent'}>
@@ -48,7 +48,7 @@ export default function WelcomePage() {
                 <div className={'tile-is-child box is-shadowless'}>
                   <h4 className={'title'}>2</h4>
                   <Image src={'/without-2.jpeg'} width={300} height={300} alt={'PCに向かっているもののうまく行かない様子の女性のイラスト'}/>
-                  <p className={'subtitle lh-1'}>一生懸命やっているけど<br/>あれ…？</p>
+                  <p className={'subtitle lh-1'}>すぐに解決できると思ったのに<br/>あれ…？</p>
                 </div>
               </div>
               <div className={'tile is-parent'}>
@@ -62,9 +62,9 @@ export default function WelcomePage() {
           </div>
         </div>
       </div>
-      <div className={'hero has-text-centered has-background-myst is-family-secondary'}>
+      <div className={'hero has-background-myst is-family-secondary'}>
         <div className={'hero-body'}>
-          <div className={'container is-max-widescreen'}>
+          <div className={'container has-text-centered is-max-widescreen'}>
             <h3 className={'title is-1 mb-6'}>はまったいまーを使うと</h3>
             <div className={'tile is-ancestor'}>
               <div className={'tile is-parent'}>

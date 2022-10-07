@@ -5,10 +5,10 @@ export default function Modal({ title, confirmLabel, cancelLabel, onConfirm, onC
       <div className={'modal-background'} onClick={onCancel}/>
       <div className={'modal-card'}>
         <header className={'modal-card-head'}>
-          <h1 className={'modal-card-title is-size-5'}>{title}</h1>
+          <h1 className={'modal-card-title is-size-6 has-text-weight-bold'}>{title}</h1>
           <button className={'delete'} onClick={onCancel}/>
         </header>
-        <section className={'modal-card-body'}>
+        <section className={'modal-card-body has-text-navy'}>
           {children}
         </section>
         <footer className={'modal-card-foot'}>
@@ -20,11 +20,9 @@ export default function Modal({ title, confirmLabel, cancelLabel, onConfirm, onC
             {confirmLabel}
           </button>
           }
-          {cancelLabel &&
-          <button className={'button is-light'} onClick={onCancel}>
-            {cancelLabel}
+          <button className={'button is-white is-shadowless'} onClick={onCancel}>
+            {cancelLabel ?? 'とじる'}
           </button>
-          }
         </footer>
       </div>
     </div>
