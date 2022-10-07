@@ -12,10 +12,10 @@ export default function WelcomePage() {
           <div className={'container is-max-widescreen'}>
             <div className={'columns is-vcentered'}>
               <div className={'column is-4 has-text-right'}>
-                <Image src={'/logomark.png'} width={210} height={240} quality={100} alt={'はまったいまーロゴマーク'}/>
+                <Image src={'/logomark.png'} width={240} height={240} quality={100} alt={'はまったいまーロゴマーク'}/>
               </div>
-              <div className={'column has-text-left'}>
-                <Image src={'/logotype.png'} width={600} height={155} alt={'はまったいまーロゴタイプ'}/>
+              <div className={'column has-text-left ml-5'}>
+                <Image src={'/logotype.png'} width={600} height={240} alt={'はまったいまーロゴタイプ'}/>
               </div>
             </div>
             <div className={'mt-6'}>
