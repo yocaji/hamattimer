@@ -10,7 +10,7 @@ class MyDocument extends Document {
           <link rel="preconnect" href="https://fonts.googleapis.com"/>
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin/>
           <link
-            href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=Source+Code+Pro&display=swap"
+            href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=Source+Code+Pro&family=Zen+Maru+Gothic:wght@500;700&display=swap"
             rel="stylesheet"/>
         </Head>
         <body>
@@ -18,8 +18,8 @@ class MyDocument extends Document {
         <NextScript/>
         </body>
       </Html>
-    )
+  )
   }
-}
+  }
 
-export default MyDocument
+  export default MyDocument

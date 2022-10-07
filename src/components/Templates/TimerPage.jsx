@@ -59,21 +59,19 @@ export default function TimerPage() {
                   </div>
                 </div>
               </Navbar>
-              <div className={'columns is-gapless is-multiline has-background-paper'}>
-                <MarkdownProvider>
-                  <div className={'column is-half hero is-fullheight'}>
-                    <section className={'section'}>
+              <div className={'has-background-myst px-6 pb-6'}>
+                <div className={'tile is-ancestor'}>
+                  <MarkdownProvider>
+                    <div className={'tile is-parent is-vertical is-6'}>
                       <Editor methods={methods} stopwatch={stopwatch}/>
-                    </section>
-                  </div>
-                  <div className={'column is-half hero is-fullheight'}>
-                    <Preview/>
-                  </div>
-                </MarkdownProvider>
-                <div className={'column is-full'}>
-                  <Footer/>
+                    </div>
+                    <div className={'tile is-parent is-vertical'}>
+                      <Preview/>
+                    </div>
+                  </MarkdownProvider>
                 </div>
               </div>
+              <Footer/>
             </>
           }
         </TrialsProvider>

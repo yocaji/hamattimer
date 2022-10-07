@@ -4,7 +4,7 @@ import { TrialsContext } from '../providers/TrialsProvider'
 import Trial from './Trial'
 import { MdAdd } from 'react-icons/md'
 
-export default function Trials({addTrial}) {
+export default function Trials({ addTrial }) {
 
   const { trials, setTrials } = useContext(TrialsContext)
   const { isStarted, setIsStarted } = useContext(IsStartedContext)
@@ -30,10 +30,8 @@ export default function Trials({addTrial}) {
 
   return (
     <>
-      <div className={'card mt-6'} id={'trials'}>
-        <div className={'card-header'}>
-          <h2 className={'card-header-title'}>試したこと</h2>
-        </div>
+      <div id={'trials'}>
+        <h2 className={'title is-5 mt-4'}>試したこと</h2>
         {trials.map((trial, i) => (
           <Trial
             key={trial.id}
@@ -41,11 +39,9 @@ export default function Trials({addTrial}) {
             index={i + 1}
           />
         ))}
-        <div className={'card-footer'}>
-          <a className={'card-footer-item has-text-weight-bold'} onClick={() => addTrial()}>
-            <MdAdd className={'mr-1'}/>追加する
-          </a>
-        </div>
+        <button className={'button is-primary is-light is-fullwidth has-text-weight-bold'} onClick={() => addTrial()}>
+          <MdAdd className={'mr-1'}/>試したこと
+        </button>
       </div>
     </>
   )

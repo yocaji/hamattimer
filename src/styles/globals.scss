@@ -1,61 +1,65 @@
 $family-sans-serif: 'BIZ UDPGothic', sans-serif;
 $family-monospace: 'Source Code Pro', monospace;
-$blue: #00BCD4;
-$teal: #BAE5E5;
-$red: #FF5D5D;
-$pale: #efefef;
+$family-secondary: 'Zen Maru Gothic', sans-serif;
+$navy: #25316D;
+$blue: #3246D3;
+$teal: #14D2FF;
+$red: #fa5a7d;
+$snow: #F4F7F9;
 $subtle: #E9E9E9;
-$paper: #f6f6f6;
-$sand: #e0e0e0;
-$light: $subtle;
-$border: $sand;
-$link: $blue;
+$myst: #F1F6FD;
+$cloud: #E3EBF7;
 $primary: $blue;
-$text: #424242;
-$text-strong: $text;
+$text: $navy;
+$title-color: $navy;
+$content-heading-color: $navy;
+$label-color: $navy;
+$link: $blue;
+$shadow: 0 0.25em 0.25em 0em rgba($blue, 0.05), 0 0px 0 1px rgba($text, 0.01);
+$radius-small: 0.25rem;
 $radius: 0.5rem;
-$radius-large: 0.75rem;
-$title-color: $blue;
 $hero-body-padding-tablet: 6rem 3rem;
-$card-radius: 0.75rem;
-$card-shadow: none;
-$card-header-shadow: none;
-$card-header-background-color: $sand;
-$card-header-padding: 0.75rem 1.5rem;
-$card-footer-border-top: none;
-$footer-background-color: $pale;
-$modal-card-head-background-color: $paper;
-$modal-card-head-border-bottom: 2px solid $sand;
-$modal-card-foot-border-top: 2px solid $sand;
-$input-hover-border-color: $teal;
-$button-border-width: 2px;
+$footer-background-color: $cloud;
+$box-radius: $radius;
+$box-padding: 2.0rem;
+$modal-card-title-color: $text;
+$modal-card-head-background-color: $cloud;
+$modal-card-head-border-bottom: none;
+$modal-card-foot-border-top: none;
+$tile-spacing: 1.5rem;
 @import '~bulma/bulma';
-.select select, .input, .textarea {
-  border-width: 2px;
-  background-color: transparent;
+.select select {
+  border: none;
+}
+.input, .textarea, .button, .select select {
+  border-radius: $radius-small;
 }
 .button {
-  font-weight: $weight-bold;
+  box-shadow: $shadow;
 }
-.has-background-pale {
-  background-color: $pale;
+.button.is-primary.is-light {
+  background: $white;
 }
-.has-background-paper {
-  background-color: $paper;
+.has-background-hero {
+  background: radial-gradient($blue, #4a31ca);
 }
-.has-background-sand {
-  background-color: $sand;
+.has-background-navbar {
+  background: linear-gradient(to right, $blue, #4a31ca);
 }
-.has-border-sand-bottom {
-  border-bottom: solid 2px $sand;
+.has-background-snow {
+  background-color: $snow;
+}
+.has-background-myst {
+  background-color: $myst;
+}
+.has-background-cloud {
+  background-color: $cloud;
 }
 .has-border-subtle-top {
   border-top: solid 1px $subtle;
 }
-.hero-separator {
-  border: 3px solid $sand;
-  width: 120px;
-  margin: 2rem auto 3rem;
+.has-text-navy {
+  color: $navy;
 }
 .is-size-6-half {
   font-size: 0.9rem;
@@ -65,4 +69,18 @@ $button-border-width: 2px;
 }
 .lh-2 {
   line-height: 2.0;
+}
+// プレビューの書式設定
+#preview > .content > h1 {
+  font-size: $size-4;
+  border-left: double 18px $navy;
+  padding-left: 0.5rem;
+}
+#preview > .content > h2 {
+  font-size: $size-4;
+  border-left: solid 6px $navy;
+  padding-left: 0.5rem;
+}
+#preview > .content > h3 {
+  font-size: $size-4;
 }

@@ -15,7 +15,7 @@ export default function ButtonStopwatch(props) {
   const label = isRunning ? <MdPause/> : <MdPlayArrow/>
 
   return (
-    <Button onClick={action} classNames={'is-small is-rounded is-primary is-outlined ml-2'} disabled={!isStarted}>
+    <Button onClick={action} classNames={'is-small is-primary is-light ml-2'} disabled={!isStarted}>
       {label}
     </Button>
   )

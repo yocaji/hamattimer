@@ -102,12 +102,12 @@ test.describe('スタート後', () => {
   })
 
   test('試したことの追加・削除', async ({ page }) => {
-    await page.locator('#trials >> text=追加する').click()
-    await expect(page.locator('#trials >> .card-content')).toHaveCount(2)
+    await page.locator('#trials >> button:has-text("試したこと")').click()
+    await expect(page.locator('#trials >> .box')).toHaveCount(2)
 
     await page.locator('#trials >> button:has(svg)').first().click()
     await page.locator('.modal:visible >> button:has-text("削除する")').click()
-    await expect(page.locator('#trials >> .card-content')).toHaveCount(1)
+    await expect(page.locator('#trials >> .box')).toHaveCount(1)
   })
 
   test('リセットボタン', async ({ page }) => {

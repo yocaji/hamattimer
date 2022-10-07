@@ -4,16 +4,16 @@ export default function Navbar(props) {
 
   return (
     <>
-      <nav className={'navbar is-fixed-top py-3 has-border-sand-bottom has-background-paper'}>
-        <div className={'navbar-brand'}>
-          <span  className={'mx-2'}>
-          <Image src={'/logomark.png'} width={60} height={60} layout={'fixed'} quality={100} alt={'はまったいまーロゴタイプ'}/>
+      <nav className={'navbar is-fixed-top py-1 is-primary has-background-navbar'}>
+        <div className={'navbar-brand mt-1'}>
+          <span className={'mx-2'}>
+            <Image src={'/logomark-nega.png'} width={60} height={60} layout={'fixed'} quality={100} alt={'ロゴマーク'}/>
           </span>
-          <Image src={'/logotype-medium.png'} width={199} height={48} layout={'fixed'} alt={'はまったいまーロゴタイプ'}/>
+          <Image src={'/logotype-nega.png'} width={150} height={60} layout={'fixed'} alt={'はまったいまー'}/>
         </div>
         {props.children}
       </nav>
-      <div className={'block pt-6 mt-4'}></div>
+      <div className={'block pt-6 mt-5'}></div>
     </>
   )
 }

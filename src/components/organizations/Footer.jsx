@@ -6,7 +6,7 @@ export default function Footer() {
   const { data: session } = useSession()
 
   return (
-    <footer className={'footer has-text-centered has-border-subtle-top'}>
+    <footer className={'footer has-text-centered'}>
       <div className={'is-size-6-half'}>
         <Link href={'/'}><a>トップページ</a></Link>
         {session &&

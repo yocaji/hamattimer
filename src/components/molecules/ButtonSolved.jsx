@@ -13,21 +13,19 @@ export default function ButtonSolved({ pause }) {
 
   return (
     <>
-      <div className={'has-text-right'}>
-        <Button
-          onClick={() => handleClick()}
-          classNames={'is-primary is-rounded is-medium is-fullwidth'}
-        >
-          解決した！
-        </Button>
-      </div>
+      <Button
+        onClick={() => handleClick()}
+        classNames={'is-primary is-rounded is-medium is-fullwidth has-text-weight-bold is-family-secondary'}
+      >
+        解決した！
+      </Button>
       {isOpen &&
         <Modal
           onCancel={() => setIsOpen(false)}
           title={'おつかれさまでした🎉'}
         >
           <div className={'notification is-info is-light'}>
-            <p className={'lh-1'}>作成した記録をGistに保存しておくと、あとから必要になった時に見返すことができて便利です💡</p>
+            <p className={'lh-1'}>作成した記録をGistに保存しておくと、あとから必要になった時に見返すことができます</p>
           </div>
         </Modal>
       }

@@ -10,7 +10,7 @@ export default function ButtonCopy() {
 
   return (
     <CopyToClipboard text={markdown}>
-      <Button classNames={'is-small is-rounded is-primary is-outlined'}>
+      <Button classNames={'is-small is-white'}>
         <MdContentCopy className={'mr-1'}/>Markdown形式でコピー
       </Button>
     </CopyToClipboard>

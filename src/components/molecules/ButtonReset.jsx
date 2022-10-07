@@ -9,7 +9,7 @@ import { MdCleaningServices } from 'react-icons/md'
 export default function ButtonReset({ resetStopwatch }) {
 
   const { setIsStarted } = useContext(IsStartedContext)
-  const { trials, setTrials } = useContext(TrialsContext)
+  const { setTrials } = useContext(TrialsContext)
   const { getValues, reset } = useFormContext()
   const [isOpen, setIsOpen] = useState(false)
 
@@ -26,7 +26,7 @@ export default function ButtonReset({ resetStopwatch }) {
     <>
       <Button
         onClick={() => setIsOpen(true)}
-        classNames={'is-rounded is-primary is-outlined'}
+        classNames={'is-primary is-light has-text-weight-bold is-family-secondary'}
       >
         <MdCleaningServices/><span className={'is-hidden-touch ml-1'}>リセット</span>
       </Button>
@@ -42,7 +42,7 @@ export default function ButtonReset({ resetStopwatch }) {
             <p className={'lh-1'}>記録した内容を消して初期状態に戻しますか？</p>
           </div>
           <div className={'notification is-info is-light mt-3'}>
-            <p className={'lh-1'}>作成した記録をGistに保存しておくと、あとから必要になった時に見返すことができて便利です💡</p>
+            <p className={'lh-1'}>作成した記録をGistに保存しておくと、あとから必要になった時に見返すことができます</p>
           </div>
         </Modal>
       }

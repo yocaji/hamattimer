@@ -9,10 +9,10 @@ export default function ButtonStart({ start, addTrial, setIsStarted }) {
   }
 
   return (
-    <div className={'has-text-right'}>
+    <div className={'has-text-centered'}>
       <Button
         onClick={() => handleClick()}
-        classNames={'is-primary is-rounded is-medium is-fullwidth'}
+        classNames={'is-primary is-rounded is-medium px-6 has-text-weight-bold is-family-secondary'}
       >
         スタート
       </Button>

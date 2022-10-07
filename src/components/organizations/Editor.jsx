@@ -25,11 +25,16 @@ export default function Editor(props) {
 
   return (
     <>
-      <FormProvider {...props.methods}>
-        <Issue/>
-      </FormProvider>
-      <Trials addTrial={addTrial}/>
-      <div className={'mt-6'}>
+      <div className={'tile is-child'}>
+        <h2 className={'title is-5 mt-4'}>解決したいこと</h2>
+        <FormProvider {...props.methods}>
+          <Issue/>
+        </FormProvider>
+      </div>
+      <div className={'tile is-child'}>
+        <Trials addTrial={addTrial}/>
+      </div>
+      <div className={'mt-3'}>
         <EditorFoot start={start} pause={pause} addTrial={addTrial}/>
       </div>
     </>
