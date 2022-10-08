@@ -6,9 +6,9 @@ $blue: #3246D3;
 $teal: #14D2FF;
 $red: #fa5a7d;
 $snow: #F4F7F9;
-$subtle: #E9E9E9;
 $myst: #F1F6FD;
 $cloud: #E3EBF7;
+$subtle: #E9E9E9;
 $primary: $blue;
 $text: $navy;
 $title-color: $navy;
@@ -40,11 +40,13 @@ $tile-spacing: 1.5rem;
 .button.is-primary.is-light {
   background: $white;
 }
+
+// 独自クラス
 .has-background-hero {
   background: radial-gradient($blue, #4a31ca);
 }
 .has-background-navbar {
-  background: linear-gradient(to right, $blue, #4a31ca);
+  background: linear-gradient(to right, #4a31ca, $blue, #4a31ca);
 }
 .has-background-snow {
   background-color: $snow;
@@ -70,17 +72,22 @@ $tile-spacing: 1.5rem;
 .lh-2 {
   line-height: 2.0;
 }
+
 // プレビューの書式設定
 #preview > .content > h1 {
-  font-size: $size-4;
-  border-left: double 18px $navy;
-  padding-left: 0.5rem;
+  font-size: 1.35rem;
+  border-bottom: solid 1px $subtle;
+  padding-bottom: 0.5rem;
 }
 #preview > .content > h2 {
-  font-size: $size-4;
-  border-left: solid 6px $navy;
-  padding-left: 0.5rem;
+  font-size: 1.25rem;
 }
 #preview > .content > h3 {
-  font-size: $size-4;
+  font-size: 1.2rem;
+}
+#preview > .content > h4 {
+  font-size: 1.15rem;
+}
+#preview > .content > h5 {
+  font-size: 1.05rem;
 }
