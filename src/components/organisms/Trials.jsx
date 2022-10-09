@@ -33,11 +33,7 @@ export default function Trials({ addTrial }) {
       <div id={'trials'}>
         <h2 className={'title is-5 mt-4'}>試したこと</h2>
         {trials.map((trial, i) => (
-          <Trial
-            key={trial.id}
-            trial={trial}
-            index={i + 1}
-          />
+          <Trial key={trial.id} trial={trial} index={i + 1}/>
         ))}
         <button className={'button is-primary is-light is-fullwidth has-text-weight-bold'} onClick={() => addTrial()}>
           <MdAdd className={'mr-1'}/>試したこと

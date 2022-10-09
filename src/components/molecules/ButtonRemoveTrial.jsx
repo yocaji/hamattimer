@@ -4,7 +4,7 @@ import Button from '../atoms/Button'
 import Modal from '../atoms/Modal'
 import { MdDelete } from 'react-icons/md'
 
-export default function ButtonRemoveTrial({id, index, trials, setTrials}) {
+export default function ButtonRemoveTrial({ id, index, trials, setTrials }) {
 
   const { updateMarkdown } = useContext(MarkdownContext)
   const [isOpen, setIsOpen] = useState(false)

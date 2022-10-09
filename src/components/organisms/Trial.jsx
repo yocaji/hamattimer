@@ -43,9 +43,9 @@ export default function Trial({ trial, index }) {
     <div className={'box'}>
       <div className={'columns is-vcentered'}>
         <div className={'column'}>
-          <div className={'is-size-5 has-text-weight-bold'}>
+          <h3 className={'is-size-5 has-text-weight-bold'}>
             その{index}
-          </div>
+          </h3>
         </div>
         <div className={'column'}>
           <ButtonRemoveTrial id={trial.id} index={index} trials={trials} setTrials={setTrials}/>

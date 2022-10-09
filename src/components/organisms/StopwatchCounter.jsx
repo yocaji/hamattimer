@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react'
 import Modal from '../atoms/Modal'
 
-export default function StopwatchCounter({ stopwatch, limit }) {
+export default function StopwatchCounter({ limit, seconds, minutes, hours, days, pause, isRunning }) {
 
-  const { seconds, minutes, hours, days, pause, isRunning } = stopwatch
   const [isOpen, setIsOpen] = useState(false)
 
   const pad0 = (number) => {
@@ -12,13 +11,7 @@ export default function StopwatchCounter({ stopwatch, limit }) {
 
   useEffect(() => {
     localStorage.setItem(
-      'stopwatch',
-      JSON.stringify({
-        seconds,
-        minutes,
-        hours,
-        days,
-      }),
+      'stopwatch', JSON.stringify({ seconds, minutes, hours, days })
     )
   }, [days, hours, minutes, seconds])
 
