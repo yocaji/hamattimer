@@ -19,7 +19,12 @@ export default function Trial({ trial, index }) {
     setValue('result', trial.result)
   }, [trial, setValue])
 
-  const updateTrials = (id) => {
+  useEffect(() => {
+    localStorage.setItem('trials', JSON.stringify(trials))
+    updateMarkdown()
+  }, [trials, updateMarkdown])
+
+  const updateTrials = () => {
     const newTrial = {
       id: trial.id,
       guess: getValues('guess') ?? '',
@@ -27,16 +32,8 @@ export default function Trial({ trial, index }) {
       result: getValues('result') ?? '',
     }
     const currentTrials = JSON.parse(localStorage.getItem('trials'))
-    const removedTrials = currentTrials.filter((trial) => {
-      return trial.id !== id
-    })
-    const newTrials = [
-      ...removedTrials,
-      newTrial,
-    ]
-    setTrials(newTrials)
-    localStorage.setItem('trials', JSON.stringify(newTrials))
-    updateMarkdown()
+    currentTrials[index] = newTrial
+    setTrials(currentTrials)
   }
 
   return (
@@ -44,7 +41,7 @@ export default function Trial({ trial, index }) {
       <div className={'columns is-vcentered'}>
         <div className={'column'}>
           <h3 className={'is-size-5 has-text-weight-bold'}>
-            その{index}
+            その{index + 1}
           </h3>
         </div>
         <div className={'column'}>
@@ -52,7 +49,7 @@ export default function Trial({ trial, index }) {
         </div>
       </div>
       <FormProvider {...methods}>
-        <form onChange={() => updateTrials(trial.id)}>
+        <form onChange={() => updateTrials()}>
           <div className={'field'}>
             <label className={'label'}>考えたこと・調べたこと</label>
             <div className={'control'}>
@@ -60,7 +57,7 @@ export default function Trial({ trial, index }) {
                 name={'guess'}
                 rows={4}
                 placeholder={`- □□が△△かもしれない\n- 参考にした記事\n  - https://example.com`}
-                updateValue={() => updateTrials(trial.id)}
+                updateValue={() => updateTrials()}
               />
             </div>
           </div>
@@ -70,8 +67,8 @@ export default function Trial({ trial, index }) {
               <MarkdownArea
                 name={'operation'}
                 rows={6}
-                placeholder={`以下のコマンドを実行した\n\`\`\`\nnpm i ******\n\`\`\``}
-                updateValue={() => updateTrials(trial.id)}
+                placeholder={`以下のコマンドを実行した\n\`\`\`\nnpm install ******\n\`\`\``}
+                updateValue={() => updateTrials()}
               />
             </div>
           </div>
@@ -82,7 +79,7 @@ export default function Trial({ trial, index }) {
                 name={'result'}
                 rows={6}
                 placeholder={'コマンドの実行結果のログ、スクリーンショットなど'}
-                updateValue={() => updateTrials(trial.id)}
+                updateValue={() => updateTrials()}
               />
             </div>
           </div>

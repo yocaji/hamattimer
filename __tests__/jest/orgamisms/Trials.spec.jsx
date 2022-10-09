@@ -1,6 +1,7 @@
 import { render, screen, fireEvent } from '@testing-library/react'
 import { TrialsProvider } from '../../../src/components/providers/TrialsProvider'
 import { IsStartedProvider } from '../../../src/components/providers/IsStartedProvider'
+import { MarkdownProvider } from '../../../src/components/providers/MarkdownProvider'
 import Trials from '../../../src/components/organisms/Trials'
 
 describe('Trials', () => {
@@ -8,16 +9,20 @@ describe('Trials', () => {
   let addTrial
 
   beforeEach(async () => {
+    const issue = { 'tobe': '期待する結果', 'asis': '実際の結果', 'problem': '詳しい状況' }
     const trials = [
       { 'id': 100, 'guess': '考えたこと１', 'operation': 'やったこと１', 'result': 'やった結果１' },
     ]
+    localStorage.setItem('issue', JSON.stringify(issue))
     await localStorage.setItem('trials', JSON.stringify(trials))
 
     addTrial = jest.fn()
     renderResult = render(
       <IsStartedProvider>
         <TrialsProvider>
-          <Trials addTrial={addTrial}/>,
+          <MarkdownProvider>
+            <Trials addTrial={addTrial}/>,
+          </MarkdownProvider>
         </TrialsProvider>
       </IsStartedProvider>,
     )
