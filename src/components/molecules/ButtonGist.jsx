@@ -14,12 +14,19 @@ export default function ButtonGist() {
     const octokit = new Octokit({ auth: session.accessToken })
     const response = await octokit.rest.gists.create({
       files: {
-        [`${Date.now()}.md`]: {
+        [`${filename()}.md`]: {
           content: content,
         },
       },
     })
     window.open(response.data.html_url)
+  }
+
+  const filename = () => {
+    const tobe = JSON.parse(localStorage.getItem('issue')).tobe
+    const title = tobe.replace(/[<>:"\/\\|?*]+/g, '').slice(0, 20)
+    const timestamp = localStorage.getItem('started_at') ?? '開始前'
+    return `${title}_${timestamp}`
   }
 
   return (
