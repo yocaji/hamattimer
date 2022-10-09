@@ -6,7 +6,7 @@ import StopwatchCounter from '../organisms/StopwatchCounter'
 
 export default function Stopwatch({ stopwatch }) {
 
-  const { start, pause, isRunning } = stopwatch
+  const { seconds, minutes, hours, days, start, pause, isRunning } = stopwatch
   const { isStarted } = useContext(IsStartedContext)
   const [limit, setLimit] = useState(30)
 
@@ -21,7 +21,7 @@ export default function Stopwatch({ stopwatch }) {
   return (
     <>
       <ButtonStopwatch isStarted={isStarted} start={start} pause={pause} isRunning={isRunning}/>
-      <StopwatchCounter stopwatch={stopwatch} limit={limit}/>
+      <StopwatchCounter limit={limit} seconds={seconds} minutes={minutes} hours={hours} days={days} pause={pause} isRunning={isRunning}/>
       <SelectLimit limit={limit} setLimit={setLimit}/>
     </>
   )
