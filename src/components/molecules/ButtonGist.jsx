@@ -1,5 +1,5 @@
-import { useContext } from 'react'
-import { useSession } from 'next-auth/react'
+import { useContext, useEffect } from 'react'
+import { signIn, useSession } from 'next-auth/react'
 import { Octokit } from 'octokit'
 import { MarkdownContext } from '../providers/MarkdownProvider'
 import Button from '../atoms/Button'
@@ -10,6 +10,23 @@ export default function ButtonGist() {
   const { data: session, status } = useSession()
   const { markdown } = useContext(MarkdownContext)
 
+  useEffect(() => {
+    (async () => {
+      const prevHistory = JSON.parse(localStorage.getItem('authHistory')) ?? []
+      const currentHistory = JSON.stringify([...prevHistory, status].slice(-3))
+      localStorage.setItem('authHistory', currentHistory)
+      if (currentHistory !== JSON.stringify(['unauthenticated', 'loading', 'authenticated'])) return
+      await createGist(markdown)
+    })()
+  }, [status])
+
+  const handleClick = async () => {
+    if (status === 'unauthenticated') {
+      await signIn('github')
+    } else {
+      await createGist(markdown)
+    }
+  }
   const createGist = async (content) => {
     const octokit = new Octokit({ auth: session.accessToken })
     const response = await octokit.rest.gists.create({
@@ -30,8 +47,8 @@ export default function ButtonGist() {
   }
 
   return (
-    <Button onClick={() => createGist(markdown)} classNames={'is-small is-primary is-light is-fullwidth'}
-            disabled={status !== 'authenticated'} id={'gist-button'}>
+    <Button onClick={() => handleClick()} classNames={'is-small is-primary is-light is-fullwidth'}
+            id={'gist-button'}>
       <GoMarkGithub className={'mr-1'}/>
       Gistに保存する
     </Button>
