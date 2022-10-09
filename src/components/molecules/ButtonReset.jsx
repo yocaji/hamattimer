@@ -20,6 +20,7 @@ export default function ButtonReset({ resetStopwatch }) {
     setTrials([])
     localStorage.setItem('issue', JSON.stringify(getValues()))
     localStorage.setItem('trials', JSON.stringify([]))
+    localStorage.setItem('started_at', '')
   }
 
   return (
