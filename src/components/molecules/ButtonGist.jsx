@@ -30,7 +30,7 @@ export default function ButtonGist() {
   }
 
   return (
-    <Button onClick={() => createGist(markdown)} classNames={'is-small is-white'}
+    <Button onClick={() => createGist(markdown)} classNames={'is-small is-primary is-light is-fullwidth'}
             disabled={status !== 'authenticated'} id={'gist-button'}>
       <GoMarkGithub className={'mr-1'}/>
       Gistに保存する

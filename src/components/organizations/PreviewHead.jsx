@@ -13,9 +13,15 @@ export default function PreviewHead() {
           <a onClick={() => signIn('github')}>GitHubと連携</a>するとGistに保存する機能をご利用になれます
         </div>
       }
-      <div className={'buttons is-right'}>
-        <ButtonCopy/>
-        <ButtonGist/>
+      <div className={'columns is-variable is-1'}>
+        <div className={'column is-6'}>
+        </div>
+        <div className={'column is-3'}>
+          <ButtonCopy/>
+        </div>
+        <div className={'column is-3'}>
+          <ButtonGist/>
+        </div>
       </div>
     </>
   )
