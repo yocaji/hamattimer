@@ -1,44 +1,42 @@
 import { useEffect, useContext } from 'react'
-import { IsStartedContext } from '../providers/IsStartedProvider'
 import { TrialsContext } from '../providers/TrialsProvider'
+import { MarkdownContext } from '../providers/MarkdownProvider'
 import Trial from './Trial'
 import { MdAdd } from 'react-icons/md'
 
-export default function Trials({ addTrial }) {
+export default function Trials() {
 
   const { trials, setTrials } = useContext(TrialsContext)
-  const { isStarted, setIsStarted } = useContext(IsStartedContext)
+  const { updateMarkdown } = useContext(MarkdownContext)
 
   useEffect(() => {
     const localTrials = localStorage.getItem('trials')
     if (!localTrials) {
-      localStorage.setItem('trials', JSON.stringify([]))
+      addTrial()
     } else {
       setTrials(JSON.parse(localTrials))
     }
   }, [setTrials])
 
-  useEffect(() => {
-    if (trials.length) {
-      setIsStarted(true)
-    } else {
-      setIsStarted(false)
-    }
-  }, [trials.length, setIsStarted])
-
-  if (!isStarted) return
+  const addTrial = () => {
+    const newTrials = [
+      ...trials,
+      { id: Date.now(), guess: '', operation: '', result: '' },
+    ]
+    setTrials(newTrials)
+    updateMarkdown()
+    localStorage.setItem('trials', JSON.stringify(newTrials))
+  }
 
   return (
-    <>
-      <div id={'trials'}>
-        <h2 className={'title is-5 mt-4'}>試したこと</h2>
-        {trials.map((trial, i) => (
-          <Trial key={trial.id} trial={trial} index={i}/>
-        ))}
-        <button className={'button is-primary is-light is-fullwidth has-text-weight-bold'} onClick={() => addTrial()}>
-          <MdAdd className={'mr-1'}/>試したこと
-        </button>
-      </div>
-    </>
+    <div id={'trials'}>
+      <h2 className={'title is-5 mt-4'}>試したこと</h2>
+      {trials.map((trial, i) => (
+        <Trial key={trial.id} trial={trial} index={i}/>
+      ))}
+      <button className={'button is-primary is-light is-fullwidth has-text-weight-bold'} onClick={() => addTrial()}>
+        <MdAdd className={'mr-1'}/>試したこと
+      </button>
+    </div>
   )
 }

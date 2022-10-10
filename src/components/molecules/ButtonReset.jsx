@@ -1,6 +1,5 @@
 import { useContext, useState } from 'react'
 import { useFormContext } from 'react-hook-form'
-import { IsStartedContext } from '../providers/IsStartedProvider'
 import { TrialsContext } from '../providers/TrialsProvider'
 import Button from '../atoms/Button'
 import Modal from '../atoms/Modal'
@@ -8,7 +7,6 @@ import { MdCleaningServices } from 'react-icons/md'
 
 export default function ButtonReset({ resetStopwatch }) {
 
-  const { setIsStarted } = useContext(IsStartedContext)
   const { setTrials } = useContext(TrialsContext)
   const { getValues, reset } = useFormContext()
   const [isOpen, setIsOpen] = useState(false)
@@ -16,10 +14,9 @@ export default function ButtonReset({ resetStopwatch }) {
   const resetAll = () => {
     resetStopwatch()
     reset()
-    setIsStarted(false)
     setTrials([])
     localStorage.setItem('issue', JSON.stringify(getValues()))
-    localStorage.setItem('trials', JSON.stringify([]))
+    localStorage.setItem('trials', JSON.stringify([{ id: Date.now(), guess: '', operation: '', result: '' }]))
     localStorage.setItem('started_at', '')
   }
 

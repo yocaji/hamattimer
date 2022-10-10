@@ -3,7 +3,6 @@ import { SessionProvider } from 'next-auth/react'
 import { useStopwatch } from 'react-timer-hook'
 import { FormProvider, useForm } from 'react-hook-form'
 import { MarkdownProvider } from '../providers/MarkdownProvider'
-import { IsStartedProvider } from '../providers/IsStartedProvider'
 import { TrialsProvider } from '../providers/TrialsProvider'
 import ButtonReset from '../molecules/ButtonReset'
 import Navbar from '../organizations/Navbar'
@@ -41,7 +40,6 @@ export default function TimerPage() {
 
   return (
     <SessionProvider>
-      <IsStartedProvider>
         <TrialsProvider>
           {isLoaded &&
             <>
@@ -75,7 +73,6 @@ export default function TimerPage() {
             </>
           }
         </TrialsProvider>
-      </IsStartedProvider>
     </SessionProvider>
   )
 }
