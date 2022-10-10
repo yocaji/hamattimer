@@ -1,8 +1,12 @@
+import { useContext } from 'react'
 import { format } from 'date-fns'
-import { MdPause, MdPlayArrow } from 'react-icons/md'
+import { IsStartedContext } from '../providers/IsStartedProvider'
 import Button from '../atoms/Button'
+import { MdPause, MdPlayArrow } from 'react-icons/md'
 
 export default function ButtonStopwatch({ start, pause, isRunning }) {
+
+  const { setIsStarted } = useContext(IsStartedContext)
 
   const handleClick = () => {
     isRunning ? pause() : start()
@@ -13,6 +17,7 @@ export default function ButtonStopwatch({ start, pause, isRunning }) {
 
     const timestamp = format(Date.now(), 'yyyy年M月d日HH時mm分開始')
     localStorage.setItem('started_at', timestamp)
+    setIsStarted(true)
   }
   const label = isRunning ? <MdPause/> : <MdPlayArrow/>
 

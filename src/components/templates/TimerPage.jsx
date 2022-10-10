@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react'
 import { SessionProvider } from 'next-auth/react'
 import { useStopwatch } from 'react-timer-hook'
 import { FormProvider, useForm } from 'react-hook-form'
-import { MarkdownProvider } from '../providers/MarkdownProvider'
 import { TrialsProvider } from '../providers/TrialsProvider'
+import { MarkdownProvider } from '../providers/MarkdownProvider'
 import ButtonReset from '../molecules/ButtonReset'
 import ButtonSolved from '../molecules/ButtonSolved'
 import Navbar from '../organizations/Navbar'
@@ -41,40 +41,40 @@ export default function TimerPage() {
 
   return (
     <SessionProvider>
-        <TrialsProvider>
-          {isLoaded &&
-            <>
-              <Navbar>
-                <div className={'navbar-end'}>
-                  <div className={'navbar-item'} id={'stopwatch'}>
-                    <Stopwatch stopwatch={stopwatch}/>
-                  </div>
-                </div>
-                <div className={'navbar-end'}>
-                  <div className={'navbar-item buttons'}>
-                    <ButtonSolved pause={stopwatch.pause}/>
-                    <FormProvider {...methods}>
-                      <ButtonReset resetStopwatch={() => stopwatch.reset(0, false)}/>
-                    </FormProvider>
-                  </div>
-                </div>
-              </Navbar>
-              <div className={'has-background-myst px-6 pb-6'}>
-                <div className={'tile is-ancestor'}>
-                  <MarkdownProvider>
-                    <div className={'tile is-parent is-vertical is-6'}>
-                      <Editor methods={methods} stopwatch={stopwatch}/>
-                    </div>
-                    <div className={'tile is-parent is-vertical'}>
-                      <Preview/>
-                    </div>
-                  </MarkdownProvider>
+      <TrialsProvider>
+        {isLoaded &&
+          <>
+            <Navbar>
+              <div className={'navbar-end'}>
+                <div className={'navbar-item'} id={'stopwatch'}>
+                  <Stopwatch stopwatch={stopwatch}/>
                 </div>
               </div>
-              <Footer/>
-            </>
-          }
-        </TrialsProvider>
+              <div className={'navbar-end'}>
+                <div className={'navbar-item buttons'}>
+                  <ButtonSolved pause={stopwatch.pause}/>
+                  <FormProvider {...methods}>
+                    <ButtonReset resetStopwatch={() => stopwatch.reset(0, false)}/>
+                  </FormProvider>
+                </div>
+              </div>
+            </Navbar>
+            <div className={'has-background-myst px-6 pb-6'}>
+              <div className={'tile is-ancestor'}>
+                <MarkdownProvider>
+                  <div className={'tile is-parent is-vertical is-6'}>
+                    <Editor methods={methods} stopwatch={stopwatch}/>
+                  </div>
+                  <div className={'tile is-parent is-vertical'}>
+                    <Preview/>
+                  </div>
+                </MarkdownProvider>
+              </div>
+            </div>
+            <Footer/>
+          </>
+        }
+      </TrialsProvider>
     </SessionProvider>
   )
 }
