@@ -2,7 +2,7 @@ import { useEffect, useContext } from 'react'
 import { TrialsContext } from '../providers/TrialsProvider'
 import { MarkdownContext } from '../providers/MarkdownProvider'
 import Trial from './Trial'
-import { MdAdd } from 'react-icons/md'
+import ButtonAddTrial from '../molecules/ButtonAddTrial'
 
 export default function Trials() {
 
@@ -34,9 +34,9 @@ export default function Trials() {
       {trials.map((trial, i) => (
         <Trial key={trial.id} trial={trial} index={i}/>
       ))}
-      <button className={'button is-primary is-light is-fullwidth has-text-weight-bold'} onClick={() => addTrial()}>
-        <MdAdd className={'mr-1'}/>試したこと
-      </button>
+      <div className={'has-text-centered'}>
+        <ButtonAddTrial addTrial={addTrial}/>
+      </div>
     </div>
   )
 }
