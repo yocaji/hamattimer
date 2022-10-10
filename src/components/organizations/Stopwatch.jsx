@@ -18,9 +18,9 @@ export default function Stopwatch({ stopwatch }) {
 
   return (
     <>
-      <ButtonStopwatch start={start} pause={pause} isRunning={isRunning}/>
-      <SelectLimit limit={limit} setLimit={setLimit}/>
       <StopwatchCounter limit={limit} seconds={seconds} minutes={minutes} hours={hours} days={days} pause={pause} isRunning={isRunning}/>
+      <SelectLimit limit={limit} setLimit={setLimit}/>
+      <ButtonStopwatch start={start} pause={pause} isRunning={isRunning}/>
     </>
   )
 }
