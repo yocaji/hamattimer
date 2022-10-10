@@ -5,6 +5,7 @@ import { FormProvider, useForm } from 'react-hook-form'
 import { MarkdownProvider } from '../providers/MarkdownProvider'
 import { TrialsProvider } from '../providers/TrialsProvider'
 import ButtonReset from '../molecules/ButtonReset'
+import ButtonSolved from '../molecules/ButtonSolved'
 import Navbar from '../organizations/Navbar'
 import Editor from '../organizations/Editor'
 import Preview from '../organizations/Preview'
@@ -50,7 +51,8 @@ export default function TimerPage() {
                   </div>
                 </div>
                 <div className={'navbar-end'}>
-                  <div className={'navbar-item'}>
+                  <div className={'navbar-item buttons'}>
+                    <ButtonSolved pause={stopwatch.pause}/>
                     <FormProvider {...methods}>
                       <ButtonReset resetStopwatch={() => stopwatch.reset(0, false)}/>
                     </FormProvider>
