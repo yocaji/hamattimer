@@ -29,7 +29,7 @@ export default function Trials() {
   }
 
   return (
-    <div id={'trials'}>
+    <div data-test-id={'trials'}>
       <h2 className={'title is-5 mt-4'}>試したこと</h2>
       {trials.map((trial, i) => (
         <Trial key={trial.id} trial={trial} index={i}/>

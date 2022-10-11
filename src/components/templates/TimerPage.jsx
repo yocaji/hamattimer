@@ -46,7 +46,7 @@ export default function TimerPage() {
           <>
             <Navbar>
               <div className={'navbar-end'}>
-                <div className={'navbar-item'} id={'stopwatch'}>
+                <div className={'navbar-item'} data-test-id={'stopwatch'}>
                   <Stopwatch stopwatch={stopwatch}/>
                 </div>
               </div>
@@ -63,7 +63,7 @@ export default function TimerPage() {
               <div className={'tile is-ancestor'}>
                 <MarkdownProvider>
                   <div className={'tile is-parent is-vertical is-6'}>
-                    <Editor methods={methods} stopwatch={stopwatch}/>
+                    <Editor methods={methods}/>
                   </div>
                   <div className={'tile is-parent is-vertical'}>
                     <Preview/>
