@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import ButtonStopwatch from '../molecules/ButtonStopwatch'
 import SelectLimit from '../molecules/SelectLimit'
-import StopwatchCounter from '../organisms/StopwatchCounter'
+import StopwatchCounter from '../molecules/StopwatchCounter'
 
 export default function Stopwatch({ stopwatch }) {
 
