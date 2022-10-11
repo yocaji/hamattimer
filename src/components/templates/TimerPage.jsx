@@ -4,13 +4,10 @@ import { useStopwatch } from 'react-timer-hook'
 import { FormProvider, useForm } from 'react-hook-form'
 import { TrialsProvider } from '../providers/TrialsProvider'
 import { MarkdownProvider } from '../providers/MarkdownProvider'
-import ButtonReset from '../molecules/ButtonReset'
-import ButtonSolved from '../molecules/ButtonSolved'
 import Navbar from '../organizations/Navbar'
 import Editor from '../organizations/Editor'
 import Preview from '../organizations/Preview'
 import Footer from '../organizations/Footer'
-import Stopwatch from '../organizations/Stopwatch'
 
 export default function TimerPage() {
 
@@ -32,11 +29,7 @@ export default function TimerPage() {
 
   const methods = useForm({
     mode: 'onBlur',
-    defaultValues: {
-      'tobe': '',
-      'asis': '',
-      'problem': '',
-    },
+    defaultValues: { 'tobe': '', 'asis': '', 'problem': '' },
   })
 
   return (
@@ -44,21 +37,9 @@ export default function TimerPage() {
       <TrialsProvider>
         {isLoaded &&
           <>
-            <Navbar>
-              <div className={'navbar-end'}>
-                <div className={'navbar-item'} data-test-id={'stopwatch'}>
-                  <Stopwatch stopwatch={stopwatch}/>
-                </div>
-              </div>
-              <div className={'navbar-end'}>
-                <div className={'navbar-item buttons'}>
-                  <ButtonSolved pause={stopwatch.pause}/>
-                  <FormProvider {...methods}>
-                    <ButtonReset resetStopwatch={() => stopwatch.reset(0, false)}/>
-                  </FormProvider>
-                </div>
-              </div>
-            </Navbar>
+            <FormProvider {...methods}>
+              <Navbar stopwatch={stopwatch}/>
+            </FormProvider>
             <div className={'has-background-myst px-6 pb-6'}>
               <div className={'tile is-ancestor'}>
                 <MarkdownProvider>

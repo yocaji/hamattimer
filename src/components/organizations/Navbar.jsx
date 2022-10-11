@@ -1,8 +1,11 @@
 import Image from 'next/image'
 import { IsStartedProvider } from '../providers/IsStartedProvider'
+import Stopwatch from '../organisms/Stopwatch'
+import ButtonSolved from '../molecules/ButtonSolved'
+import ButtonReset from '../molecules/ButtonReset'
 import NotificationStart from '../molecules/NotificationStart'
 
-export default function Navbar(props) {
+export default function Navbar({ stopwatch }) {
 
   return (
     <IsStartedProvider>
@@ -13,7 +16,17 @@ export default function Navbar(props) {
           </span>
           <Image src={'/logotype-nega.png'} width={150} height={60} layout={'fixed'} alt={'はまったいまー'}/>
         </div>
-        {props.children}
+        <div className={'navbar-end'}>
+          <div className={'navbar-item'} data-test-id={'stopwatch'}>
+            <Stopwatch stopwatch={stopwatch}/>
+          </div>
+        </div>
+        <div className={'navbar-end'}>
+          <div className={'navbar-item buttons'}>
+            <ButtonSolved pause={stopwatch.pause}/>
+              <ButtonReset resetStopwatch={() => stopwatch.reset(0, false)}/>
+          </div>
+        </div>
       </nav>
       <div className={'block pt-6 mt-5'}>
         <NotificationStart/>
