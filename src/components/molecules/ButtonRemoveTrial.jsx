@@ -30,7 +30,7 @@ export default function ButtonRemoveTrial({ id, index, trials, setTrials }) {
       </div>
       {isOpen &&
         <Modal
-          title={`試したこと その${index}`}
+          title={`試したこと その${index + 1}`}
           confirmLabel={'削除する'}
           cancelLabel={'やめる'}
           onCancel={() => setIsOpen(false)}
