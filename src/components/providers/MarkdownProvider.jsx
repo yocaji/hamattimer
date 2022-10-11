@@ -24,28 +24,25 @@ export const MarkdownProvider = (props) => {
 
     const trials = JSON.parse(localStorage.getItem('trials'))
     const createTrialsMd = () => {
-      if (trials) {
-        return trials
-          .map((trial, i) => {
-            const { guess, operation, result } = trial
-            const guessMd = () => {
-              if (guess === '') return ''
-              return `\n### 考えたことや調べたこと\n${guess}\n`
-            }
-            const operationMd = () => {
-              if (operation === '') return ''
-              return `\n### やったこと\n${operation}\n`
-            }
-            const resultMd = () => {
-              if (result === '') return ''
-              return `\n### やった結果\n${result}\n`
-            }
-            return `\n# 試したこと\n## その${i + 1}\n${guessMd()}${operationMd()}${resultMd()}`
-          })
-          .join('')
-      } else {
-        return ''
-      }
+      const trialsBody = trials
+        .map((trial, i) => {
+          const { guess, operation, result } = trial
+          const guessMd = () => {
+            if (guess === '') return ''
+            return `\n### 考えたことや調べたこと\n${guess}\n`
+          }
+          const operationMd = () => {
+            if (operation === '') return ''
+            return `\n### やったこと\n${operation}\n`
+          }
+          const resultMd = () => {
+            if (result === '') return ''
+            return `\n### やった結果\n${result}\n`
+          }
+          return `\n## その${i + 1}\n${guessMd()}${operationMd()}${resultMd()}`
+        })
+        .join('')
+      return `\n# 試したこと${trialsBody}`
     }
     const trialsMd = createTrialsMd()
     setMarkdown(issueMd + trialsMd)
