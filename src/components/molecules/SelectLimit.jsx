@@ -17,15 +17,20 @@ export default function SelectLimit({ limit, setLimit }) {
   }
 
   return (
-    <form>
-      <div className={'field has-addons'}>
-        <div className={'control'}>
-          <Select value={limit} options={options} onChange={(value) => handleChange(value)}/>
+    <>
+      <form className={'is-hidden-touch'}>
+        <div className={'field has-addons'}>
+          <div className={'control'}>
+            <Select value={limit} options={options} onChange={(value) => handleChange(value)}/>
+          </div>
+          <div className={'control'}>
+            <span className={'button is-static has-text-weight-bold'}>分</span>
+          </div>
         </div>
-        <div className={'control'}>
-          <span className={'button is-static has-text-weight-bold'}>分</span>
-        </div>
-      </div>
-    </form>
+      </form>
+      <form className={'is-hidden-desktop'}>
+        <Select value={limit} options={options} onChange={(value) => handleChange(value)}/>
+      </form>
+    </>
   )
 }

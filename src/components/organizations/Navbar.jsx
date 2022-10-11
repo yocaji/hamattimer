@@ -28,7 +28,7 @@ export default function Navbar({ stopwatch }) {
           </div>
         </div>
       </nav>
-      <div className={'block pt-6 mt-5'}>
+      <div className={'block pt-6 pb-4 mt-5'}>
         <NotificationStart/>
       </div>
     </IsStartedProvider>
