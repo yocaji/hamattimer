@@ -24,7 +24,7 @@ describe('ButtonSolved', () => {
   test('解決したボタンをクリックしたらモーダルが表示される', async () => {
     fireEvent.click(screen.getByText('解決した！'))
 
-    const elements = screen.getByText('おつかれさまでした🎉')
+    const elements = screen.getByText('おつかれさまです🎉')
     expect(elements).toBeVisible()
   })
 })

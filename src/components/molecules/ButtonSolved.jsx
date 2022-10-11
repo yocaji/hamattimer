@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Button from '../atoms/Button'
 import Modal from '../atoms/Modal'
+import Image from 'next/image'
 import { IoMdCheckboxOutline } from 'react-icons/io'
 
 export default function ButtonSolved({ pause }) {
@@ -23,8 +24,11 @@ export default function ButtonSolved({ pause }) {
       {isOpen &&
         <Modal
           onCancel={() => setIsOpen(false)}
-          title={'おつかれさまでした🎉'}
+          title={'おつかれさまです🎉'}
         >
+          <div className={'mb-5'}>
+            <Image src={'/congratulations.png'} width={600} height={411} quality={80} layout={'fixed'} alt={'Congratulations!'}/>
+          </div>
           <div className={'notification is-info is-light'}>
             <p className={'lh-1'}>作成した記録をGistに保存しておくと、あとから必要になった時に見返すことができます</p>
           </div>
