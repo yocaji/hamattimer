@@ -17,10 +17,15 @@ export default function SelectLimit({ limit, setLimit }) {
   }
 
   return (
-    <>
-      <Select value={limit} options={options} onChange={(value) => handleChange(value)}
-              classNames={'ml-5'}/>
-      <span className={'ml-2'}>分</span>
-    </>
+    <form>
+      <div className={'field has-addons'}>
+        <div className={'control'}>
+          <Select value={limit} options={options} onChange={(value) => handleChange(value)}/>
+        </div>
+        <div className={'control'}>
+          <span className={'button is-static has-text-weight-bold'}>分</span>
+        </div>
+      </div>
+    </form>
   )
 }

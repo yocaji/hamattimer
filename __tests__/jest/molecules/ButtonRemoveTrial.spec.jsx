@@ -2,7 +2,7 @@ import { render, screen, fireEvent } from '@testing-library/react'
 import { MarkdownProvider } from '../../../src/components/providers/MarkdownProvider'
 import ButtonRemoveTrial from '../../../src/components/molecules/ButtonRemoveTrial'
 
-describe('ButtonSolved', () => {
+describe('ButtonRemoveTrial', () => {
   let renderResult
   let mockFunction
 
@@ -18,7 +18,7 @@ describe('ButtonSolved', () => {
     mockFunction = jest.fn()
     renderResult = render(
       <MarkdownProvider>
-        <ButtonRemoveTrial id={100} index={1} trials={trials} setTrials={mockFunction}/>,
+        <ButtonRemoveTrial id={100} index={0} trials={trials} setTrials={mockFunction}/>,
       </MarkdownProvider>,
     )
   })

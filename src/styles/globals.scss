@@ -22,10 +22,14 @@ $hero-body-padding-tablet: 6rem 3rem;
 $footer-background-color: $cloud;
 $box-radius: $radius;
 $box-padding: 2.0rem;
+$button-static-color: $primary;
+$button-static-background-color: $cloud;
+$button-static-border-color: #fff;
 $modal-card-title-color: $text;
 $modal-card-head-background-color: $cloud;
 $modal-card-head-border-bottom: none;
 $modal-card-foot-border-top: none;
+$notification-radius: 0;
 $tile-spacing: 1.5rem;
 @import '~bulma/bulma';
 .select select {
@@ -59,6 +63,9 @@ $tile-spacing: 1.5rem;
 }
 .has-border-subtle-top {
   border-top: solid 1px $subtle;
+}
+.has-border-subtle-bottom {
+  border-bottom: solid 1px $subtle;
 }
 .has-text-navy {
   color: $navy;

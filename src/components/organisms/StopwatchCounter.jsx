@@ -27,7 +27,7 @@ export default function StopwatchCounter({ limit, seconds, minutes, hours, days,
 
   return (
     <>
-      <div className={'is-size-3 ml-2 is-family-monospace'} id={'stopwatch-counter'}>
+      <div className={'is-size-3 is-family-monospace mr-3'} data-test-id={'stopwatch-counter'}>
         {days * 24 + hours}:{pad0(minutes)}<span className={'is-size-6 ml-1'}>{pad0(seconds)}</span>
       </div>
       {isOpen &&

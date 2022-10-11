@@ -23,14 +23,14 @@ export default function ButtonRemoveTrial({ id, index, trials, setTrials }) {
       <div className={'has-text-right'}>
         <Button
           onClick={() => setIsOpen(true)}
-          classNames={'is-small is-danger is-shadowless'}
+          classNames={'is-small is-light is-shadowless'}
         >
           <MdDelete/>削除
         </Button>
       </div>
       {isOpen &&
         <Modal
-          title={`試したこと その${index}`}
+          title={`試したこと その${index + 1}`}
           confirmLabel={'削除する'}
           cancelLabel={'やめる'}
           onCancel={() => setIsOpen(false)}

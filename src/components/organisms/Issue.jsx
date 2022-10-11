@@ -36,32 +36,35 @@ export default function Issue() {
   }
 
   return (
-    <div className={'box'} id={'issue'}>
-      <form onChange={updateIssue} autoComplete={'off'}>
-        <div className={'field'}>
-          <label className={'label'}>期待する結果をひとことで</label>
-          <div className={'control'}>
-            <input {...register('tobe')} placeholder={'○○したら××が表示される'} className={'input'}/>
+    <div data-test-id={'issue'}>
+      <h2 className={'title is-5 mt-4'}>解決したいこと</h2>
+      <div className={'box'} data-test-id={'issue'}>
+        <form onChange={updateIssue} autoComplete={'off'}>
+          <div className={'field'}>
+            <label className={'label'}>期待する結果をひとことで</label>
+            <div className={'control'}>
+              <input {...register('tobe')} placeholder={'○○したら××が表示される'} className={'input'}/>
+            </div>
           </div>
-        </div>
-        <div className={'field'}>
-          <label className={'label'}>実際の結果をひとことで</label>
-          <div className={'control'}>
-            <input {...register('asis')} placeholder={'○○しても画面の表示が変わらない'} className={'input'}/>
+          <div className={'field'}>
+            <label className={'label'}>実際の結果をひとことで</label>
+            <div className={'control'}>
+              <input {...register('asis')} placeholder={'○○しても画面の表示が変わらない'} className={'input'}/>
+            </div>
           </div>
-        </div>
-        <div className={'field'}>
-          <label className={'label'}>詳しい状況</label>
-          <div className={'control'}>
-            <MarkdownArea
-              name={'problem'}
-              rows={12}
-              placeholder={`エラーメッセージ、ログ、経緯など\n（スクリーンショットを貼り付けると自動でMarkdownのコードとして挿入されます）`}
-              updateValue={updateIssue}
-            />
+          <div className={'field'}>
+            <label className={'label'}>詳しい状況</label>
+            <div className={'control'}>
+              <MarkdownArea
+                name={'problem'}
+                rows={12}
+                placeholder={`エラーメッセージ、ログ、経緯など\n（スクリーンショットを貼り付けると自動でMarkdownのコードとして挿入されます）`}
+                updateValue={updateIssue}
+              />
+            </div>
           </div>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
   )
 }
