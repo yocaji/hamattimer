@@ -18,7 +18,7 @@ export default function SelectLimit({ limit, setLimit }) {
 
   return (
     <>
-      <form className={'is-hidden-touch'}>
+      <form className={'is-hidden-touch'} data-testid={'select-limit-desktop'}>
         <div className={'field has-addons'}>
           <div className={'control'}>
             <Select value={limit} options={options} onChange={(value) => handleChange(value)}/>

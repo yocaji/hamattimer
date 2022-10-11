@@ -1,4 +1,4 @@
-import { render, screen, fireEvent } from '@testing-library/react'
+import { render, screen, fireEvent, within } from '@testing-library/react'
 import SelectLimit from '../../../src/components/molecules/SelectLimit'
 
 describe('SelectLimit', () => {
@@ -8,7 +8,7 @@ describe('SelectLimit', () => {
   beforeEach(() => {
     mockFunction = jest.fn()
     renderResult = render(
-      <SelectLimit limit={30} setLimit={mockFunction}/>
+      <SelectLimit limit={30} setLimit={mockFunction}/>,
     )
   })
 
@@ -22,7 +22,8 @@ describe('SelectLimit', () => {
   })
 
   test('値を変更したらprops.setLimitで渡した関数が呼ばれる', async () => {
-    fireEvent.change(screen.getByTestId('select'), { target: { value: 60 } })
+    const desktopSection = await screen.getByTestId('select-limit-desktop')
+    fireEvent.change(within(desktopSection).getByRole('combobox'), { target: { value: 60 } })
     expect(mockFunction).toHaveBeenCalledTimes(1)
   })
 })
