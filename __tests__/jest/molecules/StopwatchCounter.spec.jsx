@@ -1,5 +1,5 @@
 import { render, screen,  } from '@testing-library/react'
-import StopwatchCounter from '../../../src/components/organisms/StopwatchCounter'
+import StopwatchCounter from '../../../src/components/molecules/StopwatchCounter'
 
 describe('StopwatchCounter', () => {
   let renderResult
