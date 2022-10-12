@@ -1,12 +1,17 @@
+import { useState } from 'react'
 import Image from 'next/image'
+import { useTimer } from 'react-timer-hook'
 import { IsStartedProvider } from '../providers/IsStartedProvider'
-import Stopwatch from '../organisms/Stopwatch'
 import ButtonSolved from '../molecules/ButtonSolved'
 import ButtonReset from '../molecules/ButtonReset'
 import NotificationStart from '../molecules/NotificationStart'
 import CountdownTimer from '../organisms/CountdownTimer'
 
-export default function Navbar({ stopwatch }) {
+export default function Navbar() {
+  const [isExpired, setIsExpired] = useState(false)
+
+  const timer = useTimer({ expiryTimestamp: Date.now(), onExpire: () => setIsExpired(true), autoStart: false })
+  const { pause } = timer
 
   return (
     <IsStartedProvider>
@@ -20,14 +25,14 @@ export default function Navbar({ stopwatch }) {
           </a>
         </div>
         <div className={'navbar-end'}>
-          <div className={'navbar-item'} data-testid={'stopwatch'}>
-            <CountdownTimer/>
+          <div className={'navbar-item'} data-testid={'timer'}>
+            <CountdownTimer timer={timer} isExpired={isExpired} setIsExpired={setIsExpired}/>
           </div>
         </div>
         <div className={'navbar-end'}>
           <div className={'navbar-item buttons'}>
-            <ButtonSolved pause={stopwatch.pause}/>
-            <ButtonReset resetStopwatch={() => stopwatch.reset(0, false)}/>
+            <ButtonSolved pause={pause}/>
+            <ButtonReset/>
           </div>
         </div>
       </nav>

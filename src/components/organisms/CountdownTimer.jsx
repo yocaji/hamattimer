@@ -1,23 +1,20 @@
 import { useState, useEffect, useContext } from 'react'
-import { useTimer } from 'react-timer-hook'
 import { IsStartedContext } from '../providers/IsStartedProvider'
-import TimerCounter from '../molecules/TimerCounter'
-import SelectExpired from '../molecules/SelectExpired'
+import Counter from '../molecules/Counter'
+import SelectLimit from '../molecules/SelectLimit'
 import ButtonTimerControl from '../molecules/ButtonTimerControl'
 import ButtonTimerStart from '../molecules/ButtonTimerStart'
 import Modal from '../atoms/Modal'
 
-export default function CountdownTimer() {
+export default function CountdownTimer({ timer, isExpired, setIsExpired }) {
 
-  const { isStarted } = useContext(IsStartedContext)
-  const [expired, setExpired] = useState(30)
-  const [isOpen, setIsOpen] = useState(false)
-
-  const timer = useTimer({ expiryTimestamp: Date.now(), onExpire: () => setIsOpen(true), autoStart: false })
   const { seconds, minutes, hours, restart, pause, resume, isRunning } = timer
 
+  const { isStarted } = useContext(IsStartedContext)
+  const [limit, setLimit] = useState(30)
+
   useEffect(() => {
-    const localTimer = JSON.parse(localStorage.getItem('countdown'))
+    const localTimer = JSON.parse(localStorage.getItem('timer'))
     if (!localTimer) return
 
     const { seconds, minutes, hours } = localTimer
@@ -29,22 +26,22 @@ export default function CountdownTimer() {
   }, [])
 
   useEffect(() => {
-    localStorage.setItem('expired', expired)
-  }, [expired])
+    localStorage.setItem('limit', limit)
+  }, [limit])
 
   if (isStarted) {
     return (
       <>
-        <TimerCounter expired={expired}
-                      seconds={seconds} minutes={minutes} hours={hours} pause={pause} isRunning={isRunning}/>
+        <Counter expired={limit}
+                 seconds={seconds} minutes={minutes} hours={hours} pause={pause} isRunning={isRunning}/>
         <ButtonTimerControl pause={pause} resume={resume} isRunning={isRunning}/>
-        {isOpen &&
+        {isExpired &&
           <Modal
-            onCancel={() => setIsOpen(false)}
+            onCancel={() => setIsExpired(false)}
             title={'調子はどうですか？'}
           >
             <div className={'content'}>
-              <p className={'lh-1'}>{expired}分経ちました🔔<br/>詰まっていたら違った切り口で取り組んでみるのも良さそうです。</p>
+              <p className={'lh-1'}>{limit}分経ちました🔔<br/>詰まっていたら違った切り口で取り組んでみるのも良さそうです。</p>
               <ul>
                 <li>一旦やめて休憩する</li>
                 <li>誰かに質問してみる</li>
@@ -61,7 +58,7 @@ export default function CountdownTimer() {
   } else {
     return (
       <>
-        <SelectExpired expired={expired} setExpired={setExpired}/>
+        <SelectLimit limit={limit} setLimit={setLimit}/>
         <ButtonTimerStart restart={restart}/>
       </>
     )

@@ -3,6 +3,7 @@ import { IsStartedProvider } from '../../../src/components/providers/IsStartedPr
 import ButtonStopwatch from '../../../src/components/molecules/ButtonStopwatch'
 
 describe('ButtonStopwatch', () => {
+  //
   let renderResult
   let start, pause
 

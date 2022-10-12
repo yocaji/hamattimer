@@ -6,7 +6,7 @@ import Button from '../atoms/Button'
 import Modal from '../atoms/Modal'
 import { MdCleaningServices } from 'react-icons/md'
 
-export default function ButtonReset({ resetStopwatch }) {
+export default function ButtonReset() {
 
   const { trials, setTrials } = useContext(TrialsContext)
   const { setIsStarted } = useContext(IsStartedContext)
@@ -14,12 +14,12 @@ export default function ButtonReset({ resetStopwatch }) {
   const [isOpen, setIsOpen] = useState(false)
 
   const resetAll = () => {
-    resetStopwatch()
     reset()
     setTrials([{ id: Date.now(), guess: '', operation: '', result: '' }])
     setIsStarted(false)
     localStorage.setItem('issue', JSON.stringify(getValues()))
     localStorage.setItem('trials', JSON.stringify(trials))
+    localStorage.setItem('timer', JSON.stringify({ 'seconds': 0, 'minutes': 0, 'hours': 0 }))
     localStorage.setItem('started_at', '')
   }
 
