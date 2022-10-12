@@ -14,9 +14,11 @@ export default function NavbarTouch({ stopwatch }) {
       <nav className={'navbar is-fixed-top py-1 is-primary has-background-navbar'} data-testid={'navbar-touch'}>
         <div className={'navbar-brand'}>
           <div className={'mt-2'}>
-            <span className={'ml-1'}>
-              <Image src={'/logomark-nega.png'} width={48} height={48} layout={'fixed'} alt={'ロゴマーク'}/>
-            </span>
+            <a href={'/'}>
+              <span className={'ml-1'}>
+                <Image src={'/logomark-nega.png'} width={48} height={48} layout={'fixed'} alt={'ロゴマーク'}/>
+              </span>
+            </a>
           </div>
           <div className={'navbar-item'}>
             <Stopwatch stopwatch={stopwatch}/>
