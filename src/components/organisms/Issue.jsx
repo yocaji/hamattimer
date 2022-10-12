@@ -36,9 +36,9 @@ export default function Issue() {
   }
 
   return (
-    <div data-test-id={'issue'}>
+    <div data-testid={'issue'}>
       <h2 className={'title is-5 mt-4'}>解決したいこと</h2>
-      <div className={'box'} data-test-id={'issue'}>
+      <div className={'box'} data-testid={'issue'}>
         <form onChange={updateIssue} autoComplete={'off'}>
           <div className={'field'}>
             <label className={'label'}>期待する結果をひとことで</label>

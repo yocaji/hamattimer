@@ -23,6 +23,7 @@ export const MarkdownProvider = (props) => {
     const issueMd = `# 解決したいこと\n${tobeMd()}${asisMd()}${problemMd()}`
 
     const trials = JSON.parse(localStorage.getItem('trials'))
+    if (!trials) return
     const createTrialsMd = () => {
       const trialsBody = trials
         .map((trial, i) => {

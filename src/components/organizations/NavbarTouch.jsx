@@ -11,7 +11,7 @@ export default function NavbarTouch({ stopwatch }) {
 
   return (
     <IsStartedProvider>
-      <nav className={'navbar is-fixed-top py-1 is-primary has-background-navbar'}>
+      <nav className={'navbar is-fixed-top py-1 is-primary has-background-navbar'} data-testid={'navbar-touch'}>
         <div className={'navbar-brand'}>
           <div className={'mt-2'}>
             <span className={'ml-1'}>
