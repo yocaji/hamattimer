@@ -4,6 +4,7 @@ import Stopwatch from '../organisms/Stopwatch'
 import ButtonSolved from '../molecules/ButtonSolved'
 import ButtonReset from '../molecules/ButtonReset'
 import NotificationStart from '../molecules/NotificationStart'
+import CountdownTimer from '../organisms/CountdownTimer'
 
 export default function Navbar({ stopwatch }) {
 
@@ -20,7 +21,7 @@ export default function Navbar({ stopwatch }) {
         </div>
         <div className={'navbar-end'}>
           <div className={'navbar-item'} data-testid={'stopwatch'}>
-            <Stopwatch stopwatch={stopwatch}/>
+            <CountdownTimer/>
           </div>
         </div>
         <div className={'navbar-end'}>
