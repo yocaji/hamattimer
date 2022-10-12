@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react'
 import { useFormContext } from 'react-hook-form'
 import { TrialsContext } from '../providers/TrialsProvider'
-import { IsStartedContext } from '../providers/IsStartedProvider'
+import { StatusContext } from '../providers/StatusProvider'
 import Button from '../atoms/Button'
 import Modal from '../atoms/Modal'
 import { MdCleaningServices } from 'react-icons/md'
@@ -9,14 +9,14 @@ import { MdCleaningServices } from 'react-icons/md'
 export default function ButtonReset() {
 
   const { trials, setTrials } = useContext(TrialsContext)
-  const { setIsStarted } = useContext(IsStartedContext)
+  const { setStatus, statuses } = useContext(StatusContext)
   const { getValues, reset } = useFormContext()
   const [isOpen, setIsOpen] = useState(false)
 
   const resetAll = () => {
     reset()
     setTrials([{ id: Date.now(), guess: '', operation: '', result: '' }])
-    setIsStarted(false)
+    setStatus(statuses.default)
     localStorage.setItem('issue', JSON.stringify(getValues()))
     localStorage.setItem('trials', JSON.stringify(trials))
     localStorage.setItem('timer', JSON.stringify({ 'seconds': 0, 'minutes': 0, 'hours': 0 }))

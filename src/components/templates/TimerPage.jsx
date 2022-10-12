@@ -9,6 +9,7 @@ import NavbarTouch from '../organizations/NavbarTouch'
 import Editor from '../organizations/Editor'
 import Preview from '../organizations/Preview'
 import Footer from '../organizations/Footer'
+import { StatusProvider } from '../providers/StatusProvider'
 
 export default function TimerPage() {
 
@@ -40,7 +41,9 @@ export default function TimerPage() {
           <>
             <FormProvider {...methods}>
               <div className={'is-hidden-touch'}>
-                <Navbar stopwatch={stopwatch}/>
+                <StatusProvider>
+                  <Navbar stopwatch={stopwatch}/>
+                </StatusProvider>
               </div>
               <div className={'is-hidden-desktop'}>
                 <NavbarTouch stopwatch={stopwatch}/>

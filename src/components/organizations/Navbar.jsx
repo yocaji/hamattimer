@@ -1,20 +1,28 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import Image from 'next/image'
 import { useTimer } from 'react-timer-hook'
-import { IsStartedProvider } from '../providers/IsStartedProvider'
+import { StatusContext } from '../providers/StatusProvider'
 import ButtonSolved from '../molecules/ButtonSolved'
 import ButtonReset from '../molecules/ButtonReset'
 import NotificationStart from '../molecules/NotificationStart'
 import CountdownTimer from '../organisms/CountdownTimer'
 
 export default function Navbar() {
+  const { setStatus, statuses } = useContext(StatusContext)
   const [isExpired, setIsExpired] = useState(false)
 
-  const timer = useTimer({ expiryTimestamp: Date.now(), onExpire: () => setIsExpired(true), autoStart: false })
+  const timer = useTimer({
+    expiryTimestamp: Date.now(),
+    autoStart: false,
+    onExpire: () => {
+      setIsExpired(true)
+      setStatus(statuses.interval)
+    },
+  })
   const { pause } = timer
 
   return (
-    <IsStartedProvider>
+    <>
       <nav className={'navbar is-fixed-top py-1 is-primary has-background-navbar'} data-testid={'navbar-desktop'}>
         <div className={'navbar-brand mt-1'}>
           <a href={'/'}>
@@ -39,6 +47,6 @@ export default function Navbar() {
       <div className={'block pt-6 pb-4 mt-5'}>
         <NotificationStart/>
       </div>
-    </IsStartedProvider>
+    </>
   )
 }

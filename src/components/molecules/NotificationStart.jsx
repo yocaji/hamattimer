@@ -1,15 +1,13 @@
 import Notification from '../atoms/Notification'
-import { useContext, useEffect, useState } from 'react'
-import { IsStartedContext } from '../providers/IsStartedProvider'
+import { useContext, useState } from 'react'
+import { StatusContext } from '../providers/StatusProvider'
 
 export default function NotificationStart() {
 
-  const { isStarted } = useContext(IsStartedContext)
-  const [visible, setVisible] = useState(!isStarted)
+  const [visible, setVisible] = useState(true)
+  const { status } = useContext(StatusContext)
 
-  useEffect(() => {
-    setVisible(!isStarted)
-  }, [isStarted])
+  if (status === 1) return
 
   return (
     <>

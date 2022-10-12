@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from 'react'
-import { IsStartedContext } from '../providers/IsStartedProvider'
+import { StatusContext } from '../providers/StatusProvider'
 import Counter from '../molecules/Counter'
 import SelectLimit from '../molecules/SelectLimit'
 import ButtonTimerControl from '../molecules/ButtonTimerControl'
@@ -10,7 +10,7 @@ export default function CountdownTimer({ timer, isExpired, setIsExpired }) {
 
   const { seconds, minutes, hours, restart, pause, resume, isRunning } = timer
 
-  const { isStarted } = useContext(IsStartedContext)
+  const { status } = useContext(StatusContext)
   const [limit, setLimit] = useState(30)
 
   useEffect(() => {
@@ -29,7 +29,7 @@ export default function CountdownTimer({ timer, isExpired, setIsExpired }) {
     localStorage.setItem('limit', limit)
   }, [limit])
 
-  if (isStarted) {
+  if (status === 1 || isExpired) {
     return (
       <>
         <Counter expired={limit}
