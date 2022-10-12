@@ -12,9 +12,9 @@ export default function Navbar({ stopwatch }) {
       <nav className={'navbar is-fixed-top py-1 is-primary has-background-navbar'} data-testid={'navbar-desktop'}>
         <div className={'navbar-brand mt-1'}>
           <span className={'mx-2'}>
-            <Image src={'/logomark-nega.png'} width={60} height={60} layout={'fixed'} quality={100} alt={'ロゴマーク'}/>
+            <Image src={'/logomark.png'} width={60} height={60} layout={'fixed'} alt={'ロゴマーク'}/>
           </span>
-          <Image src={'/logotype-nega.png'} width={150} height={60} layout={'fixed'} alt={'はまったいまー'}/>
+          <Image src={'/logotype.png'} width={150} height={60} layout={'fixed'} alt={'はまったいまー'}/>
         </div>
         <div className={'navbar-end'}>
           <div className={'navbar-item'} data-testid={'stopwatch'}>
