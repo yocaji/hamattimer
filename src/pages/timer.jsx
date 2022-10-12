@@ -6,7 +6,7 @@ export default function Timer() {
   return (
     <>
       <Head>
-        <title>はまったいまー</title>
+        <title>はまったいまー｜プログラミングでハマる前に</title>
       </Head>
       <TimerPage/>
     </>
