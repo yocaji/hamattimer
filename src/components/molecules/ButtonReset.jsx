@@ -29,7 +29,7 @@ export default function ButtonReset({ resetStopwatch }) {
         onClick={() => setIsOpen(true)}
         classNames={'is-primary is-light has-text-weight-bold is-family-secondary'}
       >
-        <MdCleaningServices/><span className={'is-hidden-touch ml-1'}>リセット</span>
+        <MdCleaningServices/><span className={'ml-1'}>リセット</span>
       </Button>
       {isOpen &&
         <Modal

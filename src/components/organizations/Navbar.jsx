@@ -9,7 +9,7 @@ export default function Navbar({ stopwatch }) {
 
   return (
     <IsStartedProvider>
-      <nav className={'navbar is-fixed-top py-1 is-primary has-background-navbar'}>
+      <nav className={'navbar is-fixed-top py-1 is-primary has-background-navbar'} data-testid={'navbar-desktop'}>
         <div className={'navbar-brand mt-1'}>
           <span className={'mx-2'}>
             <Image src={'/logomark-nega.png'} width={60} height={60} layout={'fixed'} quality={100} alt={'ロゴマーク'}/>
@@ -17,7 +17,7 @@ export default function Navbar({ stopwatch }) {
           <Image src={'/logotype-nega.png'} width={150} height={60} layout={'fixed'} alt={'はまったいまー'}/>
         </div>
         <div className={'navbar-end'}>
-          <div className={'navbar-item'} data-test-id={'stopwatch'}>
+          <div className={'navbar-item'} data-testid={'stopwatch'}>
             <Stopwatch stopwatch={stopwatch}/>
           </div>
         </div>
@@ -28,7 +28,7 @@ export default function Navbar({ stopwatch }) {
           </div>
         </div>
       </nav>
-      <div className={'block pt-6 mt-5'}>
+      <div className={'block pt-6 pb-4 mt-5'}>
         <NotificationStart/>
       </div>
     </IsStartedProvider>

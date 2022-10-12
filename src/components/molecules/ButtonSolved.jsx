@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Button from '../atoms/Button'
 import Modal from '../atoms/Modal'
+import { IoMdCheckboxOutline } from 'react-icons/io'
 
 export default function ButtonSolved({ pause }) {
 
@@ -17,7 +18,7 @@ export default function ButtonSolved({ pause }) {
         onClick={() => handleClick()}
         classNames={'is-primary is-light has-text-weight-bold is-family-secondary'}
       >
-        解決した！
+        <IoMdCheckboxOutline/><span className={'ml-1'}>解決した！</span>
       </Button>
       {isOpen &&
         <Modal
