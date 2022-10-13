@@ -25,11 +25,6 @@ test.describe('コントロール', () => {
     await page.locator('data-testid=stopwatch >> button').click()
     await page.waitForTimeout(1000)
     await expect(page.locator('[data-testid=navbar-desktop] [data-testid=stopwatch-counter]')).toHaveText(count)
-
-    const localStorage = (await page.context().storageState()).origins[0].localStorage
-    const stopwatch = localStorage.filter((item) => item.name === 'stopwatch')[0].value
-    const seconds = JSON.parse(stopwatch).seconds
-    expect(seconds.toString()).toBe(count.slice(-1))
   })
 
   test('解決したボタン', async ({ page }) => {
