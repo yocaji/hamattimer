@@ -6,45 +6,41 @@ test.describe('コントロール', () => {
   })
 
   test('初期表示', async ({ page }) => {
-    await expect(page.locator('[data-testid=navbar-desktop] [data-testid=stopwatch-counter]')).toHaveText('0:0000')
-    await expect(page.locator('[data-testid=navbar-desktop] [data-testid=select-limit-desktop] select')).toHaveValue('30')
+    await expect(page.locator('data-testid=timer >> select')).toHaveValue('30')
+    await expect(page.locator('data-testid=timer >> button:has-text("スタート")')).toBeVisible()
     await expect(page.locator('.notification')).toBeVisible()
   })
 
   test('スタート', async ({ page }) => {
-    await page.locator('data-testid=stopwatch >> button').click()
+    await page.locator('data-testid=timer >> button:has-text("スタート")').click()
     await expect(page.locator('.notification')).toBeHidden()
-    await expect(page.locator('[data-testid=navbar-desktop] [data-testid=stopwatch-counter]')).toHaveText('0:0001')
+    await expect(page.locator('data-testid=timer >> button:has-text("スタート")')).toBeHidden()
+    await expect(page.locator('data-testid=counter')).toHaveText('0:2959')
   })
 
   test('一時停止', async ({ page }) => {
-    await page.locator('data-testid=stopwatch >> button').click()
+    await page.locator('data-testid=timer >> button:has-text("スタート")').click()
     await page.waitForTimeout(1000)
-    const count = await page.locator('[data-testid=navbar-desktop] [data-testid=stopwatch-counter]').innerText()
+    const count = await page.locator('data-testid=counter').innerText()
 
-    await page.locator('data-testid=stopwatch >> button').click()
+    await page.locator('data-testid=timer >> button').click()
     await page.waitForTimeout(1000)
-    await expect(page.locator('[data-testid=navbar-desktop] [data-testid=stopwatch-counter]')).toHaveText(count)
-
-    const localStorage = (await page.context().storageState()).origins[0].localStorage
-    const stopwatch = localStorage.filter((item) => item.name === 'stopwatch')[0].value
-    const seconds = JSON.parse(stopwatch).seconds
-    expect(seconds.toString()).toBe(count.slice(-1))
+    await expect(page.locator('data-testid=counter')).toHaveText(count)
   })
 
   test('解決したボタン', async ({ page }) => {
-    await page.locator('data-testid=stopwatch >> button').click()
+    await page.locator('data-testid=timer >> button:has-text("スタート")').click()
     await page.waitForTimeout(1000)
-    const count = await page.locator('[data-testid=navbar-desktop] [data-testid=stopwatch-counter]').innerText()
+    const count = await page.locator('data-testid=counter').innerText()
 
     await page.locator('[data-testid=navbar-desktop] button:has-text("解決した！")').click()
     await page.waitForTimeout(1000)
-    await expect(page.locator('[data-testid=navbar-desktop] [data-testid=stopwatch-counter]')).toHaveText(count)
+    await expect(page.locator('data-testid=counter')).toHaveText(count)
   })
 
   test('リセットボタン', async ({ page }) => {
-    await page.locator('data-testid=stopwatch >> button').click()
-    await expect(page.locator('[data-testid=navbar-desktop] [data-testid=stopwatch-counter]')).toHaveText('0:0001')
+    await page.locator('data-testid=timer >> button:has-text("スタート")').click()
+    await expect(page.locator('data-testid=counter')).toHaveText('0:2959')
 
     await page.locator('data-testid=issue >> input[name=tobe]').fill('解決したいことテスト１')
     await page.locator('data-testid=trials >> textarea[name=guess]').fill('試したことテスト１')
@@ -57,10 +53,8 @@ test.describe('コントロール', () => {
     await page.locator('[data-testid=navbar-desktop] button:has-text("リセット")').click()
     await page.locator('.modal:visible >> button:has-text("リセットする")').click()
 
-    await expect(page.locator('[data-testid=navbar-desktop] [data-testid=stopwatch-counter]')).toHaveText('0:0000')
+    await expect(page.locator('data-testid=counter')).toBeHidden()
     await expect(page.locator('.notification')).toBeVisible()
-    await expect(page.locator('#preview >> text=解決したいことテスト１')).toBeHidden()
-    await expect(page.locator('#preview >> text=試したことテスト１')).toBeHidden()
     await expect(page.locator('data-testid=trials >> .box')).toHaveCount(1)
   })
 })

@@ -1,6 +1,4 @@
 import Image from 'next/image'
-import { IsStartedProvider } from '../providers/IsStartedProvider'
-import Stopwatch from '../organisms/Stopwatch'
 import ButtonSolved from '../molecules/ButtonSolved'
 import ButtonReset from '../molecules/ButtonReset'
 import { useState } from 'react'
@@ -10,7 +8,7 @@ export default function NavbarTouch({ stopwatch }) {
   const isActive = isMenuOpen ? ' is-active' : ''
 
   return (
-    <IsStartedProvider>
+    <>
       <nav className={'navbar is-fixed-top py-1 is-primary has-background-navbar'} data-testid={'navbar-touch'}>
         <div className={'navbar-brand'}>
           <div className={'mt-2'}>
@@ -21,7 +19,6 @@ export default function NavbarTouch({ stopwatch }) {
             </a>
           </div>
           <div className={'navbar-item'}>
-            <Stopwatch stopwatch={stopwatch}/>
           </div>
           <button className={`navbar-burger mt-1${isActive}`} onClick={() => setIsMenuOpen(!isMenuOpen)}>
             <span/>
@@ -37,6 +34,6 @@ export default function NavbarTouch({ stopwatch }) {
         </div>
       </nav>
       <div className={'block pt-6 mt-5'}/>
-    </IsStartedProvider>
+    </>
   )
 }

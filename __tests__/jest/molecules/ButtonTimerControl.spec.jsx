@@ -1,13 +1,12 @@
 import { render, screen, fireEvent } from '@testing-library/react'
-import { IsStartedProvider } from '../../../src/components/providers/IsStartedProvider'
-import ButtonStopwatch from '../../../src/components/molecules/ButtonStopwatch'
+import ButtonTimerControl from '../../../src/components/molecules/ButtonTimerControl'
 
-describe('ButtonStopwatch', () => {
+describe('ButtonTimerControl', () => {
   let renderResult
-  let start, pause
+  let resume, pause
 
   beforeEach(() => {
-    start = jest.fn()
+    resume = jest.fn()
     pause = jest.fn()
   })
 
@@ -17,9 +16,7 @@ describe('ButtonStopwatch', () => {
 
   test('再生中にボタンをクリックするとpauseメソッドが呼ばれる', async () => {
     renderResult = render(
-      <IsStartedProvider>
-        <ButtonStopwatch start={start} pause={pause} isRunning={true}/>,
-      </IsStartedProvider>,
+      <ButtonTimerControl pause={pause} resume={resume} isRunning={true}/>,
     )
     const button = screen.getByRole('button')
     fireEvent.click(button)
@@ -28,12 +25,10 @@ describe('ButtonStopwatch', () => {
 
   test('一時停止中にボタンをクリックするとstartメソッドが呼ばれる', async () => {
     renderResult = render(
-      <IsStartedProvider>
-        <ButtonStopwatch start={start} pause={pause} isRunning={false}/>,
-      </IsStartedProvider>,
+      <ButtonTimerControl pause={pause} resume={resume} isRunning={false}/>,
     )
     const button = screen.getByRole('button')
     fireEvent.click(button)
-    expect(start).toHaveBeenCalledTimes(1)
+    expect(resume).toHaveBeenCalledTimes(1)
   })
 })
