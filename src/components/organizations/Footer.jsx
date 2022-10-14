@@ -1,5 +1,6 @@
 import { useSession, signOut } from 'next-auth/react'
 import Link from 'next/link'
+import PrivacyPolicy from '../molecules/PrivacyPolicy'
 
 export default function Footer() {
 
@@ -9,6 +10,7 @@ export default function Footer() {
     <footer className={'footer has-text-centered'}>
       <div className={'is-size-6-half'}>
         <Link href={'/'}><a>トップページ</a></Link>
+        <PrivacyPolicy/>
         {session &&
           <a onClick={() => signOut()} className={'mx-6'}>GitHub連携解除</a>
         }
