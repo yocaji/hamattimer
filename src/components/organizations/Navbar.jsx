@@ -10,6 +10,8 @@ import CountdownTimer from '../organisms/CountdownTimer'
 export default function Navbar() {
   const { setStatus, statuses } = useContext(StatusContext)
   const [isExpired, setIsExpired] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const isActive = isMenuOpen ? ' is-active' : ''
 
   const timer = useTimer({
     expiryTimestamp: Date.now(),
@@ -29,18 +31,30 @@ export default function Navbar() {
             <span className={'mx-2'}>
               <Image src={'/logomark.png'} width={60} height={60} layout={'fixed'} alt={'ロゴマーク'}/>
             </span>
-            <Image src={'/logotype.png'} width={150} height={60} layout={'fixed'} alt={'はまったいまー'}/>
+            <span className={'is-hidden-touch'}>
+              <Image src={'/logotype.png'} width={150} height={60} layout={'fixed'} alt={'はまったいまー'}/>
+            </span>
           </a>
-        </div>
-        <div className={'navbar-end'}>
-          <div className={'navbar-item'} data-testid={'timer'}>
+          <div className={'navbar-item is-hidden-desktop'}>
             <CountdownTimer timer={timer} isExpired={isExpired} setIsExpired={setIsExpired}/>
           </div>
+          <button className={`navbar-burger mt-1${isActive}`} onClick={() => setIsMenuOpen(!isMenuOpen)}>
+            <span/>
+            <span/>
+            <span/>
+          </button>
         </div>
-        <div className={'navbar-end'}>
-          <div className={'navbar-item buttons'}>
-            <ButtonSolved pause={pause}/>
-            <ButtonReset/>
+        <div className={`navbar-menu${isActive}`}>
+          <div className={'navbar-end is-hidden-touch'} data-testid={'timer-desktop'}>
+            <div className={'navbar-item'}>
+              <CountdownTimer timer={timer} isExpired={isExpired} setIsExpired={setIsExpired}/>
+            </div>
+          </div>
+          <div className={'navbar-end'}>
+            <div className={'navbar-item buttons'}>
+              <ButtonSolved pause={pause}/>
+              <ButtonReset/>
+            </div>
           </div>
         </div>
       </nav>
