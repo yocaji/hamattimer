@@ -36,47 +36,84 @@ $tile-spacing: 1.5rem;
 .select select {
   border: none;
 }
+
 .input, .textarea, .button, .select select {
   border-radius: $radius-small;
 }
+
 .button {
   box-shadow: $shadow;
 }
+
 .button.is-primary.is-light {
   background: $white;
 }
 
 // 独自クラス
+.ht-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.ht-wrapper__main {
+  flex: 1;
+}
+
+.ht-content {
+  @include tablet {
+    padding-left: 3rem;
+    padding-right: 3rem;
+    padding-bottom: 3rem;
+    max-width: 125rem;
+  }
+  @include mobile {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 2rem;
+  }
+}
+
 .has-background-hero {
   background: radial-gradient($blue, #4a31ca);
 }
+
 .has-background-navbar {
   background: linear-gradient(to right, #4a31ca, $blue, #4a31ca);
 }
+
 .has-background-snow {
   background-color: $snow;
 }
+
 .has-background-myst {
   background-color: $myst;
 }
+
 .has-background-cloud {
   background-color: $cloud;
 }
+
 .has-border-subtle-top {
   border-top: solid 1px $subtle;
 }
+
 .has-border-subtle-bottom {
   border-bottom: solid 1px $subtle;
 }
+
 .has-text-navy {
   color: $navy;
 }
+
 .is-size-6-half {
   font-size: 0.9rem;
 }
+
 .lh-1 {
   line-height: 1.75;
 }
+
 .lh-2 {
   line-height: 2.0;
 }
@@ -87,15 +124,19 @@ $tile-spacing: 1.5rem;
   border-bottom: solid 1px $subtle;
   padding-bottom: 0.5rem;
 }
+
 #preview > .content > h2 {
   font-size: 1.25rem;
 }
+
 #preview > .content > h3 {
   font-size: 1.2rem;
 }
+
 #preview > .content > h4 {
   font-size: 1.15rem;
 }
+
 #preview > .content > h5 {
   font-size: 1.05rem;
 }

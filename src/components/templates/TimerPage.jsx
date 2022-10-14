@@ -37,28 +37,30 @@ export default function TimerPage() {
     <SessionProvider>
       <TrialsProvider>
         {isLoaded &&
-          <>
-            <FormProvider {...methods}>
-              <div className={''}>
+          <div className={'ht-wrapper'}>
+            <div className={'ht-wrapper__main'}>
+              <FormProvider {...methods}>
                 <StatusProvider>
                   <Navbar stopwatch={stopwatch}/>
                 </StatusProvider>
-              </div>
-            </FormProvider>
-            <div className={'has-background-myst px-6 pb-6'}>
-              <div className={'tile is-ancestor'}>
-                <MarkdownProvider>
-                  <div className={'tile is-parent is-vertical is-6'}>
-                    <Editor methods={methods}/>
-                  </div>
-                  <div className={'tile is-parent is-vertical'}>
-                    <Preview/>
-                  </div>
-                </MarkdownProvider>
+              </FormProvider>
+              <div className={'ht-content mx-auto'}>
+                <div className={'tile is-ancestor'}>
+                  <MarkdownProvider>
+                    <div className={'tile is-parent is-vertical is-6'}>
+                      <Editor methods={methods}/>
+                    </div>
+                    <div className={'tile is-parent is-vertical'}>
+                      <Preview/>
+                    </div>
+                  </MarkdownProvider>
+                </div>
               </div>
             </div>
-            <Footer/>
-          </>
+            <div className={'ht-wrapper__sub'}>
+              <Footer/>
+            </div>
+          </div>
         }
       </TrialsProvider>
     </SessionProvider>
