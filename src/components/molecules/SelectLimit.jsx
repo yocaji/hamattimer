@@ -3,7 +3,7 @@ import Select from '../atoms/Select'
 export default function SelectLimit({ limit, setLimit }) {
 
   const options = [
-    { id: 1, value: 1 },
+    { id: 1, value: 15 },
     { id: 2, value: 25 },
     { id: 3, value: 30 },
     { id: 4, value: 45 },
