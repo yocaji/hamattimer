@@ -5,7 +5,6 @@ import { FormProvider, useForm } from 'react-hook-form'
 import { TrialsProvider } from '../providers/TrialsProvider'
 import { MarkdownProvider } from '../providers/MarkdownProvider'
 import Navbar from '../organizations/Navbar'
-import NavbarTouch from '../organizations/NavbarTouch'
 import Editor from '../organizations/Editor'
 import Preview from '../organizations/Preview'
 import Footer from '../organizations/Footer'
@@ -40,13 +39,10 @@ export default function TimerPage() {
         {isLoaded &&
           <>
             <FormProvider {...methods}>
-              <div className={'is-hidden-touch'}>
+              <div className={''}>
                 <StatusProvider>
                   <Navbar stopwatch={stopwatch}/>
                 </StatusProvider>
-              </div>
-              <div className={'is-hidden-desktop'}>
-                <NavbarTouch stopwatch={stopwatch}/>
               </div>
             </FormProvider>
             <div className={'has-background-myst px-6 pb-6'}>
