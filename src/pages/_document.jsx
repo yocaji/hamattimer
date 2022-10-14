@@ -25,7 +25,7 @@ class MyDocument extends Document {
           <meta name="twitter:domain" content="hamattimer.app"/>
           <meta name="twitter:image" content="https://hamattimer.app/og-twitter.png"/>
         </Head>
-        <body>
+        <body className={'has-background-myst'}>
           <Main/>
           <NextScript/>
         </body>
