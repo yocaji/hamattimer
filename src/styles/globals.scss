@@ -24,7 +24,6 @@ $box-radius: $radius;
 $box-padding: 2.0rem;
 $button-static-color: $primary;
 $button-static-background-color: $cloud;
-$button-static-border-color: #fff;
 $modal-card-title-color: $text;
 $modal-card-head-background-color: $cloud;
 $modal-card-head-border-bottom: none;
@@ -43,6 +42,10 @@ $tile-spacing: 1.5rem;
 
 .button {
   box-shadow: $shadow;
+}
+
+.button.is-static {
+  border: none;
 }
 
 .button.is-primary.is-light {
@@ -86,8 +89,8 @@ $tile-spacing: 1.5rem;
   background-color: $snow;
 }
 
-.has-background-myst {
-  background-color: $myst;
+.has-background-mist {
+  background-color: $mist;
 }
 
 .has-background-cloud {

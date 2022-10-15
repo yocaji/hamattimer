@@ -1,5 +1,6 @@
 import { useState, useEffect, useContext } from 'react';
 import Modal from '../atoms/Modal';
+import ModalPlain from '../atoms/ModalPlain';
 import ButtonTimerControl from '../molecules/ButtonTimerControl';
 import ButtonTimerStart from '../molecules/ButtonTimerStart';
 import Counter from '../molecules/Counter';
@@ -11,6 +12,7 @@ export default function CountdownTimer({ timer, isExpired, setIsExpired }) {
 
   const { status } = useContext(StatusContext);
   const [limit, setLimit] = useState(30);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const localTimer = JSON.parse(localStorage.getItem('timer'));
@@ -30,6 +32,10 @@ export default function CountdownTimer({ timer, isExpired, setIsExpired }) {
   useEffect(() => {
     localStorage.setItem('limit', limit);
   }, [limit]);
+
+  useEffect(() => {
+    setIsOpen(status === 0);
+  }, [setIsOpen, status]);
 
   if (status === 1 || isExpired) {
     return (
@@ -77,7 +83,28 @@ export default function CountdownTimer({ timer, isExpired, setIsExpired }) {
     return (
       <>
         <SelectLimit limit={limit} setLimit={setLimit} />
-        <ButtonTimerStart restart={restart} />
+        <ButtonTimerStart restart={restart} classNames={'is-light ml-2'} />
+        {isOpen && (
+          <ModalPlain
+            onCancel={() => setIsOpen(false)}
+            bgClass={'has-background-mist'}
+          >
+            <h1 className={'title is-size-4 has-text-centered'}>
+              時間を設定して始めましょう
+            </h1>
+            <div className={'is-flex is-justify-content-center mt-5 mb-3'}>
+              <SelectLimit
+                limit={limit}
+                setLimit={setLimit}
+                classNames={'is-large'}
+              />
+              <ButtonTimerStart
+                restart={restart}
+                classNames={'is-large ml-4'}
+              />
+            </div>
+          </ModalPlain>
+        )}
       </>
     );
   }
