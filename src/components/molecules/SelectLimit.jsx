@@ -1,7 +1,6 @@
 import Select from '../atoms/Select'
 
 export default function SelectLimit({ limit, setLimit }) {
-
   const options = [
     { id: 1, value: 15 },
     { id: 2, value: 25 },
@@ -19,7 +18,11 @@ export default function SelectLimit({ limit, setLimit }) {
       <form data-testid={'select-limit'}>
         <div className={'field has-addons'}>
           <div className={'control'}>
-            <Select value={limit} options={options} onChange={(value) => handleChange(value)}/>
+            <Select
+              value={limit}
+              options={options}
+              onChange={(value) => handleChange(value)}
+            />
           </div>
           <div className={'control'}>
             <span className={'button is-static has-text-weight-bold'}>分</span>

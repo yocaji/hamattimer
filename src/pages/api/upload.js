@@ -8,7 +8,7 @@ cloudinary.config({
 })
 
 export default async function handler(req, res) {
-  const { image, options={} } = JSON.parse(req.body)
+  const { image, options = {} } = JSON.parse(req.body)
 
   const results = await cloudinary.uploader.upload(image, options)
 

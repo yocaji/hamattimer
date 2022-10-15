@@ -1,11 +1,10 @@
 import { useEffect, useContext } from 'react'
-import { TrialsContext } from '../providers/TrialsProvider'
-import { MarkdownContext } from '../providers/MarkdownProvider'
-import Trial from './Trial'
 import ButtonAddTrial from '../molecules/ButtonAddTrial'
+import { MarkdownContext } from '../providers/MarkdownProvider'
+import { TrialsContext } from '../providers/TrialsProvider'
+import Trial from './Trial'
 
 export default function Trials() {
-
   const { trials, setTrials } = useContext(TrialsContext)
   const { updateMarkdown } = useContext(MarkdownContext)
 
@@ -16,6 +15,7 @@ export default function Trials() {
     } else {
       setTrials(JSON.parse(localTrials))
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [setTrials])
 
   const addTrial = () => {
@@ -32,10 +32,10 @@ export default function Trials() {
     <div data-testid={'trials'}>
       <h2 className={'title is-5 mt-4'}>試したこと</h2>
       {trials.map((trial, i) => (
-        <Trial key={trial.id} trial={trial} index={i}/>
+        <Trial key={trial.id} trial={trial} index={i} />
       ))}
       <div className={'has-text-centered'}>
-        <ButtonAddTrial addTrial={addTrial}/>
+        <ButtonAddTrial addTrial={addTrial} />
       </div>
     </div>
   )

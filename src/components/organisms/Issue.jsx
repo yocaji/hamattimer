@@ -1,19 +1,15 @@
 import { useEffect, useContext } from 'react'
 import { useFormContext } from 'react-hook-form'
-import { MarkdownContext } from '../providers/MarkdownProvider'
 import MarkdownArea from '../molecules/MarkdownArea'
+import { MarkdownContext } from '../providers/MarkdownProvider'
 
 export default function Issue() {
-
   const { updateMarkdown } = useContext(MarkdownContext)
   const { register, setValue, getValues } = useFormContext()
 
   useEffect(() => {
     if (!localStorage.getItem('issue')) {
-      localStorage.setItem(
-        'issue',
-        `{"tobe": "", "asis": "", "problem": ""}`,
-      )
+      localStorage.setItem('issue', `{"tobe": "", "asis": "", "problem": ""}`)
     }
   }, [])
 
@@ -29,7 +25,8 @@ export default function Issue() {
     const tobe = JSON.stringify(formValues.tobe)
     const asis = JSON.stringify(formValues.asis)
     const problem = JSON.stringify(formValues.problem)
-    localStorage.setItem('issue',
+    localStorage.setItem(
+      'issue',
       `{"tobe": ${tobe}, "asis": ${asis}, "problem": ${problem}}`,
     )
     updateMarkdown()
@@ -43,13 +40,21 @@ export default function Issue() {
           <div className={'field'}>
             <label className={'label'}>期待する結果をひとことで</label>
             <div className={'control'}>
-              <input {...register('tobe')} placeholder={'○○したら××が表示される'} className={'input'}/>
+              <input
+                {...register('tobe')}
+                placeholder={'○○したら××が表示される'}
+                className={'input'}
+              />
             </div>
           </div>
           <div className={'field'}>
             <label className={'label'}>実際の結果をひとことで</label>
             <div className={'control'}>
-              <input {...register('asis')} placeholder={'○○しても画面の表示が変わらない'} className={'input'}/>
+              <input
+                {...register('asis')}
+                placeholder={'○○しても画面の表示が変わらない'}
+                className={'input'}
+              />
             </div>
           </div>
           <div className={'field'}>

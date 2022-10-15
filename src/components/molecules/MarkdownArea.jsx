@@ -1,7 +1,6 @@
 import { useFormContext } from 'react-hook-form'
 
-export default function MarkdownArea({name, rows, placeholder, updateValue}) {
-
+export default function MarkdownArea({ name, rows, placeholder, updateValue }) {
   const { register, setValue, getValues } = useFormContext()
 
   const handlePaste = async (e) => {
@@ -38,7 +37,7 @@ export default function MarkdownArea({name, rows, placeholder, updateValue}) {
       body: JSON.stringify({
         image: dataUrl,
       }),
-    }).then(res => res.json())
+    }).then((res) => res.json())
   }
 
   const insertImage = ({ e, imageSyntax }) => {

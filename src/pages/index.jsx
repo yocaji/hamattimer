@@ -7,7 +7,7 @@ export default function Index() {
       <Head>
         <title>はまったいまー｜プログラミングでハマる前に</title>
       </Head>
-      <WelcomePage/>
+      <WelcomePage />
     </>
   )
 }

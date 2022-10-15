@@ -4,18 +4,21 @@ import PrivacyPolicy from '../molecules/PrivacyPolicy'
 import Terms from '../molecules/Terms'
 
 export default function Footer() {
-
   const { data: session } = useSession()
 
   return (
     <footer className={'footer has-text-centered'}>
       <div className={'is-size-6-half'}>
-        <Link href={'/'}><a>トップページ</a></Link>
-        <PrivacyPolicy/>
-        <Terms/>
-        {session &&
-          <a onClick={() => signOut()} className={'mx-6'}>GitHub連携解除</a>
-        }
+        <Link href={'/'}>
+          <a>トップページ</a>
+        </Link>
+        <PrivacyPolicy />
+        <Terms />
+        {session && (
+          <a onClick={() => signOut()} className={'mx-6'}>
+            GitHub連携解除
+          </a>
+        )}
       </div>
     </footer>
   )

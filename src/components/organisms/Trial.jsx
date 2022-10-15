@@ -1,12 +1,11 @@
-import { FormProvider, useForm } from 'react-hook-form'
 import { useContext, useEffect } from 'react'
+import { FormProvider, useForm } from 'react-hook-form'
+import ButtonRemoveTrial from '../molecules/ButtonRemoveTrial'
+import MarkdownArea from '../molecules/MarkdownArea'
 import { MarkdownContext } from '../providers/MarkdownProvider'
 import { TrialsContext } from '../providers/TrialsProvider'
-import MarkdownArea from '../molecules/MarkdownArea'
-import ButtonRemoveTrial from '../molecules/ButtonRemoveTrial'
 
 export default function Trial({ trial, index }) {
-
   const { updateMarkdown } = useContext(MarkdownContext)
   const { trials, setTrials } = useContext(TrialsContext)
 
@@ -40,12 +39,15 @@ export default function Trial({ trial, index }) {
     <div className={'box'}>
       <div className={'columns is-vcentered'}>
         <div className={'column'}>
-          <h3 className={'is-size-5 has-text-weight-bold'}>
-            その{index + 1}
-          </h3>
+          <h3 className={'is-size-5 has-text-weight-bold'}>その{index + 1}</h3>
         </div>
         <div className={'column'}>
-          <ButtonRemoveTrial id={trial.id} index={index} trials={trials} setTrials={setTrials}/>
+          <ButtonRemoveTrial
+            id={trial.id}
+            index={index}
+            trials={trials}
+            setTrials={setTrials}
+          />
         </div>
       </div>
       <FormProvider {...methods}>

@@ -1,10 +1,9 @@
 import { format } from 'date-fns'
 import { useContext } from 'react'
-import { StatusContext } from '../providers/StatusProvider'
 import Button from '../atoms/Button'
+import { StatusContext } from '../providers/StatusProvider'
 
 export default function ButtonTimerStart({ restart }) {
-
   const { setStatus, statuses } = useContext(StatusContext)
 
   const handleClick = () => {
