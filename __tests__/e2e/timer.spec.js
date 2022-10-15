@@ -5,19 +5,42 @@ test.describe('コントロール', () => {
     await page.goto('/timer');
   });
 
-  test('初期表示', async ({ page }) => {
+  test('初期表示モーダル', async ({ page }) => {
     await expect(
-      page.locator('data-testid=timer-desktop >> select'),
+      page.locator(
+        'data-testid=timer-desktop >> text=時間を設定して始めましょう',
+      ),
+    ).toBeVisible();
+    await expect(
+      page.locator('data-testid=timer-desktop >> .modal select'),
     ).toHaveValue('30');
     await expect(
-      page.locator('data-testid=timer-desktop >> button:has-text("スタート")'),
+      page.locator(
+        'data-testid=timer-desktop >> .modal button:has-text("スタート")',
+      ),
     ).toBeVisible();
-    await expect(page.locator('.notification')).toBeVisible();
+  });
+
+  test('初期表示Navbar', async ({ page }) => {
+    await page.locator('data-testid=timer-desktop >> .modal').click();
+    await expect(
+      page.locator('data-testid=timer-desktop >> select >> nth=1'),
+    ).toHaveValue('30');
+    await expect(
+      page.locator(
+        'data-testid=timer-desktop >> button:has-text("スタート") >> nth=1',
+      ),
+    ).toBeVisible();
+    await expect(
+      page.locator('text=用意ができたらタイマーをスタートしてください'),
+    ).toBeVisible();
   });
 
   test('スタート', async ({ page }) => {
     await page
-      .locator('data-testid=timer-desktop >> button:has-text("スタート")')
+      .locator(
+        'data-testid=timer-desktop >> .modal button:has-text("スタート")',
+      )
       .click();
     await expect(page.locator('.notification')).toBeHidden();
     await expect(
@@ -30,7 +53,9 @@ test.describe('コントロール', () => {
 
   test('一時停止', async ({ page }) => {
     await page
-      .locator('data-testid=timer-desktop >> button:has-text("スタート")')
+      .locator(
+        'data-testid=timer-desktop >> .modal button:has-text("スタート")',
+      )
       .click();
     await page.waitForTimeout(1000);
     const count = await page
@@ -46,7 +71,9 @@ test.describe('コントロール', () => {
 
   test('解決したボタン', async ({ page }) => {
     await page
-      .locator('data-testid=timer-desktop >> button:has-text("スタート")')
+      .locator(
+        'data-testid=timer-desktop >> .modal button:has-text("スタート")',
+      )
       .click();
     await page.waitForTimeout(1000);
     const count = await page
@@ -64,7 +91,9 @@ test.describe('コントロール', () => {
 
   test('リセットボタン', async ({ page }) => {
     await page
-      .locator('data-testid=timer-desktop >> button:has-text("スタート")')
+      .locator(
+        'data-testid=timer-desktop >> .modal button:has-text("スタート")',
+      )
       .click();
     await expect(
       page.locator('data-testid=timer-desktop >> data-testid=counter'),
@@ -132,12 +161,22 @@ test.describe('エディター', () => {
 
   test('試したことの追加', async ({ page }) => {
     await page
+      .locator(
+        'data-testid=timer-desktop >> .modal button:has-text("スタート")',
+      )
+      .click();
+    await page
       .locator('data-testid=trials >> button:has-text("試したこと")')
       .click();
     await expect(page.locator('data-testid=trials >> .box')).toHaveCount(2);
   });
 
   test('試したことの削除', async ({ page }) => {
+    await page
+      .locator(
+        'data-testid=timer-desktop >> .modal button:has-text("スタート")',
+      )
+      .click();
     await page.locator('data-testid=trials >> button:has-text("削除")').click();
     await expect(page.locator('.modal:visible >> h1')).toHaveText(
       '試したこと その1',
