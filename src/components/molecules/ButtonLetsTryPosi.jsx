@@ -1,4 +1,4 @@
-import Button from '../atoms/Button'
+import Button from '../atoms/Button';
 
 export default function ButtonLetsTryPosi() {
   return (
@@ -11,5 +11,5 @@ export default function ButtonLetsTryPosi() {
         使ってみる
       </Button>
     </a>
-  )
+  );
 }

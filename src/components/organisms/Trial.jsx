@@ -1,27 +1,27 @@
-import { useContext, useEffect } from 'react'
-import { FormProvider, useForm } from 'react-hook-form'
-import ButtonRemoveTrial from '../molecules/ButtonRemoveTrial'
-import MarkdownArea from '../molecules/MarkdownArea'
-import { MarkdownContext } from '../providers/MarkdownProvider'
-import { TrialsContext } from '../providers/TrialsProvider'
+import { useContext, useEffect } from 'react';
+import { FormProvider, useForm } from 'react-hook-form';
+import ButtonRemoveTrial from '../molecules/ButtonRemoveTrial';
+import MarkdownArea from '../molecules/MarkdownArea';
+import { MarkdownContext } from '../providers/MarkdownProvider';
+import { TrialsContext } from '../providers/TrialsProvider';
 
 export default function Trial({ trial, index }) {
-  const { updateMarkdown } = useContext(MarkdownContext)
-  const { trials, setTrials } = useContext(TrialsContext)
+  const { updateMarkdown } = useContext(MarkdownContext);
+  const { trials, setTrials } = useContext(TrialsContext);
 
-  const methods = useForm({ mode: 'onBlur' })
-  const { setValue, getValues } = methods
-
-  useEffect(() => {
-    setValue('guess', trial.guess)
-    setValue('operation', trial.operation)
-    setValue('result', trial.result)
-  }, [trial, setValue])
+  const methods = useForm({ mode: 'onBlur' });
+  const { setValue, getValues } = methods;
 
   useEffect(() => {
-    localStorage.setItem('trials', JSON.stringify(trials))
-    updateMarkdown()
-  }, [trials, updateMarkdown])
+    setValue('guess', trial.guess);
+    setValue('operation', trial.operation);
+    setValue('result', trial.result);
+  }, [trial, setValue]);
+
+  useEffect(() => {
+    localStorage.setItem('trials', JSON.stringify(trials));
+    updateMarkdown();
+  }, [trials, updateMarkdown]);
 
   const updateTrials = () => {
     const newTrial = {
@@ -29,11 +29,11 @@ export default function Trial({ trial, index }) {
       guess: getValues('guess') ?? '',
       operation: getValues('operation') ?? '',
       result: getValues('result') ?? '',
-    }
-    const currentTrials = JSON.parse(localStorage.getItem('trials'))
-    currentTrials[index] = newTrial
-    setTrials(currentTrials)
-  }
+    };
+    const currentTrials = JSON.parse(localStorage.getItem('trials'));
+    currentTrials[index] = newTrial;
+    setTrials(currentTrials);
+  };
 
   return (
     <div className={'box'}>
@@ -88,5 +88,5 @@ export default function Trial({ trial, index }) {
         </form>
       </FormProvider>
     </div>
-  )
+  );
 }

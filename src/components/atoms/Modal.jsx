@@ -24,8 +24,8 @@ export default function Modal({
             <button
               className={'button is-danger'}
               onClick={() => {
-                onConfirm()
-                onCancel()
+                onConfirm();
+                onCancel();
               }}
             >
               {confirmLabel}
@@ -40,5 +40,5 @@ export default function Modal({
         </footer>
       </div>
     </div>
-  )
+  );
 }

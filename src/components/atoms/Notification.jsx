@@ -1,4 +1,4 @@
-import { MdInfoOutline, MdClose } from 'react-icons/md'
+import { MdInfoOutline, MdClose } from 'react-icons/md';
 
 export default function Notification({ message, close }) {
   return (
@@ -22,5 +22,5 @@ export default function Notification({ message, close }) {
         </button>
       </span>
     </div>
-  )
+  );
 }

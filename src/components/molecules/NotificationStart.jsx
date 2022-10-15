@@ -1,12 +1,12 @@
-import { useContext, useState } from 'react'
-import Notification from '../atoms/Notification'
-import { StatusContext } from '../providers/StatusProvider'
+import { useContext, useState } from 'react';
+import Notification from '../atoms/Notification';
+import { StatusContext } from '../providers/StatusProvider';
 
 export default function NotificationStart() {
-  const [visible, setVisible] = useState(true)
-  const { status } = useContext(StatusContext)
+  const [visible, setVisible] = useState(true);
+  const { status } = useContext(StatusContext);
 
-  if (status === 1) return
+  if (status === 1) return;
 
   return (
     <>
@@ -17,5 +17,5 @@ export default function NotificationStart() {
         />
       )}
     </>
-  )
+  );
 }

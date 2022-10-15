@@ -1,29 +1,29 @@
-import { useContext, useState } from 'react'
-import { useFormContext } from 'react-hook-form'
-import { MdCleaningServices } from 'react-icons/md'
-import Button from '../atoms/Button'
-import Modal from '../atoms/Modal'
-import { StatusContext } from '../providers/StatusProvider'
-import { TrialsContext } from '../providers/TrialsProvider'
+import { useContext, useState } from 'react';
+import { useFormContext } from 'react-hook-form';
+import { MdCleaningServices } from 'react-icons/md';
+import Button from '../atoms/Button';
+import Modal from '../atoms/Modal';
+import { StatusContext } from '../providers/StatusProvider';
+import { TrialsContext } from '../providers/TrialsProvider';
 
 export default function ButtonReset() {
-  const { trials, setTrials } = useContext(TrialsContext)
-  const { setStatus, statuses } = useContext(StatusContext)
-  const { getValues, reset } = useFormContext()
-  const [isOpen, setIsOpen] = useState(false)
+  const { trials, setTrials } = useContext(TrialsContext);
+  const { setStatus, statuses } = useContext(StatusContext);
+  const { getValues, reset } = useFormContext();
+  const [isOpen, setIsOpen] = useState(false);
 
   const resetAll = () => {
-    reset()
-    setTrials([{ id: Date.now(), guess: '', operation: '', result: '' }])
-    setStatus(statuses.default)
-    localStorage.setItem('issue', JSON.stringify(getValues()))
-    localStorage.setItem('trials', JSON.stringify(trials))
+    reset();
+    setTrials([{ id: Date.now(), guess: '', operation: '', result: '' }]);
+    setStatus(statuses.default);
+    localStorage.setItem('issue', JSON.stringify(getValues()));
+    localStorage.setItem('trials', JSON.stringify(trials));
     localStorage.setItem(
       'timer',
       JSON.stringify({ seconds: 0, minutes: 0, hours: 0 }),
-    )
-    localStorage.setItem('started_at', '')
-  }
+    );
+    localStorage.setItem('started_at', '');
+  };
 
   return (
     <>
@@ -55,5 +55,5 @@ export default function ButtonReset() {
         </Modal>
       )}
     </>
-  )
+  );
 }

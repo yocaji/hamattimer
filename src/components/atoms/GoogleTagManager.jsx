@@ -1,4 +1,4 @@
-import Script from 'next/script'
+import Script from 'next/script';
 
 export default function GoogleTagManager({ googleTagManagerId }) {
   return (
@@ -15,5 +15,5 @@ export default function GoogleTagManager({ googleTagManagerId }) {
       `,
       }}
     />
-  )
+  );
 }

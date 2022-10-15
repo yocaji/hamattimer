@@ -1,7 +1,7 @@
-import Image from 'next/image'
-import ButtonLetsTryNega from '../molecules/ButtonLetsTryNega'
-import ButtonLetsTryPosi from '../molecules/ButtonLetsTryPosi'
-import Footer from '../organizations/Footer'
+import Image from 'next/image';
+import ButtonLetsTryNega from '../molecules/ButtonLetsTryNega';
+import ButtonLetsTryPosi from '../molecules/ButtonLetsTryPosi';
+import Footer from '../organizations/Footer';
 
 export default function WelcomePage() {
   return (
@@ -236,5 +236,5 @@ export default function WelcomePage() {
         <Footer />
       </div>
     </div>
-  )
+  );
 }

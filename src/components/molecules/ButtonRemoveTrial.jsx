@@ -1,21 +1,21 @@
-import { useContext, useState } from 'react'
-import { MdDelete } from 'react-icons/md'
-import Button from '../atoms/Button'
-import Modal from '../atoms/Modal'
-import { MarkdownContext } from '../providers/MarkdownProvider'
+import { useContext, useState } from 'react';
+import { MdDelete } from 'react-icons/md';
+import Button from '../atoms/Button';
+import Modal from '../atoms/Modal';
+import { MarkdownContext } from '../providers/MarkdownProvider';
 
 export default function ButtonRemoveTrial({ id, index, trials, setTrials }) {
-  const { updateMarkdown } = useContext(MarkdownContext)
-  const [isOpen, setIsOpen] = useState(false)
+  const { updateMarkdown } = useContext(MarkdownContext);
+  const [isOpen, setIsOpen] = useState(false);
 
   const removeTrial = (id) => {
     const newTrials = trials.filter((trial) => {
-      return trial.id !== id
-    })
-    setTrials(newTrials)
-    localStorage.setItem('trials', JSON.stringify(newTrials))
-    updateMarkdown()
-  }
+      return trial.id !== id;
+    });
+    setTrials(newTrials);
+    localStorage.setItem('trials', JSON.stringify(newTrials));
+    updateMarkdown();
+  };
 
   return (
     <>
@@ -40,5 +40,5 @@ export default function ButtonRemoveTrial({ id, index, trials, setTrials }) {
         </Modal>
       )}
     </>
-  )
+  );
 }

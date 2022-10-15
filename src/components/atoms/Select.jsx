@@ -13,5 +13,5 @@ export default function Select({ options, value, onChange, classNames }) {
         ))}
       </select>
     </span>
-  )
+  );
 }

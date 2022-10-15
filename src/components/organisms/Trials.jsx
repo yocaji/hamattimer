@@ -1,32 +1,32 @@
-import { useEffect, useContext } from 'react'
-import ButtonAddTrial from '../molecules/ButtonAddTrial'
-import { MarkdownContext } from '../providers/MarkdownProvider'
-import { TrialsContext } from '../providers/TrialsProvider'
-import Trial from './Trial'
+import { useEffect, useContext } from 'react';
+import ButtonAddTrial from '../molecules/ButtonAddTrial';
+import { MarkdownContext } from '../providers/MarkdownProvider';
+import { TrialsContext } from '../providers/TrialsProvider';
+import Trial from './Trial';
 
 export default function Trials() {
-  const { trials, setTrials } = useContext(TrialsContext)
-  const { updateMarkdown } = useContext(MarkdownContext)
+  const { trials, setTrials } = useContext(TrialsContext);
+  const { updateMarkdown } = useContext(MarkdownContext);
 
   useEffect(() => {
-    const localTrials = localStorage.getItem('trials')
+    const localTrials = localStorage.getItem('trials');
     if (!localTrials) {
-      addTrial()
+      addTrial();
     } else {
-      setTrials(JSON.parse(localTrials))
+      setTrials(JSON.parse(localTrials));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [setTrials])
+  }, [setTrials]);
 
   const addTrial = () => {
     const newTrials = [
       ...trials,
       { id: Date.now(), guess: '', operation: '', result: '' },
-    ]
-    setTrials(newTrials)
-    updateMarkdown()
-    localStorage.setItem('trials', JSON.stringify(newTrials))
-  }
+    ];
+    setTrials(newTrials);
+    updateMarkdown();
+    localStorage.setItem('trials', JSON.stringify(newTrials));
+  };
 
   return (
     <div data-testid={'trials'}>
@@ -38,5 +38,5 @@ export default function Trials() {
         <ButtonAddTrial addTrial={addTrial} />
       </div>
     </div>
-  )
+  );
 }

@@ -1,4 +1,4 @@
-import Select from '../atoms/Select'
+import Select from '../atoms/Select';
 
 export default function SelectLimit({ limit, setLimit }) {
   const options = [
@@ -7,11 +7,11 @@ export default function SelectLimit({ limit, setLimit }) {
     { id: 3, value: 30 },
     { id: 4, value: 45 },
     { id: 5, value: 60 },
-  ]
+  ];
 
   const handleChange = (value) => {
-    setLimit(value)
-  }
+    setLimit(value);
+  };
 
   return (
     <>
@@ -30,5 +30,5 @@ export default function SelectLimit({ limit, setLimit }) {
         </div>
       </form>
     </>
-  )
+  );
 }

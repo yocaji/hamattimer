@@ -1,5 +1,5 @@
-import Head from 'next/head'
-import TimerPage from '../components/templates/TimerPage'
+import Head from 'next/head';
+import TimerPage from '../components/templates/TimerPage';
 
 export default function Timer() {
   return (
@@ -9,5 +9,5 @@ export default function Timer() {
       </Head>
       <TimerPage />
     </>
-  )
+  );
 }

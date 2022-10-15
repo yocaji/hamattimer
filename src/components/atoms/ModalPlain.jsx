@@ -4,5 +4,5 @@ export default function ModalPlain({ onCancel, children }) {
       <div className={'modal-background'} onClick={onCancel} />
       <div className={'modal-content box'}>{children}</div>
     </div>
-  )
+  );
 }

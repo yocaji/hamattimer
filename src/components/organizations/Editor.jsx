@@ -1,6 +1,6 @@
-import { FormProvider } from 'react-hook-form'
-import Issue from '../organisms/Issue'
-import Trials from '../organisms/Trials'
+import { FormProvider } from 'react-hook-form';
+import Issue from '../organisms/Issue';
+import Trials from '../organisms/Trials';
 
 export default function Editor({ methods }) {
   return (
@@ -14,5 +14,5 @@ export default function Editor({ methods }) {
         <Trials />
       </div>
     </>
-  )
+  );
 }

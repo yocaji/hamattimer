@@ -1,10 +1,10 @@
-import { useSession, signOut } from 'next-auth/react'
-import Link from 'next/link'
-import PrivacyPolicy from '../molecules/PrivacyPolicy'
-import Terms from '../molecules/Terms'
+import { useSession, signOut } from 'next-auth/react';
+import Link from 'next/link';
+import PrivacyPolicy from '../molecules/PrivacyPolicy';
+import Terms from '../molecules/Terms';
 
 export default function Footer() {
-  const { data: session } = useSession()
+  const { data: session } = useSession();
 
   return (
     <footer className={'footer has-text-centered'}>
@@ -21,5 +21,5 @@ export default function Footer() {
         )}
       </div>
     </footer>
-  )
+  );
 }

@@ -1,36 +1,36 @@
-import { useEffect, useContext } from 'react'
-import { useFormContext } from 'react-hook-form'
-import MarkdownArea from '../molecules/MarkdownArea'
-import { MarkdownContext } from '../providers/MarkdownProvider'
+import { useEffect, useContext } from 'react';
+import { useFormContext } from 'react-hook-form';
+import MarkdownArea from '../molecules/MarkdownArea';
+import { MarkdownContext } from '../providers/MarkdownProvider';
 
 export default function Issue() {
-  const { updateMarkdown } = useContext(MarkdownContext)
-  const { register, setValue, getValues } = useFormContext()
+  const { updateMarkdown } = useContext(MarkdownContext);
+  const { register, setValue, getValues } = useFormContext();
 
   useEffect(() => {
     if (!localStorage.getItem('issue')) {
-      localStorage.setItem('issue', `{"tobe": "", "asis": "", "problem": ""}`)
+      localStorage.setItem('issue', `{"tobe": "", "asis": "", "problem": ""}`);
     }
-  }, [])
+  }, []);
 
   useEffect(() => {
-    const defaultValue = JSON.parse(localStorage.getItem('issue'))
-    setValue('tobe', defaultValue?.tobe)
-    setValue('asis', defaultValue?.asis)
-    setValue('problem', defaultValue?.problem)
-  }, [setValue])
+    const defaultValue = JSON.parse(localStorage.getItem('issue'));
+    setValue('tobe', defaultValue?.tobe);
+    setValue('asis', defaultValue?.asis);
+    setValue('problem', defaultValue?.problem);
+  }, [setValue]);
 
   const updateIssue = () => {
-    const formValues = getValues()
-    const tobe = JSON.stringify(formValues.tobe)
-    const asis = JSON.stringify(formValues.asis)
-    const problem = JSON.stringify(formValues.problem)
+    const formValues = getValues();
+    const tobe = JSON.stringify(formValues.tobe);
+    const asis = JSON.stringify(formValues.asis);
+    const problem = JSON.stringify(formValues.problem);
     localStorage.setItem(
       'issue',
       `{"tobe": ${tobe}, "asis": ${asis}, "problem": ${problem}}`,
-    )
-    updateMarkdown()
-  }
+    );
+    updateMarkdown();
+  };
 
   return (
     <div data-testid={'issue'}>
@@ -71,5 +71,5 @@ export default function Issue() {
         </form>
       </div>
     </div>
-  )
+  );
 }

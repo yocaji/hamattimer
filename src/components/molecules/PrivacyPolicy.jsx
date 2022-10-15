@@ -1,8 +1,8 @@
-import { useState } from 'react'
-import ModalPlain from '../atoms/ModalPlain'
+import { useState } from 'react';
+import ModalPlain from '../atoms/ModalPlain';
 
 export default function PrivacyPolicy() {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
@@ -58,5 +58,5 @@ export default function PrivacyPolicy() {
         </ModalPlain>
       )}
     </>
-  )
+  );
 }

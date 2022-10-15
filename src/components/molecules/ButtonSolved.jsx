@@ -1,16 +1,16 @@
-import Image from 'next/image'
-import { useState } from 'react'
-import { IoMdCheckboxOutline } from 'react-icons/io'
-import Button from '../atoms/Button'
-import Modal from '../atoms/Modal'
+import Image from 'next/image';
+import { useState } from 'react';
+import { IoMdCheckboxOutline } from 'react-icons/io';
+import Button from '../atoms/Button';
+import Modal from '../atoms/Modal';
 
 export default function ButtonSolved({ pause }) {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleClick = () => {
-    pause()
-    setIsOpen(true)
-  }
+    pause();
+    setIsOpen(true);
+  };
 
   return (
     <>
@@ -43,5 +43,5 @@ export default function ButtonSolved({ pause }) {
         </Modal>
       )}
     </>
-  )
+  );
 }

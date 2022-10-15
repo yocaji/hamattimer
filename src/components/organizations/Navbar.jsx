@@ -1,27 +1,27 @@
-import Image from 'next/image'
-import { useContext, useState } from 'react'
-import { useTimer } from 'react-timer-hook'
-import ButtonReset from '../molecules/ButtonReset'
-import ButtonSolved from '../molecules/ButtonSolved'
-import NotificationStart from '../molecules/NotificationStart'
-import CountdownTimer from '../organisms/CountdownTimer'
-import { StatusContext } from '../providers/StatusProvider'
+import Image from 'next/image';
+import { useContext, useState } from 'react';
+import { useTimer } from 'react-timer-hook';
+import ButtonReset from '../molecules/ButtonReset';
+import ButtonSolved from '../molecules/ButtonSolved';
+import NotificationStart from '../molecules/NotificationStart';
+import CountdownTimer from '../organisms/CountdownTimer';
+import { StatusContext } from '../providers/StatusProvider';
 
 export default function Navbar() {
-  const { setStatus, statuses } = useContext(StatusContext)
-  const [isExpired, setIsExpired] = useState(false)
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const isActive = isMenuOpen ? ' is-active' : ''
+  const { setStatus, statuses } = useContext(StatusContext);
+  const [isExpired, setIsExpired] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const isActive = isMenuOpen ? ' is-active' : '';
 
   const timer = useTimer({
     expiryTimestamp: Date.now(),
     autoStart: false,
     onExpire: () => {
-      setIsExpired(true)
-      setStatus(statuses.interval)
+      setIsExpired(true);
+      setStatus(statuses.interval);
     },
-  })
-  const { pause } = timer
+  });
+  const { pause } = timer;
 
   return (
     <>
@@ -91,5 +91,5 @@ export default function Navbar() {
         <NotificationStart />
       </div>
     </>
-  )
+  );
 }
