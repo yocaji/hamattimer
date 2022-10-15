@@ -1,36 +1,35 @@
-import { useFormContext } from 'react-hook-form'
+import { useFormContext } from 'react-hook-form';
 
-export default function MarkdownArea({name, rows, placeholder, updateValue}) {
-
-  const { register, setValue, getValues } = useFormContext()
+export default function MarkdownArea({ name, rows, placeholder, updateValue }) {
+  const { register, setValue, getValues } = useFormContext();
 
   const handlePaste = async (e) => {
-    const pasteData = e.clipboardData.items[0]
+    const pasteData = e.clipboardData.items[0];
 
-    if (!pasteData.type.match('image.*')) return
+    if (!pasteData.type.match('image.*')) return;
 
-    const file = pasteData.getAsFile()
-    const dataUrl = await createDataUrl(file)
+    const file = pasteData.getAsFile();
+    const dataUrl = await createDataUrl(file);
 
-    const response = await uploadImage(dataUrl)
+    const response = await uploadImage(dataUrl);
 
-    const imageUrl = response.secure_url
-    const imageSyntax = `![${file.name}](${imageUrl})`
-    await insertImage({ e, imageSyntax })
-  }
+    const imageUrl = response.secure_url;
+    const imageSyntax = `![${file.name}](${imageUrl})`;
+    await insertImage({ e, imageSyntax });
+  };
 
   const createDataUrl = (file) => {
     return new Promise((resolve, reject) => {
-      const reader = new FileReader()
+      const reader = new FileReader();
       reader.onload = () => {
-        resolve(reader.result)
-      }
+        resolve(reader.result);
+      };
       reader.onerror = () => {
-        reject(reader.error)
-      }
-      reader.readAsDataURL(file)
-    })
-  }
+        reject(reader.error);
+      };
+      reader.readAsDataURL(file);
+    });
+  };
 
   const uploadImage = async (dataUrl) => {
     return await fetch('/api/upload', {
@@ -38,18 +37,18 @@ export default function MarkdownArea({name, rows, placeholder, updateValue}) {
       body: JSON.stringify({
         image: dataUrl,
       }),
-    }).then(res => res.json())
-  }
+    }).then((res) => res.json());
+  };
 
   const insertImage = ({ e, imageSyntax }) => {
-    const cursorPosition = e.target.selectionEnd
-    const text = getValues(name)
-    const textLength = text.length
-    const beforeCursor = text.substring(0, cursorPosition)
-    const afterCursor = text.substring(cursorPosition, textLength)
-    setValue(name, beforeCursor + imageSyntax + afterCursor)
-    updateValue()
-  }
+    const cursorPosition = e.target.selectionEnd;
+    const text = getValues(name);
+    const textLength = text.length;
+    const beforeCursor = text.substring(0, cursorPosition);
+    const afterCursor = text.substring(cursorPosition, textLength);
+    setValue(name, beforeCursor + imageSyntax + afterCursor);
+    updateValue();
+  };
 
   return (
     <textarea
@@ -59,5 +58,5 @@ export default function MarkdownArea({name, rows, placeholder, updateValue}) {
       placeholder={placeholder}
       onPaste={handlePaste}
     />
-  )
+  );
 }

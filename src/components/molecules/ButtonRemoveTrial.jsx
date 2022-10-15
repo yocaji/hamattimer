@@ -1,22 +1,21 @@
-import { useContext, useState } from 'react'
-import { MarkdownContext } from '../providers/MarkdownProvider'
-import Button from '../atoms/Button'
-import Modal from '../atoms/Modal'
-import { MdDelete } from 'react-icons/md'
+import { useContext, useState } from 'react';
+import { MdDelete } from 'react-icons/md';
+import Button from '../atoms/Button';
+import Modal from '../atoms/Modal';
+import { MarkdownContext } from '../providers/MarkdownProvider';
 
 export default function ButtonRemoveTrial({ id, index, trials, setTrials }) {
-
-  const { updateMarkdown } = useContext(MarkdownContext)
-  const [isOpen, setIsOpen] = useState(false)
+  const { updateMarkdown } = useContext(MarkdownContext);
+  const [isOpen, setIsOpen] = useState(false);
 
   const removeTrial = (id) => {
     const newTrials = trials.filter((trial) => {
-      return trial.id !== id
-    })
-    setTrials(newTrials)
-    localStorage.setItem('trials', JSON.stringify(newTrials))
-    updateMarkdown()
-  }
+      return trial.id !== id;
+    });
+    setTrials(newTrials);
+    localStorage.setItem('trials', JSON.stringify(newTrials));
+    updateMarkdown();
+  };
 
   return (
     <>
@@ -25,10 +24,11 @@ export default function ButtonRemoveTrial({ id, index, trials, setTrials }) {
           onClick={() => setIsOpen(true)}
           classNames={'is-small is-light is-shadowless'}
         >
-          <MdDelete/>削除
+          <MdDelete />
+          削除
         </Button>
       </div>
-      {isOpen &&
+      {isOpen && (
         <Modal
           title={`試したこと その${index + 1}`}
           confirmLabel={'削除する'}
@@ -38,7 +38,7 @@ export default function ButtonRemoveTrial({ id, index, trials, setTrials }) {
         >
           削除してもよろしいですか？
         </Modal>
-      }
+      )}
     </>
-  )
+  );
 }
