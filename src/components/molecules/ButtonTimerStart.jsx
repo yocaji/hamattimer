@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import Button from '../atoms/Button';
 import { StatusContext } from '../providers/StatusProvider';
 
-export default function ButtonTimerStart({ restart }) {
+export default function ButtonTimerStart({ restart, classNames }) {
   const { setStatus, statuses } = useContext(StatusContext);
 
   const handleClick = () => {
@@ -17,7 +17,10 @@ export default function ButtonTimerStart({ restart }) {
   };
 
   return (
-    <Button onClick={handleClick} classNames={'is-primary is-light ml-2'}>
+    <Button
+      onClick={handleClick}
+      classNames={`is-primary has-text-weight-bold ${classNames}`}
+    >
       スタート
     </Button>
   );

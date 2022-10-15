@@ -39,7 +39,7 @@ class MyDocument extends Document {
             content="https://hamattimer.app/og-twitter.png"
           />
         </Head>
-        <body className={'has-background-myst'}>
+        <body className={'has-background-mist'}>
           <Main />
           <NextScript />
         </body>

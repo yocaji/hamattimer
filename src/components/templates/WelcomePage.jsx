@@ -48,7 +48,7 @@ export default function WelcomePage() {
             </div>
           </div>
         </div>
-        <div className={'hero has-background-myst is-family-secondary'}>
+        <div className={'hero has-background-mist is-family-secondary'}>
           <div className={'hero-body'}>
             <div className={'container has-text-centered is-max-widescreen'}>
               <h3 className={'title is-1 mb-6'}>こんな経験はないですか？</h3>
@@ -165,7 +165,7 @@ export default function WelcomePage() {
             </div>
           </div>
         </div>
-        <div className={'hero has-background-myst is-family-secondary'}>
+        <div className={'hero has-background-mist is-family-secondary'}>
           <div className={'hero-body'}>
             <div className={'container is-max-widescreen'}>
               <h3 className={'title is-1 mb-6 has-text-centered'}>
