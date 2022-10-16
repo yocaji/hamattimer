@@ -6,7 +6,9 @@ export default function Terms() {
 
   return (
     <>
-      <a onClick={() => setIsOpen(true)}>利用規約</a>
+      <a onClick={() => setIsOpen(true)} className={'mx-3'}>
+        利用規約
+      </a>
       {isOpen && (
         <ModalPlain onCancel={() => setIsOpen(false)}>
           <div className={'content'}>

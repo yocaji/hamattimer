@@ -6,7 +6,7 @@ export default function PrivacyPolicy() {
 
   return (
     <>
-      <a onClick={() => setIsOpen(true)} className={'mx-6'}>
+      <a onClick={() => setIsOpen(true)} className={'mx-3'}>
         プライバシーポリシー
       </a>
       {isOpen && (
