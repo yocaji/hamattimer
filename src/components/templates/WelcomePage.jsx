@@ -169,60 +169,50 @@ export default function WelcomePage() {
           <div className={'hero-body'}>
             <div className={'container is-max-widescreen'}>
               <h3 className={'title is-1 mb-6 has-text-centered'}>
-                はまったいまーの機能
+                はまったいまーの始め方
               </h3>
               <div className={'box is-shadowless is-size-5 content'}>
                 <section className={'section'}>
-                  <h4 className={'title is-4'}>1. タイマー機能</h4>
+                  <h4 className={'title is-3'}>
+                    1. タイマーを設定してスタート
+                  </h4>
+                  <p className={'lh-1'}>
+                    リマインドしてほしい時間を選んでスタートボタンをクリックします。
+                  </p>
                   <Image
                     src={
-                      'https://res.cloudinary.com/hamattimer/image/upload/v1665148260/ljssrxcb2ulsd01zzepc.png'
+                      'https://res.cloudinary.com/hamattimer/image/upload/v1665911856/xdznlvty2v0cgpteddxg.png'
                     }
-                    width={309}
-                    height={66}
+                    width={600}
+                    height={248}
                     quality={85}
                     alt={'タイマーのスクリーンショット'}
                   />
+                  <h4 className={'title is-3 mt-6'}>
+                    2. 解決したいことを記入する
+                  </h4>
                   <p className={'lh-1'}>
-                    あらかじめ設定した時間になるとお知らせします。
-                    <br />
-                    時間を区切って取り組むことで、詰まってしまった時は人に質問してみるなど次の手を打ちやすくなります。
+                    テキストエリアではMarkdown記法が使えます。
                   </p>
-                  <h4 className={'title is-4 mt-6'}>2. メモ機能</h4>
                   <Image
                     src={
-                      'https://res.cloudinary.com/hamattimer/image/upload/v1665148377/sdkppoqnqtk8okr0i08z.png'
+                      'https://res.cloudinary.com/hamattimer/image/upload/v1665919002/d9b451j6dwwhvzzsac4z.png'
                     }
-                    width={852}
-                    height={435}
+                    width={880}
+                    height={684}
                     quality={85}
                     alt={'メモ機能のスクリーンショット'}
                   />
-                  <p className={'lh-1'}>
-                    メモとして書き起こすことで、事実を客観的に整理して、どのような仮説を立てて結果はどうなったのか、自分と対話しながら問題解決に取り組むことができます。
-                    <br />
-                    また、入力項目が決まっているので、何から書けば良いか分からなくても書き始めることができます。
-                  </p>
-                  <h4 className={'title is-4 mt-6'}>3. 記録の出力機能</h4>
+                  <h4 className={'title is-3 mt-6'}>3. 試したことを記入する</h4>
                   <Image
                     src={
-                      'https://res.cloudinary.com/hamattimer/image/upload/v1665147967/ezhtcnwbyqzth8ct3rip.png'
+                      'https://res.cloudinary.com/hamattimer/image/upload/v1665912484/xmxn2c9o2yulwu7ugmtd.png'
                     }
-                    width={357}
-                    height={59}
+                    width={880}
+                    height={856}
                     quality={85}
                     alt={'保存機能のスクリーンショット'}
                   />
-                  <p className={'lh-1'}>
-                    入力したメモを保存する方法を2種類用意しています。
-                  </p>
-                  <ul>
-                    <li>MarkdownファイルとしてGistに保存</li>
-                    <li>Markdown形式でクリップボードにコピー</li>
-                  </ul>
-                  <p className={'lh-1'}>
-                    メモを保存しておくと、詰まった時の質問に使ったりあとから必要になった時に見返したりすることができます。
-                  </p>
                 </section>
               </div>
               <div className={'mt-6 has-text-centered'}>
