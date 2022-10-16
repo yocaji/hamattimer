@@ -19,7 +19,7 @@ export default function ButtonCopy() {
     <CopyToClipboard text={markdown}>
       <Button
         onClick={handleClick}
-        classNames={'is-small is-primary is-light is-fullwidth'}
+        classNames={'is-small is-primary is-light is-outlined is-shadowless'}
       >
         {isSuccess ? (
           <MdOutlineCheck className={'mr-1'} />

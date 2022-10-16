@@ -15,14 +15,9 @@ export default function Preview() {
 
   return (
     <>
-      <div className={'columns is-variable is-1 pt-2'}>
-        <div className={'column is-6'}></div>
-        <div className={'column is-3'}>
-          <ButtonCopy />
-        </div>
-        <div className={'column is-3'}>
-          <ButtonGist />
-        </div>
+      <div className={'buttons has-addons is-right'}>
+        <ButtonCopy />
+        <ButtonGist />
       </div>
       <div className={'tile is-child box'} id={'preview'}>
         <div className={'content'}>
