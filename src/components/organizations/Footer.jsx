@@ -17,9 +17,12 @@ export default function Footer() {
         <Terms />｜
         <PrivacyPolicy />
         {session && (
-          <a onClick={() => signOut()} className={'mx-3'}>
-            GitHub連携解除
-          </a>
+          <>
+            <span>｜</span>
+            <a onClick={() => signOut()} className={'mx-3'}>
+              GitHub連携解除
+            </a>
+          </>
         )}
       </div>
       <div className={'mt-5'}>
