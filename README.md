@@ -68,7 +68,7 @@
    $ yarn dev
    ```
 
-### Lint & Test
+### Lint & Tests
 
 - Lint
   ```
