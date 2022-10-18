@@ -1,7 +1,11 @@
 import { SessionProvider } from 'next-auth/react';
+import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { useStopwatch } from 'react-timer-hook';
+import LinkSignOut from '../molecules/LinkSignOut';
+import PrivacyPolicy from '../molecules/PrivacyPolicy';
+import Terms from '../molecules/Terms';
 import Editor from '../organizations/Editor';
 import Footer from '../organizations/Footer';
 import Navbar from '../organizations/Navbar';
@@ -64,7 +68,15 @@ export default function TimerPage() {
               </div>
             </div>
             <div className={'ht-wrapper__sub'}>
-              <Footer />
+              <Footer>
+                <Link href={'/'}>
+                  <a className={'mx-3'}>トップページ</a>
+                </Link>
+                ｜
+                <Terms />｜
+                <PrivacyPolicy />
+                <LinkSignOut />
+              </Footer>
             </div>
           </div>
         )}

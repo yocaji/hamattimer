@@ -1,6 +1,8 @@
 import Image from 'next/image';
 import ButtonLetsTryNega from '../molecules/ButtonLetsTryNega';
 import ButtonLetsTryPosi from '../molecules/ButtonLetsTryPosi';
+import PrivacyPolicy from '../molecules/PrivacyPolicy';
+import Terms from '../molecules/Terms';
 import Footer from '../organizations/Footer';
 
 export default function WelcomePage() {
@@ -223,7 +225,9 @@ export default function WelcomePage() {
         </div>
       </div>
       <div className={'ht-wrapper__sub'}>
-        <Footer />
+        <Footer>
+          <Terms />｜<PrivacyPolicy />
+        </Footer>
       </div>
     </div>
   );
