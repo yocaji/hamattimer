@@ -1,30 +1,9 @@
-import { useSession, signOut } from 'next-auth/react';
 import Image from 'next/image';
-import Link from 'next/link';
-import PrivacyPolicy from '../molecules/PrivacyPolicy';
-import Terms from '../molecules/Terms';
 
-export default function Footer() {
-  const { data: session } = useSession();
-
+export default function Footer({ children }) {
   return (
     <footer className={'footer has-text-centered'}>
-      <div className={'is-size-6-half'}>
-        <Link href={'/'}>
-          <a className={'mx-3'}>トップページ</a>
-        </Link>
-        ｜
-        <Terms />｜
-        <PrivacyPolicy />
-        {session && (
-          <>
-            <span>｜</span>
-            <a onClick={() => signOut()} className={'mx-3'}>
-              GitHub連携解除
-            </a>
-          </>
-        )}
-      </div>
+      <div className={'is-size-6-half'}>{children}</div>
       <div className={'mt-5'}>
         <a
           href={'https://twitter.com/yocajii'}
