@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { useStopwatch } from 'react-timer-hook';
 import LinkSignOut from '../molecules/LinkSignOut';
+import NotificationStart from '../molecules/NotificationStart';
 import PrivacyPolicy from '../molecules/PrivacyPolicy';
 import Terms from '../molecules/Terms';
 import Editor from '../organizations/Editor';
@@ -48,36 +49,39 @@ export default function TimerPage() {
       <TrialsProvider>
         {isLoaded && (
           <div className={'ht-wrapper'}>
-            <div className={'ht-wrapper__main'}>
-              <FormProvider {...methods}>
-                <StatusProvider>
+            <FormProvider {...methods}>
+              <StatusProvider>
+                <div className={'ht-wrapper__head'}>
                   <Navbar stopwatch={stopwatch} />
-                </StatusProvider>
-              </FormProvider>
-              <div className={'ht-content mx-auto'}>
-                <div className={'tile is-ancestor'}>
-                  <MarkdownProvider>
-                    <div className={'tile is-parent is-vertical is-6'}>
-                      <Editor methods={methods} />
-                    </div>
-                    <div className={'tile is-parent is-vertical'}>
-                      <Preview />
-                    </div>
-                  </MarkdownProvider>
                 </div>
-              </div>
-            </div>
-            <div className={'ht-wrapper__sub'}>
-              <Footer>
-                <Link href={'/'}>
-                  <a className={'mx-3'}>トップページ</a>
-                </Link>
-                ｜
-                <Terms />｜
-                <PrivacyPolicy />
-                <LinkSignOut />
-              </Footer>
-            </div>
+                <div className={'ht-wrapper__main'}>
+                  <NotificationStart />
+                  <div className={'ht-content'}>
+                    <div className={'tile is-ancestor'}>
+                      <MarkdownProvider>
+                        <div className={'tile is-parent is-vertical is-6'}>
+                          <Editor methods={methods} />
+                        </div>
+                        <div className={'tile is-parent is-vertical'}>
+                          <Preview />
+                        </div>
+                      </MarkdownProvider>
+                    </div>
+                  </div>
+                </div>
+                <div className={'ht-wrapper__foot'}>
+                  <Footer>
+                    <Link href={'/'}>
+                      <a className={'mx-3'}>トップページ</a>
+                    </Link>
+                    ｜
+                    <Terms />｜
+                    <PrivacyPolicy />
+                    <LinkSignOut />
+                  </Footer>
+                </div>
+              </StatusProvider>
+            </FormProvider>
           </div>
         )}
       </TrialsProvider>

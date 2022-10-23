@@ -3,7 +3,6 @@ import { useContext, useState } from 'react';
 import { useTimer } from 'react-timer-hook';
 import ButtonReset from '../molecules/ButtonReset';
 import ButtonSolved from '../molecules/ButtonSolved';
-import NotificationStart from '../molecules/NotificationStart';
 import CountdownTimer from '../organisms/CountdownTimer';
 import { StatusContext } from '../providers/StatusProvider';
 
@@ -87,9 +86,6 @@ export default function Navbar() {
           </div>
         </div>
       </nav>
-      <div className={'block pt-6 pb-4 mt-5'}>
-        <NotificationStart />
-      </div>
     </>
   );
 }
