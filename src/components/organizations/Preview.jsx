@@ -15,7 +15,7 @@ export default function Preview() {
 
   return (
     <>
-      <div className={'buttons has-addons is-right'}>
+      <div className={'buttons has-addons is-right mt-2'}>
         <ButtonCopy />
         <ButtonGist />
       </div>
