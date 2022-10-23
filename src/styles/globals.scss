@@ -31,8 +31,8 @@ $modal-card-head-border-bottom: none;
 $modal-card-foot-border-top: none;
 $navbar-background-color: $primary;
 $notification-radius: 0;
-$tile-spacing: 1.5rem;
 @import '~bulma/bulma';
+
 .select select {
   border: none;
 }
@@ -53,6 +53,12 @@ $tile-spacing: 1.5rem;
   background: $white;
 }
 
+.tile.is-parent {
+  @include desktop {
+    padding: 1.5rem;
+  }
+}
+
 // 独自クラス
 .ht-wrapper {
   min-height: 100vh;
@@ -65,11 +71,16 @@ $tile-spacing: 1.5rem;
 }
 
 .ht-content {
-  @include tablet {
-    padding-left: 3rem;
-    padding-right: 3rem;
+  @include desktop {
+    padding-left: 2rem;
+    padding-right: 2rem;
     padding-bottom: 3rem;
     max-width: 125rem;
+  }
+  @include tablet-only {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-bottom: 3rem;
   }
   @include mobile {
     padding-left: 1rem;
