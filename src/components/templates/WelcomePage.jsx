@@ -16,7 +16,7 @@ export default function WelcomePage() {
         >
           <div className={'hero-body'}>
             <div className={'container is-max-widescreen'}>
-              <div className={'columns is-vcentered'}>
+              <div className={'columns is-mobile is-vcentered'}>
                 <div className={'column is-4 has-text-right'}>
                   <Image
                     src={'/logomark.png'}
@@ -34,14 +34,16 @@ export default function WelcomePage() {
                   />
                 </div>
               </div>
-              <div className={'mt-5 content'}>
-                <p className={'lh-2 is-size-4'}>
+              <div
+                className={
+                  'mt-5 content lh-2 is-size-4 is-size-5-mobile has-text-left'
+                }
+              >
+                <p>
                   プログラミングをしていてハマった時に、時間を浪費してしまって後悔したことはありませんか？
                 </p>
-                <p className={'lh-2 is-size-4'}>
-                  時間に区切りを作るためのタイマー機能と、思考を整理するためのメモ機能で、
-                  <br />
-                  はまったいまーはあなたの問題解決への取り組みをサポートします。
+                <p>
+                  時間に区切りを作るためのタイマー機能と、思考を整理するためのメモ機能で、はまったいまーはあなたの問題解決への取り組みをサポートします。
                 </p>
               </div>
               <div className={'mt-6'}>
