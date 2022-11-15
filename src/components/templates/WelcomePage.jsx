@@ -36,7 +36,7 @@ export default function WelcomePage() {
               </div>
               <div
                 className={
-                  'mt-5 content lh-2 is-size-4 is-size-5-mobile has-text-left'
+                  'mt-5 content lh-2 is-size-4 is-size-6-mobile has-text-left'
                 }
               >
                 <p>
@@ -55,7 +55,9 @@ export default function WelcomePage() {
         <div className={'hero has-background-mist is-family-secondary'}>
           <div className={'hero-body'}>
             <div className={'container has-text-centered is-max-widescreen'}>
-              <h3 className={'title is-1 mb-6'}>こんな経験はないですか？</h3>
+              <h3 className={'title is-1 is-size-4-mobile mb-6'}>
+                こんな経験はないですか？
+              </h3>
               <div className={'tile is-ancestor'}>
                 <div className={'tile is-parent'}>
                   <div className={'tile-is-child box is-shadowless'}>
@@ -110,7 +112,9 @@ export default function WelcomePage() {
         <div className={'hero has-background-cloud is-family-secondary'}>
           <div className={'hero-body'}>
             <div className={'container has-text-centered is-max-widescreen'}>
-              <h3 className={'title is-1 mb-6'}>はまったいまーを使うと</h3>
+              <h3 className={'title is-1 is-size-4-mobile mb-6'}>
+                はまったいまーを使うと
+              </h3>
               <div className={'tile is-ancestor'}>
                 <div className={'tile is-parent'}>
                   <div className={'tile-is-child box is-shadowless'}>
@@ -170,12 +174,14 @@ export default function WelcomePage() {
         <div className={'hero has-background-mist is-family-secondary'}>
           <div className={'hero-body'}>
             <div className={'container is-max-widescreen'}>
-              <h3 className={'title is-1 mb-6 has-text-centered'}>
+              <h3
+                className={'title is-1 is-size-4-mobile mb-6 has-text-centered'}
+              >
                 はまったいまーの始め方
               </h3>
               <div className={'box is-shadowless is-size-5 content'}>
                 <section className={'section'}>
-                  <h4 className={'title is-3'}>
+                  <h4 className={'title is-3 is-size-5-mobile'}>
                     1. タイマーを設定してスタート
                   </h4>
                   <p className={'lh-1'}>
@@ -190,11 +196,11 @@ export default function WelcomePage() {
                     quality={85}
                     alt={'タイマーのスクリーンショット'}
                   />
-                  <h4 className={'title is-3 mt-6'}>
+                  <h4 className={'title is-3 is-size-5-mobile mt-6'}>
                     2. 解決したいことを記入する
                   </h4>
                   <p className={'lh-1'}>
-                    テキストエリアではMarkdown記法が使えます。
+                    テキストエリアではMarkdown記法が使えて、画像のペーストにも対応しています。
                   </p>
                   <Image
                     src={
@@ -205,7 +211,7 @@ export default function WelcomePage() {
                     quality={85}
                     alt={'メモ機能のスクリーンショット'}
                   />
-                  <h4 className={'title is-3 mt-6'}>3. 試したことを記入する</h4>
+                  <h4 className={'title is-3 is-size-5-mobile mt-6'}>3. 試したことを記入する</h4>
                   <Image
                     src={
                       'https://res.cloudinary.com/hamattimer/image/upload/v1665912484/xmxn2c9o2yulwu7ugmtd.png'
