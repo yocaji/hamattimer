@@ -93,6 +93,12 @@ $notification-radius: 0;
   }
 }
 
+.ht-welcome-box {
+  @include tablet {
+    padding: 3rem;
+  }
+}
+
 .has-background-hero {
   background: radial-gradient($blue, #4a31ca);
 }

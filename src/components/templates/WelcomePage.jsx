@@ -180,11 +180,11 @@ export default function WelcomePage() {
                 はまったいまーの始め方
               </h3>
               <div className={'box is-shadowless is-size-5 content'}>
-                <section className={'section'}>
+                <div className={'ht-welcome-box'}>
                   <h4 className={'title is-3 is-size-5-mobile'}>
                     1. タイマーを設定してスタート
                   </h4>
-                  <p className={'lh-1'}>
+                  <p className={'lh-1 is-size-6-mobile'}>
                     リマインドしてほしい時間を選んでスタートボタンをクリックします。
                   </p>
                   <Image
@@ -199,7 +199,7 @@ export default function WelcomePage() {
                   <h4 className={'title is-3 is-size-5-mobile mt-6'}>
                     2. 解決したいことを記入する
                   </h4>
-                  <p className={'lh-1'}>
+                  <p className={'lh-1 is-size-6-mobile'}>
                     テキストエリアではMarkdown記法が使えて、画像のペーストにも対応しています。
                   </p>
                   <Image
@@ -211,7 +211,9 @@ export default function WelcomePage() {
                     quality={85}
                     alt={'メモ機能のスクリーンショット'}
                   />
-                  <h4 className={'title is-3 is-size-5-mobile mt-6'}>3. 試したことを記入する</h4>
+                  <h4 className={'title is-3 is-size-5-mobile mt-6'}>
+                    3. 試したことを記入する
+                  </h4>
                   <Image
                     src={
                       'https://res.cloudinary.com/hamattimer/image/upload/v1665912484/xmxn2c9o2yulwu7ugmtd.png'
@@ -221,7 +223,13 @@ export default function WelcomePage() {
                     quality={85}
                     alt={'保存機能のスクリーンショット'}
                   />
-                </section>
+                  <h4 className={'title is-3 is-size-5-mobile mt-6'}>
+                    4. 記録を保存する
+                  </h4>
+                  <p className={'lh-1 is-size-6-mobile'}>
+                    作成した記録をGistに保存して、質問に使ったり後から見返したりすることができます。
+                  </p>
+                </div>
               </div>
               <div className={'mt-6 has-text-centered'}>
                 <ButtonLetsTryPosi />
