@@ -83,9 +83,7 @@ export default function WelcomePage() {
                       }
                     />
                     <p className={'subtitle lh-1'}>
-                      すぐに解決できると思ったのに
-                      <br />
-                      あれ…？
+                      すぐに解決できると思ったのに、おかしいな
                     </p>
                   </div>
                 </div>
@@ -98,8 +96,8 @@ export default function WelcomePage() {
                       height={300}
                       alt={'時間が経って魂が抜けた女性のイラスト'}
                     />
-                    <p className={'subtitle lh-1 mt-4'}>
-                      こんなはずじゃなかった💭
+                    <p className={'subtitle lh-1'}>
+                      こんなに時間がかかるはずじゃなかった💭
                     </p>
                   </div>
                 </div>
@@ -154,7 +152,7 @@ export default function WelcomePage() {
                       alt={'両手を上げて喜んでいる女性のイラスト'}
                     />
                     <p className={'subtitle lh-1'}>
-                      詰まった時に早めに質問できた!
+                      詰まったらすぐ質問できた!
                       <br />
                       自己解決しやすくなった✨
                     </p>
