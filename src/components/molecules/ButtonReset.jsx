@@ -30,7 +30,7 @@ export default function ButtonReset() {
       <Button
         onClick={() => setIsOpen(true)}
         classNames={
-          'is-primary is-light has-text-weight-bold is-family-secondary'
+          'is-primary is-inverted is-outlined has-text-weight-bold is-family-secondary'
         }
       >
         <MdCleaningServices />
