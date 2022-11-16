@@ -9,9 +9,12 @@ $snow: #F4F7F9;
 $mist: #F1F6FD;
 $cloud: #E3EBF7;
 $subtle: #E9E9E9;
+$zinc: #666;
 $primary: $blue;
 $text: $navy;
 $title-color: $navy;
+$button-ghost-color: $zinc;
+$button-ghost-hover-color: #333;
 $content-heading-color: $navy;
 $label-color: $navy;
 $link: $blue;
@@ -22,7 +25,6 @@ $hero-body-padding-tablet: 6rem 3rem;
 $footer-background-color: $cloud;
 $footer-padding: 3rem;
 $box-radius: $radius;
-$box-padding: 2.0rem;
 $button-static-color: $primary;
 $button-static-background-color: $cloud;
 $modal-card-title-color: $text;
@@ -30,7 +32,7 @@ $modal-card-head-background-color: $cloud;
 $modal-card-head-border-bottom: none;
 $modal-card-foot-border-top: none;
 $navbar-background-color: $primary;
-$notification-radius: 0;
+$text-strong: $zinc;
 @import '~bulma/bulma';
 
 .select select {
@@ -56,6 +58,12 @@ $notification-radius: 0;
 .tile.is-parent {
   @include desktop {
     padding: 1.5rem;
+  }
+}
+
+.box {
+  @include tablet {
+    padding: 2.0rem;
   }
 }
 
@@ -91,6 +99,12 @@ $notification-radius: 0;
     padding-right: 1rem;
     padding-bottom: 2rem;
   }
+}
+
+.ht-sticky-buttons {
+  position: sticky;
+  bottom: 0;
+  padding: 1rem;
 }
 
 .ht-welcome-box {

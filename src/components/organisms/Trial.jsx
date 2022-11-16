@@ -37,7 +37,7 @@ export default function Trial({ trial, index }) {
 
   return (
     <div className={'box'}>
-      <div className={'columns is-vcentered'}>
+      <div className={'columns is-vcentered is-mobile'}>
         <div className={'column'}>
           <h3 className={'is-size-5 has-text-weight-bold'}>その{index + 1}</h3>
         </div>

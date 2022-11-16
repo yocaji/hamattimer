@@ -72,7 +72,7 @@ export default function CountdownTimer({ timer, isExpired, setIsExpired }) {
             </div>
             <div className={'notification is-info is-light'}>
               <p className={'lh-1'}>
-                時間を延長して再開したい場合は、タイマーで今より長い時間を選ぶと再開できます。
+                延長したい場合は、タイマーを再セットしてください。
               </p>
             </div>
           </Modal>
@@ -89,9 +89,9 @@ export default function CountdownTimer({ timer, isExpired, setIsExpired }) {
             onCancel={() => setIsOpen(false)}
             bgClass={'has-background-mist'}
           >
-            <h1 className={'title is-size-4 has-text-centered'}>
-              時間を設定して始めましょう
-            </h1>
+            <div className={'is-size-5 has-text-centered-tablet'}>
+              今から取り組む問題に、どれくらいの時間を使う予定ですか？
+            </div>
             <div className={'is-flex is-justify-content-center mt-5 mb-3'}>
               <SelectLimit
                 limit={limit}

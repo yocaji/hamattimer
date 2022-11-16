@@ -4,7 +4,7 @@ export default function Notification({ message, close }) {
   return (
     <div
       className={
-        'notification is-primary is-light has-text-centered has-border-subtle-bottom is-marginless'
+        'notification is-warning has-text-centered has-border-subtle-bottom is-marginless is-radiusless'
       }
     >
       <span className={'icon-text'}>

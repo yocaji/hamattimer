@@ -79,7 +79,7 @@ export default function Navbar() {
             </div>
           </div>
           <div className={'navbar-end'}>
-            <div className={'navbar-item buttons'}>
+            <div className={'navbar-item'}>
               <ButtonSolved pause={pause} />
               <ButtonReset />
             </div>

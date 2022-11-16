@@ -17,7 +17,7 @@ export default function ButtonSolved({ pause }) {
       <Button
         onClick={() => handleClick()}
         classNames={
-          'is-primary is-light has-text-weight-bold is-family-secondary'
+          'is-primary is-light has-text-weight-bold is-family-secondary mr-3'
         }
       >
         <IoMdCheckboxOutline />
