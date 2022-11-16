@@ -190,10 +190,10 @@ export default function WelcomePage() {
                   <div className={'has-text-centered'}>
                     <Image
                       src={
-                        'https://res.cloudinary.com/hamattimer/image/upload/v1665911856/xdznlvty2v0cgpteddxg.png'
+                        'https://res.cloudinary.com/hamattimer/image/upload/v1668639624/djtcblonp7uovxx2rq7t.png'
                       }
-                      width={600}
-                      height={248}
+                      width={598}
+                      height={197}
                       quality={85}
                       alt={'タイマーのスクリーンショット'}
                     />
@@ -207,10 +207,10 @@ export default function WelcomePage() {
                   <div className={'has-text-centered'}>
                     <Image
                       src={
-                        'https://res.cloudinary.com/hamattimer/image/upload/v1668496754/bc9h3ifg1d8falbxwedm.png'
+                        'https://res.cloudinary.com/hamattimer/image/upload/v1668638876/kd7ri2wydlezn2cl7mnl.png'
                       }
-                      width={841}
-                      height={652}
+                      width={601}
+                      height={555}
                       quality={85}
                       alt={'メモ機能のスクリーンショット'}
                     />
@@ -224,10 +224,10 @@ export default function WelcomePage() {
                   <div className={'has-text-centered'}>
                     <Image
                       src={
-                        'https://res.cloudinary.com/hamattimer/image/upload/v1668496309/bxvrvo10ezyaoxsc2jj4.png'
+                        'https://res.cloudinary.com/hamattimer/image/upload/v1668639034/gq9kc7rczwtblwgcrd15.png'
                       }
-                      width={843}
-                      height={780}
+                      width={600}
+                      height={689}
                       quality={85}
                       alt={'メモ機能のスクリーンショット'}
                     />
@@ -241,10 +241,10 @@ export default function WelcomePage() {
                   <div className={'has-text-centered'}>
                     <Image
                       src={
-                        'https://res.cloudinary.com/hamattimer/image/upload/v1668561357/thrz485de3czyk7ghocp.png'
+                        'https://res.cloudinary.com/hamattimer/image/upload/v1668639326/elxzmr2w1tporwl3iujc.png'
                       }
-                      width={422}
-                      height={88}
+                      width={534}
+                      height={121}
                       quality={85}
                       alt={'保存機能のスクリーンショット'}
                     />
