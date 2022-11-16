@@ -9,9 +9,12 @@ $snow: #F4F7F9;
 $mist: #F1F6FD;
 $cloud: #E3EBF7;
 $subtle: #E9E9E9;
+$zinc: #666;
 $primary: $blue;
 $text: $navy;
 $title-color: $navy;
+$button-ghost-color: $zinc;
+$button-ghost-hover-color: #333;
 $content-heading-color: $navy;
 $label-color: $navy;
 $link: $blue;
@@ -30,7 +33,7 @@ $modal-card-head-border-bottom: none;
 $modal-card-foot-border-top: none;
 $navbar-background-color: $primary;
 $notification-radius: 0;
-$text-strong: #666;
+$text-strong: $zinc;
 @import '~bulma/bulma';
 
 .select select {
