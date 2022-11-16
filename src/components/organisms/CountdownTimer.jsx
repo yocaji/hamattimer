@@ -89,9 +89,9 @@ export default function CountdownTimer({ timer, isExpired, setIsExpired }) {
             onCancel={() => setIsOpen(false)}
             bgClass={'has-background-mist'}
           >
-            <h1 className={'title is-size-4 has-text-centered'}>
-              時間を設定して始めましょう
-            </h1>
+            <div className={'is-size-5 has-text-centered-tablet'}>
+              今から取り組む問題に、どれくらいの時間を使う予定ですか？
+            </div>
             <div className={'is-flex is-justify-content-center mt-5 mb-3'}>
               <SelectLimit
                 limit={limit}
