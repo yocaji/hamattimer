@@ -15,11 +15,8 @@ export default function Preview() {
 
   return (
     <>
-      <div className={'buttons has-addons is-right mt-2'}>
-        <ButtonCopy />
-        <ButtonGist />
-      </div>
-      <div className={'tile is-child box'} id={'preview'}>
+      <div className={'tile is-child pt-4'} id={'preview'}>
+        <h1 className={'title is-size-7'}>プレビュー</h1>
         <div className={'content'}>
           <ReactMarkdown
             remarkPlugins={[remarkGfm, remarkBreaks]}
@@ -27,6 +24,12 @@ export default function Preview() {
           >
             {markdown}
           </ReactMarkdown>
+        </div>
+      </div>
+      <div className={'ht-sticky-buttons'}>
+        <div className={'buttons has-addons is-right'}>
+          <ButtonCopy />
+          <ButtonGist />
         </div>
       </div>
     </>

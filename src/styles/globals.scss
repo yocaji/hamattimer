@@ -101,6 +101,12 @@ $text-strong: $zinc;
   }
 }
 
+.ht-sticky-buttons {
+  position: sticky;
+  bottom: 0;
+  padding: 1rem;
+}
+
 .ht-welcome-box {
   @include tablet {
     padding: 3rem;

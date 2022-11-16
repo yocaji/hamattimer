@@ -17,10 +17,7 @@ export default function ButtonCopy() {
 
   return (
     <CopyToClipboard text={markdown}>
-      <Button
-        onClick={handleClick}
-        classNames={'is-small is-shadowless'}
-      >
+      <Button onClick={handleClick} classNames={'is-small is-shadowless'}>
         {isSuccess ? (
           <MdOutlineCheck className={'mr-1'} />
         ) : (
