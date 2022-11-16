@@ -53,7 +53,7 @@ export default function ButtonGist() {
   return (
     <Button
       onClick={() => handleClick()}
-      classNames={'is-small is-primary is-light is-outlined is-shadowless'}
+      classNames={'is-small is-shadowless'}
       id={'gist-button'}
     >
       <GoMarkGithub className={'mr-1'} />
