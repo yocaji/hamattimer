@@ -187,48 +187,68 @@ export default function WelcomePage() {
                   <p className={'lh-1 is-size-6-mobile'}>
                     リマインドしてほしい時間を選んでスタートボタンをクリックします。
                   </p>
-                  <Image
-                    src={
-                      'https://res.cloudinary.com/hamattimer/image/upload/v1665911856/xdznlvty2v0cgpteddxg.png'
-                    }
-                    width={600}
-                    height={248}
-                    quality={85}
-                    alt={'タイマーのスクリーンショット'}
-                  />
+                  <div className={'has-text-centered'}>
+                    <Image
+                      src={
+                        'https://res.cloudinary.com/hamattimer/image/upload/v1665911856/xdznlvty2v0cgpteddxg.png'
+                      }
+                      width={600}
+                      height={248}
+                      quality={85}
+                      alt={'タイマーのスクリーンショット'}
+                    />
+                  </div>
                   <h4 className={'title is-3 is-size-5-mobile mt-6'}>
                     2. 解決したいことを記入する
                   </h4>
                   <p className={'lh-1 is-size-6-mobile'}>
                     テキストエリアではMarkdown記法が使えて、画像のペーストにも対応しています。
                   </p>
-                  <Image
-                    src={
-                      'https://res.cloudinary.com/hamattimer/image/upload/v1665919002/d9b451j6dwwhvzzsac4z.png'
-                    }
-                    width={880}
-                    height={684}
-                    quality={85}
-                    alt={'メモ機能のスクリーンショット'}
-                  />
+                  <div className={'has-text-centered'}>
+                    <Image
+                      src={
+                        'https://res.cloudinary.com/hamattimer/image/upload/v1668496754/bc9h3ifg1d8falbxwedm.png'
+                      }
+                      width={841}
+                      height={652}
+                      quality={85}
+                      alt={'メモ機能のスクリーンショット'}
+                    />
+                  </div>
                   <h4 className={'title is-3 is-size-5-mobile mt-6'}>
                     3. 試したことを記入する
                   </h4>
-                  <Image
-                    src={
-                      'https://res.cloudinary.com/hamattimer/image/upload/v1665912484/xmxn2c9o2yulwu7ugmtd.png'
-                    }
-                    width={880}
-                    height={856}
-                    quality={85}
-                    alt={'保存機能のスクリーンショット'}
-                  />
+                  <p>
+                    解決するためにどんな事を考えて何をやったのか、一つずつ書いてみましょう。
+                  </p>
+                  <div className={'has-text-centered'}>
+                    <Image
+                      src={
+                        'https://res.cloudinary.com/hamattimer/image/upload/v1668496309/bxvrvo10ezyaoxsc2jj4.png'
+                      }
+                      width={843}
+                      height={780}
+                      quality={85}
+                      alt={'メモ機能のスクリーンショット'}
+                    />
+                  </div>
                   <h4 className={'title is-3 is-size-5-mobile mt-6'}>
-                    4. 記録を保存する
+                    4. 終わったら記録を保存する
                   </h4>
                   <p className={'lh-1 is-size-6-mobile'}>
                     作成した記録をGistに保存して、質問に使ったり後から見返したりすることができます。
                   </p>
+                  <div className={'has-text-centered'}>
+                    <Image
+                      src={
+                        'https://res.cloudinary.com/hamattimer/image/upload/v1668561357/thrz485de3czyk7ghocp.png'
+                      }
+                      width={422}
+                      height={88}
+                      quality={85}
+                      alt={'保存機能のスクリーンショット'}
+                    />
+                  </div>
                 </div>
               </div>
               <div className={'mt-6 has-text-centered'}>
