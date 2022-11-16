@@ -22,7 +22,6 @@ $hero-body-padding-tablet: 6rem 3rem;
 $footer-background-color: $cloud;
 $footer-padding: 3rem;
 $box-radius: $radius;
-$box-padding: 2.0rem;
 $button-static-color: $primary;
 $button-static-background-color: $cloud;
 $modal-card-title-color: $text;
@@ -56,6 +55,12 @@ $notification-radius: 0;
 .tile.is-parent {
   @include desktop {
     padding: 1.5rem;
+  }
+}
+
+.box {
+  @include tablet {
+    padding: 2.0rem;
   }
 }
 
