@@ -8,7 +8,7 @@ test.describe('コントロール', () => {
   test('初期表示モーダル', async ({ page }) => {
     await expect(
       page.locator(
-        'data-testid=timer-desktop >> text=時間を設定して始めましょう',
+        'data-testid=timer-desktop >> text=今から取り組む問題に、どれくらいの時間を使う予定ですか？',
       ),
     ).toBeVisible();
     await expect(
@@ -193,6 +193,7 @@ test.describe('プレビュー', () => {
 
   test('初期表示', async ({ page }) => {
     await expect(page.locator('#preview >> h1')).toHaveText([
+      'プレビュー',
       '解決したいこと',
       '試したこと',
     ]);
