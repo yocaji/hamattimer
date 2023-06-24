@@ -1,5 +1,7 @@
 name: Run Tests
-
+strategy:
+  matrix:
+    node-version: [16.x]
 on:
   deployment_status:
 jobs:

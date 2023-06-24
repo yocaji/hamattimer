@@ -55,6 +55,10 @@ $text-strong: $zinc;
   background: $white;
 }
 
+.tile {
+  word-break: break-all;
+}
+
 .tile.is-parent {
   @include desktop {
     padding: 1.5rem;
@@ -178,4 +182,8 @@ $text-strong: $zinc;
 
 #preview > .content > h5 {
   font-size: 1.05rem;
+}
+
+#preview > .content > pre {
+  white-space: pre-wrap;
 }
