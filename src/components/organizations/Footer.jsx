@@ -6,18 +6,18 @@ export default function Footer({ children }) {
       <div className={'is-size-6-half'}>{children}</div>
       <div className={'mt-5'}>
         <a
-          href={'https://twitter.com/yocajii'}
+          href={'https://twitter.com/hamattimer'}
           target={'_blank'}
           rel={'noreferrer'}
-          className={'mx-2'}
+          className={'mx-3'}
         >
-          <Image src={'/twitter.png'} width={32} height={32} alt={'Twitter'} />
+          <Image src={'/x.png'} width={28} height={28} alt={'X'} />
         </a>
         <a
           href={'https://github.com/yocajii/hamattimer'}
           target={'_blank'}
           rel={'noreferrer'}
-          className={'mx-2'}
+          className={'mx-3'}
         >
           <Image src={'/github.png'} width={32} height={32} alt={'GitHub'} />
         </a>
