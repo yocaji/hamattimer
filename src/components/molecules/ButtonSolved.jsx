@@ -33,6 +33,10 @@ export default function ButtonSolved({ pause }) {
               quality={80}
               layout={'fixed'}
               alt={'Congratulations!'}
+              style={{
+                maxWidth: '100%',
+                height: 'auto',
+              }}
             />
           </div>
           <div className={'notification is-info is-light'}>

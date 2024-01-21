@@ -23,6 +23,10 @@ export default function WelcomePage() {
                     width={240}
                     height={240}
                     alt={'ロゴマーク'}
+                    style={{
+                      maxWidth: '100%',
+                      height: 'auto',
+                    }}
                   />
                 </div>
                 <div className={'column has-text-left'}>
@@ -31,6 +35,10 @@ export default function WelcomePage() {
                     width={600}
                     height={240}
                     alt={'＼プログラミングでハマる前に／はまったいまー'}
+                    style={{
+                      maxWidth: '100%',
+                      height: 'auto',
+                    }}
                   />
                 </div>
               </div>
@@ -67,6 +75,10 @@ export default function WelcomePage() {
                       width={300}
                       height={300}
                       alt={'エラーに気付いた女性のイラスト'}
+                      style={{
+                        maxWidth: '100%',
+                        height: 'auto',
+                      }}
                     />
                     <p className={'subtitle lh-1'}>
                       プログラミングで
@@ -85,6 +97,10 @@ export default function WelcomePage() {
                       alt={
                         'PCに向かっているもののうまく行かない様子の女性のイラスト'
                       }
+                      style={{
+                        maxWidth: '100%',
+                        height: 'auto',
+                      }}
                     />
                     <p className={'subtitle lh-1'}>
                       すぐに解決できると思ったのに、おかしいな
@@ -99,6 +115,10 @@ export default function WelcomePage() {
                       width={300}
                       height={300}
                       alt={'時間が経って魂が抜けた女性のイラスト'}
+                      style={{
+                        maxWidth: '100%',
+                        height: 'auto',
+                      }}
                     />
                     <p className={'subtitle lh-1'}>
                       こんなに時間がかかるはずじゃなかった💭
@@ -124,6 +144,10 @@ export default function WelcomePage() {
                       width={300}
                       height={300}
                       alt={'エラーに気付いた女性のイラスト'}
+                      style={{
+                        maxWidth: '100%',
+                        height: 'auto',
+                      }}
                     />
                     <p className={'subtitle lh-1'}>
                       プログラミングで
@@ -140,6 +164,10 @@ export default function WelcomePage() {
                       width={300}
                       height={300}
                       alt={'PCに向かって順調な様子の女性のイラスト'}
+                      style={{
+                        maxWidth: '100%',
+                        height: 'auto',
+                      }}
                     />
                     <p className={'subtitle lh-1'}>
                       タイマーとメモを使って
@@ -156,6 +184,10 @@ export default function WelcomePage() {
                       width={300}
                       height={300}
                       alt={'両手を上げて喜んでいる女性のイラスト'}
+                      style={{
+                        maxWidth: '100%',
+                        height: 'auto',
+                      }}
                     />
                     <p className={'subtitle lh-1'}>
                       詰まったらすぐ質問できた!
@@ -196,6 +228,10 @@ export default function WelcomePage() {
                       height={197}
                       quality={85}
                       alt={'タイマーのスクリーンショット'}
+                      style={{
+                        maxWidth: '100%',
+                        height: 'auto',
+                      }}
                     />
                   </div>
                   <h4 className={'title is-3 is-size-5-mobile mt-6'}>
@@ -213,6 +249,10 @@ export default function WelcomePage() {
                       height={555}
                       quality={85}
                       alt={'メモ機能のスクリーンショット'}
+                      style={{
+                        maxWidth: '100%',
+                        height: 'auto',
+                      }}
                     />
                   </div>
                   <h4 className={'title is-3 is-size-5-mobile mt-6'}>
@@ -230,6 +270,10 @@ export default function WelcomePage() {
                       height={689}
                       quality={85}
                       alt={'メモ機能のスクリーンショット'}
+                      style={{
+                        maxWidth: '100%',
+                        height: 'auto',
+                      }}
                     />
                   </div>
                   <h4 className={'title is-3 is-size-5-mobile mt-6'}>
@@ -247,6 +291,10 @@ export default function WelcomePage() {
                       height={121}
                       quality={85}
                       alt={'保存機能のスクリーンショット'}
+                      style={{
+                        maxWidth: '100%',
+                        height: 'auto',
+                      }}
                     />
                   </div>
                 </div>
