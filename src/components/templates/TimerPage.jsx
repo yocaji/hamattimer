@@ -71,8 +71,8 @@ export default function TimerPage() {
                 </div>
                 <div className={'ht-wrapper__foot'}>
                   <Footer>
-                    <Link href={'/'}>
-                      <a className={'mx-3'}>トップページ</a>
+                    <Link href={'/'} className={'mx-3'}>
+                      トップページ
                     </Link>
                     ｜
                     <Terms />｜
