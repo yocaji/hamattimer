@@ -51,7 +51,7 @@
 
 1. リポジトリのClone
    ```
-   $ git clone https://github.com/yocajii/hamattimer.git
+   $ git clone https://github.com/yocaji/hamattimer.git
    ```
 2. 環境変数の設定
    `.env.local.template`を参考に`.env.local`を作成してください

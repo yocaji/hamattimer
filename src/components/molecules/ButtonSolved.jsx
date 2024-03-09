@@ -31,11 +31,9 @@ export default function ButtonSolved({ pause }) {
               width={600}
               height={411}
               quality={80}
-              layout={'fixed'}
               alt={'Congratulations!'}
               style={{
-                maxWidth: '100%',
-                height: 'auto',
+                maxHeight: 'max-content',
               }}
             />
           </div>
