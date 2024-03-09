@@ -11,16 +11,7 @@ export default function Footer({ children }) {
           rel={'noreferrer'}
           className={'mx-3'}
         >
-          <Image
-            src={'/x.png'}
-            width={28}
-            height={28}
-            alt={'X'}
-            style={{
-              maxWidth: '100%',
-              height: 'auto',
-            }}
-          />
+          <Image src={'/x.png'} width={28} height={29} alt={'X'} />
         </a>
         <a
           href={'https://github.com/yocaji/hamattimer'}
@@ -28,16 +19,7 @@ export default function Footer({ children }) {
           rel={'noreferrer'}
           className={'mx-3'}
         >
-          <Image
-            src={'/github.png'}
-            width={32}
-            height={32}
-            alt={'GitHub'}
-            style={{
-              maxWidth: '100%',
-              height: 'auto',
-            }}
-          />
+          <Image src={'/github.png'} width={32} height={32} alt={'GitHub'} />
         </a>
       </div>
       <div className={'mt-4 is-size-7'}>

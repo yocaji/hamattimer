@@ -35,12 +35,7 @@ export default function Navbar() {
                 src={'/logomark.png'}
                 width={60}
                 height={60}
-                layout={'fixed'}
                 alt={'ロゴマーク'}
-                style={{
-                  maxWidth: '100%',
-                  height: 'auto',
-                }}
               />
             </span>
             <span className={'is-hidden-touch'}>
@@ -48,12 +43,7 @@ export default function Navbar() {
                 src={'/logotype.png'}
                 width={150}
                 height={60}
-                layout={'fixed'}
                 alt={'はまったいまー'}
-                style={{
-                  maxWidth: '100%',
-                  height: 'auto',
-                }}
               />
             </span>
           </a>
