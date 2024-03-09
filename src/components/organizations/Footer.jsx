@@ -23,7 +23,7 @@ export default function Footer({ children }) {
           />
         </a>
         <a
-          href={'https://github.com/yocajii/hamattimer'}
+          href={'https://github.com/yocaji/hamattimer'}
           target={'_blank'}
           rel={'noreferrer'}
           className={'mx-3'}
@@ -41,7 +41,7 @@ export default function Footer({ children }) {
         </a>
       </div>
       <div className={'mt-4 is-size-7'}>
-        <p>© 2022 yocajii</p>
+        <p>© 2022 yocaji</p>
       </div>
     </footer>
   );
